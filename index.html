@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VoltFix - Book a Certified Electrician</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      function toggleMenu() {
+        document.getElementById("mobile-menu").classList.toggle("hidden");
+      }
+      function openSearch() {
+        document.getElementById("search-overlay").classList.remove("hidden");
+      }
+      function closeSearch() {
+        document.getElementById("search-overlay").classList.add("hidden");
+      }
+    </script>
+  </head>
+  <body class="bg-white text-gray-800 font-sans">
+    <!-- Header -->
+    <header
+      class="bg-white shadow-md py-4 px-4 flex items-center justify-between md:grid md:grid-cols-3 md:items-center relative"
+    >
+      <!-- Mobile View: Menu Icon Left -->
+      <div class="md:hidden">
+        <button onclick="toggleMenu()">
+          <img
+            src="https://img.icons8.com/ios-filled/50/000000/menu--v1.png"
+            alt="Menu"
+            class="w-6 h-6"
+          />
+        </button>
+      </div>
+
+      <!-- Logo -->
+      <div class="flex items-center gap-2 justify-center md:justify-start">
+        <img
+          src="https://img.icons8.com/ios-filled/50/000000/flash-on.png"
+          alt="VoltFix Logo"
+          class="w-6 h-6"
+        />
+        <span class="text-xl font-bold text-blue-600">VoltFix</span>
+      </div>
+
+      <!-- Desktop View: Navigation Menu Center -->
+      <nav class="hidden md:flex justify-center gap-6 text-sm font-medium">
+        <a href="#" class="hover:text-blue-600">Home</a>
+        <a href="#store" class="hover:text-blue-600">Store</a>
+        <a href="#services" class="hover:text-blue-600">Services</a>
+        <a href="#contact" class="hover:text-blue-600">Contact</a>
+      </nav>
+
+      <!-- Search (PC: Right | Mobile: Right Icon) -->
+      <div class="hidden md:flex justify-end items-center">
+        <div class="flex border rounded px-2 py-1 items-center">
+          <input
+            type="text"
+            placeholder="Search services..."
+            class="px-2 py-1 outline-none"
+          />
+          <img
+            src="https://img.icons8.com/ios-filled/24/search--v1.png"
+            alt="Search"
+            class="w-5 h-5"
+          />
+        </div>
+      </div>
+
+      <!-- Mobile Search Icon Right -->
+      <div class="md:hidden">
+        <button onclick="openSearch()">
+          <img
+            src="https://img.icons8.com/ios-filled/24/search--v1.png"
+            alt="Search"
+            class="w-6 h-6"
+          />
+        </button>
+      </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="md:hidden hidden px-6 pb-4">
+      <nav class="flex flex-col gap-3 text-sm font-medium mt-4">
+        <a href="#" class="hover:text-blue-600">Home</a>
+        <a href="#store" class="hover:text-blue-600">Store</a>
+        <a href="#services" class="hover:text-blue-600">Services</a>
+        <a href="#contact" class="hover:text-blue-600">Contact</a>
+      </nav>
+    </div>
+
+    <!-- Fullscreen Search Overlay -->
+    <div
+      id="search-overlay"
+      class="hidden fixed inset-0 bg-white z-50 flex flex-col items-center justify-start pt-20 px-6"
+    >
+      <div class="w-full max-w-md">
+        <input
+          type="text"
+          placeholder="Search services..."
+          class="w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm"
+        />
+      </div>
+      <button
+        onclick="closeSearch()"
+        class="mt-6 text-blue-600 text-sm underline"
+      >
+        Close Search
+      </button>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="px-6 py-12 text-center bg-gray-50">
+      <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-8 items-center">
+        <div>
+          <h1 class="text-4xl font-bold mb-6">
+            Book a certified electrician in minutes
+          </h1>
+          <div class="flex items-center justify-center gap-2">
+            <select class="px-4 py-2 border rounded">
+              <option>Choose a service</option>
+              <option>Fan Installation</option>
+              <option>Light Repair</option>
+              <option>Wiring</option>
+              <option>Breaker Setup</option>
+            </select>
+            <button
+              class="bg-blue-600 text-white px-5 py-2 rounded hover:bg-blue-700"
+            >
+              Book Now
+            </button>
+          </div>
+        </div>
+        <div>
+          <img src="26a1.gif" alt="Electrician" class="mx-auto w-64" />
+        </div>
+      </div>
+    </section>
+
+    <!-- Hero Section -->
+    <section class="text-center py-12 px-4 bg-gray-50">
+      <div class="max-w-4xl mx-auto">
+        <h1 class="text-3xl md:text-5xl font-bold mb-4">
+          Book a certified electrician in minutes
+        </h1>
+        <div class="mt-6 flex justify-center items-center gap-2">
+          <select class="border rounded px-4 py-2">
+            <option>Choose a service</option>
+            <option>Fan Installation</option>
+            <option>Light Repair</option>
+            <option>Wiring</option>
+            <option>Breaker Setup</option>
+          </select>
+          <button
+            class="bg-blue-600 text-white px-5 py-2 rounded hover:bg-blue-700"
+          >
+            Book Now
+          </button>
+        </div>
+        <div class="mt-8">
+          <img
+            src="https://img.icons8.com/color/96/worker-male--v1.png"
+            alt="Electrician"
+            class="mx-auto"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="py-12 px-6 bg-white text-center">
+      <h2 class="text-2xl font-semibold mb-8">Services</h2>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-5xl mx-auto">
+        <div>
+          <img
+            src="https://img.icons8.com/ios-filled/100/electrical.png"
+            alt="Electric"
+            class="mx-auto"
+          />
+          <p class="mt-2 font-medium">Electric</p>
+        </div>
+        <div>
+          <img
+            src="https://img.icons8.com/ios-filled/100/plumbing.png"
+            alt="Plumbing"
+            class="mx-auto"
+          />
+          <p class="mt-2 font-medium">Plumbing</p>
+        </div>
+        <div>
+          <img
+            src="https://img.icons8.com/ios-filled/100/air-conditioner.png"
+            alt="AC"
+            class="mx-auto"
+          />
+          <p class="mt-2 font-medium">AC</p>
+        </div>
+        <div>
+          <img
+            src="https://img.icons8.com/ios-filled/100/services.png"
+            alt="Other Services"
+            class="mx-auto"
+          />
+          <p class="mt-2 font-medium">Other</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Store Section -->
+    <section id="store" class="py-12 px-4 bg-white">
+      <h2 class="text-2xl font-semibold text-center mb-8">Our Store</h2>
+      <div
+        class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-6xl mx-auto"
+      >
+        <div class="border rounded p-4 text-center shadow-sm">
+          <img
+            src="https://via.placeholder.com/150"
+            alt="Fan Kit"
+            class="mx-auto mb-2"
+          />
+          <h3 class="font-bold">Fan Installation Kit</h3>
+          <p class="text-sm text-gray-600">
+            All tools for a basic fan install.
+          </p>
+          <p class="text-blue-600 font-semibold mt-2">$25</p>
+          <button
+            class="mt-2 px-4 py-1 bg-blue-600 text-white rounded hover:bg-blue-700"
+          >
+            Buy Now
+          </button>
+        </div>
+        <div class="border rounded p-4 text-center shadow-sm">
+          <img
+            src="https://via.placeholder.com/150"
+            alt="Light Fixtures"
+            class="mx-auto mb-2"
+          />
+          <h3 class="font-bold">LED Light Fixture</h3>
+          <p class="text-sm text-gray-600">
+            Modern, energy-saving light fixtures.
+          </p>
+          <p class="text-blue-600 font-semibold mt-2">$40</p>
+          <button
+            class="mt-2 px-4 py-1 bg-blue-600 text-white rounded hover:bg-blue-700"
+          >
+            Buy Now
+          </button>
+        </div>
+        <div class="border rounded p-4 text-center shadow-sm">
+          <img
+            src="https://via.placeholder.com/150"
+            alt="Wiring Tools"
+            class="mx-auto mb-2"
+          />
+          <h3 class="font-bold">Wiring Toolkit</h3>
+          <p class="text-sm text-gray-600">All-in-one basic electrical kit.</p>
+          <p class="text-blue-600 font-semibold mt-2">$60</p>
+          <button
+            class="mt-2 px-4 py-1 bg-blue-600 text-white rounded hover:bg-blue-700"
+          >
+            Buy Now
+          </button>
+        </div>
+      </div>
+    </section>
+    <!-- Map & Review Section -->
+    <section class="py-12 px-4 bg-white text-center">
+      <div class="max-w-3xl mx-auto">
+        <img
+          src="https://via.placeholder.com/600x300?text=Service+Area+Map"
+          alt="Service Map"
+          class="rounded-lg mx-auto mb-6"
+        />
+        <div class="flex flex-col items-center gap-3">
+          <img
+            src="https://img.icons8.com/color/96/worker-male--v1.png"
+            alt="Electrician"
+            class="w-20 h-20"
+          />
+          <div>
+            <p class="italic text-lg">
+              "Very professional and quick to respond. Highly recommended."
+            </p>
+            <p class="mt-1 font-bold">– Jane S. ⭐⭐⭐⭐⭐</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="py-12 px-4 bg-gray-50 text-center">
+      <h2 class="text-2xl font-semibold mb-10">How It Works</h2>
+      <div class="flex flex-col md:flex-row justify-center items-center gap-10">
+        <div>
+          <img
+            src="https://img.icons8.com/ios/100/monitor.png"
+            alt="Book"
+            class="mx-auto mb-2"
+          />
+          <p class="font-medium">Book</p>
+        </div>
+        <span class="text-2xl font-bold hidden md:inline">→</span>
+        <div>
+          <img
+            src="https://img.icons8.com/ios/100/home-page.png"
+            alt="Confirm"
+            class="mx-auto mb-2"
+          />
+          <p class="font-medium">Confirm</p>
+        </div>
+        <span class="text-2xl font-bold hidden md:inline">→</span>
+        <div>
+          <img
+            src="https://img.icons8.com/ios/100/engineer.png"
+            alt="Fix"
+            class="mx-auto mb-2"
+          />
+          <p class="font-medium">Fix</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="text-center py-6 bg-gray-100 text-sm text-gray-600">
+      © 2025 VoltFix. All rights reserved.
+    </footer>
+  </body>
+</html>
