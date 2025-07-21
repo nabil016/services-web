@@ -4,6 +4,16 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>VoltFix - Book a Certified Electrician</title>
+
+    <!-- ফেভিকন যুক্ত করা হয়েছে নিচের লাইনে -->
+    <link
+      rel="icon"
+      type="image/png"
+      href="https://img.icons8.com/ios-filled/50/flash-on.png"
+    />
+
+    <!-- Tailwind CSS CDN -->
+
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       function toggleMenu() {
@@ -110,32 +120,34 @@
     </div>
 
     <!-- Hero Section -->
-    <section class="text-center py-12 px-4 bg-gray-50">
-      <div class="max-w-4xl mx-auto">
-        <h1 class="text-3xl md:text-5xl font-bold mb-4">
-          Book a certified electrician in minutes
-        </h1>
-        <div class="mt-6 flex justify-center items-center gap-2">
-          <select class="border rounded px-4 py-2">
-            <option>Choose a service</option>
-            <option>Fan Installation</option>
-            <option>Light Repair</option>
-            <option>Wiring</option>
-            <option>Breaker Setup</option>
-          </select>
-          <button
-            class="bg-blue-600 text-white px-5 py-2 rounded hover:bg-blue-700"
-          >
-            Book Now
-          </button>
+    <section class="px-6 py-12 text-center bg-gray-50">
+      <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-8 items-center">
+        <div>
+          <h1 class="text-4xl font-bold mb-6">
+            Book a certified electrician in minutes
+          </h1>
+          <div class="flex items-center justify-center gap-2">
+            <select class="px-4 py-2 border rounded">
+              <option>Choose a service</option>
+              <option>Fan Installation</option>
+              <option>Light Repair</option>
+              <option>Wiring</option>
+              <option>Breaker Setup</option>
+            </select>
+            <button
+              class="bg-blue-600 text-white px-5 py-2 rounded hover:bg-blue-700"
+            >
+              Book Now
+            </button>
+          </div>
         </div>
-      </div>
-      <div>
-        <img
-          src="https://www.wannapik.com/media/W1siZiIsIjIwMTYvMDgvMjIvN2llaXZpM3JmN184OG5uYzJxZXJxX3Blb3AxNjg4LnBuZyJdXQ/52bba00b8d1f952a/88nnc2qerq_peop1688.png"
-          alt="Electrician"
-          class="mx-auto mt-8 mb-0 w-40"
-        />
+        <div>
+          <img
+            src="https://www.wannapik.com/media/W1siZiIsIjIwMTYvMDgvMjIvN2llaXZpM3JmN184OG5uYzJxZXJxX3Blb3AxNjg4LnBuZyJdXQ/52bba00b8d1f952a/88nnc2qerq_peop1688.png"
+            alt="Electrician"
+            class="mx-auto w-64"
+          />
+        </div>
       </div>
     </section>
 
@@ -174,6 +186,182 @@
             class="mx-auto"
           />
           <p class="mt-2 font-medium">Other</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ইলেকট্রিক সার্ভিস সেকশন -->
+    <section class="bg-white py-10">
+      <div class="max-w-6xl mx-auto px-4">
+        <h2 class="text-2xl font-semibold text-center text-gray-800 mb-8">
+          ⚡ আমাদের ইলেকট্রিক সার্ভিসসমূহ
+        </h2>
+        <div
+          class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 text-center"
+        >
+          <!-- ফ্যান সেটআপ -->
+          <div class="p-4 border rounded hover:shadow-md transition">
+            <img
+              src="https://img.icons8.com/ios-filled/50/fan.png"
+              class="mx-auto mb-2"
+              alt="Fan Installation"
+            />
+            <p class="font-medium">ফ্যান লাগানো</p>
+          </div>
+
+          <!-- লাইট সেটআপ -->
+          <div class="p-4 border rounded hover:shadow-md transition">
+            <img
+              src="https://img.icons8.com/ios-filled/50/light-on.png"
+              class="mx-auto mb-2"
+              alt="Light Setup"
+            />
+            <p class="font-medium">লাইট সেটআপ</p>
+          </div>
+
+          <!-- তার মেরামত -->
+          <div class="p-4 border rounded hover:shadow-md transition">
+            <img
+              src="https://img.icons8.com/ios-filled/50/electrical.png"
+              class="mx-auto mb-2"
+              alt="Wiring Repair"
+            />
+            <p class="font-medium">ওয়্যারিং মেরামত</p>
+          </div>
+
+          <!-- ব্রেকার সেটআপ -->
+          <div class="p-4 border rounded hover:shadow-md transition">
+            <img
+              src="https://img.icons8.com/ios-filled/50/electrical-threshold.png"
+              class="mx-auto mb-2"
+              alt="Breaker Setup"
+            />
+            <p class="font-medium">ব্রেকার সেটআপ</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Plumbing Services -->
+    <section id="plumbing" class="py-10 bg-gray-50">
+      <div class="max-w-6xl mx-auto px-4">
+        <h2 class="text-2xl font-semibold text-center mb-8">
+          🚰 Plumbing Services
+        </h2>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+          <div class="p-4 border rounded hover:shadow-md">
+            <img
+              src="https://img.icons8.com/ios-filled/50/plumbing.png"
+              class="mx-auto mb-2"
+            />
+            <p class="font-medium">Tap Installation</p>
+          </div>
+
+          <div class="p-4 border rounded hover:shadow-md">
+            <img
+              src="https://img.icons8.com/ios-filled/50/toilet.png"
+              class="mx-auto mb-2"
+            />
+            <p class="font-medium">Toilet Fix</p>
+          </div>
+
+          <div class="p-4 border rounded hover:shadow-md">
+            <img
+              src="https://img.icons8.com/ios-filled/50/water.png"
+              class="mx-auto mb-2"
+            />
+            <p class="font-medium">Water Line</p>
+          </div>
+
+          <div class="p-4 border rounded hover:shadow-md">
+            <img
+              src="https://img.icons8.com/ios-filled/50/water-pump.png"
+              class="mx-auto mb-2"
+            />
+            <p class="font-medium">Pump Repair</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- AC Services -->
+    <section id="ac" class="py-10 bg-white">
+      <div class="max-w-6xl mx-auto px-4">
+        <h2 class="text-2xl font-semibold text-center mb-8">❄️ AC Services</h2>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+          <div class="p-4 border rounded hover:shadow-md">
+            <img
+              src="https://img.icons8.com/ios-filled/50/air-conditioner.png"
+              class="mx-auto mb-2"
+            />
+            <p class="font-medium">AC Installation</p>
+          </div>
+
+          <div class="p-4 border rounded hover:shadow-md">
+            <img
+              src="https://img.icons8.com/ios-filled/50/settings.png"
+              class="mx-auto mb-2"
+            />
+            <p class="font-medium">AC Servicing</p>
+          </div>
+
+          <div class="p-4 border rounded hover:shadow-md">
+            <img
+              src="https://img.icons8.com/ios-filled/50/air-element.png"
+              class="mx-auto mb-2"
+            />
+            <p class="font-medium">AC Gas Fill</p>
+          </div>
+
+          <div class="p-4 border rounded hover:shadow-md">
+            <img
+              src="https://img.icons8.com/ios-filled/50/fan.png"
+              class="mx-auto mb-2"
+            />
+            <p class="font-medium">Fan Motor Repair</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Thai Services -->
+    <section id="thai" class="py-10 bg-gray-50">
+      <div class="max-w-6xl mx-auto px-4">
+        <h2 class="text-2xl font-semibold text-center mb-8">
+          🚪 Thai Services
+        </h2>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+          <div class="p-4 border rounded hover:shadow-md">
+            <img
+              src="https://img.icons8.com/ios-filled/50/glass-door.png"
+              class="mx-auto mb-2"
+            />
+            <p class="font-medium">Glass Door</p>
+          </div>
+
+          <div class="p-4 border rounded hover:shadow-md">
+            <img
+              src="https://img.icons8.com/ios-filled/50/window.png"
+              class="mx-auto mb-2"
+            />
+            <p class="font-medium">Window Repair</p>
+          </div>
+
+          <div class="p-4 border rounded hover:shadow-md">
+            <img
+              src="https://img.icons8.com/ios-filled/50/shower.png"
+              class="mx-auto mb-2"
+            />
+            <p class="font-medium">Bathroom Partition</p>
+          </div>
+
+          <div class="p-4 border rounded hover:shadow-md">
+            <img
+              src="https://img.icons8.com/ios-filled/50/metal.png"
+              class="mx-auto mb-2"
+            />
+            <p class="font-medium">Metal Frame</p>
+          </div>
         </div>
       </div>
     </section>
@@ -293,8 +481,56 @@
     </section>
 
     <!-- Footer -->
-    <footer class="text-center py-6 bg-gray-100 text-sm text-gray-600">
-      © 2025 VoltFix. All rights reserved.
+    <footer class="bg-gray-900 text-white pt-10">
+      <div class="max-w-6xl mx-auto px-4 md:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 pb-10">
+          <!-- Logo & Tagline -->
+          <div>
+            <h3 class="text-2xl font-bold mb-2">⚡ VoltFix</h3>
+            <p class="text-gray-400 text-sm">
+              Fast and reliable electrician & home services.
+            </p>
+          </div>
+
+          <!-- Navigation Links -->
+          <div>
+            <h4 class="text-lg font-semibold mb-2">Quick Links</h4>
+            <ul class="space-y-1 text-gray-300 text-sm">
+              <li><a href="#home" class="hover:text-white">Home</a></li>
+              <li>
+                <a href="#services" class="hover:text-white">Services</a>
+              </li>
+              <li><a href="#about" class="hover:text-white">About</a></li>
+              <li><a href="#contact" class="hover:text-white">Contact</a></li>
+            </ul>
+          </div>
+
+          <!-- Contact Info -->
+          <div>
+            <h4 class="text-lg font-semibold mb-2">Contact Us</h4>
+            <p class="text-gray-300 text-sm">📞 +880 1234 567890</p>
+            <p class="text-gray-300 text-sm">✉️ support@voltfix.com</p>
+            <div class="flex space-x-4 mt-3">
+              <a href="#" class="hover:text-blue-400"
+                ><i class="fab fa-facebook-f"></i
+              ></a>
+              <a href="#" class="hover:text-blue-300"
+                ><i class="fab fa-twitter"></i
+              ></a>
+              <a href="#" class="hover:text-pink-400"
+                ><i class="fab fa-instagram"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bottom Line -->
+        <div
+          class="border-t border-gray-700 text-center text-sm text-gray-500 py-4"
+        >
+          © 2025 VoltFix. All rights reserved.
+        </div>
+      </div>
     </footer>
   </body>
 </html>
