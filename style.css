@@ -1,0 +1,24 @@
+.services {
+  padding: 40px;
+  text-align: center;
+}
+
+.service-list {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.service-item {
+  border: 1px solid #ddd;
+  padding: 20px;
+  width: 200px;
+  border-radius: 10px;
+}
+
+.service-item img {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 10px;
+}
