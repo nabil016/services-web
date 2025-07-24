@@ -57,7 +57,7 @@
       <nav class="hidden md:flex justify-center gap-6 text-sm font-medium">
         <a href="#" class="hover:text-blue-600">Home</a>
         <a href="#store" class="hover:text-blue-600">Store</a>
-        <a href="#services" class="hover:text-blue-600">Services</a>
+        <a href="services.html" class="hover:text-blue-600">Services</a>
         <a href="#contact" class="hover:text-blue-600">Contact</a>
       </nav>
 
@@ -120,32 +120,54 @@
     </div>
 
     <!-- Hero Section -->
-    <section class="px-6 py-12 text-center bg-gray-50">
-      <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-8 items-center">
-        <div>
-          <h1 class="text-4xl font-bold mb-6">
-            Book a certified electrician in minutes
+    <section class="bg-white py-20 px-6 md:px-20">
+      <div
+        class="max-w-7xl mx-auto flex flex-col-reverse md:flex-row items-center justify-between gap-12"
+      >
+        <!-- Text Content -->
+        <div class="md:w-1/2 text-center md:text-left animate-fade-in">
+          <h1
+            class="text-4xl md:text-5xl font-bold text-gray-800 leading-tight"
+          >
+            One Call Solves Your All Problems
           </h1>
-          <div class="flex items-center justify-center gap-2">
-            <select class="px-4 py-2 border rounded">
-              <option>Choose a service</option>
-              <option>Fan Installation</option>
-              <option>Light Repair</option>
-              <option>Wiring</option>
-              <option>Breaker Setup</option>
-            </select>
-            <button
-              class="bg-blue-600 text-white px-5 py-2 rounded hover:bg-blue-700"
+          <p class="mt-4 text-lg text-gray-600">
+            Electrical, Plumbing, AC, and more — expert solutions at your
+            doorstep.
+          </p>
+
+          <!-- Feature Highlights -->
+          <ul
+            class="mt-6 text-gray-700 space-y-2 text-left md:text-base text-sm"
+          >
+            <li>⚡ Fast & Reliable Technicians</li>
+            <li>🛠️ 100% Service Guarantee</li>
+            <li>📞 24/7 Customer Support</li>
+          </ul>
+
+          <!-- Buttons -->
+          <div class="mt-6 space-x-4">
+            <a
+              href="#services"
+              class="inline-block px-6 py-3 bg-blue-600 text-white rounded-lg shadow hover:bg-blue-700 transition"
             >
               Book Now
-            </button>
+            </a>
+            <a
+              href="#quote"
+              class="inline-block px-6 py-3 bg-gray-200 text-blue-700 border border-blue-600 rounded-lg hover:bg-blue-100 transition"
+            >
+              Get a Quote
+            </a>
           </div>
         </div>
-        <div>
+
+        <!-- Hero Image -->
+        <div class="md:w-1/2 mb-10 md:mb-0 flex justify-center">
           <img
-            src="https://www.wannapik.com/media/W1siZiIsIjIwMTYvMDgvMjIvN2llaXZpM3JmN184OG5uYzJxZXJxX3Blb3AxNjg4LnBuZyJdXQ/52bba00b8d1f952a/88nnc2qerq_peop1688.png"
-            alt="Electrician"
-            class="mx-auto w-64"
+            src="web.png"
+            alt="Home Repair Services"
+            class="w-full max-w-md rounded-xl shadow-xl"
           />
         </div>
       </div>
