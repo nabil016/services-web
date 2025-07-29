@@ -34,13 +34,7 @@
     >
       <!-- Mobile View: Menu Icon Left -->
       <div class="md:hidden">
-        <button onclick="toggleMenu()">
-          <img
-            src="https://img.icons8.com/ios-filled/50/000000/menu--v1.png"
-            alt="Menu"
-            class="w-6 h-6"
-          />
-        </button>
+        <button id="menu-toggle" class="text-2xl">&#9776;</button>
       </div>
 
       <!-- Logo -->
@@ -55,10 +49,51 @@
 
       <!-- Desktop View: Navigation Menu Center -->
       <nav class="hidden md:flex justify-center gap-6 text-sm font-medium">
-        <a href="#" class="hover:text-blue-600">Home</a>
-        <a href="#store" class="hover:text-blue-600">Store</a>
-        <a href="services.html" class="hover:text-blue-600">Services</a>
-        <a href="#contact" class="hover:text-blue-600">Contact</a>
+        <ul class="flex space-x-8 px-6 py-4 font-medium">
+          <li><a href="index.html" class="hover:text-blue-600">হোম</a></li>
+
+          <li class="relative group">
+            <a href="#" class="hover:text-blue-600 flex items-center">
+              সার্ভিস সমূহ
+              <svg class="ml-1 w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                <path
+                  d="M5.23 7.21a.75.75 0 011.06.02L10 11.06l3.71-3.83a.75.75 0 011.08 1.04l-4.25 4.4a.75.75 0 01-1.08 0L5.21 8.27a.75.75 0 01.02-1.06z"
+                />
+              </svg>
+            </a>
+            <!-- Submenu -->
+            <ul
+              class="absolute hidden group-hover:block bg-white shadow-lg mt-2 rounded-md min-w-[160px] z-10"
+            >
+              <li>
+                <a
+                  href="electrical.html"
+                  class="block px-4 py-2 hover:bg-blue-100"
+                  >ইলেকট্রিক</a
+                >
+              </li>
+              <li>
+                <a
+                  href="plumbing.html"
+                  class="block px-4 py-2 hover:bg-blue-100"
+                  >প্লাম্বিং</a
+                >
+              </li>
+              <li>
+                <a
+                  href="ac-repair.html"
+                  class="block px-4 py-2 hover:bg-blue-100"
+                  >এসি সার্ভিস</a
+                >
+              </li>
+            </ul>
+          </li>
+
+          <li><a href="store.html" class="hover:text-blue-600">স্টোর</a></li>
+          <li>
+            <a href="contact.html" class="hover:text-blue-600">যোগাযোগ</a>
+          </li>
+        </ul>
       </nav>
 
       <!-- Search (PC: Right | Mobile: Right Icon) -->
@@ -90,14 +125,79 @@
     </header>
 
     <!-- Mobile Menu -->
-    <div id="mobile-menu" class="md:hidden hidden px-6 pb-4">
-      <nav class="flex flex-col gap-3 text-sm font-medium mt-4">
-        <a href="#" class="hover:text-blue-600">Home</a>
-        <a href="#store" class="hover:text-blue-600">Store</a>
-        <a href="services.html" class="hover:text-blue-600">Services</a>
-        <a href="#contact" class="hover:text-blue-600">Contact</a>
-      </nav>
-    </div>
+    <nav
+      id="mobile-menu"
+      class="hidden absolute top-16 left-0 w-full bg-white shadow-md z-40"
+    >
+      <ul class="flex flex-col gap-1 p-4">
+        <li>
+          <a href="#" class="block px-4 py-2 hover:bg-gray-100">Home</a>
+        </li>
+        <li>
+          <button
+            id="services-btn"
+            class="w-full text-left px-4 py-2 hover:bg-gray-100 flex justify-between items-center"
+          >
+            Services
+            <span id="arrow">&#9662;</span>
+          </button>
+          <!-- Submenu -->
+          <ul
+            id="services-submenu"
+            class="hidden bg-gray-50 border border-gray-200 mt-1 rounded ml-4"
+          >
+            <li>
+              <a
+                href="electrical.html"
+                class="block px-4 py-2 hover:bg-gray-100"
+                >Electrical</a
+              >
+            </li>
+            <li>
+              <a href="#" class="block px-4 py-2 hover:bg-gray-100"
+                >AC Repair</a
+              >
+            </li>
+            <li>
+              <a href="#" class="block px-4 py-2 hover:bg-gray-100">Plumbing</a>
+            </li>
+            <li>
+              <a href="#" class="block px-4 py-2 hover:bg-gray-100"
+                >Generator Setup</a
+              >
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a href="#" class="block px-4 py-2 hover:bg-gray-100">Store</a>
+        </li>
+        <li>
+          <a href="#" class="block px-4 py-2 hover:bg-gray-100">Contact</a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- JavaScript -->
+    <script>
+      const menuToggle = document.getElementById("menu-toggle");
+      const mobileMenu = document.getElementById("mobile-menu");
+      const servicesBtn = document.getElementById("services-btn");
+      const servicesSubmenu = document.getElementById("services-submenu");
+      const arrow = document.getElementById("arrow");
+
+      // Show/hide main menu
+      menuToggle.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+      });
+
+      // Show/hide submenu
+      servicesBtn.addEventListener("click", () => {
+        servicesSubmenu.classList.toggle("hidden");
+        arrow.innerHTML = servicesSubmenu.classList.contains("hidden")
+          ? "&#9662;"
+          : "&#9652;";
+      });
+    </script>
 
     <!-- Fullscreen Search Overlay -->
     <div
