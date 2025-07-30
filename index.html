@@ -47,51 +47,58 @@
         <span class="text-xl font-bold text-blue-600">VoltFix</span>
       </div>
 
-      <!-- Desktop View: Navigation Menu Center -->
-      <nav class="hidden md:flex justify-center gap-6 text-sm font-medium">
-        <ul class="flex space-x-8 px-6 py-4 font-medium">
-          <li><a href="index.html" class="hover:text-blue-600">হোম</a></li>
+      <!-- Desktop Navigation Menu (Centered) -->
+      <nav class="hidden md:flex justify-center text-sm font-medium">
+        <ul class="flex space-x-8 px-6 py-4 font-medium relative">
+          <li><a href="index.html" class="hover:text-blue-600">Home</a></li>
 
+          <!-- Services with Dropdown -->
           <li class="relative group">
-            <a href="#" class="hover:text-blue-600 flex items-center">
-              সার্ভিস সমূহ
+            <button
+              class="hover:text-blue-600 flex items-center focus:outline-none"
+            >
+              Services
               <svg class="ml-1 w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
                 <path
                   d="M5.23 7.21a.75.75 0 011.06.02L10 11.06l3.71-3.83a.75.75 0 011.08 1.04l-4.25 4.4a.75.75 0 01-1.08 0L5.21 8.27a.75.75 0 01.02-1.06z"
                 />
               </svg>
-            </a>
-            <!-- Submenu -->
+            </button>
+
+            <!-- Submenu Dropdown -->
             <ul
-              class="absolute hidden group-hover:block bg-white shadow-lg mt-2 rounded-md min-w-[160px] z-10"
+              class="absolute left-0 mt-2 w-40 bg-white border rounded shadow-lg opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-all duration-300 z-50"
             >
               <li>
                 <a
                   href="electrical.html"
                   class="block px-4 py-2 hover:bg-blue-100"
-                  >ইলেকট্রিক</a
                 >
+                  Electric
+                </a>
               </li>
               <li>
                 <a
                   href="plumbing.html"
                   class="block px-4 py-2 hover:bg-blue-100"
-                  >প্লাম্বিং</a
                 >
+                  Plumbing
+                </a>
               </li>
               <li>
                 <a
                   href="ac-repair.html"
                   class="block px-4 py-2 hover:bg-blue-100"
-                  >এসি সার্ভিস</a
                 >
+                  AC Service
+                </a>
               </li>
             </ul>
           </li>
 
-          <li><a href="store.html" class="hover:text-blue-600">স্টোর</a></li>
+          <li><a href="store.html" class="hover:text-blue-600">Store</a></li>
           <li>
-            <a href="contact.html" class="hover:text-blue-600">যোগাযোগ</a>
+            <a href="contact.html" class="hover:text-blue-600">Contact</a>
           </li>
         </ul>
       </nav>
@@ -159,7 +166,9 @@
               >
             </li>
             <li>
-              <a href="#" class="block px-4 py-2 hover:bg-gray-100">Plumbing</a>
+              <a href="Plumbing.html" class="block px-4 py-2 hover:bg-gray-100"
+                >Plumbing</a
+              >
             </li>
             <li>
               <a href="#" class="block px-4 py-2 hover:bg-gray-100"
