@@ -28,163 +28,157 @@
     </script>
   </head>
   <body class="bg-white text-gray-800 font-sans">
-    <!-- Header -->
     <header
-      class="bg-white shadow-md py-4 px-4 flex items-center justify-between md:grid md:grid-cols-3 md:items-center relative"
+      class="hidden lg:flex bg-white shadow-md py-4 px-4 items-center justify-between"
     >
-      <!-- Mobile View: Menu Icon Left -->
-      <div class="md:hidden">
-        <button id="menu-toggle" class="text-2xl">&#9776;</button>
+      <!-- Left: Logo -->
+      <div class="flex items-center space-x-2">
+        <span class="text-black">⚡</span>
+        <span class="font-bold text-blue-600">VoltFix</span>
       </div>
 
-      <!-- Logo -->
-      <div class="flex items-center gap-2 justify-center md:justify-start">
-        <img
-          src="https://img.icons8.com/ios-filled/50/000000/flash-on.png"
-          alt="VoltFix Logo"
-          class="w-6 h-6"
-        />
-        <span class="text-xl font-bold text-blue-600">VoltFix</span>
-      </div>
-
-      <!-- Desktop Navigation Menu (Centered) -->
-      <nav class="hidden md:flex justify-center text-sm font-medium">
-        <ul class="flex space-x-8 px-6 py-4 font-medium relative">
-          <li><a href="index.html" class="hover:text-blue-600">Home</a></li>
-
-          <!-- Services with Dropdown -->
-          <li class="relative group">
-            <button
-              class="hover:text-blue-600 flex items-center focus:outline-none"
+      <!-- Center: Navigation -->
+      <nav class="flex space-x-6">
+        <a href="#" class="hover:text-blue-600">Home</a>
+        <div class="relative group">
+          <button class="hover:text-blue-600 flex items-center">
+            Services
+            <svg
+              class="ml-1 w-4 h-4"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
             >
-              Services
-              <svg class="ml-1 w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                <path
-                  d="M5.23 7.21a.75.75 0 011.06.02L10 11.06l3.71-3.83a.75.75 0 011.08 1.04l-4.25 4.4a.75.75 0 01-1.08 0L5.21 8.27a.75.75 0 01.02-1.06z"
-                />
-              </svg>
-            </button>
-
-            <!-- Submenu Dropdown -->
-            <ul
-              class="absolute left-0 mt-2 w-40 bg-white border rounded shadow-lg opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-all duration-300 z-50"
-            >
-              <li>
-                <a
-                  href="electrical.html"
-                  class="block px-4 py-2 hover:bg-blue-100"
-                >
-                  Electric
-                </a>
-              </li>
-              <li>
-                <a
-                  href="Plumbing.html"
-                  class="block px-4 py-2 hover:bg-blue-100"
-                >
-                  Plumbing
-                </a>
-              </li>
-              <li>
-                <a
-                  href="ac-repair.html"
-                  class="block px-4 py-2 hover:bg-blue-100"
-                >
-                  AC Service
-                </a>
-              </li>
-            </ul>
-          </li>
-
-          <li><a href="store.html" class="hover:text-blue-600">Store</a></li>
-          <li>
-            <a href="contact.html" class="hover:text-blue-600">Contact</a>
-          </li>
-        </ul>
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M19 9l-7 7-7-7"
+              />
+            </svg>
+          </button>
+          <!-- Dropdown -->
+          <div
+            class="absolute hidden group-hover:block bg-white shadow-lg mt-2 rounded"
+          >
+            <a href="#" class="block px-4 py-2 hover:bg-gray-100">Service 1</a>
+            <a href="#" class="block px-4 py-2 hover:bg-gray-100">Service 2</a>
+          </div>
+        </div>
+        <a href="#" class="hover:text-blue-600">Store</a>
+        <a href="#" class="hover:text-blue-600">Contact</a>
       </nav>
 
-      <!-- Search (PC: Right | Mobile: Right Icon) -->
-      <div class="hidden md:flex justify-end items-center">
-        <div class="flex border rounded px-2 py-1 items-center">
-          <input
-            type="text"
-            placeholder="Search services..."
-            class="px-2 py-1 outline-none"
-          />
-          <img
-            src="https://img.icons8.com/ios-filled/24/search--v1.png"
-            alt="Search"
-            class="w-5 h-5"
-          />
-        </div>
-      </div>
-
-      <!-- Mobile Search Icon Right -->
-      <div class="md:hidden">
-        <button onclick="openSearch()">
-          <img
-            src="https://img.icons8.com/ios-filled/24/search--v1.png"
-            alt="Search"
-            class="w-6 h-6"
-          />
-        </button>
+      <!-- Right: Search -->
+      <div class="relative">
+        <input
+          type="text"
+          placeholder="Search services..."
+          class="border rounded px-3 py-1"
+        />
+        <span class="absolute right-2 top-1.5 text-gray-500"> 🔍 </span>
       </div>
     </header>
 
-    <!-- Mobile Menu -->
-    <nav
-      id="mobile-menu"
-      class="hidden absolute top-16 left-0 w-full bg-white shadow-md z-40"
+    <!-- Header (Visible on mobile + tablet, hidden on PC) -->
+    <div
+      class="flex items-center justify-between p-3 bg-white border-b border-gray-200 lg:hidden"
+      x-data="{ menuOpen: false }"
     >
-      <ul class="flex flex-col gap-1 p-4">
-        <li>
-          <a href="#" class="block px-4 py-2 hover:bg-gray-100">Home</a>
-        </li>
-        <li>
+      <!-- Logo -->
+      <div class="text-2xl font-bold text-blue-500">zoom</div>
+
+      <!-- Right Side: Services + Menu -->
+      <div class="flex items-center gap-2">
+        <!-- Services Dropdown -->
+        <div class="relative" x-data="{ open: false }">
           <button
-            id="services-btn"
-            class="w-full text-left px-4 py-2 hover:bg-gray-100 flex justify-between items-center"
+            @click="open = !open"
+            class="bg-blue-50 text-black px-3 py-1.5 rounded-lg text-sm flex items-center gap-1"
           >
             Services
-            <span id="arrow">&#9662;</span>
+            <svg
+              class="w-3 h-3"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M19 9l-7 7-7-7"
+              />
+            </svg>
           </button>
-          <!-- Submenu -->
-          <ul
-            id="services-submenu"
-            class="hidden bg-gray-50 border border-gray-200 mt-1 rounded ml-4"
+
+          <!-- Dropdown Menu -->
+          <div
+            x-show="open"
+            @click.away="open = false"
+            class="absolute mt-2 w-40 bg-white border border-gray-200 rounded-lg shadow-lg z-10"
           >
-            <li>
-              <a
-                href="electrical.html"
-                class="block px-4 py-2 hover:bg-gray-100"
-                >Electrical</a
-              >
-            </li>
-            <li>
-              <a href="#" class="block px-4 py-2 hover:bg-gray-100"
-                >AC Repair</a
-              >
-            </li>
-            <li>
-              <a href="Plumbing.html" class="block px-4 py-2 hover:bg-gray-100"
-                >Plumbing</a
-              >
-            </li>
-            <li>
-              <a href="#" class="block px-4 py-2 hover:bg-gray-100"
-                >Generator Setup</a
-              >
-            </li>
-          </ul>
-        </li>
-        <li>
-          <a href="store.html" class="block px-4 py-2 hover:bg-gray-100">Store</a>
-        </li>
-        <li>
-          <a href="contact.html" class="block px-4 py-2 hover:bg-gray-100">Contact</a>
-        </li>
-      </ul>
-    </nav>
+            <a href="#" class="block px-4 py-2 text-sm hover:bg-gray-100"
+              >Web Design</a
+            >
+            <a href="#" class="block px-4 py-2 text-sm hover:bg-gray-100"
+              >SEO Services</a
+            >
+            <a href="#" class="block px-4 py-2 text-sm hover:bg-gray-100"
+              >Marketing</a
+            >
+          </div>
+        </div>
+
+        <!-- Menu Icon -->
+        <div class="text-xl cursor-pointer" @click="menuOpen = true">
+          &#9776;
+        </div>
+      </div>
+
+      <!-- Side Menu Overlay -->
+      <div
+        x-show="menuOpen"
+        class="fixed inset-0 bg-black bg-opacity-50 z-20"
+        @click="menuOpen = false"
+      ></div>
+
+      <!-- Side Menu -->
+      <div
+        x-show="menuOpen"
+        class="fixed top-0 right-0 w-64 h-full bg-white shadow-lg z-30 p-4"
+        @click.away="menuOpen = false"
+        x-data="{ sideDropdown: false }"
+      >
+        <h2 class="text-lg font-bold mb-4">Menu</h2>
+        <a href="#" class="block py-2 border-b">Home</a>
+        <a href="#" class="block py-2 border-b">About</a>
+
+        <!-- Services inside side menu -->
+        <div>
+          <button
+            @click="sideDropdown = !sideDropdown"
+            class="w-full text-left py-2 border-b flex justify-between items-center"
+          >
+            Services
+            <span x-text="sideDropdown ? '▲' : '▼'"></span>
+          </button>
+          <div x-show="sideDropdown" class="pl-4">
+            <a href="#" class="block py-2 text-sm border-b">Web Design</a>
+            <a href="#" class="block py-2 text-sm border-b">SEO Services</a>
+            <a href="#" class="block py-2 text-sm border-b">Marketing</a>
+          </div>
+        </div>
+
+        <a href="#" class="block py-2 border-b">Contact</a>
+      </div>
+    </div>
+
+    <!-- Alpine.js -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+      defer
+    ></script>
 
     <!-- JavaScript -->
     <script>
@@ -665,4 +659,3 @@
     </footer>
   </body>
 </html>
-
