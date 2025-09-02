@@ -116,7 +116,7 @@
 
     <!-- Header (Visible on mobile + tablet, hidden on PC) -->
     <div
-      class="flex items-center justify-between p-3 bg-white border-b border-gray-200 lg:hidden"
+      class="flex items-center justify-between p-3 bg-white border-b border-gray-200 lg:hidden sticky top-0 z-50"
       x-data="{ menuOpen: false }"
       x-effect="document.body.style.overflow = menuOpen ? 'hidden' : ''"
     >
@@ -176,10 +176,12 @@
         <div
           class="flex-1 flex flex-col p-6 space-y-4 text-lg font-medium overflow-y-auto"
         >
-          <a href="#" class="hover:text-blue-500">Home</a>
-          <a href="#" class="hover:text-blue-500">About</a>
-          <a href="#" class="hover:text-blue-500">Services</a>
-          <a href="#" class="hover:text-blue-500">Contact</a>
+          <a href="index.html" class="hover:text-blue-500">Home</a>
+          <a href="about.html" class="hover:text-blue-500">About</a>
+          <a href="#" onclick="toggleMenu()" class="hover:text-blue-500"
+            >Services</a
+          >
+          <a href="contact.html" class="hover:text-blue-500">Contact</a>
         </div>
 
         <!-- Bottom Buttons -->
@@ -209,7 +211,7 @@
 
           <!-- Order Button -->
           <a
-            href="/order"
+            href="order.html"
             class="w-full flex items-center justify-center gap-2 bg-green-500 text-white py-3 rounded-lg font-semibold hover:bg-green-600 transition"
           >
             <!-- Order Icon -->
@@ -267,7 +269,7 @@
           <ul id="categories" class="flex flex-col">
             <li
               class="p-4 flex items-center space-x-2 cursor-pointer hover:bg-gray-200"
-              onclick="showServices('AC Repair Services', 7)"
+              onclick="showServices('AC Repair Services')"
             >
               <img
                 src="https://via.placeholder.com/30"
@@ -278,7 +280,7 @@
             </li>
             <li
               class="p-4 flex items-center space-x-2 cursor-pointer hover:bg-gray-200"
-              onclick="showServices('Electrical Services', 4)"
+              onclick="showServices('Electrical Services')"
             >
               <img
                 src="https://via.placeholder.com/30"
@@ -289,7 +291,7 @@
             </li>
             <li
               class="p-4 flex items-center space-x-2 cursor-pointer hover:bg-gray-200"
-              onclick="showServices('Plumbing Services', 5)"
+              onclick="showServices('Plumbing Services')"
             >
               <img
                 src="https://via.placeholder.com/30"
@@ -300,7 +302,7 @@
             </li>
             <li
               class="p-4 flex items-center space-x-2 cursor-pointer hover:bg-gray-200"
-              onclick="showServices('Cleaning Services', 3)"
+              onclick="showServices('Cleaning Services')"
             >
               <img
                 src="https://via.placeholder.com/30"
@@ -341,26 +343,97 @@
       closeBtn.addEventListener("click", toggleMenu);
       overlay.addEventListener("click", toggleMenu);
 
-      function showServices(title, count) {
-        servicesTitle.textContent = `${count} services in ${title}`;
+      function showServices(title) {
+        let services = [];
 
-        const services = [];
-        for (let i = 1; i <= count; i++) {
-          services.push({
-            name: `${title} Service ${i}`,
-            img: `https://via.placeholder.com/50?text=${i}`,
-          });
+        if (title === "AC Repair Services") {
+          services = [
+            {
+              name: "AC Doctor",
+              img: "https://via.placeholder.com/50?text=A",
+              link: "ac-doctor.html",
+            },
+            {
+              name: "AC Servicing",
+              img: "https://via.placeholder.com/50?text=B",
+              link: "ac-servicing.html",
+            },
+            {
+              name: "AC Combo Packages",
+              img: "https://via.placeholder.com/50?text=C",
+              link: "ac-combo.html",
+            },
+            {
+              name: "AC Cooling Problem",
+              img: "https://via.placeholder.com/50?text=D",
+              link: "ac-cooling.html",
+            },
+            {
+              name: "AC Installation & Uninstallation",
+              img: "https://via.placeholder.com/50?text=E",
+              link: "ac-install.html",
+            },
+          ];
         }
 
+        if (title === "Electrical Services") {
+          services = [
+            {
+              name: "Fan Installation",
+              img: "https://via.placeholder.com/50?text=F",
+              link: "fan-install.html",
+            },
+            {
+              name: "Light Setup",
+              img: "https://via.placeholder.com/50?text=G",
+              link: "light-setup.html",
+            },
+          ];
+        }
+
+        if (title === "Plumbing Services") {
+          services = [
+            {
+              name: "Pipe Fitting",
+              img: "https://via.placeholder.com/50?text=H",
+              link: "pipe-fitting.html",
+            },
+            {
+              name: "Water Leakage Repair",
+              img: "https://via.placeholder.com/50?text=I",
+              link: "leakage-repair.html",
+            },
+          ];
+        }
+
+        if (title === "Cleaning Services") {
+          services = [
+            {
+              name: "Home Deep Cleaning",
+              img: "https://via.placeholder.com/50?text=J",
+              link: "home-clean.html",
+            },
+            {
+              name: "Office Cleaning",
+              img: "https://via.placeholder.com/50?text=K",
+              link: "office-clean.html",
+            },
+          ];
+        }
+
+        // update title
+        servicesTitle.textContent = `${services.length} services in ${title}`;
+
+        // update list
         const servicesList = document.getElementById("services-list");
         servicesList.innerHTML = services
           .map(
             (s) => `
-    <div class="flex items-center space-x-3 border-b pb-2">
-      <img src="${s.img}" class="w-12 h-12 rounded object-cover">
-      <span>${s.name}</span>
-    </div>
-  `
+          <a href="${s.link}" class="flex items-center space-x-3 py-3 border-b cursor-pointer hover:bg-gray-50 transition">
+            <img src="${s.img}" class="w-12 h-12 rounded-md object-cover" alt="${s.name}">
+            <span class="font-medium text-gray-800 ">${s.name}</span>
+          </a>
+        `
           )
           .join("");
       }
@@ -893,304 +966,6 @@
             alt="Our safety-first team"
             class="w-full rounded-2xl shadow-md object-cover h-52 md:h-72"
           />
-        </div>
-      </div>
-    </section>
-
-    \\
-
-    <!-- Services Section -->
-    <section class="py-12 px-6 bg-white text-center">
-      <h2 class="text-2xl font-semibold mb-8">Services</h2>
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-5xl mx-auto">
-        <div>
-          <img
-            src="https://img.icons8.com/ios-filled/100/electrical.png"
-            alt="Electric"
-            class="mx-auto"
-          />
-          <p class="mt-2 font-medium">Electric</p>
-        </div>
-        <div>
-          <img
-            src="https://img.icons8.com/ios-filled/100/plumbing.png"
-            alt="Plumbing"
-            class="mx-auto"
-          />
-          <p class="mt-2 font-medium">Plumbing</p>
-        </div>
-        <div>
-          <img
-            src="https://img.icons8.com/ios-filled/100/air-conditioner.png"
-            alt="AC"
-            class="mx-auto"
-          />
-          <p class="mt-2 font-medium">AC</p>
-        </div>
-        <div>
-          <img
-            src="https://img.icons8.com/ios-filled/100/services.png"
-            alt="Other Services"
-            class="mx-auto"
-          />
-          <p class="mt-2 font-medium">Other</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- ইলেকট্রিক সার্ভিস সেকশন -->
-    <section class="bg-white py-10">
-      <div class="max-w-6xl mx-auto px-4">
-        <h2 class="text-2xl font-semibold text-center text-gray-800 mb-8">
-          ⚡ আমাদের ইলেকট্রিক সার্ভিসসমূহ
-        </h2>
-        <div
-          class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 text-center"
-        >
-          <!-- ফ্যান সেটআপ -->
-          <div class="p-4 border rounded hover:shadow-md transition">
-            <img
-              src="https://img.icons8.com/ios-filled/50/fan.png"
-              class="mx-auto mb-2"
-              alt="Fan Installation"
-            />
-            <p class="font-medium">ফ্যান লাগানো</p>
-          </div>
-
-          <!-- লাইট সেটআপ -->
-          <div class="p-4 border rounded hover:shadow-md transition">
-            <img
-              src="https://img.icons8.com/ios-filled/50/light-on.png"
-              class="mx-auto mb-2"
-              alt="Light Setup"
-            />
-            <p class="font-medium">লাইট সেটআপ</p>
-          </div>
-
-          <!-- তার মেরামত -->
-          <div class="p-4 border rounded hover:shadow-md transition">
-            <img
-              src="https://img.icons8.com/ios-filled/50/electrical.png"
-              class="mx-auto mb-2"
-              alt="Wiring Repair"
-            />
-            <p class="font-medium">ওয়্যারিং মেরামত</p>
-          </div>
-
-          <!-- ব্রেকার সেটআপ -->
-          <div class="p-4 border rounded hover:shadow-md transition">
-            <img
-              src="https://img.icons8.com/ios-filled/50/electrical-threshold.png"
-              class="mx-auto mb-2"
-              alt="Breaker Setup"
-            />
-            <p class="font-medium">ব্রেকার সেটআপ</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Plumbing Services -->
-    <section id="plumbing" class="py-10 bg-gray-50">
-      <div class="max-w-6xl mx-auto px-4">
-        <h2 class="text-2xl font-semibold text-center mb-8">
-          🚰 Plumbing Services
-        </h2>
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-          <div class="p-4 border rounded hover:shadow-md">
-            <img
-              src="https://img.icons8.com/ios-filled/50/plumbing.png"
-              class="mx-auto mb-2"
-            />
-            <p class="font-medium">Tap Installation</p>
-          </div>
-
-          <div class="p-4 border rounded hover:shadow-md">
-            <img
-              src="https://img.icons8.com/ios-filled/50/toilet.png"
-              class="mx-auto mb-2"
-            />
-            <p class="font-medium">Toilet Fix</p>
-          </div>
-
-          <div class="p-4 border rounded hover:shadow-md">
-            <img
-              src="https://img.icons8.com/ios-filled/50/water.png"
-              class="mx-auto mb-2"
-            />
-            <p class="font-medium">Water Line</p>
-          </div>
-
-          <div class="p-4 border rounded hover:shadow-md">
-            <img
-              src="https://img.icons8.com/ios-filled/50/water-pump.png"
-              class="mx-auto mb-2"
-            />
-            <p class="font-medium">Pump Repair</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- AC Services -->
-    <section id="ac" class="py-10 bg-white">
-      <div class="max-w-6xl mx-auto px-4">
-        <h2 class="text-2xl font-semibold text-center mb-8">❄️ AC Services</h2>
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-          <div class="p-4 border rounded hover:shadow-md">
-            <img
-              src="https://img.icons8.com/ios-filled/50/air-conditioner.png"
-              class="mx-auto mb-2"
-            />
-            <p class="font-medium">AC Installation</p>
-          </div>
-
-          <div class="p-4 border rounded hover:shadow-md">
-            <img
-              src="https://img.icons8.com/ios-filled/50/settings.png"
-              class="mx-auto mb-2"
-            />
-            <p class="font-medium">AC Servicing</p>
-          </div>
-
-          <div class="p-4 border rounded hover:shadow-md">
-            <img
-              src="https://img.icons8.com/ios-filled/50/air-element.png"
-              class="mx-auto mb-2"
-            />
-            <p class="font-medium">AC Gas Fill</p>
-          </div>
-
-          <div class="p-4 border rounded hover:shadow-md">
-            <img
-              src="https://img.icons8.com/ios-filled/50/fan.png"
-              class="mx-auto mb-2"
-            />
-            <p class="font-medium">Fan Motor Repair</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Thai Services -->
-    <section id="thai" class="py-10 bg-gray-50">
-      <div class="max-w-6xl mx-auto px-4">
-        <h2 class="text-2xl font-semibold text-center mb-8">
-          🚪 Thai Services
-        </h2>
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-          <div class="p-4 border rounded hover:shadow-md">
-            <img
-              src="https://img.icons8.com/ios-filled/50/glass-door.png"
-              class="mx-auto mb-2"
-            />
-            <p class="font-medium">Glass Door</p>
-          </div>
-
-          <div class="p-4 border rounded hover:shadow-md">
-            <img
-              src="https://img.icons8.com/ios-filled/50/window.png"
-              class="mx-auto mb-2"
-            />
-            <p class="font-medium">Window Repair</p>
-          </div>
-
-          <div class="p-4 border rounded hover:shadow-md">
-            <img
-              src="https://img.icons8.com/ios-filled/50/shower.png"
-              class="mx-auto mb-2"
-            />
-            <p class="font-medium">Bathroom Partition</p>
-          </div>
-
-          <div class="p-4 border rounded hover:shadow-md">
-            <img
-              src="https://img.icons8.com/ios-filled/50/metal.png"
-              class="mx-auto mb-2"
-            />
-            <p class="font-medium">Metal Frame</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Store Section -->
-    <section id="store" class="py-12 px-4 bg-white">
-      <h2 class="text-2xl font-semibold text-center mb-8">Our Store</h2>
-      <div
-        class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-6xl mx-auto"
-      >
-        <div class="border rounded p-4 text-center shadow-sm">
-          <img
-            src="https://via.placeholder.com/150"
-            alt="Fan Kit"
-            class="mx-auto mb-2"
-          />
-          <h3 class="font-bold">Fan Installation Kit</h3>
-          <p class="text-sm text-gray-600">
-            All tools for a basic fan install.
-          </p>
-          <p class="text-blue-600 font-semibold mt-2">$25</p>
-          <button
-            class="mt-2 px-4 py-1 bg-blue-600 text-white rounded hover:bg-blue-700"
-          >
-            Buy Now
-          </button>
-        </div>
-        <div class="border rounded p-4 text-center shadow-sm">
-          <img
-            src="https://via.placeholder.com/150"
-            alt="Light Fixtures"
-            class="mx-auto mb-2"
-          />
-          <h3 class="font-bold">LED Light Fixture</h3>
-          <p class="text-sm text-gray-600">
-            Modern, energy-saving light fixtures.
-          </p>
-          <p class="text-blue-600 font-semibold mt-2">$40</p>
-          <button
-            class="mt-2 px-4 py-1 bg-blue-600 text-white rounded hover:bg-blue-700"
-          >
-            Buy Now
-          </button>
-        </div>
-        <div class="border rounded p-4 text-center shadow-sm">
-          <img
-            src="https://via.placeholder.com/150"
-            alt="Wiring Tools"
-            class="mx-auto mb-2"
-          />
-          <h3 class="font-bold">Wiring Toolkit</h3>
-          <p class="text-sm text-gray-600">All-in-one basic electrical kit.</p>
-          <p class="text-blue-600 font-semibold mt-2">$60</p>
-          <button
-            class="mt-2 px-4 py-1 bg-blue-600 text-white rounded hover:bg-blue-700"
-          >
-            Buy Now
-          </button>
-        </div>
-      </div>
-    </section>
-    <!-- Map & Review Section -->
-    <section class="py-12 px-4 bg-white text-center">
-      <div class="max-w-3xl mx-auto">
-        <img
-          src="https://via.placeholder.com/600x300?text=Service+Area+Map"
-          alt="Service Map"
-          class="rounded-lg mx-auto mb-6"
-        />
-        <div class="flex flex-col items-center gap-3">
-          <img
-            src="https://img.icons8.com/color/96/worker-male--v1.png"
-            alt="Electrician"
-            class="w-20 h-20"
-          />
-          <div>
-            <p class="italic text-lg">
-              "Very professional and quick to respond. Highly recommended."
-            </p>
-            <p class="mt-1 font-bold">– Jane S. ⭐⭐⭐⭐⭐</p>
-          </div>
         </div>
       </div>
     </section>
