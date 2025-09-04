@@ -476,18 +476,162 @@
           <div
             class="mt-8 flex flex-col sm:flex-row justify-center md:justify-start gap-4"
           >
+            <!-- Book Now Button -->
             <button
+              onclick="openBooking()"
               class="bg-blue-600 text-white px-6 py-3 rounded-xl shadow-lg hover:bg-blue-700 transition w-full sm:w-auto"
             >
               Book Now
             </button>
+
+            <!-- Get Free Quote Button -->
             <button
+              onclick="openQuote()"
               class="bg-gray-200 text-gray-800 px-6 py-3 rounded-xl shadow-lg hover:bg-gray-300 transition w-full sm:w-auto"
             >
               Get Free Quote
             </button>
           </div>
         </div>
+
+        <!-- ================= Booking Form Modal ================= -->
+        <div
+          id="bookingModal"
+          class="hidden fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50"
+        >
+          <div
+            class="bg-white p-6 rounded-lg shadow-lg w-full max-w-lg relative"
+          >
+            <!-- Close Button -->
+            <button
+              onclick="closeBooking()"
+              class="absolute top-2 right-2 text-gray-600 hover:text-black text-2xl"
+            >
+              ✕
+            </button>
+
+            <!-- Booking Form -->
+            <h2 class="text-2xl font-bold mb-4 text-center">Book a Service</h2>
+            <form class="space-y-4">
+              <div>
+                <label class="block text-sm font-medium">Your Name</label>
+                <input
+                  type="text"
+                  class="w-full border rounded-lg px-3 py-2 focus:ring focus:ring-blue-300"
+                  placeholder="Enter your name"
+                  required
+                />
+              </div>
+
+              <div>
+                <label class="block text-sm font-medium">Phone Number</label>
+                <input
+                  type="tel"
+                  class="w-full border rounded-lg px-3 py-2 focus:ring focus:ring-blue-300"
+                  placeholder="Enter your phone number"
+                  required
+                />
+              </div>
+
+              <div>
+                <label class="block text-sm font-medium">Service</label>
+                <select
+                  class="w-full border rounded-lg px-3 py-2 focus:ring focus:ring-blue-300"
+                >
+                  <option>AC Repair</option>
+                  <option>Electrical Service</option>
+                  <option>Plumbing Service</option>
+                  <option>Cleaning Service</option>
+                </select>
+              </div>
+
+              <button
+                type="submit"
+                class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700"
+              >
+                Confirm Booking
+              </button>
+            </form>
+          </div>
+        </div>
+
+        <!-- ================= Free Quote Form Modal ================= -->
+        <div
+          id="quoteModal"
+          class="hidden fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50"
+        >
+          <div
+            class="bg-white p-6 rounded-lg shadow-lg w-full max-w-lg relative"
+          >
+            <!-- Close Button -->
+            <button
+              onclick="closeQuote()"
+              class="absolute top-2 right-2 text-gray-600 hover:text-black text-2xl"
+            >
+              ✕
+            </button>
+
+            <!-- Free Quote Form -->
+            <h2 class="text-2xl font-bold mb-4 text-center">
+              Get a Free Quote
+            </h2>
+            <form class="space-y-4">
+              <div>
+                <label class="block text-sm font-medium">Your Name</label>
+                <input
+                  type="text"
+                  class="w-full border rounded-lg px-3 py-2 focus:ring focus:ring-green-300"
+                  placeholder="Enter your name"
+                  required
+                />
+              </div>
+
+              <div>
+                <label class="block text-sm font-medium">Phone Number</label>
+                <input
+                  type="tel"
+                  class="w-full border rounded-lg px-3 py-2 focus:ring focus:ring-green-300"
+                  placeholder="Enter your phone number"
+                  required
+                />
+              </div>
+
+              <div>
+                <label class="block text-sm font-medium">Service Needed</label>
+                <input
+                  type="text"
+                  class="w-full border rounded-lg px-3 py-2 focus:ring focus:ring-green-300"
+                  placeholder="Describe your service"
+                  required
+                />
+              </div>
+
+              <button
+                type="submit"
+                class="w-full bg-green-600 text-white py-2 rounded-lg hover:bg-green-700"
+              >
+                Request Quote
+              </button>
+            </form>
+          </div>
+        </div>
+
+        <!-- ================= JavaScript ================= -->
+        <script>
+          function openBooking() {
+            document.getElementById("bookingModal").classList.remove("hidden");
+          }
+          function closeBooking() {
+            document.getElementById("bookingModal").classList.add("hidden");
+          }
+
+          function openQuote() {
+            document.getElementById("quoteModal").classList.remove("hidden");
+          }
+          function closeQuote() {
+            document.getElementById("quoteModal").classList.add("hidden");
+          }
+        </script>
 
         <!-- Right Side Slider -->
         <div class="relative w-full">
