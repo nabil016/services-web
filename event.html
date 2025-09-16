@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Event Management — Responsive Landing Page</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      /* extra rounded look for mobile phone frame */
+      .phone-frame {
+        max-width: 420px;
+        margin: 32px auto;
+        border-radius: 28px;
+        box-shadow: 0 30px 60px rgba(15, 23, 42, 0.15);
+        overflow: hidden;
+        background: #ffffff;
+      }
+      .diag-cut {
+        clip-path: polygon(0 0, 100% 12%, 100% 100%, 0% 100%);
+      }
+    </style>
+  </head>
+  <body class="bg-gray-100 text-gray-800">
+    <!-- ===== MOBILE VIEW ===== -->
+    <div class="block md:hidden">
+      <div class="min-h-screen bg-white">
+        <!-- Header -->
+
+        <!-- Hero -->
+        <section class="relative">
+          <img
+            src="https://images.unsplash.com/photo-1561484930-998b6a7b43b9?q=80&w=1200&auto=format&fit=crop"
+            class="w-full h-56 object-cover"
+            alt="Hero Banner"
+          />
+          <div
+            class="absolute inset-0 bg-black/50 flex flex-col justify-center px-6 text-white"
+          >
+            <h1 class="text-2xl font-extrabold">Plan Your Perfect Event</h1>
+            <p class="mt-2 text-sm max-w-prose">
+              Your one-stop shop for creating memorable weddings, corporate
+              events, and seminars.
+            </p>
+          </div>
+        </section>
+
+        <!-- Corporate Events -->
+        <main class="px-6 py-6">
+          <h2 class="font-semibold mb-4">CORPORATE EVENTS</h2>
+          <div class="grid grid-cols-3 gap-3">
+            <article class="text-center">
+              <img
+                src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=400&auto=format&fit=crop"
+                class="w-full h-20 object-cover rounded"
+                alt=""
+              />
+              <h3 class="mt-1 text-xs font-medium">Corporate Events</h3>
+            </article>
+            <article class="text-center">
+              <img
+                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=400&auto=format&fit=crop"
+                class="w-full h-20 object-cover rounded"
+                alt=""
+              />
+              <h3 class="mt-1 text-xs font-medium">Weddings & Galas</h3>
+            </article>
+            <article class="text-center">
+              <img
+                src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=400&auto=format&fit=crop"
+                class="w-full h-20 object-cover rounded"
+                alt=""
+              />
+              <h3 class="mt-1 text-xs font-medium">Conferences</h3>
+            </article>
+          </div>
+
+          <!-- Testimonials -->
+          <h2 class="font-semibold mt-8 mb-4">TESTIMONIALS</h2>
+          <div class="space-y-4">
+            <div class="flex gap-3">
+              <img
+                class="w-10 h-10 rounded-full object-cover"
+                src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=400&auto=format&fit=crop"
+                alt=""
+              />
+              <p class="text-xs text-gray-600">
+                “They transformed our annual conference into a memorable
+                success.”
+              </p>
+            </div>
+            <div class="flex gap-3">
+              <img
+                class="w-10 h-10 rounded-full object-cover"
+                src="https://images.unsplash.com/photo-1545996124-1f7e4a7e2b7d?q=80&w=400&auto=format&fit=crop"
+                alt=""
+              />
+              <p class="text-xs text-gray-600">
+                “Creative, professional, and calm under pressure. Highly
+                recommend.”
+              </p>
+            </div>
+          </div>
+        </main>
+
+        <!-- Footer -->
+      </div>
+    </div>
+
+    <!-- ===== DESKTOP VIEW ===== -->
+    <div class="hidden md:block">
+      <!-- Navbar -->
+      <header class="bg-white shadow">
+        <div
+          class="max-w-7xl mx-auto px-8 py-4 flex justify-between items-center"
+        >
+          <div class="flex items-center gap-2 font-bold text-xl">
+            <div
+              class="w-8 h-8 bg-indigo-700 text-white flex items-center justify-center rounded"
+            >
+              E
+            </div>
+            EventPro
+          </div>
+          <nav class="flex gap-6 text-gray-600">
+            <a href="#services" class="hover:text-indigo-700">Services</a>
+            <a href="#portfolio" class="hover:text-indigo-700">Portfolio</a>
+            <a href="#testimonials" class="hover:text-indigo-700"
+              >Testimonials</a
+            >
+            <a href="#about" class="hover:text-indigo-700">About</a>
+            <a href="#contact" class="hover:text-indigo-700">Contact</a>
+          </nav>
+        </div>
+      </header>
+
+      <!-- Hero -->
+      <section class="relative">
+        <img
+          src="https://images.unsplash.com/photo-1561484930-998b6a7b43b9?q=80&w=1600&auto=format&fit=crop"
+          class="w-full h-[450px] object-cover"
+          alt="Hero Banner"
+        />
+        <div
+          class="absolute inset-0 bg-black/50 flex flex-col items-center justify-center text-center text-white"
+        >
+          <h1 class="text-5xl font-extrabold">Plan Your Perfect Event</h1>
+          <p class="mt-4 max-w-2xl">
+            We provide professional management for weddings, conferences,
+            corporate events, and galas.
+          </p>
+          <a
+            href="#contact"
+            class="mt-6 bg-orange-500 px-6 py-3 rounded-md font-semibold hover:bg-orange-600"
+            >Get Started</a
+          >
+        </div>
+      </section>
+
+      <!-- Services -->
+      <section id="services" class="max-w-7xl mx-auto px-8 py-16">
+        <h2 class="text-2xl font-bold mb-8">Our Services</h2>
+        <div class="grid grid-cols-3 gap-8">
+          <div class="bg-white shadow rounded p-6 text-center">
+            <h3 class="font-semibold">Corporate Events</h3>
+            <p class="text-sm text-gray-600 mt-2">
+              Complete planning and execution for businesses.
+            </p>
+          </div>
+          <div class="bg-white shadow rounded p-6 text-center">
+            <h3 class="font-semibold">Weddings & Galas</h3>
+            <p class="text-sm text-gray-600 mt-2">
+              Tailored celebrations with elegance and creativity.
+            </p>
+          </div>
+          <div class="bg-white shadow rounded p-6 text-center">
+            <h3 class="font-semibold">Conferences</h3>
+            <p class="text-sm text-gray-600 mt-2">
+              Seamless execution of seminars and gatherings.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Testimonials -->
+      <section id="testimonials" class="bg-gray-100 py-16">
+        <div class="max-w-7xl mx-auto px-8">
+          <h2 class="text-2xl font-bold mb-8">Testimonials</h2>
+          <div class="grid grid-cols-2 gap-8">
+            <div class="bg-white shadow rounded p-6">
+              <p class="text-gray-600 mb-4">
+                “They turned our annual conference into a flawless event.”
+              </p>
+              <p class="font-semibold">— Priya C.</p>
+            </div>
+            <div class="bg-white shadow rounded p-6">
+              <p class="text-gray-600 mb-4">
+                “Our wedding was stress-free and beautiful thanks to their
+                team.”
+              </p>
+              <p class="font-semibold">— Rohit & Neha</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer class="bg-white border-t py-6">
+        <div class="max-w-7xl mx-auto px-8 flex justify-between items-center">
+          <div class="text-sm text-gray-500">
+            © 2025 EventPro. All rights reserved.
+          </div>
+          <div class="flex gap-4 text-sm text-gray-500">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms</a>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>
