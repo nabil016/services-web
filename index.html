@@ -72,10 +72,7 @@
                 </a>
               </li>
               <li>
-                <a
-                  href="event.html"
-                  class="block px-4 py-2 hover:bg-blue-100"
-                >
+                <a href="event.html" class="block px-4 py-2 hover:bg-blue-100">
                   Event Manegment
                 </a>
               </li>
@@ -310,12 +307,23 @@
             </li>
             <li
               class="p-4 flex items-center space-x-2 cursor-pointer hover:bg-gray-200"
+              onclick="showServices('Event services')"
+            >
+              <img
+                src="Plumbing icon.png"
+                class="w-8 h-8 rounded object-cover"
+                alt="Plumbing"
+              />
+              <span>Event Manegment</span>
+            </li>
+            <li
+              class="p-4 flex items-center space-x-2 cursor-pointer hover:bg-gray-200"
               onclick="showServices('Cleaning Services')"
             >
               <img
                 src="https://via.placeholder.com/30"
                 class="w-8 h-8 rounded object-cover"
-                alt="Cleaning"
+                alt="Event"
               />
               <span>Cleaning Services</span>
             </li>
@@ -414,6 +422,21 @@
           ];
         }
 
+        if (title === "Event services") {
+          services = [
+            {
+              name: "Corporate Events",
+              img: "https://via.placeholder.com/50?text=J",
+              link: "event.html",
+            },
+            {
+              name: "Office Cleaning",
+              img: "https://via.placeholder.com/50?text=K",
+              link: "event.html",
+            },
+          ];
+        }
+
         if (title === "Cleaning Services") {
           services = [
             {
@@ -425,6 +448,21 @@
               name: "Office Cleaning",
               img: "https://via.placeholder.com/50?text=K",
               link: "office-clean.html",
+            },
+          ];
+        }
+
+        if (title === "Event services") {
+          services = [
+            {
+              name: "Corporate Events",
+              img: "https://via.placeholder.com/50?text=J",
+              link: "event.html",
+            },
+            {
+              name: "Office Cleaning",
+              img: "https://via.placeholder.com/50?text=K",
+              link: "event.html",
             },
           ];
         }
@@ -1209,4 +1247,3 @@
     </footer>
   </body>
 </html>
-
