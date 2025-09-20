@@ -441,16 +441,44 @@
 
         // update list
         const servicesList = document.getElementById("services-list");
-        servicesList.innerHTML = services
+
+        // Find category image
+        let categoryImage = "";
+        if (title === "AC Repair Services") {
+          categoryImage = "ac icon.png";
+        } else if (title === "Electrical Services") {
+          categoryImage = "electric icon.png";
+        } else if (title === "Plumbing Services") {
+          categoryImage = "Plumbing icon.png";
+        } else if (title === "Event services") {
+          categoryImage = "download.jfif";
+        }
+
+        // Top section: image + visit page button
+        const categoryTop = `
+  <div class="relative mb-4">
+    <img src="${categoryImage}" class="w-full h-32 object-cover rounded-lg">
+    <a href="${title.toLowerCase().replace(/\s+/g, "-")}.html"
+       class="absolute inset-x-0 bottom-2 mx-auto w-32 text-center bg-blue-500 text-white py-1 rounded-lg font-semibold hover:bg-blue-600 transition">
+      Visit Page
+    </a>
+  </div>
+`;
+
+        // Service items
+        const serviceItems = services
           .map(
             (s) => `
-          <a href="${s.link}" class="flex items-center space-x-3 py-3 border-b cursor-pointer hover:bg-gray-50 transition">
-            <img src="${s.img}" class="w-12 h-12 rounded-md object-cover" alt="${s.name}">
-            <span class="font-medium text-gray-800 ">${s.name}</span>
-          </a>
-        `
+      <a href="${s.link}" class="flex items-center space-x-3 py-3 border-b cursor-pointer hover:bg-gray-50 transition">
+        <img src="${s.img}" class="w-12 h-12 rounded-md object-cover" alt="${s.name}">
+        <span class="font-medium text-gray-800">${s.name}</span>
+      </a>
+    `
           )
           .join("");
+
+        // Combine image+button + services
+        servicesList.innerHTML = categoryTop + serviceItems;
       }
     </script>
 
