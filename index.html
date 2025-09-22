@@ -270,7 +270,7 @@
 
       <div class="flex flex-1 overflow-y-auto">
         <!-- Left Categories -->
-        <div class="w-1/3 bg-gray-50 border-r overflow-y-auto">
+        <div class="w-2/5 bg-gray-50 border-r overflow-y-auto">
           <ul id="categories" class="flex flex-col">
             <li
               class="p-4 flex items-center space-x-2 cursor-pointer hover:bg-gray-200"
@@ -324,7 +324,7 @@
         </div>
 
         <!-- Right Subservices -->
-        <div class="w-2/3 p-4 overflow-y-auto">
+        <div class="w-3/5 p-4 overflow-y-auto">
           <div id="services-list" class="space-y-3">
             <p class="text-gray-500">Select a category to view services</p>
           </div>
@@ -364,14 +364,19 @@
           element.dataset.original = element.innerHTML;
         }
 
-        // Replace with "Visit Page" button
+        // Replace with category title (black, one line) + "Visit Page" button
         element.innerHTML = `
+    <div class="flex flex-col items-start w-full">
+      <div class="w-full text-left text-xs font-semibold text-black mb-1 truncate">
+        ${title}
+      </div>
       <button 
         onclick="window.location.href='${element.dataset.link}'" 
         class="w-full bg-blue-500 text-white py-2 rounded-lg font-semibold hover:bg-blue-600 transition">
         Visit Page
       </button>
-    `;
+    </div>
+  `;
 
         // Set as active
         activeCategory = element;
@@ -457,11 +462,11 @@
         servicesList.innerHTML = services
           .map(
             (s) => `
-        <a href="${s.link}" class="flex items-center space-x-3 py-3 border-b cursor-pointer hover:bg-gray-50 transition">
-          <img src="${s.img}" class="w-12 h-12 rounded-md object-cover" alt="${s.name}">
-          <span class="font-medium text-gray-800">${s.name}</span>
-        </a>
-      `
+      <a href="${s.link}" class="flex items-center space-x-3 py-3 border-b cursor-pointer hover:bg-gray-50 transition">
+        <img src="${s.img}" class="w-12 h-12 rounded-md object-cover" alt="${s.name}">
+        <span class="font-medium text-gray-800">${s.name}</span>
+      </a>
+    `
           )
           .join("");
       }
@@ -1204,4 +1209,3 @@
     </footer>
   </body>
 </html>
-
