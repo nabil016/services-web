@@ -247,41 +247,60 @@
       id="mobile-sidebar"
       class="hidden fixed inset-0 bg-white z-50 flex flex-col overflow-hidden"
     >
-      <!-- Top Header with Small Services / Big Services + Close -->
-      <div
-        class="flex items-center justify-between bg-gray-100 p-4 border-b sticky top-0 z-10"
-      >
-        <!-- Left Side: Small + Big -->
-        <div class="flex space-x-3">
+      <!-- Top Header with Small / Big / Close -->
+      <div class="flex items-center bg-white border-b sticky top-0 z-10">
+        <!-- Small / Big Tabs -->
+        <div class="flex flex-1">
           <button
             id="small-btn"
-            class="px-4 py-2 rounded-lg text-sm font-semibold bg-white border border-gray-300 shadow-sm hover:bg-blue-500 hover:text-white transition"
-            onclick="filterCategories('small')"
+            class="flex-1 py-3 text-center font-semibold text-gray-900 border-r border-gray-200 active-tab"
+            onclick="setTab('small')"
           >
-            Small Services
+            Small
           </button>
-
           <button
             id="big-btn"
-            class="px-4 py-2 rounded-lg text-sm font-semibold bg-white border border-gray-300 shadow-sm hover:bg-green-500 hover:text-white transition"
-            onclick="filterCategories('big')"
+            class="flex-1 py-3 text-center font-semibold text-gray-500"
+            onclick="setTab('big')"
           >
-            Big Services
+            Big
           </button>
         </div>
 
-        <!-- Right Side: Close -->
+        <!-- Close Button -->
         <button
           id="close-btn"
-          class="px-4 py-2 rounded-lg text-lg font-bold text-gray-600 hover:bg-red-500 hover:text-white transition"
+          class="w-12 h-12 flex items-center justify-center bg-black text-white text-xl font-bold"
         >
           ✕
         </button>
       </div>
 
+      <style>
+        .active-tab {
+          color: #000 !important;
+          font-weight: 700 !important;
+          background-color: #fff;
+        }
+      </style>
+
+      <script>
+        function setTab(type) {
+          // Reset both buttons
+          document.getElementById("small-btn").classList.remove("active-tab");
+          document.getElementById("big-btn").classList.remove("active-tab");
+
+          // Activate clicked one
+          document.getElementById(type + "-btn").classList.add("active-tab");
+
+          // Filter categories
+          filterCategories(type);
+        }
+      </script>
+
       <div class="flex flex-1 overflow-y-auto">
         <!-- Left Categories -->
-        <div class="w-2/5 bg-gray-50 border-r overflow-y-auto">
+        <div class="w-1/3 bg-gray-50 border-r overflow-y-auto">
           <ul id="categories" class="flex flex-col">
             <li
               class="p-4 flex items-center space-x-2 cursor-pointer hover:bg-gray-200"
@@ -339,7 +358,7 @@
         </div>
 
         <!-- Right Subservices -->
-        <div class="w-3/5 p-4 overflow-y-auto">
+        <div class="w-2/3 p-4 overflow-y-auto">
           <!-- Services count with border -->
           <div
             id="services-count"
@@ -400,24 +419,6 @@
       }
 
       function showServices(element, title) {
-        // Remove old button if exists
-        if (activeButton) {
-          activeButton.remove();
-          activeButton = null;
-        }
-
-        // Create a new button below the clicked category
-        const button = document.createElement("button");
-        button.textContent = "Visit Page";
-        button.className =
-          "w-full mt-2 bg-blue-500 text-white py-2 rounded-lg font-semibold hover:bg-blue-600 transition";
-        button.onclick = () => {
-          window.location.href = element.dataset.link;
-        };
-
-        element.insertAdjacentElement("afterend", button);
-        activeButton = button;
-
         // Prepare subservices
         let services = [];
 
@@ -447,6 +448,11 @@
               name: "AC Installation & Uninstallation",
               img: "https://via.placeholder.com/50?text=E",
               link: "ac-install.html",
+            },
+            {
+              name: "VRF AC Service",
+              img: "https://via.placeholder.com/50?text=F",
+              link: "vrf-ac.html",
             },
           ];
         }
@@ -491,8 +497,17 @@
           ];
         }
 
-        // Show count with border
-        servicesCount.textContent = `${services.length} services in ${title}`;
+        // Compact, no side gaps, no box, only bottom border
+        servicesCount.innerHTML = `
+  <div class="flex items-center justify-between text-gray-600 text-xs font-normal border-b border-gray-300 w-full">
+    <span class="whitespace-nowrap">${services.length} services in ${title} :</span>
+    <button 
+      onclick="window.location.href='${element.dataset.link}'" 
+      class="px-2 py-0.5 text-[10px] bg-blue-500 text-white rounded hover:bg-blue-600 transition">
+      Visit Page
+    </button>
+  </div>
+`;
 
         // Update right side list
         const servicesList = document.getElementById("services-list");
