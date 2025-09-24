@@ -251,21 +251,35 @@
       id="mobile-sidebar"
       class="hidden fixed inset-0 bg-white z-50 flex flex-col overflow-hidden"
     >
-      <!-- Top Header with Title + Close Button -->
+      <!-- Top Header with Title + Small/Big + Close -->
       <div
         class="flex items-center justify-between bg-gray-100 p-4 border-b sticky top-0 z-10"
       >
         <span
           id="services-title"
-          class="text-sm font-semibold truncate max-w-[80%]"
+          class="text-sm font-semibold truncate max-w-[50%]"
           >Select a category</span
         >
-        <button
-          id="close-btn"
-          class="text-xl font-bold text-gray-600 hover:text-black"
-        >
-          ✕
-        </button>
+
+        <div class="flex items-center gap-3">
+          <!-- Small/Big Option -->
+          <select
+            id="size-toggle"
+            class="border rounded px-2 py-1 text-sm font-medium text-gray-700"
+            onchange="filterCategories(this.value)"
+          >
+            <option value="small" selected>Small</option>
+            <option value="big">Big</option>
+          </select>
+
+          <!-- Close Button -->
+          <button
+            id="close-btn"
+            class="text-xl font-bold text-gray-600 hover:text-black"
+          >
+            ✕
+          </button>
+        </div>
       </div>
 
       <div class="flex flex-1 overflow-y-auto">
@@ -276,6 +290,7 @@
               class="p-4 flex items-center space-x-2 cursor-pointer hover:bg-gray-200"
               onclick="showServices(this, 'AC Repair Services')"
               data-link="ac-repair.html"
+              data-type="small"
             >
               <img
                 src="ac icon.png"
@@ -288,6 +303,7 @@
               class="p-4 flex items-center space-x-2 cursor-pointer hover:bg-gray-200"
               onclick="showServices(this, 'Electrical Services')"
               data-link="electrical.html"
+              data-type="small"
             >
               <img
                 src="electric icon.png"
@@ -300,6 +316,7 @@
               class="p-4 flex items-center space-x-2 cursor-pointer hover:bg-gray-200"
               onclick="showServices(this, 'Plumbing Services')"
               data-link="plumbing.html"
+              data-type="small"
             >
               <img
                 src="Plumbing icon.png"
@@ -312,19 +329,21 @@
               class="p-4 flex items-center space-x-2 cursor-pointer hover:bg-gray-200"
               onclick="showServices(this, 'Event services')"
               data-link="event.html"
+              data-type="big"
             >
               <img
                 src="download.jfif"
                 class="w-8 h-8 rounded object-cover"
                 alt="Event"
               />
-              <span>Event Manegment</span>
+              <span>Event Management</span>
             </li>
           </ul>
         </div>
 
         <!-- Right Subservices -->
         <div class="w-3/5 p-4 overflow-y-auto">
+          <div id="services-count" class="font-medium text-gray-800 mb-2"></div>
           <div id="services-list" class="space-y-3">
             <p class="text-gray-500">Select a category to view services</p>
           </div>
@@ -337,7 +356,9 @@
       const sidebar = document.getElementById("mobile-sidebar");
       const overlay = document.getElementById("overlay");
       const servicesTitle = document.getElementById("services-title");
-      let activeCategory = null;
+      const servicesCount = document.getElementById("services-count");
+      const categoriesList = document.getElementById("categories").children;
+      let activeButton = null;
 
       function toggleMenu() {
         sidebar.classList.toggle("hidden");
@@ -353,35 +374,36 @@
       closeBtn.addEventListener("click", toggleMenu);
       overlay.addEventListener("click", toggleMenu);
 
+      function filterCategories(size) {
+        [...categoriesList].forEach((item) => {
+          if (item.dataset.type === size) {
+            item.style.display = "flex";
+          } else {
+            item.style.display = "none";
+          }
+        });
+      }
+
       function showServices(element, title) {
-        // Restore previous category if changed
-        if (activeCategory && activeCategory !== element) {
-          activeCategory.innerHTML = activeCategory.dataset.original;
+        // Remove old button if exists
+        if (activeButton) {
+          activeButton.remove();
+          activeButton = null;
         }
 
-        // Save original HTML if not saved before
-        if (!element.dataset.original) {
-          element.dataset.original = element.innerHTML;
-        }
+        // Create a new button below the clicked category
+        const button = document.createElement("button");
+        button.textContent = "Visit Page";
+        button.className =
+          "w-full mt-2 bg-blue-500 text-white py-2 rounded-lg font-semibold hover:bg-blue-600 transition";
+        button.onclick = () => {
+          window.location.href = element.dataset.link;
+        };
 
-        // Replace with category title (black, one line) + "Visit Page" button
-        element.innerHTML = `
-    <div class="flex flex-col items-start w-full">
-      <div class="w-full text-left text-xs font-semibold text-black mb-1 truncate">
-        ${title}
-      </div>
-      <button 
-        onclick="window.location.href='${element.dataset.link}'" 
-        class="w-full bg-blue-500 text-white py-2 rounded-lg font-semibold hover:bg-blue-600 transition">
-        Visit Page
-      </button>
-    </div>
-  `;
+        element.insertAdjacentElement("afterend", button);
+        activeButton = button;
 
-        // Set as active
-        activeCategory = element;
-
-        // Keep your existing sub-services logic
+        // Prepare subservices
         let services = [];
 
         if (title === "AC Repair Services") {
@@ -454,10 +476,10 @@
           ];
         }
 
-        // update title
-        servicesTitle.textContent = `${services.length} services in ${title}`;
+        // Show count above services
+        servicesCount.textContent = `${services.length} services in ${title}`;
 
-        // update list
+        // Update right side list
         const servicesList = document.getElementById("services-list");
         servicesList.innerHTML = services
           .map(
@@ -470,6 +492,9 @@
           )
           .join("");
       }
+
+      // default show small
+      filterCategories("small");
     </script>
 
     <!-- Alpine.js -->
