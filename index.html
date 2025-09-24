@@ -122,8 +122,6 @@
     <!-- Header (Visible on mobile + tablet, hidden on PC) -->
     <div
       class="flex items-center justify-between p-3 bg-white border-b border-gray-200 lg:hidden sticky top-0 z-50"
-      x-data="{ menuOpen: false }"
-      x-effect="document.body.style.overflow = menuOpen ? 'hidden' : ''"
     >
       <!-- Logo -->
       <div class="text-2xl font-bold text-blue-500">zoom</div>
@@ -152,17 +150,15 @@
         </button>
 
         <!-- Menu Icon -->
-        <div class="text-xl cursor-pointer" @click="menuOpen = true">
+        <div class="text-xl cursor-pointer" onclick="openMobileMenu()">
           &#9776;
         </div>
       </div>
 
       <!-- Full-Screen Mobile Menu -->
       <div
-        x-show="menuOpen"
-        class="fixed inset-0 bg-white z-50 flex flex-col overflow-hidden"
-        @click.away="menuOpen = false"
-        x-transition
+        id="mobile-menu"
+        class="hidden fixed inset-0 bg-white z-50 flex flex-col overflow-hidden"
       >
         <!-- Header with Close Button -->
         <div
@@ -171,7 +167,7 @@
           <span class="text-lg font-bold">Menu</span>
           <button
             class="text-2xl font-bold text-gray-600 hover:text-black"
-            @click="menuOpen = false"
+            onclick="closeMobileMenu()"
           >
             ✕
           </button>
@@ -251,35 +247,36 @@
       id="mobile-sidebar"
       class="hidden fixed inset-0 bg-white z-50 flex flex-col overflow-hidden"
     >
-      <!-- Top Header with Title + Small/Big + Close -->
+      <!-- Top Header with Small Services / Big Services + Close -->
       <div
         class="flex items-center justify-between bg-gray-100 p-4 border-b sticky top-0 z-10"
       >
-        <span
-          id="services-title"
-          class="text-sm font-semibold truncate max-w-[50%]"
-          >Select a category</span
-        >
-
-        <div class="flex items-center gap-3">
-          <!-- Small/Big Option -->
-          <select
-            id="size-toggle"
-            class="border rounded px-2 py-1 text-sm font-medium text-gray-700"
-            onchange="filterCategories(this.value)"
-          >
-            <option value="small" selected>Small</option>
-            <option value="big">Big</option>
-          </select>
-
-          <!-- Close Button -->
+        <!-- Left Side: Small + Big -->
+        <div class="flex space-x-3">
           <button
-            id="close-btn"
-            class="text-xl font-bold text-gray-600 hover:text-black"
+            id="small-btn"
+            class="px-4 py-2 rounded-lg text-sm font-semibold bg-white border border-gray-300 shadow-sm hover:bg-blue-500 hover:text-white transition"
+            onclick="filterCategories('small')"
           >
-            ✕
+            Small Services
+          </button>
+
+          <button
+            id="big-btn"
+            class="px-4 py-2 rounded-lg text-sm font-semibold bg-white border border-gray-300 shadow-sm hover:bg-green-500 hover:text-white transition"
+            onclick="filterCategories('big')"
+          >
+            Big Services
           </button>
         </div>
+
+        <!-- Right Side: Close -->
+        <button
+          id="close-btn"
+          class="px-4 py-2 rounded-lg text-lg font-bold text-gray-600 hover:bg-red-500 hover:text-white transition"
+        >
+          ✕
+        </button>
       </div>
 
       <div class="flex flex-1 overflow-y-auto">
@@ -343,7 +340,14 @@
 
         <!-- Right Subservices -->
         <div class="w-3/5 p-4 overflow-y-auto">
-          <div id="services-count" class="font-medium text-gray-800 mb-2"></div>
+          <!-- Services count with border -->
+          <div
+            id="services-count"
+            class="text-sm font-semibold text-gray-700 border-b border-gray-300 py-2 px-3 bg-gray-50 mb-2"
+          >
+            Select a category
+          </div>
+
           <div id="services-list" class="space-y-3">
             <p class="text-gray-500">Select a category to view services</p>
           </div>
@@ -352,10 +356,21 @@
     </div>
 
     <script>
+      // === Mobile menu handling ===
+      const mobileMenu = document.getElementById("mobile-menu");
+      function openMobileMenu() {
+        mobileMenu.classList.remove("hidden");
+        document.body.style.overflow = "hidden";
+      }
+      function closeMobileMenu() {
+        mobileMenu.classList.add("hidden");
+        document.body.style.overflow = "";
+      }
+
+      // === Services Sidebar handling ===
       const closeBtn = document.getElementById("close-btn");
       const sidebar = document.getElementById("mobile-sidebar");
       const overlay = document.getElementById("overlay");
-      const servicesTitle = document.getElementById("services-title");
       const servicesCount = document.getElementById("services-count");
       const categoriesList = document.getElementById("categories").children;
       let activeButton = null;
@@ -476,7 +491,7 @@
           ];
         }
 
-        // Show count above services
+        // Show count with border
         servicesCount.textContent = `${services.length} services in ${title}`;
 
         // Update right side list
@@ -487,8 +502,7 @@
       <a href="${s.link}" class="flex items-center space-x-3 py-3 border-b cursor-pointer hover:bg-gray-50 transition">
         <img src="${s.img}" class="w-12 h-12 rounded-md object-cover" alt="${s.name}">
         <span class="font-medium text-gray-800">${s.name}</span>
-      </a>
-    `
+      </a>`
           )
           .join("");
       }
@@ -496,12 +510,6 @@
       // default show small
       filterCategories("small");
     </script>
-
-    <!-- Alpine.js -->
-    <script
-      src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
-      defer
-    ></script>
 
     <!-- Hero Section -->
     <section class="w-full bg-gray-50 py-12">
