@@ -278,7 +278,7 @@
 
       <style>
         .active-tab {
-          color: #000 !important;
+          color: #000000 !important;
           font-weight: 700 !important;
           background-color: #fff;
         }
@@ -300,72 +300,78 @@
 
       <div class="flex flex-1 overflow-y-auto">
         <!-- Left Categories -->
-        <div class="w-1/3 bg-gray-50 border-r overflow-y-auto">
+        <div class="w-1/4 bg-gray-50 border-r overflow-y-auto">
           <ul id="categories" class="flex flex-col">
             <li
-              class="p-4 flex items-center space-x-2 cursor-pointer hover:bg-gray-200"
+              class="py-2 px-2 flex flex-col items-center cursor-pointer hover:bg-gray-200"
               onclick="showServices(this, 'AC Repair Services')"
               data-link="ac-repair.html"
               data-type="small"
             >
-              <img
-                src="ac icon.png"
-                class="w-8 h-8 rounded object-cover"
-                alt="AC"
-              />
-              <span>AC Repair Services</span>
+              <img src="ac icon.png" class="w-8 h-8 mb-0.5" alt="AC" />
+              <span
+                class="text-xs text-center leading-tight break-words line-clamp-2"
+              >
+                AC Repair Services
+              </span>
             </li>
+
             <li
-              class="p-4 flex items-center space-x-2 cursor-pointer hover:bg-gray-200"
+              class="py-2 px-2 flex flex-col items-center cursor-pointer hover:bg-gray-200"
               onclick="showServices(this, 'Electrical Services')"
               data-link="electrical.html"
               data-type="small"
             >
               <img
                 src="electric icon.png"
-                class="w-8 h-8 rounded object-cover"
+                class="w-8 h-8 mb-0.5"
                 alt="Electrical"
               />
-              <span>Electrical Services</span>
+              <span
+                class="text-xs text-center leading-tight break-words line-clamp-2"
+              >
+                Electrical Services
+              </span>
             </li>
+
             <li
-              class="p-4 flex items-center space-x-2 cursor-pointer hover:bg-gray-200"
+              class="py-2 px-2 flex flex-col items-center cursor-pointer hover:bg-gray-200"
               onclick="showServices(this, 'Plumbing Services')"
               data-link="plumbing.html"
               data-type="small"
             >
               <img
                 src="Plumbing icon.png"
-                class="w-8 h-8 rounded object-cover"
+                class="w-8 h-8 mb-0.5"
                 alt="Plumbing"
               />
-              <span>Plumbing Services</span>
+              <span
+                class="text-xs text-center leading-tight break-words line-clamp-2"
+              >
+                Plumbing Services
+              </span>
             </li>
+
             <li
-              class="p-4 flex items-center space-x-2 cursor-pointer hover:bg-gray-200"
+              class="py-2 px-2 flex flex-col items-center cursor-pointer hover:bg-gray-200"
               onclick="showServices(this, 'Event services')"
               data-link="event.html"
               data-type="big"
             >
-              <img
-                src="download.jfif"
-                class="w-8 h-8 rounded object-cover"
-                alt="Event"
-              />
-              <span>Event Management</span>
+              <img src="download.jfif" class="w-8 h-8 mb-0.5" alt="Event" />
+              <span
+                class="text-xs text-center leading-tight break-words line-clamp-2"
+              >
+                Event Management Services
+              </span>
             </li>
           </ul>
         </div>
 
         <!-- Right Subservices -->
-        <div class="w-2/3 p-4 overflow-y-auto">
+        <div class="w-7/10 p-4 overflow-y-auto">
           <!-- Services count with border -->
-          <div
-            id="services-count"
-            class="text-sm font-semibold text-gray-700 border-b border-gray-300 py-2 px-3 bg-gray-50 mb-2"
-          >
-            Select a category
-          </div>
+          <div id="services-count"></div>
 
           <div id="services-list" class="space-y-3">
             <p class="text-gray-500">Select a category to view services</p>
