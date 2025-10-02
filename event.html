@@ -2,219 +2,465 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Event Management — Responsive Landing Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Event Management</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-      /* extra rounded look for mobile phone frame */
-      .phone-frame {
-        max-width: 420px;
-        margin: 32px auto;
-        border-radius: 28px;
-        box-shadow: 0 30px 60px rgba(15, 23, 42, 0.15);
-        overflow: hidden;
-        background: #ffffff;
-      }
-      .diag-cut {
-        clip-path: polygon(0 0, 100% 12%, 100% 100%, 0% 100%);
-      }
-    </style>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.13.0/cdn.min.js"
+      defer
+    ></script>
   </head>
-  <body class="bg-gray-100 text-gray-800">
-    <!-- ===== MOBILE VIEW ===== -->
-    <div class="block md:hidden">
-      <div class="min-h-screen bg-white">
-        <!-- Header -->
-
-        <!-- Hero -->
-        <section class="relative">
-          <img
-            src="https://images.unsplash.com/photo-1561484930-998b6a7b43b9?q=80&w=1200&auto=format&fit=crop"
-            class="w-full h-56 object-cover"
-            alt="Hero Banner"
-          />
-          <div
-            class="absolute inset-0 bg-black/50 flex flex-col justify-center px-6 text-white"
-          >
-            <h1 class="text-2xl font-extrabold">Plan Your Perfect Event</h1>
-            <p class="mt-2 text-sm max-w-prose">
-              Your one-stop shop for creating memorable weddings, corporate
-              events, and seminars.
-            </p>
-          </div>
-        </section>
-
-        <!-- Corporate Events -->
-        <main class="px-6 py-6">
-          <h2 class="font-semibold mb-4">CORPORATE EVENTS</h2>
-          <div class="grid grid-cols-3 gap-3">
-            <article class="text-center">
-              <img
-                src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=400&auto=format&fit=crop"
-                class="w-full h-20 object-cover rounded"
-                alt=""
-              />
-              <h3 class="mt-1 text-xs font-medium">Corporate Events</h3>
-            </article>
-            <article class="text-center">
-              <img
-                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=400&auto=format&fit=crop"
-                class="w-full h-20 object-cover rounded"
-                alt=""
-              />
-              <h3 class="mt-1 text-xs font-medium">Weddings & Galas</h3>
-            </article>
-            <article class="text-center">
-              <img
-                src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=400&auto=format&fit=crop"
-                class="w-full h-20 object-cover rounded"
-                alt=""
-              />
-              <h3 class="mt-1 text-xs font-medium">Conferences</h3>
-            </article>
-          </div>
-
-          <!-- Testimonials -->
-          <h2 class="font-semibold mt-8 mb-4">TESTIMONIALS</h2>
-          <div class="space-y-4">
-            <div class="flex gap-3">
-              <img
-                class="w-10 h-10 rounded-full object-cover"
-                src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=400&auto=format&fit=crop"
-                alt=""
-              />
-              <p class="text-xs text-gray-600">
-                “They transformed our annual conference into a memorable
-                success.”
-              </p>
-            </div>
-            <div class="flex gap-3">
-              <img
-                class="w-10 h-10 rounded-full object-cover"
-                src="https://images.unsplash.com/photo-1545996124-1f7e4a7e2b7d?q=80&w=400&auto=format&fit=crop"
-                alt=""
-              />
-              <p class="text-xs text-gray-600">
-                “Creative, professional, and calm under pressure. Highly
-                recommend.”
-              </p>
-            </div>
-          </div>
-        </main>
-
-        <!-- Footer -->
+  <body
+    class="bg-gray-50 text-gray-800"
+    x-data="{ currentSlide: 0, slides: [
+  'https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e',
+  'https://images.unsplash.com/photo-1524504388940-b1c1722653e1',
+  'https://images.unsplash.com/photo-1531058020387-3be344556be6'
+], init(){ setInterval(()=>{ this.currentSlide = (this.currentSlide+1) % this.slides.length },4000) }}"
+  >
+    <!-- Navbar -->
+    <header class="sticky top-0 bg-white shadow z-50">
+      <div class="max-w-7xl mx-auto flex items-center justify-between p-4">
+        <h1 class="text-2xl font-bold text-yellow-600">EventPro</h1>
+        <nav class="hidden md:flex gap-6">
+          <a href="#services" class="hover:text-yellow-600">Services</a>
+          <a href="#gallery" class="hover:text-yellow-600">Gallery</a>
+          <a href="#testimonials" class="hover:text-yellow-600">Testimonials</a>
+          <a href="#pricing" class="hover:text-yellow-600">Pricing</a>
+          <a href="#contact" class="hover:text-yellow-600">Contact</a>
+        </nav>
+        <button class="md:hidden px-3 py-2 border rounded">☰</button>
       </div>
-    </div>
+    </header>
 
-    <!-- ===== DESKTOP VIEW ===== -->
-    <div class="hidden md:block">
-      <!-- Navbar -->
-      <header class="bg-white shadow">
-        <div
-          class="max-w-7xl mx-auto px-8 py-4 flex justify-between items-center"
-        >
-          <div class="flex items-center gap-2 font-bold text-xl">
+    <!-- Hero Section with Swiper Slider -->
+    <section class="relative w-full h-[40vh] md:h-[50vh]">
+      <!-- Swiper Container -->
+      <div class="swiper h-full">
+        <div class="swiper-wrapper">
+          <!-- Slide 1 -->
+          <div class="swiper-slide relative">
+            <img
+              src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e"
+              class="w-full h-full object-cover"
+            />
             <div
-              class="w-8 h-8 bg-indigo-700 text-white flex items-center justify-center rounded"
+              class="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center items-center text-white px-6"
             >
-              E
+              <div class="max-w-4xl w-full">
+                <h2
+                  class="text-xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-3 truncate whitespace-nowrap"
+                >
+                  Making Every Event Memorable
+                </h2>
+                <p class="text-sm md:text-lg text-left mb-3">
+                  From weddings to corporate events, we bring your vision to
+                  life.
+                </p>
+                <a
+                  href="#contact"
+                  class="bg-yellow-600 hover:bg-yellow-700 px-5 py-2 rounded-lg font-semibold inline-block"
+                  >Get Started</a
+                >
+              </div>
             </div>
-            EventPro
           </div>
-          <nav class="flex gap-6 text-gray-600">
-            <a href="#services" class="hover:text-indigo-700">Services</a>
-            <a href="#portfolio" class="hover:text-indigo-700">Portfolio</a>
-            <a href="#testimonials" class="hover:text-indigo-700"
-              >Testimonials</a
-            >
-            <a href="#about" class="hover:text-indigo-700">About</a>
-            <a href="#contact" class="hover:text-indigo-700">Contact</a>
-          </nav>
-        </div>
-      </header>
 
-      <!-- Hero -->
-      <section class="relative">
-        <img
-          src="https://images.unsplash.com/photo-1561484930-998b6a7b43b9?q=80&w=1600&auto=format&fit=crop"
-          class="w-full h-[450px] object-cover"
-          alt="Hero Banner"
-        />
-        <div
-          class="absolute inset-0 bg-black/50 flex flex-col items-center justify-center text-center text-white"
+          <!-- Slide 2 -->
+          <div class="swiper-slide relative">
+            <img
+              src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1"
+              class="w-full h-full object-cover"
+            />
+            <div
+              class="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center items-center text-white px-6"
+            >
+              <div class="max-w-4xl w-full">
+                <h2
+                  class="text-xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-3 truncate whitespace-nowrap"
+                >
+                  Your Dream, Our Mission
+                </h2>
+                <p class="text-sm md:text-lg text-left mb-3">
+                  We create unforgettable experiences for every occasion.
+                </p>
+                <a
+                  href="#services"
+                  class="bg-yellow-600 hover:bg-yellow-700 px-5 py-2 rounded-lg font-semibold inline-block"
+                  >Explore Services</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 3 -->
+          <div class="swiper-slide relative">
+            <img
+              src="https://images.unsplash.com/photo-1531058020387-3be344556be6"
+              class="w-full h-full object-cover"
+            />
+            <div
+              class="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center items-center text-white px-6"
+            >
+              <div class="max-w-4xl w-full">
+                <h2
+                  class="text-xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-3 truncate whitespace-nowrap"
+                >
+                  Celebrate With Style
+                </h2>
+                <p class="text-sm md:text-lg text-left mb-3">
+                  Affordable packages tailored to your needs.
+                </p>
+                <a
+                  href="#pricing"
+                  class="bg-yellow-600 hover:bg-yellow-700 px-5 py-2 rounded-lg font-semibold inline-block"
+                  >View Packages</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pagination Dots Only -->
+        <div class="swiper-pagination"></div>
+      </div>
+    </section>
+
+    <!-- SwiperJS Scripts -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+      var swiper = new Swiper(".swiper", {
+        loop: true,
+        autoplay: {
+          delay: 4000,
+          disableOnInteraction: false,
+        },
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+        effect: "slide",
+        speed: 800,
+      });
+    </script>
+
+    <!-- Our Popular Event Items Section -->
+    <section class="py-10 bg-gray-50">
+      <div class="container mx-auto px-6">
+        <!-- Heading Left -->
+        <h2
+          class="text-2xl md:text-3xl font-bold text-gray-800 mb-6 text-center"
         >
-          <h1 class="text-5xl font-extrabold">Plan Your Perfect Event</h1>
-          <p class="mt-4 max-w-2xl">
-            We provide professional management for weddings, conferences,
-            corporate events, and galas.
+          Our Popular Event Items
+        </h2>
+
+        <!-- Grid -->
+        <div
+          class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6"
+        >
+          <!-- Item -->
+          <div class="bg-white shadow rounded-lg p-4 text-center">
+            <img
+              src="https://via.placeholder.com/200x150"
+              alt="LED Wall Screen"
+              class="mx-auto mb-3 h-28 object-contain"
+            />
+            <h3 class="font-semibold text-gray-700 text-sm">LED WALL SCREEN</h3>
+          </div>
+
+          <div class="bg-white shadow rounded-lg p-4 text-center">
+            <img
+              src="https://via.placeholder.com/200x150"
+              alt="Projector"
+              class="mx-auto mb-3 h-28 object-contain"
+            />
+            <h3 class="font-semibold text-gray-700 text-sm">PROJECTOR RENT</h3>
+          </div>
+
+          <div class="bg-white shadow rounded-lg p-4 text-center">
+            <img
+              src="https://via.placeholder.com/200x150"
+              alt="Sound System"
+              class="mx-auto mb-3 h-28 object-contain"
+            />
+            <h3 class="font-semibold text-gray-700 text-sm">SOUND SYSTEM</h3>
+          </div>
+
+          <div class="bg-white shadow rounded-lg p-4 text-center">
+            <img
+              src="https://via.placeholder.com/200x150"
+              alt="Lighting"
+              class="mx-auto mb-3 h-28 object-contain"
+            />
+            <h3 class="font-semibold text-gray-700 text-sm">LIGHTING SYSTEM</h3>
+          </div>
+
+          <div class="bg-white shadow rounded-lg p-4 text-center">
+            <img
+              src="https://via.placeholder.com/200x150"
+              alt="Band Party"
+              class="mx-auto mb-3 h-28 object-contain"
+            />
+            <h3 class="font-semibold text-gray-700 text-sm">BAND PARTY</h3>
+          </div>
+
+          <div class="bg-white shadow rounded-lg p-4 text-center">
+            <img
+              src="https://via.placeholder.com/200x150"
+              alt="Palki"
+              class="mx-auto mb-3 h-28 object-contain"
+            />
+            <h3 class="font-semibold text-gray-700 text-sm">PALKI</h3>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Another Event Items Section -->
+    <section class="py-10 bg-white">
+      <div class="container mx-auto px-6">
+        <!-- Heading Left -->
+        <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-6 text-left">
+          Our Special Event Services
+        </h2>
+
+        <!-- Grid -->
+        <div
+          class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6"
+        >
+          <div class="bg-gray-50 shadow rounded-lg p-4 text-center">
+            <img
+              src="https://via.placeholder.com/200x150"
+              alt="Birthday Decoration"
+              class="mx-auto mb-3 h-28 object-contain"
+            />
+            <h3 class="font-semibold text-gray-700 text-sm">
+              BIRTHDAY DECORATION
+            </h3>
+          </div>
+
+          <div class="bg-gray-50 shadow rounded-lg p-4 text-center">
+            <img
+              src="https://via.placeholder.com/200x150"
+              alt="Jumping Castle"
+              class="mx-auto mb-3 h-28 object-contain"
+            />
+            <h3 class="font-semibold text-gray-700 text-sm">JUMPING CASTLE</h3>
+          </div>
+
+          <div class="bg-gray-50 shadow rounded-lg p-4 text-center">
+            <img
+              src="https://via.placeholder.com/200x150"
+              alt="Mascot Rental"
+              class="mx-auto mb-3 h-28 object-contain"
+            />
+            <h3 class="font-semibold text-gray-700 text-sm">MASCOT RENTAL</h3>
+          </div>
+
+          <div class="bg-gray-50 shadow rounded-lg p-4 text-center">
+            <img
+              src="https://via.placeholder.com/200x150"
+              alt="Photography"
+              class="mx-auto mb-3 h-28 object-contain"
+            />
+            <h3 class="font-semibold text-gray-700 text-sm">
+              PHOTOGRAPHY SERVICE
+            </h3>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services with slider -->
+    <section
+      id="services"
+      class="py-16 max-w-7xl mx-auto px-4"
+      x-data="{ current: 0, items: [
+    {icon:'💍',title:'Weddings',desc:'Planning your dream wedding with style & elegance.'},
+    {icon:'🏢',title:'Corporate',desc:'Organizing professional & impactful corporate events.'},
+    {icon:'🎉',title:'Parties',desc:'Birthdays, anniversaries, and private celebrations.'},
+    {icon:'🎶',title:'Concerts',desc:'Large-scale concerts and live shows management.'},
+    {icon:'📸',title:'Photography',desc:'Capturing every moment beautifully.'},
+    {icon:'🍽',title:'Catering',desc:'Delicious menus for all types of events.'}
+  ] }"
+    >
+      <h3 class="text-3xl font-bold text-center mb-10">Our Services</h3>
+      <div class="relative">
+        <div
+          class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6 text-center"
+        >
+          <template x-for="(item,index) in items" :key="index">
+            <div
+              class="bg-white shadow-lg rounded-xl p-6 hover:shadow-xl transition"
+            >
+              <span class="text-4xl" x-text="item.icon"></span>
+              <h4 class="font-bold text-xl mt-4" x-text="item.title"></h4>
+              <p class="mt-2" x-text="item.desc"></p>
+            </div>
+          </template>
+        </div>
+      </div>
+    </section>
+
+    <!-- Gallery -->
+    <section id="gallery" class="py-16 bg-gray-100">
+      <h3 class="text-3xl font-bold text-center mb-10">Event Highlights</h3>
+      <div
+        class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6 max-w-6xl mx-auto px-4"
+      >
+        <img
+          src="https://images.unsplash.com/photo-1529635633732-3e0bb3ab3e4c"
+          class="rounded-lg shadow-lg hover:scale-105 transition"
+        />
+        <img
+          src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1"
+          class="rounded-lg shadow-lg hover:scale-105 transition"
+        />
+        <img
+          src="https://images.unsplash.com/photo-1531058020387-3be344556be6"
+          class="rounded-lg shadow-lg hover:scale-105 transition"
+        />
+        <img
+          src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e"
+          class="rounded-lg shadow-lg hover:scale-105 transition"
+        />
+        <img
+          src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1"
+          class="rounded-lg shadow-lg hover:scale-105 transition"
+        />
+        <img
+          src="https://images.unsplash.com/photo-1531058020387-3be344556be6"
+          class="rounded-lg shadow-lg hover:scale-105 transition"
+        />
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="testimonials" class="py-16 max-w-6xl mx-auto px-4">
+      <h3 class="text-3xl font-bold text-center mb-10">What Our Clients Say</h3>
+      <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
+        <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg col-span-2">
+          <p class="italic">
+            “The team made our wedding magical. Every detail was perfect!”
           </p>
-          <a
-            href="#contact"
-            class="mt-6 bg-orange-500 px-6 py-3 rounded-md font-semibold hover:bg-orange-600"
-            >Get Started</a
+          <h4 class="mt-4 font-bold">– Sarah & John</h4>
+        </div>
+        <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg col-span-2">
+          <p class="italic">
+            “Our corporate event went flawlessly. Highly professional!”
+          </p>
+          <h4 class="mt-4 font-bold">– Michael, CEO</h4>
+        </div>
+        <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg col-span-2">
+          <p class="italic">
+            “Best birthday party setup ever! They took care of everything.”
+          </p>
+          <h4 class="mt-4 font-bold">– Emma</h4>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing -->
+    <section id="pricing" class="py-16 bg-gray-100">
+      <h3 class="text-3xl font-bold text-center mb-10">Packages</h3>
+      <div
+        class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 max-w-6xl mx-auto px-4"
+      >
+        <div
+          class="bg-white p-8 rounded-xl shadow hover:shadow-lg text-center col-span-2"
+        >
+          <h4 class="text-xl font-bold mb-4">Basic</h4>
+          <p class="text-2xl font-bold mb-4">$499</p>
+          <ul class="mb-6 space-y-2">
+            <li>✔ Small event setup</li>
+            <li>✔ Decorations</li>
+            <li>✔ Support staff</li>
+          </ul>
+          <a href="#contact" class="bg-yellow-600 text-white px-6 py-2 rounded"
+            >Choose Plan</a
           >
         </div>
-      </section>
-
-      <!-- Services -->
-      <section id="services" class="max-w-7xl mx-auto px-8 py-16">
-        <h2 class="text-2xl font-bold mb-8">Our Services</h2>
-        <div class="grid grid-cols-3 gap-8">
-          <div class="bg-white shadow rounded p-6 text-center">
-            <h3 class="font-semibold">Corporate Events</h3>
-            <p class="text-sm text-gray-600 mt-2">
-              Complete planning and execution for businesses.
-            </p>
-          </div>
-          <div class="bg-white shadow rounded p-6 text-center">
-            <h3 class="font-semibold">Weddings & Galas</h3>
-            <p class="text-sm text-gray-600 mt-2">
-              Tailored celebrations with elegance and creativity.
-            </p>
-          </div>
-          <div class="bg-white shadow rounded p-6 text-center">
-            <h3 class="font-semibold">Conferences</h3>
-            <p class="text-sm text-gray-600 mt-2">
-              Seamless execution of seminars and gatherings.
-            </p>
-          </div>
+        <div
+          class="bg-white p-8 rounded-xl shadow-lg border-2 border-yellow-600 text-center col-span-2"
+        >
+          <h4 class="text-xl font-bold mb-4">Premium</h4>
+          <p class="text-2xl font-bold mb-4">$999</p>
+          <ul class="mb-6 space-y-2">
+            <li>✔ Full event planning</li>
+            <li>✔ Decorations + Catering</li>
+            <li>✔ Live entertainment</li>
+          </ul>
+          <a href="#contact" class="bg-yellow-600 text-white px-6 py-2 rounded"
+            >Choose Plan</a
+          >
         </div>
-      </section>
-
-      <!-- Testimonials -->
-      <section id="testimonials" class="bg-gray-100 py-16">
-        <div class="max-w-7xl mx-auto px-8">
-          <h2 class="text-2xl font-bold mb-8">Testimonials</h2>
-          <div class="grid grid-cols-2 gap-8">
-            <div class="bg-white shadow rounded p-6">
-              <p class="text-gray-600 mb-4">
-                “They turned our annual conference into a flawless event.”
-              </p>
-              <p class="font-semibold">— Priya C.</p>
-            </div>
-            <div class="bg-white shadow rounded p-6">
-              <p class="text-gray-600 mb-4">
-                “Our wedding was stress-free and beautiful thanks to their
-                team.”
-              </p>
-              <p class="font-semibold">— Rohit & Neha</p>
-            </div>
-          </div>
+        <div
+          class="bg-white p-8 rounded-xl shadow hover:shadow-lg text-center col-span-2"
+        >
+          <h4 class="text-xl font-bold mb-4">Luxury</h4>
+          <p class="text-2xl font-bold mb-4">$1999</p>
+          <ul class="mb-6 space-y-2">
+            <li>✔ Complete VIP setup</li>
+            <li>✔ Premium catering</li>
+            <li>✔ Celebrity performances</li>
+          </ul>
+          <a href="#contact" class="bg-yellow-600 text-white px-6 py-2 rounded"
+            >Choose Plan</a
+          >
         </div>
-      </section>
+      </div>
+    </section>
 
-      <!-- Footer -->
-      <footer class="bg-white border-t py-6">
-        <div class="max-w-7xl mx-auto px-8 flex justify-between items-center">
-          <div class="text-sm text-gray-500">
-            © 2025 EventPro. All rights reserved.
-          </div>
-          <div class="flex gap-4 text-sm text-gray-500">
-            <a href="#">Privacy Policy</a>
-            <a href="#">Terms</a>
-          </div>
+    <!-- Contact -->
+    <section id="contact" class="py-16 max-w-5xl mx-auto px-4">
+      <h3 class="text-3xl font-bold text-center mb-10">Get in Touch</h3>
+      <form class="bg-white p-8 rounded-xl shadow-lg space-y-4">
+        <div class="grid md:grid-cols-2 gap-4">
+          <input
+            type="text"
+            placeholder="Your Name"
+            class="border p-3 rounded w-full"
+          />
+          <input
+            type="email"
+            placeholder="Your Email"
+            class="border p-3 rounded w-full"
+          />
         </div>
-      </footer>
-    </div>
+        <input
+          type="text"
+          placeholder="Event Type"
+          class="border p-3 rounded w-full"
+        />
+        <textarea
+          placeholder="Your Message"
+          class="border p-3 rounded w-full h-32"
+        ></textarea>
+        <button
+          type="submit"
+          class="bg-yellow-600 hover:bg-yellow-700 text-white px-6 py-3 rounded-lg"
+        >
+          Send Message
+        </button>
+      </form>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-300 py-8 mt-16">
+      <div
+        class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center px-4"
+      >
+        <p>© 2025 EventPro. All rights reserved.</p>
+        <div class="flex gap-4 mt-4 md:mt-0">
+          <a href="#" class="hover:text-white">Facebook</a>
+          <a href="#" class="hover:text-white">Instagram</a>
+          <a href="#" class="hover:text-white">LinkedIn</a>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>
