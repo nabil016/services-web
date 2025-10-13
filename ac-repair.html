@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>QuickCool AC Repair — Fast & Reliable Aircon Service</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      :root {
+        --accent: #0ea5a4;
+      }
+      body {
+        font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto,
+          "Helvetica Neue", Arial;
+      }
+      .glass {
+        background: rgba(255, 255, 255, 0.6);
+        backdrop-filter: blur(6px);
+      }
+    </style>
+  </head>
+  <body class="bg-gradient-to-br from-slate-50 to-slate-100 text-slate-800">
+    <!-- NAV -->
+    <header class="max-w-6xl mx-auto p-6 flex items-center justify-between">
+      <div class="flex items-center gap-4">
+        <div
+          class="w-12 h-12 rounded-lg flex items-center justify-center bg-white shadow"
+        >
+          <svg
+            class="w-7 h-7 text-teal-600"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="1.5"
+              d="M3 15a4 4 0 004 4h10a4 4 0 004-4V7a4 4 0 00-4-4H7a4 4 0 00-4 4v8z"
+            ></path>
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="1.5"
+              d="M8 10h8"
+            ></path>
+          </svg>
+        </div>
+        <div>
+          <h1 class="text-lg font-semibold">QuickCool</h1>
+          <p class="text-sm text-slate-500">AC Repair & Maintenance</p>
+        </div>
+      </div>
+      <nav class="hidden md:flex items-center gap-6 text-sm">
+        <a class="hover:text-teal-600" href="#services">Services</a>
+        <a class="hover:text-teal-600" href="#process">Process</a>
+        <a class="hover:text-teal-600" href="#testimonials">Testimonials</a>
+        <a
+          class="bg-teal-600 text-white px-4 py-2 rounded-lg shadow hover:opacity-95"
+          href="#contact"
+          >Book Now</a
+        >
+      </nav>
+    </header>
+
+    <!-- HERO -->
+    <section
+      class="max-w-6xl mx-auto grid gap-8 grid-cols-1 md:grid-cols-2 items-center px-6 pb-12"
+    >
+      <div class="space-y-6">
+        <p
+          class="inline-block px-3 py-1 rounded-full text-sm font-medium text-teal-700 bg-teal-50"
+        >
+          Trusted • On-time • Certified
+        </p>
+        <h2 class="text-3xl md:text-4xl font-extrabold leading-tight">
+          Fast, reliable AC repair & maintenance — get your cool back today
+        </h2>
+        <p class="text-slate-600">
+          Expert technicians, transparent pricing, and same/next-day service in
+          your area. We fix all makes and models — split, window, cassette, VRF.
+        </p>
+
+        <div class="flex gap-4 items-center">
+          <a
+            href="#contact"
+            class="inline-flex items-center gap-2 bg-teal-600 text-white px-5 py-3 rounded-lg font-medium shadow hover:opacity-95"
+            >Book Service</a
+          >
+          <a href="#services" class="text-sm text-slate-700 hover:text-teal-600"
+            >See Services →</a
+          >
+        </div>
+
+        <div class="grid grid-cols-3 gap-3 mt-4 text-sm text-slate-600">
+          <div class="flex flex-col">
+            <span class="font-semibold text-slate-800"
+              >✔ Certified Engineers</span
+            ><span>Background-checked & trained</span>
+          </div>
+          <div class="flex flex-col">
+            <span class="font-semibold text-slate-800">✔ Upfront Pricing</span
+            ><span>No hidden fees</span>
+          </div>
+          <div class="flex flex-col">
+            <span class="font-semibold text-slate-800">✔ Warranty</span
+            ><span>30-day service warranty</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="relative">
+        <div class="rounded-2xl overflow-hidden shadow-xl">
+          <img
+            src="https://images.unsplash.com/photo-1581579181286-6a7b644a3d61?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder"
+            alt="AC Technician"
+            class="w-full h-72 object-cover"
+          />
+        </div>
+        <div
+          class="absolute bottom-6 left-6 glass p-4 rounded-xl shadow-md w-64"
+        >
+          <p class="text-sm font-medium">Quick call-out price</p>
+          <p class="text-lg font-bold">
+            Service from <span class="text-teal-600">$29</span>
+          </p>
+          <a href="#contact" class="mt-2 inline-block text-sm font-medium"
+            >Check availability →</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services" class="max-w-6xl mx-auto px-6 py-8">
+      <h3 class="text-2xl font-bold mb-4">Our Services</h3>
+      <div class="grid gap-6 md:grid-cols-3">
+        <article
+          class="bg-white p-5 rounded-xl shadow hover:shadow-lg transition"
+        >
+          <h4 class="font-semibold">AC Repair</h4>
+          <p class="text-sm text-slate-600 mt-2">
+            Diagnose & repair faults, compressor issues, leaks, and electrical
+            faults.
+          </p>
+          <p class="mt-3 font-medium">Starting at $40</p>
+        </article>
+
+        <article
+          class="bg-white p-5 rounded-xl shadow hover:shadow-lg transition"
+        >
+          <h4 class="font-semibold">Deep Cleaning & Maintenance</h4>
+          <p class="text-sm text-slate-600 mt-2">
+            Full indoor/outdoor coil clean, filter replacement, and performance
+            tune-up.
+          </p>
+          <p class="mt-3 font-medium">Starting at $59</p>
+        </article>
+
+        <article
+          class="bg-white p-5 rounded-xl shadow hover:shadow-lg transition"
+        >
+          <h4 class="font-semibold">Installation & Replacement</h4>
+          <p class="text-sm text-slate-600 mt-2">
+            Supply & install new units, energy-efficient recommendations, and
+            removal of old units.
+          </p>
+          <p class="mt-3 font-medium">Free quote</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- PROCESS -->
+    <section id="process" class="max-w-6xl mx-auto px-6 py-8">
+      <h3 class="text-2xl font-bold mb-6">How it works</h3>
+      <div class="grid gap-4 md:grid-cols-4">
+        <div class="bg-white p-5 rounded-lg shadow text-center">
+          <div class="text-3xl font-bold">1</div>
+          <p class="mt-2 font-semibold">Book Online</p>
+          <p class="text-sm text-slate-600">
+            Choose a slot or request same-day.
+          </p>
+        </div>
+        <div class="bg-white p-5 rounded-lg shadow text-center">
+          <div class="text-3xl font-bold">2</div>
+          <p class="mt-2 font-semibold">Technician Visit</p>
+          <p class="text-sm text-slate-600">
+            Certified tech inspects & quotes on-site.
+          </p>
+        </div>
+        <div class="bg-white p-5 rounded-lg shadow text-center">
+          <div class="text-3xl font-bold">3</div>
+          <p class="mt-2 font-semibold">Fix & Test</p>
+          <p class="text-sm text-slate-600">
+            Transparent repair, parts shown, test run.
+          </p>
+        </div>
+        <div class="bg-white p-5 rounded-lg shadow text-center">
+          <div class="text-3xl font-bold">4</div>
+          <p class="mt-2 font-semibold">Pay & Warranty</p>
+          <p class="text-sm text-slate-600">
+            Secure payment & 30-day service warranty.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section id="testimonials" class="max-w-6xl mx-auto px-6 py-8">
+      <h3 class="text-2xl font-bold mb-6">Happy customers</h3>
+      <div class="grid gap-6 md:grid-cols-3">
+        <blockquote class="bg-white p-5 rounded-lg shadow">
+          <p class="text-slate-700">
+            "QuickCool fixed our AC in a single visit. The technician was
+            professional and explained everything. Highly recommend!"
+          </p>
+          <footer class="mt-3 text-sm text-slate-500">— Maya R.</footer>
+        </blockquote>
+        <blockquote class="bg-white p-5 rounded-lg shadow">
+          <p class="text-slate-700">
+            "Transparent pricing and fast response. My unit runs like new."
+          </p>
+          <footer class="mt-3 text-sm text-slate-500">— Arif H.</footer>
+        </blockquote>
+        <blockquote class="bg-white p-5 rounded-lg shadow">
+          <p class="text-slate-700">
+            "Great service and a helpful warranty — peace of mind for the
+            summer."
+          </p>
+          <footer class="mt-3 text-sm text-slate-500">— Shamin K.</footer>
+        </blockquote>
+      </div>
+    </section>
+
+    <!-- CONTACT / BOOKING -->
+    <section id="contact" class="max-w-6xl mx-auto px-6 py-12">
+      <div class="grid md:grid-cols-2 gap-8 items-center">
+        <div class="space-y-4">
+          <h3 class="text-2xl font-bold">Book a technician</h3>
+          <p class="text-slate-600">
+            Enter your details and preferred time. We’ll confirm availability
+            and send a technician.
+          </p>
+          <ul class="text-sm text-slate-600 mt-4 space-y-2">
+            <li>• Same/next-day appointments available</li>
+            <li>• Certified, insured technicians</li>
+            <li>• Secure payment at your door</li>
+          </ul>
+
+          <div class="mt-6 flex gap-4">
+            <a
+              href="#"
+              class="inline-flex items-center gap-2 bg-teal-600 text-white px-4 py-3 rounded-lg shadow"
+              >Call Now</a
+            >
+            <a href="#" class="border border-slate-300 px-4 py-3 rounded-lg"
+              >Get a Free Quote</a
+            >
+          </div>
+        </div>
+
+        <form class="bg-white p-6 rounded-xl shadow-lg space-y-4">
+          <div class="grid gap-3">
+            <label class="text-sm font-medium">Full name</label>
+            <input
+              required
+              type="text"
+              placeholder="Your name"
+              class="w-full p-3 rounded-md border border-slate-200"
+            />
+          </div>
+          <div class="grid gap-3">
+            <label class="text-sm font-medium">Phone</label>
+            <input
+              required
+              type="tel"
+              placeholder="+8801XXXXXXXX"
+              class="w-full p-3 rounded-md border border-slate-200"
+            />
+          </div>
+          <div class="grid gap-3">
+            <label class="text-sm font-medium">Service required</label>
+            <select class="w-full p-3 rounded-md border border-slate-200">
+              <option>AC Repair</option>
+              <option>Cleaning & Maintenance</option>
+              <option>Installation</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="grid gap-3">
+            <label class="text-sm font-medium">Preferred date & time</label>
+            <input
+              type="datetime-local"
+              class="w-full p-3 rounded-md border border-slate-200"
+            />
+          </div>
+          <button
+            class="w-full bg-teal-600 text-white p-3 rounded-lg font-medium"
+          >
+            Request Booking
+          </button>
+        </form>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-white border-t mt-12">
+      <div
+        class="max-w-6xl mx-auto px-6 py-6 flex flex-col md:flex-row items-center justify-between gap-4"
+      >
+        <div>
+          <p class="font-semibold">QuickCool</p>
+          <p class="text-sm text-slate-500">
+            AC repair • maintenance • installation
+          </p>
+        </div>
+        <div class="text-sm text-slate-500">
+          © <span id="year"></span> QuickCool. All rights reserved.
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>
