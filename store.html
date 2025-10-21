@@ -3,6 +3,175 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bd Safa - Multi-Service Store</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-gray-50 text-gray-800 font-sans">
+    <!-- Header -->
+    <header class="p-4 bg-white shadow">
+      <div class="max-w-7xl mx-auto flex items-center justify-between">
+        <h1 class="text-2xl font-bold text-teal-700">Bd Safa</h1>
+        <nav class="hidden md:flex gap-6 text-gray-700">
+          <a href="#" class="hover:text-teal-700">Home</a>
+          <a href="#" class="hover:text-teal-700">Categories</a>
+          <a href="#" class="hover:text-teal-700">Contact</a>
+        </nav>
+        <button class="md:hidden text-gray-600 text-2xl">☰</button>
+      </div>
+    </header>
+
+    <!-- Search Bar -->
+    <div class="max-w-4xl mx-auto mt-4 px-4">
+      <input
+        type="text"
+        placeholder="Search products..."
+        class="w-full p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-teal-600"
+      />
+    </div>
+
+    <!-- Category Tabs -->
+    <div class="flex justify-center gap-4 mt-6">
+      <button class="bg-teal-700 text-white px-4 py-2 rounded-lg font-semibold">
+        ALL
+      </button>
+      <button
+        class="bg-white border border-gray-300 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-100"
+      >
+        SALE
+      </button>
+      <button
+        class="bg-white border border-gray-300 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-100"
+      >
+        RENT
+      </button>
+    </div>
+
+    <!-- Products Grid -->
+    <section
+      class="max-w-7xl mx-auto mt-8 px-4 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6"
+    >
+      <!-- Sale Product Example -->
+      <div class="bg-white rounded-2xl shadow p-4 hover:shadow-lg transition">
+        <img
+          src="https://via.placeholder.com/200x150"
+          alt="Switch"
+          class="rounded-lg mb-3 w-full h-32 object-cover"
+        />
+        <h3 class="font-semibold text-gray-800 mb-2">Switch</h3>
+        <div class="flex items-center justify-between">
+          <span class="text-teal-700 font-bold">$25</span>
+          <button
+            class="bg-teal-700 text-white px-4 py-1 rounded-lg text-sm font-semibold hover:bg-teal-800"
+          >
+            BUY
+          </button>
+        </div>
+      </div>
+
+      <!-- Another Sale Product -->
+      <div class="bg-white rounded-2xl shadow p-4 hover:shadow-lg transition">
+        <img
+          src="https://via.placeholder.com/200x150"
+          alt="Fan"
+          class="rounded-lg mb-3 w-full h-32 object-cover"
+        />
+        <h3 class="font-semibold text-gray-800 mb-2">Fan</h3>
+        <div class="flex items-center justify-between">
+          <span class="text-teal-700 font-bold">$60</span>
+          <button
+            class="bg-teal-700 text-white px-4 py-1 rounded-lg text-sm font-semibold hover:bg-teal-800"
+          >
+            BUY
+          </button>
+        </div>
+      </div>
+
+      <!-- Rent Product -->
+      <div class="bg-white rounded-2xl shadow p-4 hover:shadow-lg transition">
+        <img
+          src="https://via.placeholder.com/200x150"
+          alt="Light Setup"
+          class="rounded-lg mb-3 w-full h-32 object-cover"
+        />
+        <h3 class="font-semibold text-gray-800 mb-2">Light Setup</h3>
+        <div class="flex items-center justify-between">
+          <span class="text-teal-700 font-bold">$15/day</span>
+          <button
+            class="bg-orange-500 text-white px-4 py-1 rounded-lg text-sm font-semibold hover:bg-orange-600"
+          >
+            RENT
+          </button>
+        </div>
+      </div>
+
+      <!-- Rent Product -->
+      <div class="bg-white rounded-2xl shadow p-4 hover:shadow-lg transition">
+        <img
+          src="https://via.placeholder.com/200x150"
+          alt="Mic Setup"
+          class="rounded-lg mb-3 w-full h-32 object-cover"
+        />
+        <h3 class="font-semibold text-gray-800 mb-2">Mic Setup</h3>
+        <div class="flex items-center justify-between">
+          <span class="text-teal-700 font-bold">$10/day</span>
+          <button
+            class="bg-orange-500 text-white px-4 py-1 rounded-lg text-sm font-semibold hover:bg-orange-600"
+          >
+            RENT
+          </button>
+        </div>
+      </div>
+
+      <!-- More Products -->
+      <div class="bg-white rounded-2xl shadow p-4 hover:shadow-lg transition">
+        <img
+          src="https://via.placeholder.com/200x150"
+          alt="Regulator"
+          class="rounded-lg mb-3 w-full h-32 object-cover"
+        />
+        <h3 class="font-semibold text-gray-800 mb-2">Regulator</h3>
+        <div class="flex items-center justify-between">
+          <span class="text-teal-700 font-bold">$18</span>
+          <button
+            class="bg-teal-700 text-white px-4 py-1 rounded-lg text-sm font-semibold hover:bg-teal-800"
+          >
+            BUY
+          </button>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-2xl shadow p-4 hover:shadow-lg transition">
+        <img
+          src="https://via.placeholder.com/200x150"
+          alt="Stand Fan Rent"
+          class="rounded-lg mb-3 w-full h-32 object-cover"
+        />
+        <h3 class="font-semibold text-gray-800 mb-2">Stand Fan Rent</h3>
+        <div class="flex items-center justify-between">
+          <span class="text-teal-700 font-bold">$12/day</span>
+          <button
+            class="bg-orange-500 text-white px-4 py-1 rounded-lg text-sm font-semibold hover:bg-orange-600"
+          >
+            RENT
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer
+      class="mt-12 bg-white border-t py-6 text-center text-sm text-gray-600"
+    >
+      © 2025 Bd Safa | All Rights Reserved
+    </footer>
+  </body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>VoltFix Store</title>
     <link
       href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
