@@ -1,156 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Bd Safa - Multi-Service Store</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Bd Safa — Product Store</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      .fade-in {
+        animation: fadeIn 0.22s ease-in;
+      }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(6px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .hide-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+      .hide-scrollbar::-webkit-scrollbar {
+        display: none;
+      }
+    </style>
   </head>
-  <body class="bg-gray-50 text-gray-800 font-sans">
+  <body class="antialiased bg-gray-50 text-slate-800">
     <!-- Header -->
-    <header class="p-4 bg-white shadow">
-      <div class="max-w-7xl mx-auto flex items-center justify-between">
-        <h1 class="text-2xl font-bold text-teal-700">Bd Safa</h1>
-        <nav class="hidden md:flex gap-6 text-gray-700">
-          <a href="#" class="hover:text-teal-700">Home</a>
-          <a href="#" class="hover:text-teal-700">Categories</a>
-          <a href="#" class="hover:text-teal-700">Contact</a>
-        </nav>
-        <button class="md:hidden text-gray-600 text-2xl">☰</button>
+    <header class="bg-white border-b sticky top-0 z-40">
+      <div class="max-w-6xl mx-auto px-4 py-3 flex items-center gap-3">
+        <h1 class="text-xl font-bold text-teal-700">Bd Safa</h1>
+        <div class="flex-1">
+          <input
+            id="searchInput"
+            type="search"
+            placeholder="Search products..."
+            class="w-full px-3 py-2 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-teal-500 text-sm"
+          />
+        </div>
+        <button class="text-2xl text-slate-600 ml-2">🛒</button>
       </div>
     </header>
 
-    <!-- Search Bar -->
-    <div class="max-w-4xl mx-auto mt-4 px-4">
-      <input
-        type="text"
-        placeholder="Search products..."
-        class="w-full p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-teal-600"
-      />
-    </div>
+    <!-- Hero -->
+    <section class="bg-white border-b">
+      <div class="max-w-6xl mx-auto px-4 py-6 text-center md:text-left">
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-800">
+          Products for Sale & Rent
+        </h2>
+        <p class="text-sm text-slate-600 mt-1">
+          AC repair, electrical, plumbing, and event management
+        </p>
 
-    <!-- Category Tabs -->
-    <div class="flex justify-center gap-4 mt-6">
-      <button class="bg-teal-700 text-white px-4 py-2 rounded-lg font-semibold">
-        ALL
-      </button>
-      <button
-        class="bg-white border border-gray-300 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-100"
-      >
-        SALE
-      </button>
-      <button
-        class="bg-white border border-gray-300 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-100"
-      >
-        RENT
-      </button>
-    </div>
-
-    <!-- Products Grid -->
-    <section
-      class="max-w-7xl mx-auto mt-8 px-4 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6"
-    >
-      <!-- Sale Product Example -->
-      <div class="bg-white rounded-2xl shadow p-4 hover:shadow-lg transition">
-        <img
-          src="https://via.placeholder.com/200x150"
-          alt="Switch"
-          class="rounded-lg mb-3 w-full h-32 object-cover"
-        />
-        <h3 class="font-semibold text-gray-800 mb-2">Switch</h3>
-        <div class="flex items-center justify-between">
-          <span class="text-teal-700 font-bold">$25</span>
-          <button
-            class="bg-teal-700 text-white px-4 py-1 rounded-lg text-sm font-semibold hover:bg-teal-800"
+        <!-- Category slider -->
+        <div class="mt-5 relative">
+          <div
+            id="categorySlider"
+            class="flex gap-3 overflow-x-auto hide-scrollbar py-1 justify-center md:justify-start"
           >
-            BUY
-          </button>
+            <!-- Categories rendered by JS -->
+          </div>
         </div>
-      </div>
 
-      <!-- Another Sale Product -->
-      <div class="bg-white rounded-2xl shadow p-4 hover:shadow-lg transition">
-        <img
-          src="https://via.placeholder.com/200x150"
-          alt="Fan"
-          class="rounded-lg mb-3 w-full h-32 object-cover"
-        />
-        <h3 class="font-semibold text-gray-800 mb-2">Fan</h3>
-        <div class="flex items-center justify-between">
-          <span class="text-teal-700 font-bold">$60</span>
+        <!-- Filters (ALL / SALE / RENT) -->
+        <div class="flex justify-center md:justify-start gap-2 mt-5">
           <button
-            class="bg-teal-700 text-white px-4 py-1 rounded-lg text-sm font-semibold hover:bg-teal-800"
+            id="filterAll"
+            class="filter-tab px-3 py-2 rounded-lg bg-teal-700 text-white text-sm font-semibold"
           >
-            BUY
+            ALL
           </button>
-        </div>
-      </div>
-
-      <!-- Rent Product -->
-      <div class="bg-white rounded-2xl shadow p-4 hover:shadow-lg transition">
-        <img
-          src="https://via.placeholder.com/200x150"
-          alt="Light Setup"
-          class="rounded-lg mb-3 w-full h-32 object-cover"
-        />
-        <h3 class="font-semibold text-gray-800 mb-2">Light Setup</h3>
-        <div class="flex items-center justify-between">
-          <span class="text-teal-700 font-bold">$15/day</span>
           <button
-            class="bg-orange-500 text-white px-4 py-1 rounded-lg text-sm font-semibold hover:bg-orange-600"
+            id="filterSale"
+            class="filter-tab px-3 py-2 rounded-lg bg-white border border-gray-200 text-sm"
           >
-            RENT
+            SALE
           </button>
-        </div>
-      </div>
-
-      <!-- Rent Product -->
-      <div class="bg-white rounded-2xl shadow p-4 hover:shadow-lg transition">
-        <img
-          src="https://via.placeholder.com/200x150"
-          alt="Mic Setup"
-          class="rounded-lg mb-3 w-full h-32 object-cover"
-        />
-        <h3 class="font-semibold text-gray-800 mb-2">Mic Setup</h3>
-        <div class="flex items-center justify-between">
-          <span class="text-teal-700 font-bold">$10/day</span>
           <button
-            class="bg-orange-500 text-white px-4 py-1 rounded-lg text-sm font-semibold hover:bg-orange-600"
-          >
-            RENT
-          </button>
-        </div>
-      </div>
-
-      <!-- More Products -->
-      <div class="bg-white rounded-2xl shadow p-4 hover:shadow-lg transition">
-        <img
-          src="https://via.placeholder.com/200x150"
-          alt="Regulator"
-          class="rounded-lg mb-3 w-full h-32 object-cover"
-        />
-        <h3 class="font-semibold text-gray-800 mb-2">Regulator</h3>
-        <div class="flex items-center justify-between">
-          <span class="text-teal-700 font-bold">$18</span>
-          <button
-            class="bg-teal-700 text-white px-4 py-1 rounded-lg text-sm font-semibold hover:bg-teal-800"
-          >
-            BUY
-          </button>
-        </div>
-      </div>
-
-      <div class="bg-white rounded-2xl shadow p-4 hover:shadow-lg transition">
-        <img
-          src="https://via.placeholder.com/200x150"
-          alt="Stand Fan Rent"
-          class="rounded-lg mb-3 w-full h-32 object-cover"
-        />
-        <h3 class="font-semibold text-gray-800 mb-2">Stand Fan Rent</h3>
-        <div class="flex items-center justify-between">
-          <span class="text-teal-700 font-bold">$12/day</span>
-          <button
-            class="bg-orange-500 text-white px-4 py-1 rounded-lg text-sm font-semibold hover:bg-orange-600"
+            id="filterRent"
+            class="filter-tab px-3 py-2 rounded-lg bg-white border border-gray-200 text-sm"
           >
             RENT
           </button>
@@ -158,12 +89,324 @@
       </div>
     </section>
 
-    <!-- Footer -->
-    <footer
-      class="mt-12 bg-white border-t py-6 text-center text-sm text-gray-600"
+    <!-- Page layout -->
+    <main
+      class="max-w-6xl mx-auto px-4 py-6 grid grid-cols-1 md:grid-cols-5 gap-6"
     >
-      © 2025 Bd Safa | All Rights Reserved
+      <!-- Sidebar Filter -->
+      <aside
+        class="hidden md:block bg-white rounded-xl shadow-sm p-4 h-fit sticky top-24"
+      >
+        <h3 class="text-lg font-semibold text-slate-800 mb-3">
+          Filter Products
+        </h3>
+
+        <!-- Category Filter -->
+        <div class="mb-5">
+          <h4 class="text-sm font-bold mb-2 text-slate-700">Category</h4>
+          <div class="space-y-2 text-sm">
+            <label class="flex items-center gap-2">
+              <input type="checkbox" class="filter-checkbox" value="ac" /> AC
+              Repair
+            </label>
+            <label class="flex items-center gap-2">
+              <input
+                type="checkbox"
+                class="filter-checkbox"
+                value="electrical"
+              />
+              Electrical
+            </label>
+            <label class="flex items-center gap-2">
+              <input type="checkbox" class="filter-checkbox" value="plumbing" />
+              Plumbing
+            </label>
+            <label class="flex items-center gap-2">
+              <input type="checkbox" class="filter-checkbox" value="event" />
+              Event
+            </label>
+          </div>
+        </div>
+
+        <!-- Price Range -->
+        <div class="mb-5">
+          <h4 class="text-sm font-bold mb-2 text-slate-700">Price Range</h4>
+          <div class="flex gap-2 items-center">
+            <input
+              id="minPrice"
+              type="number"
+              placeholder="Min"
+              class="w-1/2 border rounded-md px-2 py-1 text-sm focus:ring-2 focus:ring-teal-500"
+            />
+            <input
+              id="maxPrice"
+              type="number"
+              placeholder="Max"
+              class="w-1/2 border rounded-md px-2 py-1 text-sm focus:ring-2 focus:ring-teal-500"
+            />
+          </div>
+        </div>
+
+        <button
+          id="resetFilters"
+          class="w-full mt-3 bg-gray-100 hover:bg-gray-200 text-sm font-semibold text-slate-700 py-2 rounded-md"
+        >
+          Reset Filters
+        </button>
+      </aside>
+
+      <!-- Product Grid -->
+      <section class="md:col-span-4">
+        <div
+          id="productGrid"
+          class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4"
+        >
+          <!-- Product cards generated by JS -->
+        </div>
+      </section>
+    </main>
+
+    <footer
+      class="max-w-6xl mx-auto px-4 py-6 text-center text-sm text-slate-500"
+    >
+      © 2025 Bd Safa — All rights reserved
     </footer>
+
+    <!-- Template -->
+    <template id="productTpl">
+      <article
+        class="prod-card bg-white rounded-xl shadow-sm p-3 flex flex-col gap-3 fade-in"
+      >
+        <div class="w-full h-28 rounded-lg overflow-hidden bg-gray-50">
+          <img class="w-full h-full object-contain" alt="product image" />
+        </div>
+        <div>
+          <h3 class="prod-name text-sm font-semibold text-slate-800"></h3>
+        </div>
+        <div class="mt-auto flex items-center justify-between gap-3">
+          <div class="prod-price text-teal-700 font-bold text-sm"></div>
+          <button
+            class="prod-action px-3 py-1 rounded-md text-sm font-semibold"
+          ></button>
+        </div>
+      </article>
+    </template>
+
+    <script>
+      /* ====== Data ====== */
+      const categories = [
+        { id: "all", label: "All" },
+        { id: "ac", label: "AC Repair" },
+        { id: "electrical", label: "Electrical" },
+        { id: "plumbing", label: "Plumbing" },
+        { id: "event", label: "Event" },
+      ];
+
+      const products = [
+        {
+          id: 1,
+          name: "Switch",
+          price: 25,
+          type: "sale",
+          cat: "electrical",
+          img: "https://via.placeholder.com/300x200?text=Switch",
+        },
+        {
+          id: 2,
+          name: "Fan",
+          price: 60,
+          type: "sale",
+          cat: "electrical",
+          img: "https://via.placeholder.com/300x200?text=Fan",
+        },
+        {
+          id: 3,
+          name: "AC Unit",
+          price: 500,
+          type: "sale",
+          cat: "ac",
+          img: "https://via.placeholder.com/300x200?text=AC+Unit",
+        },
+        {
+          id: 4,
+          name: "Regulator",
+          price: 18,
+          type: "sale",
+          cat: "electrical",
+          img: "https://via.placeholder.com/300x200?text=Regulator",
+        },
+        {
+          id: 5,
+          name: "Light Setup",
+          price: 100,
+          type: "rent",
+          cat: "event",
+          img: "https://via.placeholder.com/300x200?text=Light+Setup",
+        },
+        {
+          id: 6,
+          name: "Mic Setup",
+          price: 15,
+          type: "rent",
+          cat: "event",
+          img: "https://via.placeholder.com/300x200?text=Mic+Setup",
+        },
+        {
+          id: 7,
+          name: "Stand Fan (Rent)",
+          price: 12,
+          type: "rent",
+          cat: "ac",
+          img: "https://via.placeholder.com/300x200?text=Stand+Fan",
+        },
+        {
+          id: 8,
+          name: "Plumbing Hose",
+          price: 30,
+          type: "sale",
+          cat: "plumbing",
+          img: "https://via.placeholder.com/300x200?text=Plumbing+Hose",
+        },
+      ];
+
+      const categorySliderEl = document.getElementById("categorySlider");
+      const productGridEl = document.getElementById("productGrid");
+      const productTpl = document.getElementById("productTpl");
+      const searchInput = document.getElementById("searchInput");
+      const minPrice = document.getElementById("minPrice");
+      const maxPrice = document.getElementById("maxPrice");
+      const checkboxes = document.querySelectorAll(".filter-checkbox");
+      const resetBtn = document.getElementById("resetFilters");
+
+      const filterAllBtn = document.getElementById("filterAll");
+      const filterSaleBtn = document.getElementById("filterSale");
+      const filterRentBtn = document.getElementById("filterRent");
+
+      /* ====== Render categories ====== */
+      function renderCategories() {
+        categorySliderEl.innerHTML = "";
+        categories.forEach((cat) => {
+          const btn = document.createElement("button");
+          btn.className = `category-btn flex-shrink-0 px-4 py-2 rounded-lg text-sm font-semibold ${
+            cat.id === "all"
+              ? "bg-teal-700 text-white"
+              : "bg-white border border-gray-200 text-slate-700"
+          }`;
+          btn.dataset.cat = cat.id;
+          btn.textContent = cat.label;
+          btn.addEventListener("click", () => {
+            document.querySelectorAll(".category-btn").forEach((b) => {
+              b.classList.remove("bg-teal-700", "text-white");
+              b.classList.add(
+                "bg-white",
+                "border",
+                "border-gray-200",
+                "text-slate-700"
+              );
+            });
+            btn.classList.add("bg-teal-700", "text-white");
+            activeCategory = cat.id === "all" ? null : cat.id;
+            applyFilters();
+          });
+          categorySliderEl.appendChild(btn);
+        });
+      }
+
+      /* ====== Render products ====== */
+      function renderProducts(list) {
+        productGridEl.innerHTML = "";
+        list.forEach((p) => {
+          const tpl = productTpl.content.cloneNode(true);
+          tpl.querySelector("img").src = p.img;
+          tpl.querySelector(".prod-name").textContent = p.name;
+          tpl.querySelector(".prod-price").textContent = `$${p.price}${
+            p.type === "rent" ? "/day" : ""
+          }`;
+          const btn = tpl.querySelector(".prod-action");
+          if (p.type === "sale") {
+            btn.textContent = "BUY";
+            btn.classList.add("bg-teal-700", "text-white");
+          } else {
+            btn.textContent = "RENT";
+            btn.classList.add("bg-orange-500", "text-white");
+          }
+          productGridEl.appendChild(tpl);
+        });
+      }
+
+      /* ====== Filters ====== */
+      let activeCategory = null;
+      let activeType = null;
+
+      function applyFilters() {
+        const q = searchInput.value.trim().toLowerCase();
+        const min = parseFloat(minPrice.value) || 0;
+        const max = parseFloat(maxPrice.value) || Infinity;
+        const checkedCats = Array.from(checkboxes)
+          .filter((cb) => cb.checked)
+          .map((cb) => cb.value);
+
+        const filtered = products.filter(
+          (p) =>
+            (!activeCategory || p.cat === activeCategory) &&
+            (!activeType || p.type === activeType) &&
+            (checkedCats.length ? checkedCats.includes(p.cat) : true) &&
+            p.price >= min &&
+            p.price <= max &&
+            p.name.toLowerCase().includes(q)
+        );
+        renderProducts(filtered);
+      }
+
+      searchInput.addEventListener("input", applyFilters);
+      [minPrice, maxPrice].forEach((el) =>
+        el.addEventListener("input", applyFilters)
+      );
+      checkboxes.forEach((cb) => cb.addEventListener("change", applyFilters));
+
+      resetBtn.addEventListener("click", () => {
+        minPrice.value = "";
+        maxPrice.value = "";
+        checkboxes.forEach((cb) => (cb.checked = false));
+        activeCategory = null;
+        activeType = null;
+        searchInput.value = "";
+        renderProducts(products);
+      });
+
+      // Main filter buttons
+      [filterAllBtn].forEach((b) =>
+        b.addEventListener("click", () => {
+          activeType = null;
+          applyFilters();
+          highlight(b);
+        })
+      );
+      [filterSaleBtn].forEach((b) =>
+        b.addEventListener("click", () => {
+          activeType = "sale";
+          applyFilters();
+          highlight(b);
+        })
+      );
+      [filterRentBtn].forEach((b) =>
+        b.addEventListener("click", () => {
+          activeType = "rent";
+          applyFilters();
+          highlight(b);
+        })
+      );
+
+      function highlight(activeBtn) {
+        [filterAllBtn, filterSaleBtn, filterRentBtn].forEach((b) =>
+          b.classList.remove("bg-teal-700", "text-white")
+        );
+        activeBtn.classList.add("bg-teal-700", "text-white");
+      }
+
+      renderCategories();
+      renderProducts(products);
+    </script>
   </body>
 </html>
 
