@@ -372,7 +372,7 @@
             <li
               class="py-2 px-2 flex flex-col items-center cursor-pointer hover:bg-gray-200"
               onclick="showServices(this, 'Plumbing Services')"
-              data-link="new.html"
+              data-link="plumbing.html"
               data-type="small"
             >
               <img
@@ -574,6 +574,276 @@
         firstCategory.click();
       }
     </script>
+
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Multi-Services — Home</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <style>
+          .service-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 30px rgba(17, 24, 39, 0.08);
+          }
+          .badge-soft {
+            background: linear-gradient(90deg, #06b6d4, #34d39980);
+          }
+        </style>
+      </head>
+      <body class="bg-gray-50 text-slate-800 antialiased">
+        <main class="max-w-6xl mx-auto px-4 sm:px-8 py-10 sm:py-14">
+          <!-- HERO SECTION -->
+          <section
+            class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center mb-12"
+          >
+            <div class="lg:col-span-7 text-center lg:text-left">
+              <div
+                class="inline-flex items-center justify-center lg:justify-start gap-3 mb-4"
+              >
+                <span
+                  class="px-3 py-1 rounded-full badge-soft text-white text-xs sm:text-sm font-semibold"
+                  >Trusted Multi-Services</span
+                >
+                <span class="text-xs sm:text-sm text-slate-500 hidden sm:inline"
+                  >Residential • Commercial • Industrial</span
+                >
+              </div>
+              <h1
+                class="text-2xl sm:text-4xl font-extrabold leading-tight mb-3"
+              >
+                Complete Home & Business Services — AC, Electric, Plumbing,
+                Events & More
+              </h1>
+              <p class="text-sm sm:text-lg text-slate-600 mb-6">
+                Book certified technicians or request quotes for large projects.
+                Fast response, transparent pricing, and tailored plans for every
+                property type.
+              </p>
+              <div
+                class="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start"
+              >
+                <a
+                  href="#book"
+                  class="inline-flex items-center justify-center gap-2 bg-teal-500 hover:bg-teal-600 text-white font-semibold px-4 sm:px-5 py-2 sm:py-3 rounded-lg shadow text-sm sm:text-base"
+                  >Book Now</a
+                >
+                <a
+                  href="#quote"
+                  class="inline-flex items-center justify-center gap-2 border border-slate-200 px-4 sm:px-5 py-2 sm:py-3 rounded-lg text-slate-700 hover:shadow text-sm sm:text-base"
+                  >Request Quote</a
+                >
+              </div>
+            </div>
+            <div class="lg:col-span-5 mt-8 lg:mt-0">
+              <div class="bg-white rounded-2xl overflow-hidden shadow-lg">
+                <img
+                  src="https://via.placeholder.com/760x460.png?text=Services+Preview"
+                  alt="services preview"
+                  class="w-full h-48 sm:h-64 object-cover"
+                />
+                <div
+                  class="p-4 sm:p-6 grid grid-cols-2 gap-3 sm:gap-4 text-xs sm:text-sm"
+                >
+                  <div class="rounded-lg border p-2 sm:p-4 text-slate-700">
+                    AC Repair — Same-day visits
+                  </div>
+                  <div class="rounded-lg border p-2 sm:p-4 text-slate-700">
+                    Electrical — Certified electricians
+                  </div>
+                  <div class="rounded-lg border p-2 sm:p-4 text-slate-700">
+                    Plumbing — Emergency & scheduled
+                  </div>
+                  <div class="rounded-lg border p-2 sm:p-4 text-slate-700">
+                    Event Management — Full coordination
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- CHOICE HUB -->
+          <section class="mb-12">
+            <h2
+              class="text-xl sm:text-2xl font-semibold mb-6 text-center sm:text-left"
+            >
+              Choice Hub
+            </h2>
+            <div
+              class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6"
+            >
+              <article
+                class="service-card bg-white border rounded-2xl p-4 sm:p-6 hover:shadow-md transition-transform duration-200"
+              >
+                <h3 class="text-base sm:text-lg font-semibold mb-2">
+                  Home Services & Small Renovation
+                </h3>
+                <p class="text-xs sm:text-sm text-slate-500 mb-4">
+                  Quick AC fixes, rewiring, plumbing, and small upgrades.
+                </p>
+                <a
+                  href="#book"
+                  class="inline-block bg-teal-500 text-white px-4 py-2 rounded-lg text-sm font-semibold"
+                  >Book Now</a
+                >
+              </article>
+
+              <article
+                class="service-card bg-white border rounded-2xl p-4 sm:p-6 hover:shadow-md transition-transform duration-200"
+              >
+                <h3 class="text-base sm:text-lg font-semibold mb-2">
+                  Large Construction & Industrial Projects
+                </h3>
+                <p class="text-xs sm:text-sm text-slate-500 mb-4">
+                  End-to-end project management with certified teams.
+                </p>
+                <a
+                  href="#quote"
+                  class="inline-block bg-orange-500 text-white px-4 py-2 rounded-lg text-sm font-semibold"
+                  >Request Quote</a
+                >
+              </article>
+
+              <article
+                class="service-card bg-white border rounded-2xl p-4 sm:p-6 hover:shadow-md transition-transform duration-200"
+              >
+                <h3 class="text-base sm:text-lg font-semibold mb-2">
+                  Event Management & Venue Services
+                </h3>
+                <p class="text-xs sm:text-sm text-slate-500 mb-4">
+                  Complete setup for corporate and private events.
+                </p>
+                <a
+                  href="#contact"
+                  class="inline-block border border-slate-200 px-4 py-2 rounded-lg text-sm font-semibold"
+                  >Contact Us</a
+                >
+              </article>
+            </div>
+          </section>
+
+          <!-- SERVICE TYPES -->
+          <section class="mb-12">
+            <h2
+              class="text-xl sm:text-2xl font-semibold mb-6 text-center sm:text-left"
+            >
+              Service Types
+            </h2>
+            <div
+              class="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 text-xs sm:text-sm"
+            >
+              <div
+                class="bg-white border rounded-2xl p-4 flex items-center gap-3"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-6 w-6 text-teal-600"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path d="M10 2L2 6v6a6 6 0 0012 0V6l-4-4z" />
+                </svg>
+                <div>
+                  <h4 class="font-semibold">Residential</h4>
+                  <p class="text-slate-500">Repairs & maintenance plans.</p>
+                </div>
+              </div>
+
+              <div
+                class="bg-white border rounded-2xl p-4 flex items-center gap-3"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-6 w-6 text-sky-600"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path d="M3 3h14v4H3V3zM3 9h14v8H3V9z" />
+                </svg>
+                <div>
+                  <h4 class="font-semibold">Commercial</h4>
+                  <p class="text-slate-500">
+                    Maintenance contracts & fast response.
+                  </p>
+                </div>
+              </div>
+
+              <div
+                class="bg-white border rounded-2xl p-4 flex items-center gap-3"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-6 w-6 text-amber-600"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path d="M2 13l6-9 6 9H2z" />
+                </svg>
+                <div>
+                  <h4 class="font-semibold">Industrial</h4>
+                  <p class="text-slate-500">
+                    Large-scale installs & compliance.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- HOW IT WORKS -->
+          <section class="mb-16">
+            <h2
+              class="text-xl sm:text-2xl font-semibold mb-6 text-center sm:text-left"
+            >
+              How It Works
+            </h2>
+            <div
+              class="bg-white border rounded-2xl p-6 flex flex-col sm:flex-row items-center justify-between text-center sm:text-left gap-6 sm:gap-0"
+            >
+              <div
+                class="flex items-center justify-center sm:justify-start gap-4 sm:gap-8"
+              >
+                <div class="text-center">
+                  <div
+                    class="w-14 h-14 sm:w-20 sm:h-20 rounded-full bg-teal-500 text-white flex items-center justify-center font-semibold text-lg sm:text-xl"
+                  >
+                    1
+                  </div>
+                  <p class="mt-2 font-semibold text-sm sm:text-base">Book</p>
+                </div>
+                <div
+                  class="w-10 sm:w-12 h-1 bg-slate-200 hidden sm:block"
+                ></div>
+                <div class="text-center">
+                  <div
+                    class="w-14 h-14 sm:w-20 sm:h-20 rounded-full bg-sky-500 text-white flex items-center justify-center font-semibold text-lg sm:text-xl"
+                  >
+                    2
+                  </div>
+                  <p class="mt-2 font-semibold text-sm sm:text-base">Confirm</p>
+                </div>
+                <div
+                  class="w-10 sm:w-12 h-1 bg-slate-200 hidden sm:block"
+                ></div>
+                <div class="text-center">
+                  <div
+                    class="w-14 h-14 sm:w-20 sm:h-20 rounded-full bg-amber-500 text-white flex items-center justify-center font-semibold text-lg sm:text-xl"
+                  >
+                    3
+                  </div>
+                  <p class="mt-2 font-semibold text-sm sm:text-base">Fix</p>
+                </div>
+              </div>
+              <a
+                href="#book"
+                class="bg-teal-600 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-semibold text-sm sm:text-base"
+                >Get Started</a
+              >
+            </div>
+          </section>
+        </main>
+      </body>
+    </html>
 
     <!-- Hero Section -->
     <section class="w-full bg-gray-50 py-12">
@@ -1252,6 +1522,243 @@
       </div>
     </section>
 
+    <!-- Bottom Navigation (HTML + CSS) snippet for site integration -->
+
+    <style>
+      :root {
+        --bg: #ffffff;
+        --muted: #6b7280;
+        --accent: linear-gradient(90deg, #06b6d4, #3b82f6);
+        --cta-bg: #0ea5a4;
+        --shadow: 0 6px 18px rgba(11, 42, 79, 0.12);
+        --radius: 14px;
+        font-family: system-ui, -apple-system, "Segoe UI", Roboto,
+          "Helvetica Neue", Arial;
+      }
+
+      .bottom-nav {
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 16px;
+        display: flex;
+        justify-content: center;
+        pointer-events: auto;
+        z-index: 9999;
+      }
+      .bottom-nav__inner {
+        width: min(800px, calc(100% - 32px));
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(6px);
+        box-shadow: var(--shadow);
+        border-radius: var(--radius);
+        padding: 8px 12px;
+        display: flex;
+        gap: 8px;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .nav-item {
+        flex: 1;
+        text-align: center;
+        text-decoration: none;
+        color: var(--muted);
+        font-size: 13px;
+        padding: 8px 6px;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 6px;
+      }
+      .nav-item:focus {
+        outline: 2px solid rgba(59, 130, 246, 0.2);
+        outline-offset: 3px;
+      }
+      .nav-item .label {
+        line-height: 1;
+      }
+
+      .nav-item.active {
+        color: #0f172a;
+        font-weight: 600;
+      }
+
+      .nav-cta {
+        transform: translateY(-6px);
+        background: var(--accent);
+        color: white;
+        padding: 10px 16px;
+        border-radius: 12px;
+        box-shadow: 0 10px 20px rgba(59, 130, 246, 0.18);
+        display: flex;
+        gap: 8px;
+        align-items: center;
+        justify-content: center;
+        min-width: 140px;
+      }
+      .nav-cta .label {
+        font-weight: 700;
+      }
+
+      .icon {
+        width: 20px;
+        height: 20px;
+        display: block;
+      }
+
+      @media (min-width: 900px) {
+        .bottom-nav {
+          bottom: 28px;
+        }
+        .bottom-nav__inner {
+          width: 520px;
+        }
+        .nav-item .label {
+          font-size: 12px;
+        }
+      }
+    </style>
+
+    <nav class="bottom-nav" aria-label="Primary" id="bottomNav">
+      <div class="bottom-nav__inner">
+        <a href="/" class="nav-item" data-key="home" aria-current="page">
+          <svg
+            class="icon"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
+          >
+            <path
+              d="M3 10.5L12 4l9 6.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1V10.5z"
+              stroke="currentColor"
+              stroke-width="1.4"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+          <span class="label">Home</span>
+        </a>
+
+        <a href="/store" class="nav-item" data-key="store">
+          <svg
+            class="icon"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
+          >
+            <path
+              d="M6 7h12l-1 11H7L6 7z"
+              stroke="currentColor"
+              stroke-width="1.4"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M9 7V5a3 3 0 0 1 6 0v2"
+              stroke="currentColor"
+              stroke-width="1.4"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+          <span class="label">Store</span>
+        </a>
+
+        <a href="/book" class="nav-item nav-cta" data-key="book">
+          <svg
+            class="icon"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
+          >
+            <path
+              d="M7 11h10M7 15h6"
+              stroke="currentColor"
+              stroke-width="1.6"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <rect
+              x="3.5"
+              y="3.5"
+              width="17"
+              height="17"
+              rx="2.5"
+              stroke="currentColor"
+              stroke-width="1.6"
+            />
+          </svg>
+          <span class="label">Book Now</span>
+        </a>
+
+        <a href="/contact" class="nav-item" data-key="contact">
+          <svg
+            class="icon"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
+          >
+            <path
+              d="M21 10c0 7-9 11-9 11s-9-4-9-11a9 9 0 0 1 18 0z"
+              stroke="currentColor"
+              stroke-width="1.4"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <circle
+              cx="12"
+              cy="10"
+              r="3"
+              stroke="currentColor"
+              stroke-width="1.4"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+          <span class="label">Contact</span>
+        </a>
+      </div>
+    </nav>
+
+    <script>
+      (function () {
+        const nav = document.getElementById("bottomNav");
+        if (!nav) return;
+        nav.addEventListener("click", function (e) {
+          const a = e.target.closest("a.nav-item");
+          if (!a) return;
+          nav.querySelectorAll("a.nav-item").forEach((it) => {
+            it.classList.remove("active");
+            it.removeAttribute("aria-current");
+          });
+          a.classList.add("active");
+          a.setAttribute("aria-current", "page");
+        });
+
+        const pathname = location.pathname || "/";
+        const map = {
+          "/": "home",
+          "/store": "store",
+          "/book": "book",
+          "/contact": "contact",
+        };
+        const key = map[pathname];
+        if (key) {
+          const el = nav.querySelector('[data-key="' + key + '"]');
+          if (el) {
+            el.classList.add("active");
+            el.setAttribute("aria-current", "page");
+          }
+        }
+      })();
+    </script>
+
     <!-- Footer -->
     <footer class="bg-gray-900 text-white pt-10">
       <div class="max-w-6xl mx-auto px-4 md:px-8">
@@ -1306,4 +1813,3 @@
     </footer>
   </body>
 </html>
-
