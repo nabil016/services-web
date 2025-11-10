@@ -575,1241 +575,690 @@
       }
     </script>
 
-    <!DOCTYPE html>
-    <html lang="en">
-      <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>Multi-Services — Home</title>
-        <script src="https://cdn.tailwindcss.com"></script>
-        <style>
-          .service-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 12px 30px rgba(17, 24, 39, 0.08);
-          }
-          .badge-soft {
-            background: linear-gradient(90deg, #06b6d4, #34d39980);
-          }
-        </style>
-      </head>
-      <body class="bg-gray-50 text-slate-800 antialiased">
-        <main class="max-w-6xl mx-auto px-4 sm:px-8 py-10 sm:py-14">
-          <!-- HERO SECTION -->
-          <section
-            class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center mb-12"
-          >
-            <div class="lg:col-span-7 text-center lg:text-left">
-              <div
-                class="inline-flex items-center justify-center lg:justify-start gap-3 mb-4"
-              >
-                <span
-                  class="px-3 py-1 rounded-full badge-soft text-white text-xs sm:text-sm font-semibold"
-                  >Trusted Multi-Services</span
-                >
-                <span class="text-xs sm:text-sm text-slate-500 hidden sm:inline"
-                  >Residential • Commercial • Industrial</span
-                >
-              </div>
-              <h1
-                class="text-2xl sm:text-4xl font-extrabold leading-tight mb-3"
-              >
-                Complete Home & Business Services — AC, Electric, Plumbing,
-                Events & More
-              </h1>
-              <p class="text-sm sm:text-lg text-slate-600 mb-6">
-                Book certified technicians or request quotes for large projects.
-                Fast response, transparent pricing, and tailored plans for every
-                property type.
-              </p>
-              <div
-                class="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start"
-              >
-                <a
-                  href="#book"
-                  class="inline-flex items-center justify-center gap-2 bg-teal-500 hover:bg-teal-600 text-white font-semibold px-4 sm:px-5 py-2 sm:py-3 rounded-lg shadow text-sm sm:text-base"
-                  >Book Now</a
-                >
-                <a
-                  href="#quote"
-                  class="inline-flex items-center justify-center gap-2 border border-slate-200 px-4 sm:px-5 py-2 sm:py-3 rounded-lg text-slate-700 hover:shadow text-sm sm:text-base"
-                  >Request Quote</a
-                >
-              </div>
-            </div>
-            <div class="lg:col-span-5 mt-8 lg:mt-0">
-              <div class="bg-white rounded-2xl overflow-hidden shadow-lg">
-                <img
-                  src="https://via.placeholder.com/760x460.png?text=Services+Preview"
-                  alt="services preview"
-                  class="w-full h-48 sm:h-64 object-cover"
-                />
-                <div
-                  class="p-4 sm:p-6 grid grid-cols-2 gap-3 sm:gap-4 text-xs sm:text-sm"
-                >
-                  <div class="rounded-lg border p-2 sm:p-4 text-slate-700">
-                    AC Repair — Same-day visits
-                  </div>
-                  <div class="rounded-lg border p-2 sm:p-4 text-slate-700">
-                    Electrical — Certified electricians
-                  </div>
-                  <div class="rounded-lg border p-2 sm:p-4 text-slate-700">
-                    Plumbing — Emergency & scheduled
-                  </div>
-                  <div class="rounded-lg border p-2 sm:p-4 text-slate-700">
-                    Event Management — Full coordination
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          <!-- CHOICE HUB -->
-          <section class="mb-12">
-            <h2
-              class="text-xl sm:text-2xl font-semibold mb-6 text-center sm:text-left"
-            >
-              Choice Hub
-            </h2>
-            <div
-              class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6"
-            >
-              <article
-                class="service-card bg-white border rounded-2xl p-4 sm:p-6 hover:shadow-md transition-transform duration-200"
-              >
-                <h3 class="text-base sm:text-lg font-semibold mb-2">
-                  Home Services & Small Renovation
-                </h3>
-                <p class="text-xs sm:text-sm text-slate-500 mb-4">
-                  Quick AC fixes, rewiring, plumbing, and small upgrades.
-                </p>
-                <a
-                  href="#book"
-                  class="inline-block bg-teal-500 text-white px-4 py-2 rounded-lg text-sm font-semibold"
-                  >Book Now</a
-                >
-              </article>
-
-              <article
-                class="service-card bg-white border rounded-2xl p-4 sm:p-6 hover:shadow-md transition-transform duration-200"
-              >
-                <h3 class="text-base sm:text-lg font-semibold mb-2">
-                  Large Construction & Industrial Projects
-                </h3>
-                <p class="text-xs sm:text-sm text-slate-500 mb-4">
-                  End-to-end project management with certified teams.
-                </p>
-                <a
-                  href="#quote"
-                  class="inline-block bg-orange-500 text-white px-4 py-2 rounded-lg text-sm font-semibold"
-                  >Request Quote</a
-                >
-              </article>
-
-              <article
-                class="service-card bg-white border rounded-2xl p-4 sm:p-6 hover:shadow-md transition-transform duration-200"
-              >
-                <h3 class="text-base sm:text-lg font-semibold mb-2">
-                  Event Management & Venue Services
-                </h3>
-                <p class="text-xs sm:text-sm text-slate-500 mb-4">
-                  Complete setup for corporate and private events.
-                </p>
-                <a
-                  href="#contact"
-                  class="inline-block border border-slate-200 px-4 py-2 rounded-lg text-sm font-semibold"
-                  >Contact Us</a
-                >
-              </article>
-            </div>
-          </section>
-
-          <!-- SERVICE TYPES -->
-          <section class="mb-12">
-            <h2
-              class="text-xl sm:text-2xl font-semibold mb-6 text-center sm:text-left"
-            >
-              Service Types
-            </h2>
-            <div
-              class="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 text-xs sm:text-sm"
-            >
-              <div
-                class="bg-white border rounded-2xl p-4 flex items-center gap-3"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="h-6 w-6 text-teal-600"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                >
-                  <path d="M10 2L2 6v6a6 6 0 0012 0V6l-4-4z" />
-                </svg>
-                <div>
-                  <h4 class="font-semibold">Residential</h4>
-                  <p class="text-slate-500">Repairs & maintenance plans.</p>
-                </div>
-              </div>
-
-              <div
-                class="bg-white border rounded-2xl p-4 flex items-center gap-3"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="h-6 w-6 text-sky-600"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                >
-                  <path d="M3 3h14v4H3V3zM3 9h14v8H3V9z" />
-                </svg>
-                <div>
-                  <h4 class="font-semibold">Commercial</h4>
-                  <p class="text-slate-500">
-                    Maintenance contracts & fast response.
-                  </p>
-                </div>
-              </div>
-
-              <div
-                class="bg-white border rounded-2xl p-4 flex items-center gap-3"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="h-6 w-6 text-amber-600"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                >
-                  <path d="M2 13l6-9 6 9H2z" />
-                </svg>
-                <div>
-                  <h4 class="font-semibold">Industrial</h4>
-                  <p class="text-slate-500">
-                    Large-scale installs & compliance.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          <!-- HOW IT WORKS -->
-          <section class="mb-16">
-            <h2
-              class="text-xl sm:text-2xl font-semibold mb-6 text-center sm:text-left"
-            >
-              How It Works
-            </h2>
-            <div
-              class="bg-white border rounded-2xl p-6 flex flex-col sm:flex-row items-center justify-between text-center sm:text-left gap-6 sm:gap-0"
-            >
-              <div
-                class="flex items-center justify-center sm:justify-start gap-4 sm:gap-8"
-              >
-                <div class="text-center">
-                  <div
-                    class="w-14 h-14 sm:w-20 sm:h-20 rounded-full bg-teal-500 text-white flex items-center justify-center font-semibold text-lg sm:text-xl"
-                  >
-                    1
-                  </div>
-                  <p class="mt-2 font-semibold text-sm sm:text-base">Book</p>
-                </div>
-                <div
-                  class="w-10 sm:w-12 h-1 bg-slate-200 hidden sm:block"
-                ></div>
-                <div class="text-center">
-                  <div
-                    class="w-14 h-14 sm:w-20 sm:h-20 rounded-full bg-sky-500 text-white flex items-center justify-center font-semibold text-lg sm:text-xl"
-                  >
-                    2
-                  </div>
-                  <p class="mt-2 font-semibold text-sm sm:text-base">Confirm</p>
-                </div>
-                <div
-                  class="w-10 sm:w-12 h-1 bg-slate-200 hidden sm:block"
-                ></div>
-                <div class="text-center">
-                  <div
-                    class="w-14 h-14 sm:w-20 sm:h-20 rounded-full bg-amber-500 text-white flex items-center justify-center font-semibold text-lg sm:text-xl"
-                  >
-                    3
-                  </div>
-                  <p class="mt-2 font-semibold text-sm sm:text-base">Fix</p>
-                </div>
-              </div>
-              <a
-                href="#book"
-                class="bg-teal-600 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-semibold text-sm sm:text-base"
-                >Get Started</a
-              >
-            </div>
-          </section>
-        </main>
-      </body>
-    </html>
-
     <!-- Hero Section -->
-    <section class="w-full bg-gray-50 py-12">
-      <div
-        class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-center px-6"
-      >
-        <!-- Left Side Text -->
-        <div class="text-center md:text-left">
-          <h1
-            class="text-3xl md:text-4xl font-extrabold text-gray-900 leading-tight mb-6"
-          >
-            One Call Solves All Your Problems
-          </h1>
-          <ul class="space-y-4 text-base md:text-lg text-gray-700">
-            <li class="flex items-center justify-center md:justify-start">
-              <span class="text-green-500 text-2xl mr-3">✔</span> 24/7 Customer
-              Support
-            </li>
-            <li class="flex items-center justify-center md:justify-start">
-              <span class="text-green-500 text-2xl mr-3">✔</span> 100% Service
-              Guarantee
-            </li>
-            <li class="flex items-center justify-center md:justify-start">
-              <span class="text-green-500 text-2xl mr-3">✔</span> Fast &
-              Reliable Technicians
-            </li>
-          </ul>
+<section class="relative bg-cover bg-center h-[450px]" style="background-image: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=60');">
+  <div class="absolute inset-0 bg-black/50"></div>
+  <div class="relative max-w-3xl mx-auto text-center text-white flex flex-col items-center justify-center h-full px-4">
+    <h2 class="text-3xl md:text-5xl font-bold mb-4">Sit back, we’ll take it from here</h2>
+    <p class="text-lg md:text-xl mb-6">Book or get free quotes for home services in your city</p>
 
-          <!-- CTA Buttons -->
+    <!-- Search Box -->
+    <div class="flex items-center bg-white rounded-2xl shadow-md overflow-hidden w-full max-w-xl">
+      
+      <!-- Location Selector -->
+      <div class="flex items-center gap-2 px-4 py-3 border-r border-gray-200">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" />
+          <circle cx="12" cy="9" r="2.5" />
+        </svg>
+        <select class="bg-transparent text-gray-700 font-medium focus:outline-none">
+          <option>Dhaka</option>
+          <option>Kasimpur</option>
+          <option>Alfadanga</option>
+          <option>Faridpur</option>
+          <option>Demra</option>
+          <option>Rupshi</option>
+        </select>
+      </div>
+
+      <!-- Search Input -->
+      <input type="text" placeholder="Start typing to find a service" class="flex-1 px-4 py-3 text-gray-600 placeholder-gray-400 focus:outline-none" />
+
+    </div>
+  </div>
+</section>
+
+
+<!-- Popular Services -->
+<section class="max-w-7xl mx-auto px-4 py-12">
+  <h3 class="text-2xl font-semibold mb-6">Most Popular Services in Dhaka</h3>
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+    <!-- Electrical -->
+    <div class="bg-white rounded-xl shadow hover:shadow-lg transition p-5 text-center">
+      <img src="https://cdn-icons-png.flaticon.com/512/3612/3612569.png" alt="Electrical" class="mx-auto h-16 mb-3">
+      <h4 class="font-semibold text-lg mb-2">Electrical Services</h4>
+      <p class="text-gray-500 text-sm mb-3">Certified electricians for wiring, lighting, and electrical repairs.</p>
+      <button class="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-blue-700 transition">Book Now</button>
+    </div>
+
+    <!-- Plumbing -->
+    <div class="bg-white rounded-xl shadow hover:shadow-lg transition p-5 text-center">
+      <img src="https://cdn-icons-png.flaticon.com/512/2813/2813325.png" alt="Plumbing" class="mx-auto h-16 mb-3">
+      <h4 class="font-semibold text-lg mb-2">Plumbing</h4>
+      <p class="text-gray-500 text-sm mb-3">Leak fixing, bathroom installation, and full plumbing maintenance.</p>
+      <button class="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-blue-700 transition">Book Now</button>
+    </div>
+
+    <!-- AC Repair -->
+    <div class="bg-white rounded-xl shadow hover:shadow-lg transition p-5 text-center">
+      <img src="https://cdn-icons-png.flaticon.com/512/3076/3076409.png" alt="AC" class="mx-auto h-16 mb-3">
+      <h4 class="font-semibold text-lg mb-2">AC Repair & Installation</h4>
+      <p class="text-gray-500 text-sm mb-3">Expert AC repair, cleaning, installation, and gas refilling.</p>
+      <button class="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-blue-700 transition">Book Now</button>
+    </div>
+
+    <!-- Event Management -->
+    <div class="bg-white rounded-xl shadow hover:shadow-lg transition p-5 text-center">
+      <img src="https://cdn-icons-png.flaticon.com/512/4465/4465673.png" alt="Event" class="mx-auto h-16 mb-3">
+      <h4 class="font-semibold text-lg mb-2">Event Management</h4>
+      <p class="text-gray-500 text-sm mb-3">Weddings, corporate events, and party setup by professionals.</p>
+      <button class="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-blue-700 transition">Book Now</button>
+    </div>
+
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-white border-t mt-10">
+  <div class="max-w-7xl mx-auto px-4 py-8 flex flex-col md:flex-row justify-between space-y-4 md:space-y-0 text-gray-600">
+    <div>
+      <h4 class="font-semibold text-gray-800 mb-2">Bd Safa</h4>
+      <p class="text-sm">Your trusted home service partner in Bangladesh.</p>
+    </div>
+    <div class="flex space-x-6">
+      <a href="#" class="hover:text-blue-600">About</a>
+      <a href="#" class="hover:text-blue-600">Terms</a>
+      <a href="#" class="hover:text-blue-600">Privacy</a>
+    </div>
+    <p class="text-sm text-gray-500">© 2025 Bd Safa. All rights reserved.</p>
+  </div>
+</footer>
+
+
+        <!-- Hero Section -->
+        <section class="w-full bg-gray-50 py-12">
           <div
-            class="mt-8 flex flex-col sm:flex-row justify-center md:justify-start gap-4"
+            class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-center px-6"
           >
-            <!-- Book Now Button -->
-            <button
-              onclick="openBooking()"
-              class="bg-blue-600 text-white px-6 py-3 rounded-xl shadow-lg hover:bg-blue-700 transition w-full sm:w-auto"
-            >
-              Book Now
-            </button>
+            <!-- Left Side Text -->
+            <div class="text-center md:text-left">
+              <h1
+                class="text-3xl md:text-4xl font-extrabold text-gray-900 leading-tight mb-6"
+              >
+                One Call Solves All Your Problems
+              </h1>
+              <ul class="space-y-4 text-base md:text-lg text-gray-700">
+                <li class="flex items-center justify-center md:justify-start">
+                  <span class="text-green-500 text-2xl mr-3">✔</span> 24/7
+                  Customer Support
+                </li>
+                <li class="flex items-center justify-center md:justify-start">
+                  <span class="text-green-500 text-2xl mr-3">✔</span> 100%
+                  Service Guarantee
+                </li>
+                <li class="flex items-center justify-center md:justify-start">
+                  <span class="text-green-500 text-2xl mr-3">✔</span> Fast &
+                  Reliable Technicians
+                </li>
+              </ul>
 
-            <!-- Get Free Quote Button -->
-            <button
-              onclick="openQuote()"
-              class="bg-gray-200 text-gray-800 px-6 py-3 rounded-xl shadow-lg hover:bg-gray-300 transition w-full sm:w-auto"
-            >
-              Get Free Quote
-            </button>
-          </div>
-        </div>
-
-        <!-- ================= Booking Form Modal ================= -->
-        <div
-          id="bookingModal"
-          class="hidden fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50"
-        >
-          <div
-            class="bg-white p-6 rounded-lg shadow-lg w-full max-w-lg relative"
-          >
-            <!-- Close Button -->
-            <button
-              onclick="closeBooking()"
-              class="absolute top-2 right-2 text-gray-600 hover:text-black text-2xl"
-            >
-              ✕
-            </button>
-
-            <!-- Booking Form -->
-            <h2 class="text-2xl font-bold mb-4 text-center">Book a Service</h2>
-            <form class="space-y-4">
-              <div>
-                <label class="block text-sm font-medium">Your Name</label>
-                <input
-                  type="text"
-                  class="w-full border rounded-lg px-3 py-2 focus:ring focus:ring-blue-300"
-                  placeholder="Enter your name"
-                  required
-                />
-              </div>
-
-              <div>
-                <label class="block text-sm font-medium">Phone Number</label>
-                <input
-                  type="tel"
-                  class="w-full border rounded-lg px-3 py-2 focus:ring focus:ring-blue-300"
-                  placeholder="Enter your phone number"
-                  required
-                />
-              </div>
-
-              <div>
-                <label class="block text-sm font-medium">Service</label>
-                <select
-                  class="w-full border rounded-lg px-3 py-2 focus:ring focus:ring-blue-300"
+              <!-- CTA Buttons -->
+              <div
+                class="mt-8 flex flex-col sm:flex-row justify-center md:justify-start gap-4"
+              >
+                <!-- Book Now Button -->
+                <button
+                  onclick="openBooking()"
+                  class="bg-blue-600 text-white px-6 py-3 rounded-xl shadow-lg hover:bg-blue-700 transition w-full sm:w-auto"
                 >
-                  <option>AC Repair</option>
-                  <option>Electrical Service</option>
-                  <option>Plumbing Service</option>
-                  <option>Cleaning Service</option>
-                </select>
+                  Book Now
+                </button>
+
+                <!-- Get Free Quote Button -->
+                <button
+                  onclick="openQuote()"
+                  class="bg-gray-200 text-gray-800 px-6 py-3 rounded-xl shadow-lg hover:bg-gray-300 transition w-full sm:w-auto"
+                >
+                  Get Free Quote
+                </button>
               </div>
+            </div>
 
-              <button
-                type="submit"
-                class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700"
-              >
-                Confirm Booking
-              </button>
-            </form>
-          </div>
-        </div>
-
-        <!-- ================= Free Quote Form Modal ================= -->
-        <div
-          id="quoteModal"
-          class="hidden fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50"
-        >
-          <div
-            class="bg-white p-6 rounded-lg shadow-lg w-full max-w-lg relative"
-          >
-            <!-- Close Button -->
-            <button
-              onclick="closeQuote()"
-              class="absolute top-2 right-2 text-gray-600 hover:text-black text-2xl"
+            <!-- ================= Booking Form Modal ================= -->
+            <div
+              id="bookingModal"
+              class="hidden fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50"
             >
-              ✕
-            </button>
-
-            <!-- Free Quote Form -->
-            <h2 class="text-2xl font-bold mb-4 text-center">
-              Get a Free Quote
-            </h2>
-            <form class="space-y-4">
-              <div>
-                <label class="block text-sm font-medium">Your Name</label>
-                <input
-                  type="text"
-                  class="w-full border rounded-lg px-3 py-2 focus:ring focus:ring-green-300"
-                  placeholder="Enter your name"
-                  required
-                />
-              </div>
-
-              <div>
-                <label class="block text-sm font-medium">Phone Number</label>
-                <input
-                  type="tel"
-                  class="w-full border rounded-lg px-3 py-2 focus:ring focus:ring-green-300"
-                  placeholder="Enter your phone number"
-                  required
-                />
-              </div>
-
-              <div>
-                <label class="block text-sm font-medium">Service Needed</label>
-                <input
-                  type="text"
-                  class="w-full border rounded-lg px-3 py-2 focus:ring focus:ring-green-300"
-                  placeholder="Describe your service"
-                  required
-                />
-              </div>
-
-              <button
-                type="submit"
-                class="w-full bg-green-600 text-white py-2 rounded-lg hover:bg-green-700"
+              <div
+                class="bg-white p-6 rounded-lg shadow-lg w-full max-w-lg relative"
               >
-                Request Quote
-              </button>
-            </form>
+                <!-- Close Button -->
+                <button
+                  onclick="closeBooking()"
+                  class="absolute top-2 right-2 text-gray-600 hover:text-black text-2xl"
+                >
+                  ✕
+                </button>
+
+                <!-- Booking Form -->
+                <h2 class="text-2xl font-bold mb-4 text-center">
+                  Book a Service
+                </h2>
+                <form class="space-y-4">
+                  <div>
+                    <label class="block text-sm font-medium">Your Name</label>
+                    <input
+                      type="text"
+                      class="w-full border rounded-lg px-3 py-2 focus:ring focus:ring-blue-300"
+                      placeholder="Enter your name"
+                      required
+                    />
+                  </div>
+
+                  <div>
+                    <label class="block text-sm font-medium"
+                      >Phone Number</label
+                    >
+                    <input
+                      type="tel"
+                      class="w-full border rounded-lg px-3 py-2 focus:ring focus:ring-blue-300"
+                      placeholder="Enter your phone number"
+                      required
+                    />
+                  </div>
+
+                  <div>
+                    <label class="block text-sm font-medium">Service</label>
+                    <select
+                      class="w-full border rounded-lg px-3 py-2 focus:ring focus:ring-blue-300"
+                    >
+                      <option>AC Repair</option>
+                      <option>Electrical Service</option>
+                      <option>Plumbing Service</option>
+                      <option>Cleaning Service</option>
+                    </select>
+                  </div>
+
+                  <button
+                    type="submit"
+                    class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700"
+                  >
+                    Confirm Booking
+                  </button>
+                </form>
+              </div>
+            </div>
+
+            <!-- ================= Free Quote Form Modal ================= -->
+            <div
+              id="quoteModal"
+              class="hidden fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50"
+            >
+              <div
+                class="bg-white p-6 rounded-lg shadow-lg w-full max-w-lg relative"
+              >
+                <!-- Close Button -->
+                <button
+                  onclick="closeQuote()"
+                  class="absolute top-2 right-2 text-gray-600 hover:text-black text-2xl"
+                >
+                  ✕
+                </button>
+
+                <!-- Free Quote Form -->
+                <h2 class="text-2xl font-bold mb-4 text-center">
+                  Get a Free Quote
+                </h2>
+                <form class="space-y-4">
+                  <div>
+                    <label class="block text-sm font-medium">Your Name</label>
+                    <input
+                      type="text"
+                      class="w-full border rounded-lg px-3 py-2 focus:ring focus:ring-green-300"
+                      placeholder="Enter your name"
+                      required
+                    />
+                  </div>
+
+                  <div>
+                    <label class="block text-sm font-medium"
+                      >Phone Number</label
+                    >
+                    <input
+                      type="tel"
+                      class="w-full border rounded-lg px-3 py-2 focus:ring focus:ring-green-300"
+                      placeholder="Enter your phone number"
+                      required
+                    />
+                  </div>
+
+                  <div>
+                    <label class="block text-sm font-medium"
+                      >Service Needed</label
+                    >
+                    <input
+                      type="text"
+                      class="w-full border rounded-lg px-3 py-2 focus:ring focus:ring-green-300"
+                      placeholder="Describe your service"
+                      required
+                    />
+                  </div>
+
+                  <button
+                    type="submit"
+                    class="w-full bg-green-600 text-white py-2 rounded-lg hover:bg-green-700"
+                  >
+                    Request Quote
+                  </button>
+                </form>
+              </div>
+            </div>
+
+            <!-- ================= JavaScript ================= -->
+            <script>
+              function openBooking() {
+                document
+                  .getElementById("bookingModal")
+                  .classList.remove("hidden");
+              }
+              function closeBooking() {
+                document.getElementById("bookingModal").classList.add("hidden");
+              }
+
+              function openQuote() {
+                document
+                  .getElementById("quoteModal")
+                  .classList.remove("hidden");
+              }
+              function closeQuote() {
+                document.getElementById("quoteModal").classList.add("hidden");
+              }
+            </script>
+
+            <!-- Right Side Slider -->
+            <div class="relative w-full">
+              <div class="swiper mySwiper rounded-2xl shadow-xl">
+                <div class="swiper-wrapper">
+                  <!-- Slide 1 -->
+                  <div
+                    class="swiper-slide bg-white p-5 rounded-2xl shadow-md transition transform hover:scale-105 flex flex-col items-center"
+                  >
+                    <img
+                      src="ac banner.jpg"
+                      class="rounded-xl w-full h-64 object-cover mb-4"
+                      alt="AC Repair"
+                    />
+                    <h3 class="font-bold text-lg md:text-xl text-gray-800">
+                      AC Repair Services
+                    </h3>
+                  </div>
+
+                  <!-- Slide 2 -->
+                  <div
+                    class="swiper-slide bg-white p-5 rounded-2xl shadow-md transition transform hover:scale-105 flex flex-col items-center"
+                  >
+                    <img
+                      src="electric banner.jpg"
+                      class="rounded-xl w-full h-64 object-cover mb-4"
+                      alt="Electrical"
+                    />
+                    <h3 class="font-bold text-lg md:text-xl text-gray-800">
+                      Electrical Services
+                    </h3>
+                  </div>
+
+                  <!-- Slide 3 -->
+                  <div
+                    class="swiper-slide bg-white p-5 rounded-2xl shadow-md transition transform hover:scale-105 flex flex-col items-center"
+                  >
+                    <img
+                      src="Plumbing banner.jpg"
+                      class="rounded-xl w-full h-64 object-cover mb-4"
+                      alt="Plumbing"
+                    />
+                    <h3 class="font-bold text-lg md:text-xl text-gray-800">
+                      Plumbing Services
+                    </h3>
+                  </div>
+
+                  <!-- Extra Services (just copy-paste for more) -->
+
+                  <div
+                    class="swiper-slide bg-white p-5 rounded-2xl shadow-md transition transform hover:scale-105 flex flex-col items-center"
+                  >
+                    <img
+                      src="download (1).jfif"
+                      class="rounded-xl w-full h-64 object-cover mb-4"
+                      alt="event management"
+                    />
+                    <h3 class="font-bold text-lg md:text-xl text-gray-800">
+                      Event management
+                    </h3>
+                  </div>
+                </div>
+
+                <!-- Pagination Dots -->
+                <div class="swiper-pagination mt-4"></div>
+              </div>
+            </div>
           </div>
-        </div>
+        </section>
 
-        <!-- ================= JavaScript ================= -->
+        <!-- SwiperJS -->
+        <link
+          rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"
+        />
+        <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+
         <script>
-          function openBooking() {
-            document.getElementById("bookingModal").classList.remove("hidden");
-          }
-          function closeBooking() {
-            document.getElementById("bookingModal").classList.add("hidden");
-          }
-
-          function openQuote() {
-            document.getElementById("quoteModal").classList.remove("hidden");
-          }
-          function closeQuote() {
-            document.getElementById("quoteModal").classList.add("hidden");
-          }
+          var swiper = new Swiper(".mySwiper", {
+            loop: true,
+            centeredSlides: true,
+            slidesPerView: 1,
+            spaceBetween: 20,
+            autoplay: {
+              delay: 4000, // slower autoplay (4 seconds per slide)
+              disableOnInteraction: false,
+            },
+            pagination: {
+              el: ".swiper-pagination",
+              clickable: true,
+            },
+            effect: "coverflow",
+            coverflowEffect: {
+              rotate: 20,
+              stretch: 0,
+              depth: 100,
+              modifier: 1.5,
+              slideShadows: false,
+            },
+          });
         </script>
 
-        <!-- Right Side Slider -->
-        <div class="relative w-full">
-          <div class="swiper mySwiper rounded-2xl shadow-xl">
-            <div class="swiper-wrapper">
-              <!-- Slide 1 -->
-              <div
-                class="swiper-slide bg-white p-5 rounded-2xl shadow-md transition transform hover:scale-105 flex flex-col items-center"
-              >
-                <img
-                  src="ac banner.jpg"
-                  class="rounded-xl w-full h-64 object-cover mb-4"
-                  alt="AC Repair"
-                />
-                <h3 class="font-bold text-lg md:text-xl text-gray-800">
-                  AC Repair Services
-                </h3>
-              </div>
+        <!-- Bottom Navigation (HTML + CSS) snippet for site integration -->
 
-              <!-- Slide 2 -->
-              <div
-                class="swiper-slide bg-white p-5 rounded-2xl shadow-md transition transform hover:scale-105 flex flex-col items-center"
-              >
-                <img
-                  src="electric banner.jpg"
-                  class="rounded-xl w-full h-64 object-cover mb-4"
-                  alt="Electrical"
-                />
-                <h3 class="font-bold text-lg md:text-xl text-gray-800">
-                  Electrical Services
-                </h3>
-              </div>
-
-              <!-- Slide 3 -->
-              <div
-                class="swiper-slide bg-white p-5 rounded-2xl shadow-md transition transform hover:scale-105 flex flex-col items-center"
-              >
-                <img
-                  src="Plumbing banner.jpg"
-                  class="rounded-xl w-full h-64 object-cover mb-4"
-                  alt="Plumbing"
-                />
-                <h3 class="font-bold text-lg md:text-xl text-gray-800">
-                  Plumbing Services
-                </h3>
-              </div>
-
-              <!-- Extra Services (just copy-paste for more) -->
-
-              <div
-                class="swiper-slide bg-white p-5 rounded-2xl shadow-md transition transform hover:scale-105 flex flex-col items-center"
-              >
-                <img
-                  src="download (1).jfif"
-                  class="rounded-xl w-full h-64 object-cover mb-4"
-                  alt="event management"
-                />
-                <h3 class="font-bold text-lg md:text-xl text-gray-800">
-                  Event management
-                </h3>
-              </div>
-            </div>
-
-            <!-- Pagination Dots -->
-            <div class="swiper-pagination mt-4"></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- SwiperJS -->
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"
-    />
-    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
-
-    <script>
-      var swiper = new Swiper(".mySwiper", {
-        loop: true,
-        centeredSlides: true,
-        slidesPerView: 1,
-        spaceBetween: 20,
-        autoplay: {
-          delay: 4000, // slower autoplay (4 seconds per slide)
-          disableOnInteraction: false,
-        },
-        pagination: {
-          el: ".swiper-pagination",
-          clickable: true,
-        },
-        effect: "coverflow",
-        coverflowEffect: {
-          rotate: 20,
-          stretch: 0,
-          depth: 100,
-          modifier: 1.5,
-          slideShadows: false,
-        },
-      });
-    </script>
-
-    <!-- Trending Section -->
-    <section class="max-w-7xl mx-auto px-6 py-10">
-      <!-- Header -->
-      <div class="flex justify-between items-center mb-6">
-        <h2 class="text-xl md:text-2xl font-bold text-gray-900">Trending</h2>
-        <a href="#" class="text-pink-600 hover:underline text-sm md:text-base"
-          >View All</a
-        >
-      </div>
-
-      <!-- Services Grid (horizontal scroll on mobile) -->
-      <div class="flex gap-5 overflow-x-auto scrollbar-hide">
-        <!-- Service Card -->
-        <div class="min-w-[130px] md:min-w-[180px] flex-shrink-0">
-          <img
-            src="ac icon.png"
-            class="w-full h-28 md:h-40 object-fit: cover rounded-xl shadow"
-            alt="AC Servicing"
-          />
-          <p
-            class="text-sm md:text-base font-medium text-gray-800 text-center mt-2"
-          >
-            AC Servicing
-          </p>
-        </div>
-
-        <!-- Service Card -->
-        <div class="min-w-[130px] md:min-w-[180px] flex-shrink-0">
-          <img
-            src="electric icon.png"
-            class="w-full h-28 md:h-40 object-cover rounded-xl shadow"
-            alt="electric"
-          />
-          <p
-            class="text-sm md:text-base font-medium text-gray-800 text-center mt-2"
-          >
-            Electrician
-          </p>
-        </div>
-
-        <!-- Service Card -->
-        <div class="min-w-[130px] md:min-w-[180px] flex-shrink-0">
-          <img
-            src="Plumbing icon.png"
-            class="w-full h-28 md:h-40 object-cover rounded-xl shadow"
-            alt="Plumber"
-          />
-          <p
-            class="text-sm md:text-base font-medium text-gray-800 text-center mt-2"
-          >
-            Plumber
-          </p>
-        </div>
-
-        <!-- Service Card -->
-        <div class="min-w-[130px] md:min-w-[180px] flex-shrink-0">
-          <img
-            src="download.jfif"
-            class="w-full h-28 md:h-40 object-cover rounded-xl shadow"
-            alt="Event management"
-          />
-          <p
-            class="text-sm md:text-base font-medium text-gray-800 text-center mt-2"
-          >
-            Event management
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Hide Scrollbar CSS -->
-    <style>
-      .scrollbar-hide::-webkit-scrollbar {
-        display: none;
-      }
-      .scrollbar-hide {
-        -ms-overflow-style: none;
-        scrollbar-width: none;
-      }
-    </style>
-
-    <!-- Recommended Section -->
-    <section class="max-w-7xl mx-auto px-6 py-10">
-      <!-- Header -->
-      <div class="flex justify-between items-center mb-6">
-        <h2 class="text-xl md:text-2xl font-bold text-gray-900">Recommended</h2>
-        <a href="#" class="text-pink-600 hover:underline text-sm md:text-base"
-          >View All</a
-        >
-      </div>
-
-      <!-- Services Grid (horizontal scroll on mobile) -->
-      <div class="flex gap-5 overflow-x-auto scrollbar-hide">
-        <!-- Service Card -->
-        <div class="min-w-[130px] md:min-w-[180px] flex-shrink-0">
-          <img
-            src="electric icon.png"
-            class="w-full h-28 md:h-40 object-fit: cover rounded-xl shadow"
-            alt="Electrician"
-          />
-          <p
-            class="text-sm md:text-base font-medium text-gray-800 text-center mt-2"
-          >
-            Electrician
-          </p>
-        </div>
-
-        <!-- Service Card -->
-        <div class="min-w-[130px] md:min-w-[180px] flex-shrink-0">
-          <img
-            src="Plumbing icon.png"
-            class="w-full h-28 md:h-40 object-fit: cover rounded-xl shadow"
-            alt="Plumber"
-          />
-          <p
-            class="text-sm md:text-base font-medium text-gray-800 text-center mt-2"
-          >
-            Plumber
-          </p>
-        </div>
-
-        <!-- Service Card -->
-        <div class="min-w-[130px] md:min-w-[180px] flex-shrink-0">
-          <img
-            src="download.jfif"
-            class="w-full h-28 md:h-40 object-cover rounded-xl shadow"
-            alt="event management"
-          />
-          <p
-            class="text-sm md:text-base font-medium text-gray-800 text-center mt-2"
-          >
-            Event management
-          </p>
-        </div>
-
-        <!-- Service Card -->
-        <div class="min-w-[130px] md:min-w-[180px] flex-shrink-0">
-          <img
-            src="ac icon.png"
-            class="w-full h-28 md:h-40 object-cover rounded-xl shadow"
-            alt="Ac Repair"
-          />
-          <p
-            class="text-sm md:text-base font-medium text-gray-800 text-center mt-2"
-          >
-            Ac Repair
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Hide Scrollbar CSS -->
-    <style>
-      .scrollbar-hide::-webkit-scrollbar {
-        display: none;
-      }
-      .scrollbar-hide {
-        -ms-overflow-style: none;
-        scrollbar-width: none;
-      }
-    </style>
-
-    <!-- Why Choose Us (Modern) -->
-    <section
-      class="relative overflow-hidden bg-gradient-to-b from-white to-gray-50 py-14"
-    >
-      <div class="max-w-7xl mx-auto px-6">
-        <!-- Header -->
-        <div class="mb-10">
-          <span
-            class="inline-flex items-center gap-2 rounded-full bg-blue-50 px-3 py-1 text-xs font-semibold text-blue-700"
-          >
-            <span class="w-1.5 h-1.5 rounded-full bg-blue-600"></span>
-            Trusted Service Partners
-          </span>
-          <h2
-            class="mt-3 text-3xl md:text-4xl font-extrabold tracking-tight text-gray-900"
-          >
-            Why Choose Us
-          </h2>
-          <p class="mt-2 text-gray-600 text-base md:text-lg">
-            Because we care about your safety..
-          </p>
-        </div>
-
-        <!-- Grid -->
-        <div
-          class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 md:gap-6"
-        >
-          <!-- Card -->
-          <div
-            class="group aspect-square rounded-2xl bg-white shadow-sm ring-1 ring-gray-200 p-4 flex flex-col items-center justify-center hover:shadow-md hover:-translate-y-0.5 transition"
-          >
-            <!-- Mask Icon -->
-            <svg
-              class="w-10 h-10 md:w-12 md:h-12 mb-3 opacity-90 group-hover:opacity-100"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-            >
-              <path
-                d="M3 10c0 4 3.5 7 9 7s9-3 9-7l-4.5-2.5A9.5 9.5 0 0 0 12 7c-1.9 0-3.6.4-4.5.5L3 10Z"
-                stroke-width="1.5"
-              />
-              <path
-                d="M12 12.5c-2.5 0-4.5-.7-6-2M12 12.5c2.5 0 4.5-.7 6-2"
-                stroke-width="1.5"
-                stroke-linecap="round"
-              />
-            </svg>
-            <p
-              class="text-center font-semibold text-sm md:text-base text-gray-900"
-            >
-              Ensuring Masks
-            </p>
-          </div>
-
-          <div
-            class="group aspect-square rounded-2xl bg-white shadow-sm ring-1 ring-gray-200 p-4 flex flex-col items-center justify-center hover:shadow-md hover:-translate-y-0.5 transition"
-          >
-            <!-- 24/7 Icon -->
-            <svg
-              class="w-10 h-10 md:w-12 md:h-12 mb-3 opacity-90"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-            >
-              <circle cx="12" cy="12" r="9" stroke-width="1.5" />
-              <path d="M12 7v5l3 2" stroke-width="1.5" stroke-linecap="round" />
-              <path
-                d="M4 12h2M18 12h2"
-                stroke-width="1.5"
-                stroke-linecap="round"
-              />
-            </svg>
-            <p
-              class="text-center font-semibold text-sm md:text-base text-gray-900"
-            >
-              24/7 Support
-            </p>
-          </div>
-
-          <div
-            class="group aspect-square rounded-2xl bg-white shadow-sm ring-1 ring-gray-200 p-4 flex flex-col items-center justify-center hover:shadow-md hover:-translate-y-0.5 transition"
-          >
-            <!-- Sanitise Icon -->
-            <svg
-              class="w-10 h-10 md:w-12 md:h-12 mb-3 opacity-90"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-            >
-              <path
-                d="M8 11h8l-1.2 7.2A2 2 0 0 1 12.9 20H11a2 2 0 0 1-1.98-1.7L8 11Z"
-                stroke-width="1.5"
-              />
-              <path
-                d="M15 8a3 3 0 1 0-6 0"
-                stroke-width="1.5"
-                stroke-linecap="round"
-              />
-            </svg>
-            <p
-              class="text-center font-semibold text-sm md:text-base text-gray-900"
-            >
-              Sanitising Hands & Equipment
-            </p>
-          </div>
-
-          <div
-            class="group aspect-square rounded-2xl bg-white shadow-sm ring-1 ring-gray-200 p-4 flex flex-col items-center justify-center hover:shadow-md hover:-translate-y-0.5 transition"
-          >
-            <!-- Gloves Icon -->
-            <svg
-              class="w-10 h-10 md:w-12 md:h-12 mb-3 opacity-90"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-            >
-              <path
-                d="M7 4v9M11 4v9M15 6v7M19 7v6"
-                stroke-width="1.5"
-                stroke-linecap="round"
-              />
-              <path
-                d="M5 13v3a4 4 0 0 0 4 4h3a4 4 0 0 0 4-4v-3"
-                stroke-width="1.5"
-              />
-            </svg>
-            <p
-              class="text-center font-semibold text-sm md:text-base text-gray-900"
-            >
-              Ensuring Gloves
-            </p>
-          </div>
-
-          <div
-            class="group aspect-square rounded-2xl bg-white shadow-sm ring-1 ring-gray-200 p-4 flex flex-col items-center justify-center hover:shadow-md hover:-translate-y-0.5 transition"
-          >
-            <!-- Verified Icon -->
-            <svg
-              class="w-10 h-10 md:w-12 md:h-12 mb-3 opacity-90"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-            >
-              <path
-                d="M12 3l2.5 2.1 3.2-.7.8 3.2L21 10l-2.1 2.5.7 3.2-3.2.8L12 21l-2.5-2.1-3.2.7-.8-3.2L3 12l2.1-2.5-.7-3.2 3.2-.8L12 3Z"
-                stroke-width="1.5"
-              />
-              <path
-                d="M8.5 12.5l2.2 2.2 4.8-5.4"
-                stroke-width="1.5"
-                stroke-linecap="round"
-              />
-            </svg>
-            <p
-              class="text-center font-semibold text-sm md:text-base text-gray-900"
-            >
-              Verified Technicians
-            </p>
-          </div>
-
-          <div
-            class="group aspect-square rounded-2xl bg-white shadow-sm ring-1 ring-gray-200 p-4 flex flex-col items-center justify-center hover:shadow-md hover:-translate-y-0.5 transition"
-          >
-            <!-- Clock Icon -->
-            <svg
-              class="w-10 h-10 md:w-12 md:h-12 mb-3 opacity-90"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-            >
-              <circle cx="12" cy="12" r="9" stroke-width="1.5" />
-              <path d="M12 7v5l3 2" stroke-width="1.5" stroke-linecap="round" />
-            </svg>
-            <p
-              class="text-center font-semibold text-sm md:text-base text-gray-900"
-            >
-              On-Time Arrival
-            </p>
-          </div>
-        </div>
-
-        <!-- Bottom Image Banner -->
-        <div class="mt-10">
-          <img
-            src="Our safety-first team.png"
-            alt="Our safety-first team"
-            class="w-full rounded-2xl shadow-md object-cover h-52 md:h-72"
-          />
-        </div>
-      </div>
-    </section>
-
-    <!-- How It Works -->
-    <section class="py-12 px-4 bg-gray-50 text-center">
-      <h2 class="text-2xl font-semibold mb-10">How It Works</h2>
-      <div class="flex flex-col md:flex-row justify-center items-center gap-10">
-        <div>
-          <img
-            src="https://img.icons8.com/ios/100/monitor.png"
-            alt="Book"
-            class="mx-auto mb-2"
-          />
-          <p class="font-medium">Book</p>
-        </div>
-        <span class="text-2xl font-bold hidden md:inline">→</span>
-        <div>
-          <img
-            src="https://img.icons8.com/ios/100/home-page.png"
-            alt="Confirm"
-            class="mx-auto mb-2"
-          />
-          <p class="font-medium">Confirm</p>
-        </div>
-        <span class="text-2xl font-bold hidden md:inline">→</span>
-        <div>
-          <img
-            src="https://img.icons8.com/ios/100/engineer.png"
-            alt="Fix"
-            class="mx-auto mb-2"
-          />
-          <p class="font-medium">Fix</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Bottom Navigation (HTML + CSS) snippet for site integration -->
-
-    <style>
-      :root {
-        --bg: #ffffff;
-        --muted: #6b7280;
-        --accent: linear-gradient(90deg, #06b6d4, #3b82f6);
-        --cta-bg: #0ea5a4;
-        --shadow: 0 6px 18px rgba(11, 42, 79, 0.12);
-        --radius: 14px;
-        font-family: system-ui, -apple-system, "Segoe UI", Roboto,
-          "Helvetica Neue", Arial;
-      }
-
-      .bottom-nav {
-        position: fixed;
-        left: 0;
-        right: 0;
-        bottom: 16px;
-        display: flex;
-        justify-content: center;
-        pointer-events: auto;
-        z-index: 9999;
-      }
-      .bottom-nav__inner {
-        width: min(800px, calc(100% - 32px));
-        background: rgba(255, 255, 255, 0.95);
-        backdrop-filter: blur(6px);
-        box-shadow: var(--shadow);
-        border-radius: var(--radius);
-        padding: 8px 12px;
-        display: flex;
-        gap: 8px;
-        align-items: center;
-        justify-content: space-between;
-      }
-
-      .nav-item {
-        flex: 1;
-        text-align: center;
-        text-decoration: none;
-        color: var(--muted);
-        font-size: 13px;
-        padding: 8px 6px;
-        border-radius: 10px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 6px;
-      }
-      .nav-item:focus {
-        outline: 2px solid rgba(59, 130, 246, 0.2);
-        outline-offset: 3px;
-      }
-      .nav-item .label {
-        line-height: 1;
-      }
-
-      .nav-item.active {
-        color: #0f172a;
-        font-weight: 600;
-      }
-
-      .nav-cta {
-        transform: translateY(-6px);
-        background: var(--accent);
-        color: white;
-        padding: 10px 16px;
-        border-radius: 12px;
-        box-shadow: 0 10px 20px rgba(59, 130, 246, 0.18);
-        display: flex;
-        gap: 8px;
-        align-items: center;
-        justify-content: center;
-        min-width: 140px;
-      }
-      .nav-cta .label {
-        font-weight: 700;
-      }
-
-      .icon {
-        width: 20px;
-        height: 20px;
-        display: block;
-      }
-
-      @media (min-width: 900px) {
-        .bottom-nav {
-          bottom: 28px;
-        }
-        .bottom-nav__inner {
-          width: 520px;
-        }
-        .nav-item .label {
-          font-size: 12px;
-        }
-      }
-    </style>
-
-    <nav class="bottom-nav" aria-label="Primary" id="bottomNav">
-      <div class="bottom-nav__inner">
-        <a href="/" class="nav-item" data-key="home" aria-current="page">
-          <svg
-            class="icon"
-            viewBox="0 0 24 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            aria-hidden="true"
-          >
-            <path
-              d="M3 10.5L12 4l9 6.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1V10.5z"
-              stroke="currentColor"
-              stroke-width="1.4"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-          </svg>
-          <span class="label">Home</span>
-        </a>
-
-        <a href="/store" class="nav-item" data-key="store">
-          <svg
-            class="icon"
-            viewBox="0 0 24 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            aria-hidden="true"
-          >
-            <path
-              d="M6 7h12l-1 11H7L6 7z"
-              stroke="currentColor"
-              stroke-width="1.4"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-            <path
-              d="M9 7V5a3 3 0 0 1 6 0v2"
-              stroke="currentColor"
-              stroke-width="1.4"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-          </svg>
-          <span class="label">Store</span>
-        </a>
-
-        <a href="/book" class="nav-item nav-cta" data-key="book">
-          <svg
-            class="icon"
-            viewBox="0 0 24 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            aria-hidden="true"
-          >
-            <path
-              d="M7 11h10M7 15h6"
-              stroke="currentColor"
-              stroke-width="1.6"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-            <rect
-              x="3.5"
-              y="3.5"
-              width="17"
-              height="17"
-              rx="2.5"
-              stroke="currentColor"
-              stroke-width="1.6"
-            />
-          </svg>
-          <span class="label">Book Now</span>
-        </a>
-
-        <a href="/contact" class="nav-item" data-key="contact">
-          <svg
-            class="icon"
-            viewBox="0 0 24 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            aria-hidden="true"
-          >
-            <path
-              d="M21 10c0 7-9 11-9 11s-9-4-9-11a9 9 0 0 1 18 0z"
-              stroke="currentColor"
-              stroke-width="1.4"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-            <circle
-              cx="12"
-              cy="10"
-              r="3"
-              stroke="currentColor"
-              stroke-width="1.4"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-          </svg>
-          <span class="label">Contact</span>
-        </a>
-      </div>
-    </nav>
-
-    <script>
-      (function () {
-        const nav = document.getElementById("bottomNav");
-        if (!nav) return;
-        nav.addEventListener("click", function (e) {
-          const a = e.target.closest("a.nav-item");
-          if (!a) return;
-          nav.querySelectorAll("a.nav-item").forEach((it) => {
-            it.classList.remove("active");
-            it.removeAttribute("aria-current");
-          });
-          a.classList.add("active");
-          a.setAttribute("aria-current", "page");
-        });
-
-        const pathname = location.pathname || "/";
-        const map = {
-          "/": "home",
-          "/store": "store",
-          "/book": "book",
-          "/contact": "contact",
-        };
-        const key = map[pathname];
-        if (key) {
-          const el = nav.querySelector('[data-key="' + key + '"]');
-          if (el) {
-            el.classList.add("active");
-            el.setAttribute("aria-current", "page");
+        <style>
+          :root {
+            --bg: #ffffff;
+            --muted: #6b7280;
+            --accent: linear-gradient(90deg, #06b6d4, #3b82f6);
+            --cta-bg: #0ea5a4;
+            --shadow: 0 6px 18px rgba(11, 42, 79, 0.12);
+            --radius: 14px;
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto,
+              "Helvetica Neue", Arial;
           }
-        }
-      })();
-    </script>
 
-    <!-- Footer -->
-    <footer class="bg-gray-900 text-white pt-10">
-      <div class="max-w-6xl mx-auto px-4 md:px-8">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 pb-10">
-          <!-- Logo & Tagline -->
-          <div>
-            <h3 class="text-2xl font-bold mb-2">⚡ VoltFix</h3>
-            <p class="text-gray-400 text-sm">
-              Fast and reliable electrician & home services.
-            </p>
+          .bottom-nav {
+            position: fixed;
+            left: 0;
+            right: 0;
+            bottom: 16px;
+            display: flex;
+            justify-content: center;
+            pointer-events: auto;
+            z-index: 9999;
+          }
+          .bottom-nav__inner {
+            width: min(800px, calc(100% - 32px));
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(6px);
+            box-shadow: var(--shadow);
+            border-radius: var(--radius);
+            padding: 8px 12px;
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            justify-content: space-between;
+          }
+
+          .nav-item {
+            flex: 1;
+            text-align: center;
+            text-decoration: none;
+            color: var(--muted);
+            font-size: 13px;
+            padding: 8px 6px;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+          }
+          .nav-item:focus {
+            outline: 2px solid rgba(59, 130, 246, 0.2);
+            outline-offset: 3px;
+          }
+          .nav-item .label {
+            line-height: 1;
+          }
+
+          .nav-item.active {
+            color: #0f172a;
+            font-weight: 600;
+          }
+
+          .nav-cta {
+            transform: translateY(-6px);
+            background: var(--accent);
+            color: white;
+            padding: 10px 16px;
+            border-radius: 12px;
+            box-shadow: 0 10px 20px rgba(59, 130, 246, 0.18);
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            justify-content: center;
+            min-width: 140px;
+          }
+          .nav-cta .label {
+            font-weight: 700;
+          }
+
+          .icon {
+            width: 20px;
+            height: 20px;
+            display: block;
+          }
+
+          @media (min-width: 900px) {
+            .bottom-nav {
+              bottom: 28px;
+            }
+            .bottom-nav__inner {
+              width: 520px;
+            }
+            .nav-item .label {
+              font-size: 12px;
+            }
+          }
+        </style>
+
+        <nav class="bottom-nav" aria-label="Primary" id="bottomNav">
+          <div class="bottom-nav__inner">
+            <a href="/" class="nav-item" data-key="home" aria-current="page">
+              <svg
+                class="icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true"
+              >
+                <path
+                  d="M3 10.5L12 4l9 6.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1V10.5z"
+                  stroke="currentColor"
+                  stroke-width="1.4"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+              <span class="label">Home</span>
+            </a>
+
+            <a href="/store" class="nav-item" data-key="store">
+              <svg
+                class="icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true"
+              >
+                <path
+                  d="M6 7h12l-1 11H7L6 7z"
+                  stroke="currentColor"
+                  stroke-width="1.4"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M9 7V5a3 3 0 0 1 6 0v2"
+                  stroke="currentColor"
+                  stroke-width="1.4"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+              <span class="label">Store</span>
+            </a>
+
+            <a href="/book" class="nav-item nav-cta" data-key="book">
+              <svg
+                class="icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true"
+              >
+                <path
+                  d="M7 11h10M7 15h6"
+                  stroke="currentColor"
+                  stroke-width="1.6"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <rect
+                  x="3.5"
+                  y="3.5"
+                  width="17"
+                  height="17"
+                  rx="2.5"
+                  stroke="currentColor"
+                  stroke-width="1.6"
+                />
+              </svg>
+              <span class="label">Book Now</span>
+            </a>
+
+            <a href="/contact" class="nav-item" data-key="contact">
+              <svg
+                class="icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true"
+              >
+                <path
+                  d="M21 10c0 7-9 11-9 11s-9-4-9-11a9 9 0 0 1 18 0z"
+                  stroke="currentColor"
+                  stroke-width="1.4"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <circle
+                  cx="12"
+                  cy="10"
+                  r="3"
+                  stroke="currentColor"
+                  stroke-width="1.4"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+              <span class="label">Contact</span>
+            </a>
           </div>
+        </nav>
 
-          <!-- Navigation Links -->
-          <div>
-            <h4 class="text-lg font-semibold mb-2">Quick Links</h4>
-            <ul class="space-y-1 text-gray-300 text-sm">
-              <li><a href="#home" class="hover:text-white">Home</a></li>
-              <li>
-                <a href="#services" class="hover:text-white">Services</a>
-              </li>
-              <li><a href="#about" class="hover:text-white">About</a></li>
-              <li><a href="#contact" class="hover:text-white">Contact</a></li>
-            </ul>
-          </div>
+        <script>
+          (function () {
+            const nav = document.getElementById("bottomNav");
+            if (!nav) return;
+            nav.addEventListener("click", function (e) {
+              const a = e.target.closest("a.nav-item");
+              if (!a) return;
+              nav.querySelectorAll("a.nav-item").forEach((it) => {
+                it.classList.remove("active");
+                it.removeAttribute("aria-current");
+              });
+              a.classList.add("active");
+              a.setAttribute("aria-current", "page");
+            });
 
-          <!-- Contact Info -->
-          <div>
-            <h4 class="text-lg font-semibold mb-2">Contact Us</h4>
-            <p class="text-gray-300 text-sm">📞 +880 1234 567890</p>
-            <p class="text-gray-300 text-sm">✉️ support@voltfix.com</p>
-            <div class="flex space-x-4 mt-3">
-              <a href="#" class="hover:text-blue-400"
-                ><i class="fab fa-facebook-f"></i
-              ></a>
-              <a href="#" class="hover:text-blue-300"
-                ><i class="fab fa-twitter"></i
-              ></a>
-              <a href="#" class="hover:text-pink-400"
-                ><i class="fab fa-instagram"></i
-              ></a>
+            const pathname = location.pathname || "/";
+            const map = {
+              "/": "home",
+              "/store": "store",
+              "/book": "book",
+              "/contact": "contact",
+            };
+            const key = map[pathname];
+            if (key) {
+              const el = nav.querySelector('[data-key="' + key + '"]');
+              if (el) {
+                el.classList.add("active");
+                el.setAttribute("aria-current", "page");
+              }
+            }
+          })();
+        </script>
+
+        <!-- Footer -->
+        <footer class="bg-gray-900 text-white pt-10">
+          <div class="max-w-6xl mx-auto px-4 md:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 pb-10">
+              <!-- Logo & Tagline -->
+              <div>
+                <h3 class="text-2xl font-bold mb-2">⚡ VoltFix</h3>
+                <p class="text-gray-400 text-sm">
+                  Fast and reliable electrician & home services.
+                </p>
+              </div>
+
+              <!-- Navigation Links -->
+              <div>
+                <h4 class="text-lg font-semibold mb-2">Quick Links</h4>
+                <ul class="space-y-1 text-gray-300 text-sm">
+                  <li><a href="#home" class="hover:text-white">Home</a></li>
+                  <li>
+                    <a href="#services" class="hover:text-white">Services</a>
+                  </li>
+                  <li><a href="#about" class="hover:text-white">About</a></li>
+                  <li>
+                    <a href="#contact" class="hover:text-white">Contact</a>
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Contact Info -->
+              <div>
+                <h4 class="text-lg font-semibold mb-2">Contact Us</h4>
+                <p class="text-gray-300 text-sm">📞 +880 1234 567890</p>
+                <p class="text-gray-300 text-sm">✉️ support@voltfix.com</p>
+                <div class="flex space-x-4 mt-3">
+                  <a href="#" class="hover:text-blue-400"
+                    ><i class="fab fa-facebook-f"></i
+                  ></a>
+                  <a href="#" class="hover:text-blue-300"
+                    ><i class="fab fa-twitter"></i
+                  ></a>
+                  <a href="#" class="hover:text-pink-400"
+                    ><i class="fab fa-instagram"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Bottom Line -->
+            <div
+              class="border-t border-gray-700 text-center text-sm text-gray-500 py-4"
+            >
+              © 2025 VoltFix. All rights reserved.
             </div>
           </div>
-        </div>
-
-        <!-- Bottom Line -->
-        <div
-          class="border-t border-gray-700 text-center text-sm text-gray-500 py-4"
-        >
-          © 2025 VoltFix. All rights reserved.
-        </div>
-      </div>
-    </footer>
+        </footer>
+      </body>
+    </html>
   </body>
 </html>
