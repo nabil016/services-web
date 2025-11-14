@@ -609,601 +609,178 @@
 </section>
 
 
-<!-- Popular Services -->
-<section class="max-w-7xl mx-auto px-4 py-12">
-  <h3 class="text-2xl font-semibold mb-6">Most Popular Services in Dhaka</h3>
-  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- SEPARATE OFFER SLIDER (Airtel-Style) -->
+<section class="max-w-6xl mx-auto p-4 mt-6">
+  <h2 class="text-2xl font-bold mb-5">Special Service Offers</h2>
 
-    <!-- Electrical -->
-    <div class="bg-white rounded-xl shadow hover:shadow-lg transition p-5 text-center">
-      <img src="https://cdn-icons-png.flaticon.com/512/3612/3612569.png" alt="Electrical" class="mx-auto h-16 mb-3">
-      <h4 class="font-semibold text-lg mb-2">Electrical Services</h4>
-      <p class="text-gray-500 text-sm mb-3">Certified electricians for wiring, lighting, and electrical repairs.</p>
-      <button class="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-blue-700 transition">Book Now</button>
+  <div class="relative flex items-center">
+
+    <!-- Left Arrow -->
+    <button id="offerLeft" class="absolute -left-4 bg-white shadow-lg p-3 rounded-full hover:scale-110 transition z-10">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+      </svg>
+    </button>
+
+    <!-- Offer Slider -->
+    <div id="offerSlider" class="flex overflow-x-auto gap-4 no-scrollbar scroll-smooth">
+
+      <!-- Offer Card -->
+      <div class="min-w-[240px] bg-white p-5 rounded-2xl shadow hover:shadow-xl transition border border-gray-200">
+        <img src="/mnt/data/nn.PNG" class="w-full h-32 object-cover rounded-xl" />
+        <h3 class="text-lg font-semibold mt-3">AC Service Offer</h3>
+        <p class="text-sm text-gray-600">Full AC cleaning + inspection combo.</p>
+        <p class="text-blue-600 font-bold mt-2 text-lg">AED 79 Only</p>
+      </div>
+
+      <div class="min-w-[240px] bg-white p-5 rounded-2xl shadow hover:shadow-xl transition border border-gray-200">
+        <img src="/mnt/data/nn.PNG" class="w-full h-32 object-cover rounded-xl" />
+        <h3 class="text-lg font-semibold mt-3">Electric Repair Offer</h3>
+        <p class="text-sm text-gray-600">Fix sockets, switches & electrical issues.</p>
+        <p class="text-blue-600 font-bold mt-2 text-lg">AED 49 Only</p>
+      </div>
+
+      <div class="min-w-[240px] bg-white p-5 rounded-2xl shadow hover:shadow-xl transition border border-gray-200">
+        <img src="/mnt/data/nn.PNG" class="w-full h-32 object-cover rounded-xl" />
+        <h3 class="text-lg font-semibold mt-3">Plumbing Fix Offer</h3>
+        <p class="text-sm text-gray-600">Leak repair + water flow check combo.</p>
+        <p class="text-blue-600 font-bold mt-2 text-lg">AED 59 Only</p>
+      </div>
+
+      <div class="min-w-[240px] bg-white p-5 rounded-2xl shadow hover:shadow-xl transition border border-gray-200">
+        <img src="/mnt/data/nn.PNG" class="w-full h-32 object-cover rounded-xl" />
+        <h3 class="text-lg font-semibold mt-3">Event Management Offer</h3>
+        <p class="text-sm text-gray-600">Birthday / Corporate event discount deal.</p>
+        <p class="text-blue-600 font-bold mt-2 text-lg">10% OFF</p>
+      </div>
+
     </div>
 
-    <!-- Plumbing -->
-    <div class="bg-white rounded-xl shadow hover:shadow-lg transition p-5 text-center">
-      <img src="https://cdn-icons-png.flaticon.com/512/2813/2813325.png" alt="Plumbing" class="mx-auto h-16 mb-3">
-      <h4 class="font-semibold text-lg mb-2">Plumbing</h4>
-      <p class="text-gray-500 text-sm mb-3">Leak fixing, bathroom installation, and full plumbing maintenance.</p>
-      <button class="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-blue-700 transition">Book Now</button>
-    </div>
-
-    <!-- AC Repair -->
-    <div class="bg-white rounded-xl shadow hover:shadow-lg transition p-5 text-center">
-      <img src="https://cdn-icons-png.flaticon.com/512/3076/3076409.png" alt="AC" class="mx-auto h-16 mb-3">
-      <h4 class="font-semibold text-lg mb-2">AC Repair & Installation</h4>
-      <p class="text-gray-500 text-sm mb-3">Expert AC repair, cleaning, installation, and gas refilling.</p>
-      <button class="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-blue-700 transition">Book Now</button>
-    </div>
-
-    <!-- Event Management -->
-    <div class="bg-white rounded-xl shadow hover:shadow-lg transition p-5 text-center">
-      <img src="https://cdn-icons-png.flaticon.com/512/4465/4465673.png" alt="Event" class="mx-auto h-16 mb-3">
-      <h4 class="font-semibold text-lg mb-2">Event Management</h4>
-      <p class="text-gray-500 text-sm mb-3">Weddings, corporate events, and party setup by professionals.</p>
-      <button class="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-blue-700 transition">Book Now</button>
-    </div>
+    <!-- Right Arrow -->
+    <button id="offerRight" class="absolute -right-4 bg-white shadow-lg p-3 rounded-full hover:scale-110 transition z-10">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+      </svg>
+    </button>
 
   </div>
 </section>
 
-<!-- Footer -->
-<footer class="bg-white border-t mt-10">
-  <div class="max-w-7xl mx-auto px-4 py-8 flex flex-col md:flex-row justify-between space-y-4 md:space-y-0 text-gray-600">
-    <div>
-      <h4 class="font-semibold text-gray-800 mb-2">Bd Safa</h4>
-      <p class="text-sm">Your trusted home service partner in Bangladesh.</p>
+<script>
+// OFFER SLIDER CONTROL (Airtel-Style)
+document.getElementById("offerRight").addEventListener("click", () => {
+  document.getElementById("offerSlider").scrollLeft += 270;
+});
+
+document.getElementById("offerLeft").addEventListener("click", () => {
+  document.getElementById("offerSlider").scrollLeft -= 270;
+});
+</script>
+
+<!-- MOST POPULAR SERVICES -->
+<section class="max-w-6xl mx-auto p-4">
+  <h2 class="text-xl font-bold mb-4">Most Popular Services in Dubai</h2>
+
+  <div class="relative flex items-center">
+
+    <!-- Left Arrow -->
+    <button id="popLeft" class="absolute -left-4 bg-white shadow-lg p-3 rounded-full hover:scale-110 transition">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+      </svg>
+    </button>
+
+    <!-- Slider -->
+    <div id="popSlider" class="flex overflow-x-auto gap-4 no-scrollbar scroll-smooth">
+      <div class="min-w-[180px]"><img src="/mnt/data/nn.PNG" class="w-full h-28 rounded-xl shadow"><p class="mt-2 text-center">Local Moving</p></div>
+      <div class="min-w-[180px]"><img src="/mnt/data/nn.PNG" class="w-full h-28 rounded-xl shadow"><p class="mt-2 text-center">Home Cleaning</p></div>
+      <div class="min-w-[180px]"><img src="/mnt/data/nn.PNG" class="w-full h-28 rounded-xl shadow"><p class="mt-2 text-center">Women's Salon</p></div>
+      <div class="min-w-[180px]"><img src="/mnt/data/nn.PNG" class="w-full h-28 rounded-xl shadow"><p class="mt-2 text-center">Spa At Home</p></div>
+      <div class="min-w-[180px]"><img src="/mnt/data/nn.PNG" class="w-full h-28 rounded-xl shadow"><p class="mt-2 text-center">Laundry</p></div>
     </div>
-    <div class="flex space-x-6">
-      <a href="#" class="hover:text-blue-600">About</a>
-      <a href="#" class="hover:text-blue-600">Terms</a>
-      <a href="#" class="hover:text-blue-600">Privacy</a>
-    </div>
-    <p class="text-sm text-gray-500">© 2025 Bd Safa. All rights reserved.</p>
+
+    <!-- Right Arrow -->
+    <button id="popRight" class="absolute -right-4 bg-white shadow-lg p-3 rounded-full hover:scale-110 transition">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+      </svg>
+    </button>
+
   </div>
-</footer>
+</section>
 
 
-        <!-- Hero Section -->
-        <section class="w-full bg-gray-50 py-12">
-          <div
-            class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-center px-6"
-          >
-            <!-- Left Side Text -->
-            <div class="text-center md:text-left">
-              <h1
-                class="text-3xl md:text-4xl font-extrabold text-gray-900 leading-tight mb-6"
-              >
-                One Call Solves All Your Problems
-              </h1>
-              <ul class="space-y-4 text-base md:text-lg text-gray-700">
-                <li class="flex items-center justify-center md:justify-start">
-                  <span class="text-green-500 text-2xl mr-3">✔</span> 24/7
-                  Customer Support
-                </li>
-                <li class="flex items-center justify-center md:justify-start">
-                  <span class="text-green-500 text-2xl mr-3">✔</span> 100%
-                  Service Guarantee
-                </li>
-                <li class="flex items-center justify-center md:justify-start">
-                  <span class="text-green-500 text-2xl mr-3">✔</span> Fast &
-                  Reliable Technicians
-                </li>
-              </ul>
 
-              <!-- CTA Buttons -->
-              <div
-                class="mt-8 flex flex-col sm:flex-row justify-center md:justify-start gap-4"
-              >
-                <!-- Book Now Button -->
-                <button
-                  onclick="openBooking()"
-                  class="bg-blue-600 text-white px-6 py-3 rounded-xl shadow-lg hover:bg-blue-700 transition w-full sm:w-auto"
-                >
-                  Book Now
-                </button>
+<!-- CLEANING SECTION -->
+<section class="max-w-6xl mx-auto p-4">
+  <h2 class="text-xl font-bold mb-4">Cleaning Services</h2>
 
-                <!-- Get Free Quote Button -->
-                <button
-                  onclick="openQuote()"
-                  class="bg-gray-200 text-gray-800 px-6 py-3 rounded-xl shadow-lg hover:bg-gray-300 transition w-full sm:w-auto"
-                >
-                  Get Free Quote
-                </button>
-              </div>
-            </div>
+  <div class="relative flex items-center">
+    <button id="cleanLeft" class="absolute -left-4 bg-white shadow-lg p-3 rounded-full hover:scale-110 transition">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+      </svg>
+    </button>
 
-            <!-- ================= Booking Form Modal ================= -->
-            <div
-              id="bookingModal"
-              class="hidden fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50"
-            >
-              <div
-                class="bg-white p-6 rounded-lg shadow-lg w-full max-w-lg relative"
-              >
-                <!-- Close Button -->
-                <button
-                  onclick="closeBooking()"
-                  class="absolute top-2 right-2 text-gray-600 hover:text-black text-2xl"
-                >
-                  ✕
-                </button>
+    <div id="cleanSlider" class="flex overflow-x-auto gap-4 no-scrollbar scroll-smooth">
+      <div class="min-w-[180px]"><img src="/mnt/data/nn.PNG" class="w-full h-28 rounded-xl shadow"><p class="mt-2 text-center">Home Cleaning</p></div>
+      <div class="min-w-[180px]"><img src="/mnt/data/nn.PNG" class="w-full h-28 rounded-xl shadow"><p class="mt-2 text-center">Deep Cleaning</p></div>
+      <div class="min-w-[180px]"><img src="/mnt/data/nn.PNG" class="w-full h-28 rounded-xl shadow"><p class="mt-2 text-center">Sofa Cleaning</p></div>
+      <div class="min-w-[180px]"><img src="/mnt/data/nn.PNG" class="w-full h-28 rounded-xl shadow"><p class="mt-2 text-center">Mattress Cleaning</p></div>
+    </div>
 
-                <!-- Booking Form -->
-                <h2 class="text-2xl font-bold mb-4 text-center">
-                  Book a Service
-                </h2>
-                <form class="space-y-4">
-                  <div>
-                    <label class="block text-sm font-medium">Your Name</label>
-                    <input
-                      type="text"
-                      class="w-full border rounded-lg px-3 py-2 focus:ring focus:ring-blue-300"
-                      placeholder="Enter your name"
-                      required
-                    />
-                  </div>
+    <button id="cleanRight" class="absolute -right-4 bg-white shadow-lg p-3 rounded-full hover:scale-110 transition">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+      </svg>
+    </button>
+  </div>
+</section>
 
-                  <div>
-                    <label class="block text-sm font-medium"
-                      >Phone Number</label
-                    >
-                    <input
-                      type="tel"
-                      class="w-full border rounded-lg px-3 py-2 focus:ring focus:ring-blue-300"
-                      placeholder="Enter your phone number"
-                      required
-                    />
-                  </div>
 
-                  <div>
-                    <label class="block text-sm font-medium">Service</label>
-                    <select
-                      class="w-full border rounded-lg px-3 py-2 focus:ring focus:ring-blue-300"
-                    >
-                      <option>AC Repair</option>
-                      <option>Electrical Service</option>
-                      <option>Plumbing Service</option>
-                      <option>Cleaning Service</option>
-                    </select>
-                  </div>
+<!-- BEAUTY & WELLNESS -->
+<section class="max-w-6xl mx-auto p-4">
+  <h2 class="text-xl font-bold mb-4">Beauty & Wellness</h2>
 
-                  <button
-                    type="submit"
-                    class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700"
-                  >
-                    Confirm Booking
-                  </button>
-                </form>
-              </div>
-            </div>
+  <div class="relative flex items-center">
+    <button id="beautyLeft" class="absolute -left-4 bg-white shadow-lg p-3 rounded-full hover:scale-110 transition">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+      </svg>
+    </button>
 
-            <!-- ================= Free Quote Form Modal ================= -->
-            <div
-              id="quoteModal"
-              class="hidden fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50"
-            >
-              <div
-                class="bg-white p-6 rounded-lg shadow-lg w-full max-w-lg relative"
-              >
-                <!-- Close Button -->
-                <button
-                  onclick="closeQuote()"
-                  class="absolute top-2 right-2 text-gray-600 hover:text-black text-2xl"
-                >
-                  ✕
-                </button>
+    <div id="beautySlider" class="flex overflow-x-auto gap-4 no-scrollbar scroll-smooth">
+      <div class="min-w-[180px]"><img src="/mnt/data/nn.PNG" class="w-full h-28 rounded-xl shadow"><p class="mt-2 text-center">Salon at Home</p></div>
+      <div class="min-w-[180px]"><img src="/mnt/data/nn.PNG" class="w-full h-28 rounded-xl shadow"><p class="mt-2 text-center">Spa at Home</p></div>
+      <div class="min-w-[180px]"><img src="/mnt/data/nn.PNG" class="w-full h-28 rounded-xl shadow"><p class="mt-2 text-center">Makeup</p></div>
+      <div class="min-w-[180px]"><img src="/mnt/data/nn.PNG" class="w-full h-28 rounded-xl shadow"><p class="mt-2 text-center">Facial</p></div>
+    </div>
 
-                <!-- Free Quote Form -->
-                <h2 class="text-2xl font-bold mb-4 text-center">
-                  Get a Free Quote
-                </h2>
-                <form class="space-y-4">
-                  <div>
-                    <label class="block text-sm font-medium">Your Name</label>
-                    <input
-                      type="text"
-                      class="w-full border rounded-lg px-3 py-2 focus:ring focus:ring-green-300"
-                      placeholder="Enter your name"
-                      required
-                    />
-                  </div>
+    <button id="beautyRight" class="absolute -right-4 bg-white shadow-lg p-3 rounded-full hover:scale-110 transition">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+      </svg>
+    </button>
+  </div>
+</section>
 
-                  <div>
-                    <label class="block text-sm font-medium"
-                      >Phone Number</label
-                    >
-                    <input
-                      type="tel"
-                      class="w-full border rounded-lg px-3 py-2 focus:ring focus:ring-green-300"
-                      placeholder="Enter your phone number"
-                      required
-                    />
-                  </div>
 
-                  <div>
-                    <label class="block text-sm font-medium"
-                      >Service Needed</label
-                    >
-                    <input
-                      type="text"
-                      class="w-full border rounded-lg px-3 py-2 focus:ring focus:ring-green-300"
-                      placeholder="Describe your service"
-                      required
-                    />
-                  </div>
+<script>
+function sliderControl(left, right, slider) {
+  document.getElementById(right).addEventListener("click", () => {
+    document.getElementById(slider).scrollLeft += 260;
+  });
+  document.getElementById(left).addEventListener("click", () => {
+    document.getElementById(slider).scrollLeft -= 260;
+  });
+}
+sliderControl("popLeft", "popRight", "popSlider");
+sliderControl("cleanLeft", "cleanRight", "cleanSlider");
+sliderControl("beautyLeft", "beautyRight", "beautySlider");
+</script>
 
-                  <button
-                    type="submit"
-                    class="w-full bg-green-600 text-white py-2 rounded-lg hover:bg-green-700"
-                  >
-                    Request Quote
-                  </button>
-                </form>
-              </div>
-            </div>
 
-            <!-- ================= JavaScript ================= -->
-            <script>
-              function openBooking() {
-                document
-                  .getElementById("bookingModal")
-                  .classList.remove("hidden");
-              }
-              function closeBooking() {
-                document.getElementById("bookingModal").classList.add("hidden");
-              }
-
-              function openQuote() {
-                document
-                  .getElementById("quoteModal")
-                  .classList.remove("hidden");
-              }
-              function closeQuote() {
-                document.getElementById("quoteModal").classList.add("hidden");
-              }
-            </script>
-
-            <!-- Right Side Slider -->
-            <div class="relative w-full">
-              <div class="swiper mySwiper rounded-2xl shadow-xl">
-                <div class="swiper-wrapper">
-                  <!-- Slide 1 -->
-                  <div
-                    class="swiper-slide bg-white p-5 rounded-2xl shadow-md transition transform hover:scale-105 flex flex-col items-center"
-                  >
-                    <img
-                      src="ac banner.jpg"
-                      class="rounded-xl w-full h-64 object-cover mb-4"
-                      alt="AC Repair"
-                    />
-                    <h3 class="font-bold text-lg md:text-xl text-gray-800">
-                      AC Repair Services
-                    </h3>
-                  </div>
-
-                  <!-- Slide 2 -->
-                  <div
-                    class="swiper-slide bg-white p-5 rounded-2xl shadow-md transition transform hover:scale-105 flex flex-col items-center"
-                  >
-                    <img
-                      src="electric banner.jpg"
-                      class="rounded-xl w-full h-64 object-cover mb-4"
-                      alt="Electrical"
-                    />
-                    <h3 class="font-bold text-lg md:text-xl text-gray-800">
-                      Electrical Services
-                    </h3>
-                  </div>
-
-                  <!-- Slide 3 -->
-                  <div
-                    class="swiper-slide bg-white p-5 rounded-2xl shadow-md transition transform hover:scale-105 flex flex-col items-center"
-                  >
-                    <img
-                      src="Plumbing banner.jpg"
-                      class="rounded-xl w-full h-64 object-cover mb-4"
-                      alt="Plumbing"
-                    />
-                    <h3 class="font-bold text-lg md:text-xl text-gray-800">
-                      Plumbing Services
-                    </h3>
-                  </div>
-
-                  <!-- Extra Services (just copy-paste for more) -->
-
-                  <div
-                    class="swiper-slide bg-white p-5 rounded-2xl shadow-md transition transform hover:scale-105 flex flex-col items-center"
-                  >
-                    <img
-                      src="download (1).jfif"
-                      class="rounded-xl w-full h-64 object-cover mb-4"
-                      alt="event management"
-                    />
-                    <h3 class="font-bold text-lg md:text-xl text-gray-800">
-                      Event management
-                    </h3>
-                  </div>
-                </div>
-
-                <!-- Pagination Dots -->
-                <div class="swiper-pagination mt-4"></div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- SwiperJS -->
-        <link
-          rel="stylesheet"
-          href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"
-        />
-        <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
-
-        <script>
-          var swiper = new Swiper(".mySwiper", {
-            loop: true,
-            centeredSlides: true,
-            slidesPerView: 1,
-            spaceBetween: 20,
-            autoplay: {
-              delay: 4000, // slower autoplay (4 seconds per slide)
-              disableOnInteraction: false,
-            },
-            pagination: {
-              el: ".swiper-pagination",
-              clickable: true,
-            },
-            effect: "coverflow",
-            coverflowEffect: {
-              rotate: 20,
-              stretch: 0,
-              depth: 100,
-              modifier: 1.5,
-              slideShadows: false,
-            },
-          });
-        </script>
-
-        <!-- Bottom Navigation (HTML + CSS) snippet for site integration -->
-
-        <style>
-          :root {
-            --bg: #ffffff;
-            --muted: #6b7280;
-            --accent: linear-gradient(90deg, #06b6d4, #3b82f6);
-            --cta-bg: #0ea5a4;
-            --shadow: 0 6px 18px rgba(11, 42, 79, 0.12);
-            --radius: 14px;
-            font-family: system-ui, -apple-system, "Segoe UI", Roboto,
-              "Helvetica Neue", Arial;
-          }
-
-          .bottom-nav {
-            position: fixed;
-            left: 0;
-            right: 0;
-            bottom: 16px;
-            display: flex;
-            justify-content: center;
-            pointer-events: auto;
-            z-index: 9999;
-          }
-          .bottom-nav__inner {
-            width: min(800px, calc(100% - 32px));
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(6px);
-            box-shadow: var(--shadow);
-            border-radius: var(--radius);
-            padding: 8px 12px;
-            display: flex;
-            gap: 8px;
-            align-items: center;
-            justify-content: space-between;
-          }
-
-          .nav-item {
-            flex: 1;
-            text-align: center;
-            text-decoration: none;
-            color: var(--muted);
-            font-size: 13px;
-            padding: 8px 6px;
-            border-radius: 10px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 6px;
-          }
-          .nav-item:focus {
-            outline: 2px solid rgba(59, 130, 246, 0.2);
-            outline-offset: 3px;
-          }
-          .nav-item .label {
-            line-height: 1;
-          }
-
-          .nav-item.active {
-            color: #0f172a;
-            font-weight: 600;
-          }
-
-          .nav-cta {
-            transform: translateY(-6px);
-            background: var(--accent);
-            color: white;
-            padding: 10px 16px;
-            border-radius: 12px;
-            box-shadow: 0 10px 20px rgba(59, 130, 246, 0.18);
-            display: flex;
-            gap: 8px;
-            align-items: center;
-            justify-content: center;
-            min-width: 140px;
-          }
-          .nav-cta .label {
-            font-weight: 700;
-          }
-
-          .icon {
-            width: 20px;
-            height: 20px;
-            display: block;
-          }
-
-          @media (min-width: 900px) {
-            .bottom-nav {
-              bottom: 28px;
-            }
-            .bottom-nav__inner {
-              width: 520px;
-            }
-            .nav-item .label {
-              font-size: 12px;
-            }
-          }
-        </style>
-
-        <nav class="bottom-nav" aria-label="Primary" id="bottomNav">
-          <div class="bottom-nav__inner">
-            <a href="/" class="nav-item" data-key="home" aria-current="page">
-              <svg
-                class="icon"
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                aria-hidden="true"
-              >
-                <path
-                  d="M3 10.5L12 4l9 6.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1V10.5z"
-                  stroke="currentColor"
-                  stroke-width="1.4"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
-              <span class="label">Home</span>
-            </a>
-
-            <a href="/store" class="nav-item" data-key="store">
-              <svg
-                class="icon"
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                aria-hidden="true"
-              >
-                <path
-                  d="M6 7h12l-1 11H7L6 7z"
-                  stroke="currentColor"
-                  stroke-width="1.4"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-                <path
-                  d="M9 7V5a3 3 0 0 1 6 0v2"
-                  stroke="currentColor"
-                  stroke-width="1.4"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
-              <span class="label">Store</span>
-            </a>
-
-            <a href="/book" class="nav-item nav-cta" data-key="book">
-              <svg
-                class="icon"
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                aria-hidden="true"
-              >
-                <path
-                  d="M7 11h10M7 15h6"
-                  stroke="currentColor"
-                  stroke-width="1.6"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-                <rect
-                  x="3.5"
-                  y="3.5"
-                  width="17"
-                  height="17"
-                  rx="2.5"
-                  stroke="currentColor"
-                  stroke-width="1.6"
-                />
-              </svg>
-              <span class="label">Book Now</span>
-            </a>
-
-            <a href="/contact" class="nav-item" data-key="contact">
-              <svg
-                class="icon"
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                aria-hidden="true"
-              >
-                <path
-                  d="M21 10c0 7-9 11-9 11s-9-4-9-11a9 9 0 0 1 18 0z"
-                  stroke="currentColor"
-                  stroke-width="1.4"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-                <circle
-                  cx="12"
-                  cy="10"
-                  r="3"
-                  stroke="currentColor"
-                  stroke-width="1.4"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
-              <span class="label">Contact</span>
-            </a>
-          </div>
-        </nav>
-
-        <script>
-          (function () {
-            const nav = document.getElementById("bottomNav");
-            if (!nav) return;
-            nav.addEventListener("click", function (e) {
-              const a = e.target.closest("a.nav-item");
-              if (!a) return;
-              nav.querySelectorAll("a.nav-item").forEach((it) => {
-                it.classList.remove("active");
-                it.removeAttribute("aria-current");
-              });
-              a.classList.add("active");
-              a.setAttribute("aria-current", "page");
-            });
-
-            const pathname = location.pathname || "/";
-            const map = {
-              "/": "home",
-              "/store": "store",
-              "/book": "book",
-              "/contact": "contact",
-            };
-            const key = map[pathname];
-            if (key) {
-              const el = nav.querySelector('[data-key="' + key + '"]');
-              if (el) {
-                el.classList.add("active");
-                el.setAttribute("aria-current", "page");
-              }
-            }
-          })();
-        </script>
-
+        
         <!-- Footer -->
         <footer class="bg-gray-900 text-white pt-10">
           <div class="max-w-6xl mx-auto px-4 md:px-8">
