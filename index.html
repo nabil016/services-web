@@ -576,266 +576,232 @@
     </script>
 
     <!-- Hero Section -->
-<section class="relative bg-cover bg-center h-[450px]" style="background-image: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=60');">
-  <div class="absolute inset-0 bg-black/50"></div>
-  <div class="relative max-w-3xl mx-auto text-center text-white flex flex-col items-center justify-center h-full px-4">
-    <h2 class="text-3xl md:text-5xl font-bold mb-4">Sit back, we’ll take it from here</h2>
-    <p class="text-lg md:text-xl mb-6">Book or get free quotes for home services in your city</p>
+    <section
+      class="relative bg-cover bg-center h-[450px]"
+      style="
+        background-image: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=60');
+      "
+    >
+      <div class="absolute inset-0 bg-black/50"></div>
+      <div
+        class="relative max-w-3xl mx-auto text-center text-white flex flex-col items-center justify-center h-full px-4"
+      >
+        <h2 class="text-3xl md:text-5xl font-bold mb-4">
+          Sit back, we’ll take it from here
+        </h2>
+        <p class="text-lg md:text-xl mb-6">
+          Book or get free quotes for home services in your city
+        </p>
 
-    <!-- Search Box -->
-    <div class="flex items-center bg-white rounded-2xl shadow-md overflow-hidden w-full max-w-xl">
-      
-      <!-- Location Selector -->
-      <div class="flex items-center gap-2 px-4 py-3 border-r border-gray-200">
-        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" />
-          <circle cx="12" cy="9" r="2.5" />
-        </svg>
-        <select class="bg-transparent text-gray-700 font-medium focus:outline-none">
-          <option>Dhaka</option>
-          <option>Kasimpur</option>
-          <option>Alfadanga</option>
-          <option>Faridpur</option>
-          <option>Demra</option>
-          <option>Rupshi</option>
-        </select>
-      </div>
-
-      <!-- Search Input -->
-      <input type="text" placeholder="Start typing to find a service" class="flex-1 px-4 py-3 text-gray-600 placeholder-gray-400 focus:outline-none" />
-
-    </div>
-  </div>
-</section>
-
-
-<!-- SEPARATE OFFER SLIDER (Airtel-Style) -->
-<section class="max-w-6xl mx-auto p-4 mt-6">
-  <h2 class="text-2xl font-bold mb-5">Special Service Offers</h2>
-
-  <div class="relative flex items-center">
-
-    <!-- Left Arrow -->
-    <button id="offerLeft" class="absolute -left-4 bg-white shadow-lg p-3 rounded-full hover:scale-110 transition z-10">
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
-      </svg>
-    </button>
-
-    <!-- Offer Slider -->
-    <div id="offerSlider" class="flex overflow-x-auto gap-4 no-scrollbar scroll-smooth">
-
-      <!-- Offer Card -->
-      <div class="min-w-[240px] bg-white p-5 rounded-2xl shadow hover:shadow-xl transition border border-gray-200">
-        <img src="/mnt/data/nn.PNG" class="w-full h-32 object-cover rounded-xl" />
-        <h3 class="text-lg font-semibold mt-3">AC Service Offer</h3>
-        <p class="text-sm text-gray-600">Full AC cleaning + inspection combo.</p>
-        <p class="text-blue-600 font-bold mt-2 text-lg">AED 79 Only</p>
-      </div>
-
-      <div class="min-w-[240px] bg-white p-5 rounded-2xl shadow hover:shadow-xl transition border border-gray-200">
-        <img src="/mnt/data/nn.PNG" class="w-full h-32 object-cover rounded-xl" />
-        <h3 class="text-lg font-semibold mt-3">Electric Repair Offer</h3>
-        <p class="text-sm text-gray-600">Fix sockets, switches & electrical issues.</p>
-        <p class="text-blue-600 font-bold mt-2 text-lg">AED 49 Only</p>
-      </div>
-
-      <div class="min-w-[240px] bg-white p-5 rounded-2xl shadow hover:shadow-xl transition border border-gray-200">
-        <img src="/mnt/data/nn.PNG" class="w-full h-32 object-cover rounded-xl" />
-        <h3 class="text-lg font-semibold mt-3">Plumbing Fix Offer</h3>
-        <p class="text-sm text-gray-600">Leak repair + water flow check combo.</p>
-        <p class="text-blue-600 font-bold mt-2 text-lg">AED 59 Only</p>
-      </div>
-
-      <div class="min-w-[240px] bg-white p-5 rounded-2xl shadow hover:shadow-xl transition border border-gray-200">
-        <img src="/mnt/data/nn.PNG" class="w-full h-32 object-cover rounded-xl" />
-        <h3 class="text-lg font-semibold mt-3">Event Management Offer</h3>
-        <p class="text-sm text-gray-600">Birthday / Corporate event discount deal.</p>
-        <p class="text-blue-600 font-bold mt-2 text-lg">10% OFF</p>
-      </div>
-
-    </div>
-
-    <!-- Right Arrow -->
-    <button id="offerRight" class="absolute -right-4 bg-white shadow-lg p-3 rounded-full hover:scale-110 transition z-10">
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
-      </svg>
-    </button>
-
-  </div>
-</section>
-
-<script>
-// OFFER SLIDER CONTROL (Airtel-Style)
-document.getElementById("offerRight").addEventListener("click", () => {
-  document.getElementById("offerSlider").scrollLeft += 270;
-});
-
-document.getElementById("offerLeft").addEventListener("click", () => {
-  document.getElementById("offerSlider").scrollLeft -= 270;
-});
-</script>
-
-<!-- MOST POPULAR SERVICES -->
-<section class="max-w-6xl mx-auto p-4">
-  <h2 class="text-xl font-bold mb-4">Most Popular Services in Dubai</h2>
-
-  <div class="relative flex items-center">
-
-    <!-- Left Arrow -->
-    <button id="popLeft" class="absolute -left-4 bg-white shadow-lg p-3 rounded-full hover:scale-110 transition">
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
-      </svg>
-    </button>
-
-    <!-- Slider -->
-    <div id="popSlider" class="flex overflow-x-auto gap-4 no-scrollbar scroll-smooth">
-      <div class="min-w-[180px]"><img src="/mnt/data/nn.PNG" class="w-full h-28 rounded-xl shadow"><p class="mt-2 text-center">Local Moving</p></div>
-      <div class="min-w-[180px]"><img src="/mnt/data/nn.PNG" class="w-full h-28 rounded-xl shadow"><p class="mt-2 text-center">Home Cleaning</p></div>
-      <div class="min-w-[180px]"><img src="/mnt/data/nn.PNG" class="w-full h-28 rounded-xl shadow"><p class="mt-2 text-center">Women's Salon</p></div>
-      <div class="min-w-[180px]"><img src="/mnt/data/nn.PNG" class="w-full h-28 rounded-xl shadow"><p class="mt-2 text-center">Spa At Home</p></div>
-      <div class="min-w-[180px]"><img src="/mnt/data/nn.PNG" class="w-full h-28 rounded-xl shadow"><p class="mt-2 text-center">Laundry</p></div>
-    </div>
-
-    <!-- Right Arrow -->
-    <button id="popRight" class="absolute -right-4 bg-white shadow-lg p-3 rounded-full hover:scale-110 transition">
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
-      </svg>
-    </button>
-
-  </div>
-</section>
-
-
-
-<!-- CLEANING SECTION -->
-<section class="max-w-6xl mx-auto p-4">
-  <h2 class="text-xl font-bold mb-4">Cleaning Services</h2>
-
-  <div class="relative flex items-center">
-    <button id="cleanLeft" class="absolute -left-4 bg-white shadow-lg p-3 rounded-full hover:scale-110 transition">
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
-      </svg>
-    </button>
-
-    <div id="cleanSlider" class="flex overflow-x-auto gap-4 no-scrollbar scroll-smooth">
-      <div class="min-w-[180px]"><img src="/mnt/data/nn.PNG" class="w-full h-28 rounded-xl shadow"><p class="mt-2 text-center">Home Cleaning</p></div>
-      <div class="min-w-[180px]"><img src="/mnt/data/nn.PNG" class="w-full h-28 rounded-xl shadow"><p class="mt-2 text-center">Deep Cleaning</p></div>
-      <div class="min-w-[180px]"><img src="/mnt/data/nn.PNG" class="w-full h-28 rounded-xl shadow"><p class="mt-2 text-center">Sofa Cleaning</p></div>
-      <div class="min-w-[180px]"><img src="/mnt/data/nn.PNG" class="w-full h-28 rounded-xl shadow"><p class="mt-2 text-center">Mattress Cleaning</p></div>
-    </div>
-
-    <button id="cleanRight" class="absolute -right-4 bg-white shadow-lg p-3 rounded-full hover:scale-110 transition">
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
-      </svg>
-    </button>
-  </div>
-</section>
-
-
-<!-- BEAUTY & WELLNESS -->
-<section class="max-w-6xl mx-auto p-4">
-  <h2 class="text-xl font-bold mb-4">Beauty & Wellness</h2>
-
-  <div class="relative flex items-center">
-    <button id="beautyLeft" class="absolute -left-4 bg-white shadow-lg p-3 rounded-full hover:scale-110 transition">
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
-      </svg>
-    </button>
-
-    <div id="beautySlider" class="flex overflow-x-auto gap-4 no-scrollbar scroll-smooth">
-      <div class="min-w-[180px]"><img src="/mnt/data/nn.PNG" class="w-full h-28 rounded-xl shadow"><p class="mt-2 text-center">Salon at Home</p></div>
-      <div class="min-w-[180px]"><img src="/mnt/data/nn.PNG" class="w-full h-28 rounded-xl shadow"><p class="mt-2 text-center">Spa at Home</p></div>
-      <div class="min-w-[180px]"><img src="/mnt/data/nn.PNG" class="w-full h-28 rounded-xl shadow"><p class="mt-2 text-center">Makeup</p></div>
-      <div class="min-w-[180px]"><img src="/mnt/data/nn.PNG" class="w-full h-28 rounded-xl shadow"><p class="mt-2 text-center">Facial</p></div>
-    </div>
-
-    <button id="beautyRight" class="absolute -right-4 bg-white shadow-lg p-3 rounded-full hover:scale-110 transition">
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
-      </svg>
-    </button>
-  </div>
-</section>
-
-
-<script>
-function sliderControl(left, right, slider) {
-  document.getElementById(right).addEventListener("click", () => {
-    document.getElementById(slider).scrollLeft += 260;
-  });
-  document.getElementById(left).addEventListener("click", () => {
-    document.getElementById(slider).scrollLeft -= 260;
-  });
-}
-sliderControl("popLeft", "popRight", "popSlider");
-sliderControl("cleanLeft", "cleanRight", "cleanSlider");
-sliderControl("beautyLeft", "beautyRight", "beautySlider");
-</script>
-
-
-        
-        <!-- Footer -->
-        <footer class="bg-gray-900 text-white pt-10">
-          <div class="max-w-6xl mx-auto px-4 md:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 pb-10">
-              <!-- Logo & Tagline -->
-              <div>
-                <h3 class="text-2xl font-bold mb-2">⚡ VoltFix</h3>
-                <p class="text-gray-400 text-sm">
-                  Fast and reliable electrician & home services.
-                </p>
-              </div>
-
-              <!-- Navigation Links -->
-              <div>
-                <h4 class="text-lg font-semibold mb-2">Quick Links</h4>
-                <ul class="space-y-1 text-gray-300 text-sm">
-                  <li><a href="#home" class="hover:text-white">Home</a></li>
-                  <li>
-                    <a href="#services" class="hover:text-white">Services</a>
-                  </li>
-                  <li><a href="#about" class="hover:text-white">About</a></li>
-                  <li>
-                    <a href="#contact" class="hover:text-white">Contact</a>
-                  </li>
-                </ul>
-              </div>
-
-              <!-- Contact Info -->
-              <div>
-                <h4 class="text-lg font-semibold mb-2">Contact Us</h4>
-                <p class="text-gray-300 text-sm">📞 +880 1234 567890</p>
-                <p class="text-gray-300 text-sm">✉️ support@voltfix.com</p>
-                <div class="flex space-x-4 mt-3">
-                  <a href="#" class="hover:text-blue-400"
-                    ><i class="fab fa-facebook-f"></i
-                  ></a>
-                  <a href="#" class="hover:text-blue-300"
-                    ><i class="fab fa-twitter"></i
-                  ></a>
-                  <a href="#" class="hover:text-pink-400"
-                    ><i class="fab fa-instagram"></i
-                  ></a>
-                </div>
-              </div>
-            </div>
-
-            <!-- Bottom Line -->
-            <div
-              class="border-t border-gray-700 text-center text-sm text-gray-500 py-4"
+        <!-- Search Box -->
+        <div
+          class="flex items-center bg-white rounded-2xl shadow-md overflow-hidden w-full max-w-xl"
+        >
+          <!-- Location Selector -->
+          <div
+            class="flex items-center gap-2 px-4 py-3 border-r border-gray-200"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="w-5 h-5 text-gray-500"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
             >
-              © 2025 VoltFix. All rights reserved.
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.5"
+                d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"
+              />
+              <circle cx="12" cy="9" r="2.5" />
+            </svg>
+            <select
+              class="bg-transparent text-gray-700 font-medium focus:outline-none"
+            >
+              <option>Dhaka</option>
+              <option>Kasimpur</option>
+              <option>Alfadanga</option>
+              <option>Faridpur</option>
+              <option>Demra</option>
+              <option>Rupshi</option>
+            </select>
+          </div>
+
+          <!-- Search Input -->
+          <input
+            type="text"
+            placeholder="Start typing to find a service"
+            class="flex-1 px-4 py-3 text-gray-600 placeholder-gray-400 focus:outline-none"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- MOST POPULAR SERVICES -->
+    <section class="max-w-6xl mx-auto p-4">
+      <h2 class="text-xl font-bold mb-4">Most Popular Services in Dubai</h2>
+
+      <div class="flex items-center">
+        <!-- Slider -->
+        <div
+          id="popSlider"
+          class="flex overflow-x-auto gap-4 no-scrollbar scroll-smooth"
+        >
+          <div class="min-w-[180px]">
+            <img src="/mnt/data/nn.PNG" class="w-full h-28 rounded-xl shadow" />
+            <p class="mt-2 text-center">Local Moving</p>
+          </div>
+          <div class="min-w-[180px]">
+            <img src="/mnt/data/nn.PNG" class="w-full h-28 rounded-xl shadow" />
+            <p class="mt-2 text-center">Home Cleaning</p>
+          </div>
+          <div class="min-w-[180px]">
+            <img src="/mnt/data/nn.PNG" class="w-full h-28 rounded-xl shadow" />
+            <p class="mt-2 text-center">Women's Salon</p>
+          </div>
+          <div class="min-w-[180px]">
+            <img src="/mnt/data/nn.PNG" class="w-full h-28 rounded-xl shadow" />
+            <p class="mt-2 text-center">Spa At Home</p>
+          </div>
+          <div class="min-w-[180px]">
+            <img src="/mnt/data/nn.PNG" class="w-full h-28 rounded-xl shadow" />
+            <p class="mt-2 text-center">Laundry</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="max-w-6xl mx-auto p-3">
+      <div
+        class="bg-red-600 text-white rounded-md px-4 py-2 flex items-center justify-between shadow"
+      >
+        <!-- Text -->
+        <h2 class="text-base font-semibold leading-none">
+          Get 20% OFF on Your First Service
+        </h2>
+
+        <!-- Button -->
+        <a
+          href="#book"
+          class="bg-white text-red-600 font-semibold px-3 py-1 rounded text-xs hover:bg-gray-100 whitespace-nowrap"
+        >
+          Book Now
+        </a>
+      </div>
+    </section>
+
+    <!-- CLEANING SECTION -->
+    <section class="max-w-6xl mx-auto p-4">
+      <h2 class="text-xl font-bold mb-4">Cleaning Services</h2>
+
+      <div class="flex items-center">
+        <div
+          id="cleanSlider"
+          class="flex overflow-x-auto gap-4 no-scrollbar scroll-smooth"
+        >
+          <div class="min-w-[180px]">
+            <img src="/mnt/data/nn.PNG" class="w-full h-28 rounded-xl shadow" />
+            <p class="mt-2 text-center">Home Cleaning</p>
+          </div>
+          <div class="min-w-[180px]">
+            <img src="/mnt/data/nn.PNG" class="w-full h-28 rounded-xl shadow" />
+            <p class="mt-2 text-center">Deep Cleaning</p>
+          </div>
+          <div class="min-w-[180px]">
+            <img src="/mnt/data/nn.PNG" class="w-full h-28 rounded-xl shadow" />
+            <p class="mt-2 text-center">Sofa Cleaning</p>
+          </div>
+          <div class="min-w-[180px]">
+            <img src="/mnt/data/nn.PNG" class="w-full h-28 rounded-xl shadow" />
+            <p class="mt-2 text-center">Mattress Cleaning</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BEAUTY & WELLNESS -->
+    <section class="max-w-6xl mx-auto p-4">
+      <h2 class="text-xl font-bold mb-4">Beauty & Wellness</h2>
+
+      <div class="flex items-center">
+        <div
+          id="beautySlider"
+          class="flex overflow-x-auto gap-4 no-scrollbar scroll-smooth"
+        >
+          <div class="min-w-[180px]">
+            <img src="/mnt/data/nn.PNG" class="w-full h-28 rounded-xl shadow" />
+            <p class="mt-2 text-center">Salon at Home</p>
+          </div>
+          <div class="min-w-[180px]">
+            <img src="/mnt/data/nn.PNG" class="w-full h-28 rounded-xl shadow" />
+            <p class="mt-2 text-center">Spa at Home</p>
+          </div>
+          <div class="min-w-[180px]">
+            <img src="/mnt/data/nn.PNG" class="w-full h-28 rounded-xl shadow" />
+            <p class="mt-2 text-center">Makeup</p>
+          </div>
+          <div class="min-w-[180px]">
+            <img src="/mnt/data/nn.PNG" class="w-full h-28 rounded-xl shadow" />
+            <p class="mt-2 text-center">Facial</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white pt-10">
+      <div class="max-w-6xl mx-auto px-4 md:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 pb-10">
+          <!-- Logo & Tagline -->
+          <div>
+            <h3 class="text-2xl font-bold mb-2">⚡ VoltFix</h3>
+            <p class="text-gray-400 text-sm">
+              Fast and reliable electrician & home services.
+            </p>
+          </div>
+
+          <!-- Navigation Links -->
+          <div>
+            <h4 class="text-lg font-semibold mb-2">Quick Links</h4>
+            <ul class="space-y-1 text-gray-300 text-sm">
+              <li><a href="#home" class="hover:text-white">Home</a></li>
+              <li>
+                <a href="#services" class="hover:text-white">Services</a>
+              </li>
+              <li><a href="#about" class="hover:text-white">About</a></li>
+              <li>
+                <a href="#contact" class="hover:text-white">Contact</a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Contact Info -->
+          <div>
+            <h4 class="text-lg font-semibold mb-2">Contact Us</h4>
+            <p class="text-gray-300 text-sm">📞 +880 1234 567890</p>
+            <p class="text-gray-300 text-sm">✉️ support@voltfix.com</p>
+            <div class="flex space-x-4 mt-3">
+              <a href="#" class="hover:text-blue-400"
+                ><i class="fab fa-facebook-f"></i
+              ></a>
+              <a href="#" class="hover:text-blue-300"
+                ><i class="fab fa-twitter"></i
+              ></a>
+              <a href="#" class="hover:text-pink-400"
+                ><i class="fab fa-instagram"></i
+              ></a>
             </div>
           </div>
-        </footer>
-      </body>
-    </html>
+        </div>
+
+        <!-- Bottom Line -->
+        <div
+          class="border-t border-gray-700 text-center text-sm text-gray-500 py-4"
+        >
+          © 2025 VoltFix. All rights reserved.
+        </div>
+      </div>
+    </footer>
   </body>
 </html>
