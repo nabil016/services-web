@@ -1274,14 +1274,20 @@
     </section>
 
     <!-- MAIN CATEGORY: RESIDENTIAL SERVICES -->
-    <section class="max-w-7xl mx-auto p-4">
+    <script
+      defer
+      src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
+
+    <section x-data="{ open: false }" class="max-w-7xl mx-auto p-4">
       <div class="flex justify-between items-center mb-6 gap-2">
         <h2 class="text-lg md:text-xl font-bold text-gray-800 truncate">
           Residential Services
         </h2>
 
         <a
-          href="your-page-link.html"
+          href="javascript:void(0)"
+          @click="open = true"
           class="group flex items-center gap-1 text-xs md:text-sm text-[#172554] font-normal hover:text-blue-700 transition-colors shrink-0 whitespace-nowrap"
         >
           <span>Visit Page</span>
@@ -1340,68 +1346,124 @@
               Electrical
             </p>
           </div>
-
-          <div
-            class="min-w-[150px] md:min-w-[220px] transition-transform hover:scale-105 shrink-0"
-          >
-            <img
-              src="https://images.unsplash.com/photo-1631889993877-157793180a0b?q=80&w=500&auto=format&fit=crop"
-              class="w-full h-24 md:h-40 rounded-md md:rounded-lg shadow-md object-cover"
-              alt="AC Heater Repair"
-            />
-            <p
-              class="mt-3 text-sm md:text-lg text-center font-bold text-gray-700 leading-tight"
-            >
-              AC/Heater Repair
-            </p>
-          </div>
-
-          <div
-            class="min-w-[150px] md:min-w-[220px] transition-transform hover:scale-105 shrink-0"
-          >
-            <img
-              src="https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?q=80&w=500&auto=format&fit=crop"
-              class="w-full h-24 md:h-40 rounded-md md:rounded-lg shadow-md object-cover"
-              alt="Home Cleaning"
-            />
-            <p
-              class="mt-3 text-sm md:text-lg text-center font-bold text-gray-700 leading-tight"
-            >
-              Home Cleaning
-            </p>
-          </div>
-
-          <div
-            class="min-w-[150px] md:min-w-[220px] transition-transform hover:scale-105 shrink-0"
-          >
-            <img
-              src="https://images.unsplash.com/photo-1610557892470-55d9e80c0b62?q=80&w=500&auto=format&fit=crop"
-              class="w-full h-24 md:h-40 rounded-md md:rounded-lg shadow-md object-cover"
-              alt="Residential Carpentry"
-            />
-            <p
-              class="mt-3 text-sm md:text-lg text-center font-bold text-gray-700 leading-tight"
-            >
-              Carpentry
-            </p>
-          </div>
-
-          <div
-            class="min-w-[150px] md:min-w-[220px] transition-transform hover:scale-105 shrink-0"
-          >
-            <img
-              src="https://images.unsplash.com/photo-1593019611461-2d53208d742b?q=80&w=500&auto=format&fit=crop"
-              class="w-full h-24 md:h-40 rounded-md md:rounded-lg shadow-md object-cover"
-              alt="Home Painting"
-            />
-            <p
-              class="mt-3 text-sm md:text-lg text-center font-bold text-gray-700 leading-tight"
-            >
-              Painting
-            </p>
-          </div>
         </div>
       </div>
+
+      <template x-teleport="body">
+        <div
+          x-show="open"
+          class="fixed inset-0 z-[9999] bg-white flex flex-col"
+          x-transition:enter="transition ease-out duration-500"
+          x-transition:enter-start="transform -translate-y-full"
+          x-transition:enter-end="transform translate-y-0"
+          x-transition:leave="transition ease-in duration-300"
+          x-transition:leave-start="transform translate-y-0"
+          x-transition:leave-end="transform -translate-y-full"
+          style="display: none; top: 70px"
+        >
+          <div
+            class="relative flex items-center justify-center p-4 border-b shrink-0 bg-white shadow-sm"
+          >
+            <button
+              @click="open = false"
+              class="absolute left-4 p-2 bg-gray-50 border rounded-full hover:bg-gray-100"
+            >
+              <svg
+                class="w-5 h-5 text-gray-600"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2.5"
+                  d="M15 19l-7-7 7-7"
+                ></path>
+              </svg>
+            </button>
+            <h2 class="text-xl font-bold text-gray-800">
+              Residential Services
+            </h2>
+          </div>
+
+          <div class="flex-1 overflow-y-auto p-4 bg-gray-50">
+            <div class="max-w-3xl mx-auto">
+              <div class="mb-8">
+                <p class="text-gray-500 text-sm">
+                  We provide top-quality residential services to keep your home
+                  running smoothly and looking great.
+                </p>
+                <h3 class="text-2xl font-bold text-[#172554] mt-2">
+                  All Services
+                </h3>
+              </div>
+
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div
+                  class="flex items-center gap-4 bg-white p-3 rounded-xl shadow-sm border border-gray-100 hover:border-blue-300 transition-all"
+                >
+                  <img
+                    src="https://images.unsplash.com/photo-1607472586893-edb57bdc0e39?q=80&w=100"
+                    class="w-16 h-16 rounded-lg object-cover"
+                  />
+                  <div>
+                    <h4 class="font-bold text-gray-800">Plumbing</h4>
+                    <p class="text-xs text-gray-500">
+                      Expert leak repair and installations.
+                    </p>
+                  </div>
+                </div>
+
+                <div
+                  class="flex items-center gap-4 bg-white p-3 rounded-xl shadow-sm border border-gray-100 hover:border-blue-300 transition-all"
+                >
+                  <img
+                    src="https://images.unsplash.com/photo-1621905251918-48416bd8575a?q=80&w=100"
+                    class="w-16 h-16 rounded-lg object-cover"
+                  />
+                  <div>
+                    <h4 class="font-bold text-gray-800">Electrical</h4>
+                    <p class="text-xs text-gray-500">
+                      Safe wiring and switch fixes.
+                    </p>
+                  </div>
+                </div>
+
+                <div
+                  class="flex items-center gap-4 bg-white p-3 rounded-xl shadow-sm border border-gray-100 hover:border-blue-300 transition-all"
+                >
+                  <img
+                    src="https://images.unsplash.com/photo-1631889993877-157793180a0b?q=80&w=100"
+                    class="w-16 h-16 rounded-lg object-cover"
+                  />
+                  <div>
+                    <h4 class="font-bold text-gray-800">AC/Heater Repair</h4>
+                    <p class="text-xs text-gray-500">
+                      Efficient cooling and heating solutions.
+                    </p>
+                  </div>
+                </div>
+
+                <div
+                  class="flex items-center gap-4 bg-white p-3 rounded-xl shadow-sm border border-gray-100 hover:border-blue-300 transition-all"
+                >
+                  <img
+                    src="https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?q=80&w=100"
+                    class="w-16 h-16 rounded-lg object-cover"
+                  />
+                  <div>
+                    <h4 class="font-bold text-gray-800">Home Cleaning</h4>
+                    <p class="text-xs text-gray-500">
+                      Deep cleaning for a healthier home.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </template>
     </section>
     <!-- MAIN CATEGORY: COMMERCIAL SERVICES -->
 
