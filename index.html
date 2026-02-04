@@ -758,14 +758,14 @@
         <div
           class="flex items-center bg-gray-100 rounded-lg overflow-hidden w-full mb-3 border border-transparent focus-within:border-blue-500 focus-within:bg-white transition-all shadow-sm"
         >
-          <div class="flex items-center flex-1 px-4 py-3.5">
+          <div class="flex items-center flex-1 px-3 py-2">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              class="w-6 h-6 text-black mr-3 shrink-0"
+              class="w-5 h-5 text-gray-400 mr-2 shrink-0"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
-              stroke-width="2.5"
+              stroke-width="2"
             >
               <path
                 stroke-linecap="round"
@@ -773,12 +773,13 @@
                 d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
               />
             </svg>
-            <div class="flex w-full text-base font-medium text-gray-800">
+
+            <div class="flex w-full text-sm font-normal text-gray-500">
               <span class="shrink-0">Search for&nbsp;</span>
               <input
                 id="animated-search"
                 type="text"
-                class="w-full bg-transparent placeholder-gray-500 focus:outline-none"
+                class="w-full bg-transparent placeholder-gray-400 focus:outline-none text-gray-600"
                 readonly
               />
             </div>
@@ -969,290 +970,273 @@
       });
     </script>
 
-    <!-- Services Categories Slider -->
+    <!-- Services Categories -->
 
-    <section class="bg-white py-4">
-      <div class="max-w-4xl mx-auto px-4">
+    <!-- MAIN Discover all -->
+    <section class="py-3 bg-white">
+      <div class="max-w-6xl mx-auto px-4">
+        <!-- left/right space kept -->
+
         <div
-          class="relative bg-white rounded-xl shadow-sm border border-gray-100 p-4 overflow-hidden"
+          class="overflow-x-auto scroll-smooth snap-x snap-mandatory no-scrollbar"
         >
+          <style>
+            .no-scrollbar::-webkit-scrollbar {
+              display: none;
+            }
+          </style>
+
+          <!-- Reduced middle spacing -->
           <div
-            id="service-slider"
-            class="flex no-scrollbar overflow-x-auto snap-x snap-mandatory transition-all duration-500 scroll-smooth"
-            style="scrollbar-width: none; -ms-overflow-style: none"
+            class="grid grid-rows-2 grid-flow-col auto-cols-[20%] gap-x-1 gap-y-2 min-w-max"
           >
-            <div class="min-w-full grid grid-cols-4 gap-y-5 snap-center">
+            <!-- AC Repair -->
+            <a
+              href="ac-repair.html"
+              class="snap-start group flex flex-col items-center text-center"
+            >
               <div
-                class="flex flex-col items-center justify-center text-center group cursor-pointer"
+                class="w-14 h-14 bg-blue-50 rounded-xl flex items-center justify-center group-hover:bg-blue-600 transition-all"
               >
-                <div
-                  class="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center mb-1 group-hover:bg-blue-100 transition-colors"
-                >
-                  <img
-                    src="https://cdn-icons-png.flaticon.com/512/911/911409.png"
-                    class="w-8 h-8 object-contain"
-                    alt="AC"
-                  />
-                </div>
-                <span class="text-[10px] md:text-xs font-medium text-gray-700"
-                  >AC Repair</span
-                >
+                <img
+                  src="https://img.icons8.com/ios-filled/50/000000/air-conditioner.png"
+                  class="w-7 h-7 group-hover:invert"
+                />
               </div>
+              <span class="text-[11px] font-semibold mt-1">AC Repair</span>
+            </a>
 
+            <!-- Electrical -->
+            <a
+              href="electrical.html"
+              class="snap-start group flex flex-col items-center text-center"
+            >
               <div
-                class="flex flex-col items-center justify-center text-center group cursor-pointer"
+                class="w-14 h-14 bg-orange-50 rounded-xl flex items-center justify-center group-hover:bg-orange-500 transition-all"
               >
-                <div
-                  class="w-12 h-12 bg-red-50 rounded-xl flex items-center justify-center mb-1 group-hover:bg-red-100 transition-colors"
-                >
-                  <img
-                    src="https://cdn-icons-png.flaticon.com/512/3652/3652305.png"
-                    class="w-8 h-8 object-contain"
-                    alt="Appliance"
-                  />
-                </div>
-                <span class="text-[10px] md:text-xs font-medium text-gray-700"
-                  >Appliance</span
-                >
+                <img
+                  src="https://img.icons8.com/ios-filled/50/000000/flash-on.png"
+                  class="w-7 h-7 group-hover:invert"
+                />
               </div>
+              <span class="text-[11px] font-semibold mt-1">Electrical</span>
+            </a>
 
+            <!-- Plumbing -->
+            <a
+              href="plumbing.html"
+              class="snap-start group flex flex-col items-center text-center"
+            >
               <div
-                class="flex flex-col items-center justify-center text-center group cursor-pointer"
+                class="w-14 h-14 bg-green-50 rounded-xl flex items-center justify-center group-hover:bg-green-600 transition-all"
               >
-                <div
-                  class="w-12 h-12 bg-green-50 rounded-xl flex items-center justify-center mb-1 group-hover:bg-green-100 transition-colors"
-                >
-                  <img
-                    src="https://cdn-icons-png.flaticon.com/512/2954/2954847.png"
-                    class="w-8 h-8 object-contain"
-                    alt="Cleaning"
-                  />
-                </div>
-                <span class="text-[10px] md:text-xs font-medium text-gray-700"
-                  >Cleaning</span
-                >
+                <img
+                  src="https://img.icons8.com/ios-filled/50/000000/plumbing.png"
+                  class="w-7 h-7 group-hover:invert"
+                />
               </div>
+              <span class="text-[11px] font-semibold mt-1">Plumbing</span>
+            </a>
 
+            <!-- Cleaning -->
+            <a
+              href="cleaning.html"
+              class="snap-start group flex flex-col items-center text-center"
+            >
               <div
-                class="flex flex-col items-center justify-center text-center group cursor-pointer"
+                class="w-14 h-14 bg-yellow-50 rounded-xl flex items-center justify-center group-hover:bg-yellow-500 transition-all"
               >
-                <div
-                  class="w-12 h-12 bg-indigo-50 rounded-xl flex items-center justify-center mb-1 group-hover:bg-indigo-100 transition-colors"
-                >
-                  <img
-                    src="https://cdn-icons-png.flaticon.com/512/3100/3100063.png"
-                    class="w-8 h-8 object-contain"
-                    alt="Plumbing"
-                  />
-                </div>
-                <span class="text-[10px] md:text-xs font-medium text-gray-700"
-                  >Plumbing</span
-                >
+                <img
+                  src="https://img.icons8.com/ios-filled/50/000000/vacuum-cleaner.png"
+                  class="w-7 h-7 group-hover:invert"
+                />
               </div>
+              <span class="text-[11px] font-semibold mt-1">Cleaning</span>
+            </a>
 
+            <!-- Painting -->
+            <a
+              href="painting.html"
+              class="snap-start group flex flex-col items-center text-center"
+            >
               <div
-                class="flex flex-col items-center justify-center text-center group cursor-pointer"
+                class="w-14 h-14 bg-red-50 rounded-xl flex items-center justify-center group-hover:bg-red-600 transition-all"
               >
-                <div
-                  class="w-12 h-12 bg-yellow-50 rounded-xl flex items-center justify-center mb-1 group-hover:bg-yellow-100 transition-colors"
-                >
-                  <img
-                    src="https://cdn-icons-png.flaticon.com/512/1904/1904425.png"
-                    class="w-8 h-8 object-contain"
-                    alt="Electrical"
-                  />
-                </div>
-                <span class="text-[10px] md:text-xs font-medium text-gray-700"
-                  >Electrical</span
-                >
+                <img
+                  src="https://img.icons8.com/ios-filled/50/000000/paint-brush.png"
+                  class="w-7 h-7 group-hover:invert"
+                />
               </div>
+              <span class="text-[11px] font-semibold mt-1">Painting</span>
+            </a>
 
+            <!-- Carpentry -->
+            <a
+              href="carpentry.html"
+              class="snap-start group flex flex-col items-center text-center"
+            >
               <div
-                class="flex flex-col items-center justify-center text-center group cursor-pointer"
+                class="w-14 h-14 bg-indigo-50 rounded-xl flex items-center justify-center group-hover:bg-indigo-600 transition-all"
               >
-                <div
-                  class="w-12 h-12 bg-purple-50 rounded-xl flex items-center justify-center mb-1 group-hover:bg-purple-100 transition-colors"
-                >
-                  <img
-                    src="https://cdn-icons-png.flaticon.com/512/3159/3159345.png"
-                    class="w-8 h-8 object-contain"
-                    alt="Painting"
-                  />
-                </div>
-                <span class="text-[10px] md:text-xs font-medium text-gray-700"
-                  >Painting</span
-                >
+                <img
+                  src="https://img.icons8.com/ios-filled/50/000000/hammer.png"
+                  class="w-7 h-7 group-hover:invert"
+                />
               </div>
+              <span class="text-[11px] font-semibold mt-1">Carpentry</span>
+            </a>
 
+            <!-- Pest Control -->
+            <a
+              href="pest-control.html"
+              class="snap-start group flex flex-col items-center text-center"
+            >
               <div
-                class="flex flex-col items-center justify-center text-center group cursor-pointer"
+                class="w-14 h-14 bg-teal-50 rounded-xl flex items-center justify-center group-hover:bg-teal-600 transition-all"
               >
-                <div
-                  class="w-12 h-12 bg-teal-50 rounded-xl flex items-center justify-center mb-1 group-hover:bg-teal-100 transition-colors"
-                >
-                  <img
-                    src="https://cdn-icons-png.flaticon.com/512/2830/2830305.png"
-                    class="w-8 h-8 object-contain"
-                    alt="Pest"
-                  />
-                </div>
-                <span class="text-[10px] md:text-xs font-medium text-gray-700"
-                  >Pest Control</span
-                >
+                <img
+                  src="https://img.icons8.com/ios-filled/50/000000/bug.png"
+                  class="w-7 h-7 group-hover:invert"
+                />
               </div>
+              <span class="text-[11px] font-semibold mt-1">Pest Control</span>
+            </a>
 
+            <!-- CCTV -->
+            <a
+              href="cctv.html"
+              class="snap-start group flex flex-col items-center text-center"
+            >
               <div
-                class="flex flex-col items-center justify-center text-center group cursor-pointer"
+                class="w-14 h-14 bg-gray-100 rounded-xl flex items-center justify-center group-hover:bg-gray-700 transition-all"
               >
-                <div
-                  class="w-12 h-12 bg-orange-50 rounded-xl flex items-center justify-center mb-1 group-hover:bg-orange-100 transition-colors"
-                >
-                  <img
-                    src="https://cdn-icons-png.flaticon.com/512/2850/2850341.png"
-                    class="w-8 h-8 object-contain"
-                    alt="Shifting"
-                  />
-                </div>
-                <span class="text-[10px] md:text-xs font-medium text-gray-700"
-                  >Shifting</span
-                >
+                <img
+                  src="https://img.icons8.com/ios-filled/50/000000/security-camera.png"
+                  class="w-7 h-7 group-hover:invert"
+                />
               </div>
-            </div>
+              <span class="text-[11px] font-semibold mt-1">CCTV</span>
+            </a>
 
-            <div class="min-w-full grid grid-cols-4 gap-y-5 snap-center">
+            <!-- Gas Service -->
+            <a
+              href="gas-service.html"
+              class="snap-start group flex flex-col items-center text-center"
+            >
               <div
-                class="flex flex-col items-center justify-center text-center group cursor-pointer"
+                class="w-14 h-14 bg-amber-50 rounded-xl flex items-center justify-center group-hover:bg-amber-500 transition-all"
               >
-                <div
-                  class="w-12 h-12 bg-pink-50 rounded-xl flex items-center justify-center mb-1 group-hover:bg-pink-100"
-                >
-                  <img
-                    src="https://cdn-icons-png.flaticon.com/512/2913/2913520.png"
-                    class="w-8 h-8 object-contain"
-                    alt="Beauty"
-                  />
-                </div>
-                <span class="text-[10px] md:text-xs font-medium text-gray-700"
-                  >Beauty Care</span
-                >
+                <img
+                  src="https://img.icons8.com/ios-filled/50/000000/gas.png"
+                  class="w-7 h-7 group-hover:invert"
+                />
               </div>
-              <div
-                class="flex flex-col items-center justify-center text-center"
-              >
-                <div
-                  class="w-12 h-12 bg-gray-50 rounded-xl mb-1 flex items-center justify-center"
-                >
-                  <span class="text-gray-300 text-xl">+</span>
-                </div>
-                <span class="text-[10px] text-gray-400">More</span>
-              </div>
-            </div>
-          </div>
+              <span class="text-[11px] font-semibold mt-1">Gas Service</span>
+            </a>
 
-          <div class="flex justify-center gap-1.5 mt-4" id="service-dots">
-            <div
-              class="s-dot w-6 h-1.5 rounded-full bg-indigo-600 transition-all duration-300"
-            ></div>
-            <div
-              class="s-dot w-1.5 h-1.5 rounded-full bg-gray-200 transition-all duration-300"
-            ></div>
+            <!-- Shifting -->
+            <a
+              href="shifting.html"
+              class="snap-start group flex flex-col items-center text-center"
+            >
+              <div
+                class="w-14 h-14 bg-rose-50 rounded-xl flex items-center justify-center group-hover:bg-rose-600 transition-all"
+              >
+                <img
+                  src="https://img.icons8.com/ios-filled/50/000000/move.png"
+                  class="w-7 h-7 group-hover:invert"
+                />
+              </div>
+              <span class="text-[11px] font-semibold mt-1">Shifting</span>
+            </a>
+
+            <!-- Water Tank -->
+            <a
+              href="water-tank.html"
+              class="snap-start group flex flex-col items-center text-center"
+            >
+              <div
+                class="w-14 h-14 bg-cyan-50 rounded-xl flex items-center justify-center group-hover:bg-cyan-600 transition-all"
+              >
+                <img
+                  src="https://img.icons8.com/ios-filled/50/000000/water.png"
+                  class="w-7 h-7 group-hover:invert"
+                />
+              </div>
+              <span class="text-[11px] font-semibold mt-1">Water Tank</span>
+            </a>
           </div>
         </div>
       </div>
     </section>
 
-    <script>
-      // Dot Animation Script
-      const sSlider = document.getElementById("service-slider");
-      const sDots = document.querySelectorAll(".s-dot");
-
-      sSlider.addEventListener("scroll", () => {
-        const width = sSlider.offsetWidth;
-        const index = Math.round(sSlider.scrollLeft / width);
-
-        sDots.forEach((dot, i) => {
-          if (i === index) {
-            dot.classList.add("bg-indigo-600", "w-6");
-            dot.classList.remove("bg-gray-200", "w-1.5");
-          } else {
-            dot.classList.remove("bg-indigo-600", "w-6");
-            dot.classList.add("bg-gray-200", "w-1.5");
-          }
-        });
-      });
-    </script>
     <!-- Search and Categories Section -->
 
     <section class="bg-gray-50 py-2 px-4 md:py-4">
-  <div class="max-w-3xl mx-auto w-full">
-    <div class="w-full">
-      <div class="flex overflow-x-auto gap-4 pb-2 no-scrollbar snap-x">
+      <div class="max-w-3xl mx-auto w-full">
+        <div class="w-full">
+          <div class="flex overflow-x-auto gap-4 pb-2 no-scrollbar snap-x">
+            <!-- AC Servicing -->
+            <a
+              href="ac-repair.html"
+              class="min-w-[85%] md:min-w-[45%] h-[160px] rounded-2xl flex-shrink-0 snap-center relative overflow-hidden shadow-sm block"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1581578731548-c64695cc6958?auto=format&fit=crop&w=600&q=60"
+                alt="AC Servicing"
+                class="absolute inset-0 w-full h-full object-cover"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent p-4 flex flex-col justify-end"
+              >
+                <span class="text-white font-bold text-lg">AC Servicing</span>
+                <p class="text-gray-200 text-xs">
+                  Expert repair starting from ৳499
+                </p>
+              </div>
+            </a>
 
-        <!-- AC Servicing -->
-        <a
-          href="ac-repair.html"
-          class="min-w-[85%] md:min-w-[45%] h-[160px] rounded-2xl flex-shrink-0 snap-center relative overflow-hidden shadow-sm block"
-        >
-          <img
-            src="https://images.unsplash.com/photo-1581578731548-c64695cc6958?auto=format&fit=crop&w=600&q=60"
-            alt="AC Servicing"
-            class="absolute inset-0 w-full h-full object-cover"
-          />
-          <div
-            class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent p-4 flex flex-col justify-end"
-          >
-            <span class="text-white font-bold text-lg">AC Servicing</span>
-            <p class="text-gray-200 text-xs">
-              Expert repair starting from ৳499
-            </p>
+            <!-- Electrical Work -->
+            <a
+              href="electrical.html"
+              class="min-w-[85%] md:min-w-[45%] h-[160px] rounded-2xl flex-shrink-0 snap-center relative overflow-hidden shadow-sm block"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=600&q=60"
+                alt="Electrical Work"
+                class="absolute inset-0 w-full h-full object-cover"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent p-4 flex flex-col justify-end"
+              >
+                <span class="text-white font-bold text-lg"
+                  >Electrical Work</span
+                >
+                <p class="text-gray-200 text-xs">Safe & reliable solutions</p>
+              </div>
+            </a>
+
+            <!-- Home Cleaning -->
+            <a
+              href="cleaning.html"
+              class="min-w-[85%] md:min-w-[45%] h-[160px] rounded-2xl flex-shrink-0 snap-center relative overflow-hidden shadow-sm block"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=600&q=60"
+                alt="Home Cleaning"
+                class="absolute inset-0 w-full h-full object-cover"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent p-4 flex flex-col justify-end"
+              >
+                <span class="text-white font-bold text-lg">Home Cleaning</span>
+                <p class="text-gray-200 text-xs">Deep cleaning for your home</p>
+              </div>
+            </a>
           </div>
-        </a>
-
-        <!-- Electrical Work -->
-        <a
-          href="electrical.html"
-          class="min-w-[85%] md:min-w-[45%] h-[160px] rounded-2xl flex-shrink-0 snap-center relative overflow-hidden shadow-sm block"
-        >
-          <img
-            src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=600&q=60"
-            alt="Electrical Work"
-            class="absolute inset-0 w-full h-full object-cover"
-          />
-          <div
-            class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent p-4 flex flex-col justify-end"
-          >
-            <span class="text-white font-bold text-lg">Electrical Work</span>
-            <p class="text-gray-200 text-xs">
-              Safe & reliable solutions
-            </p>
-          </div>
-        </a>
-
-        <!-- Home Cleaning -->
-        <a
-          href="cleaning.html"
-          class="min-w-[85%] md:min-w-[45%] h-[160px] rounded-2xl flex-shrink-0 snap-center relative overflow-hidden shadow-sm block"
-        >
-          <img
-            src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=600&q=60"
-            alt="Home Cleaning"
-            class="absolute inset-0 w-full h-full object-cover"
-          />
-          <div
-            class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent p-4 flex flex-col justify-end"
-          >
-            <span class="text-white font-bold text-lg">Home Cleaning</span>
-            <p class="text-gray-200 text-xs">
-              Deep cleaning for your home
-            </p>
-          </div>
-        </a>
-
+        </div>
       </div>
-    </div>
-  </div>
-</section>
-
+    </section>
 
     <style>
       .no-scrollbar::-webkit-scrollbar {
@@ -1263,6 +1247,190 @@
         scrollbar-width: none;
       }
     </style>
+
+    <!-- SECTION HEADER: Discover all services -->
+
+    <div class="max-w-4xl mx-auto px-4 mt-4 mb-2">
+      <div class="flex items-center gap-2">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="w-5 h-5 text-indigo-600 shrink-0"
+          fill="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M3 3h7v7H3V3zm11 0h7v7h-7V3zm-11 11h7v7H3v-7zm11 0h7v7h-7v-7z"
+          />
+        </svg>
+
+        <h2
+          class="text-lg md:text-xl font-bold text-gray-800 tracking-tight leading-none"
+        >
+          Discover all services
+        </h2>
+      </div>
+    </div>
+
+    <!-- MAIN CATEGORY: RESIDENTIAL SERVICES -->
+    <section class="max-w-7xl mx-auto px-4 py-2">
+      <div class="flex justify-between items-center mb-3 gap-2">
+        <div class="flex items-center gap-2">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="w-5 h-5 text-blue-900 shrink-0"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+            <polyline points="9 22 9 12 15 12 15 22"></polyline>
+          </svg>
+
+          <h2
+            class="text-base md:text-lg font-bold text-gray-800 truncate leading-none"
+          >
+            Residential Services
+          </h2>
+        </div>
+
+        <a
+          href="residential-services.html"
+          class="group flex items-center gap-1 text-[11px] md:text-sm text-[#172554] font-medium hover:text-blue-700 transition-colors shrink-0 whitespace-nowrap"
+        >
+          <span>Visit Page</span>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="w-3 h-3 md:w-3.5 md:h-3.5 transform transition-transform group-hover:translate-x-1"
+          >
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </a>
+      </div>
+
+      <div class="flex items-center">
+        <div
+          class="flex overflow-x-auto gap-4 md:gap-6 scroll-smooth pb-4 w-full no-scrollbar"
+          style="scrollbar-width: none; -ms-overflow-style: none"
+        >
+          <style>
+            .no-scrollbar::-webkit-scrollbar {
+              display: none;
+            }
+          </style>
+
+          <!-- Plumbing -->
+          <a
+            href="plumbing.html"
+            class="min-w-[150px] md:min-w-[220px] transition-transform hover:scale-105 shrink-0 block"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1607472586893-edb57bdc0e39?q=80&w=500&auto=format&fit=crop"
+              class="w-full h-24 md:h-40 rounded-md md:rounded-lg shadow-md object-cover"
+              alt="Residential Plumbing"
+            />
+            <p
+              class="mt-3 text-sm md:text-lg text-center font-bold text-gray-700"
+            >
+              Plumbing
+            </p>
+          </a>
+
+          <!-- Electrical -->
+          <a
+            href="electrical.html"
+            class="min-w-[150px] md:min-w-[220px] transition-transform hover:scale-105 shrink-0 block"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1621905251918-48416bd8575a?q=80&w=500&auto=format&fit=crop"
+              class="w-full h-24 md:h-40 rounded-md md:rounded-lg shadow-md object-cover"
+              alt="Home Electrical"
+            />
+            <p
+              class="mt-3 text-sm md:text-lg text-center font-bold text-gray-700"
+            >
+              Electrical
+            </p>
+          </a>
+
+          <!-- AC / Heater -->
+          <a
+            href="ac-repair.html"
+            class="min-w-[150px] md:min-w-[220px] transition-transform hover:scale-105 shrink-0 block"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1631889993877-157793180a0b?q=80&w=500&auto=format&fit=crop"
+              class="w-full h-24 md:h-40 rounded-md md:rounded-lg shadow-md object-cover"
+              alt="AC Heater Repair"
+            />
+            <p
+              class="mt-3 text-sm md:text-lg text-center font-bold text-gray-700"
+            >
+              AC / Heater Repair
+            </p>
+          </a>
+
+          <!-- Home Cleaning -->
+          <a
+            href="cleaning.html"
+            class="min-w-[150px] md:min-w-[220px] transition-transform hover:scale-105 shrink-0 block"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?q=80&w=500&auto=format&fit=crop"
+              class="w-full h-24 md:h-40 rounded-md md:rounded-lg shadow-md object-cover"
+              alt="Home Cleaning"
+            />
+            <p
+              class="mt-3 text-sm md:text-lg text-center font-bold text-gray-700"
+            >
+              Home Cleaning
+            </p>
+          </a>
+
+          <!-- Carpentry -->
+          <a
+            href="carpentry.html"
+            class="min-w-[150px] md:min-w-[220px] transition-transform hover:scale-105 shrink-0 block"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1610557892470-55d9e80c0b62?q=80&w=500&auto=format&fit=crop"
+              class="w-full h-24 md:h-40 rounded-md md:rounded-lg shadow-md object-cover"
+              alt="Residential Carpentry"
+            />
+            <p
+              class="mt-3 text-sm md:text-lg text-center font-bold text-gray-700"
+            >
+              Carpentry
+            </p>
+          </a>
+
+          <!-- Painting -->
+          <a
+            href="painting.html"
+            class="min-w-[150px] md:min-w-[220px] transition-transform hover:scale-105 shrink-0 block"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1593019611461-2d53208d742b?q=80&w=500&auto=format&fit=crop"
+              class="w-full h-24 md:h-40 rounded-md md:rounded-lg shadow-md object-cover"
+              alt="Home Painting"
+            />
+            <p
+              class="mt-3 text-sm md:text-lg text-center font-bold text-gray-700"
+            >
+              Painting
+            </p>
+          </a>
+        </div>
+      </div>
+    </section>
 
     <!-- PROMOTIONAL BANNER -->
 
@@ -1285,149 +1453,37 @@
       </div>
     </section>
 
-    <!-- MAIN CATEGORY: RESIDENTIAL SERVICES -->
-    <section class="max-w-7xl mx-auto p-4">
-  <div class="flex justify-between items-center mb-6 gap-2">
-    <h2 class="text-lg md:text-xl font-bold text-gray-800 truncate">
-      Residential Services
-    </h2>
-
-    <a
-      href="residential-services.html"
-      class="group flex items-center gap-1 text-xs md:text-sm text-[#172554] font-normal hover:text-blue-700 transition-colors shrink-0 whitespace-nowrap"
-    >
-      <span>Visit Page</span>
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2.5"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        class="w-3 h-3 md:w-4 md:h-4 transform transition-transform group-hover:translate-x-1"
-      >
-        <polyline points="9 18 15 12 9 6"></polyline>
-      </svg>
-    </a>
-  </div>
-
-  <div class="flex items-center">
-    <div
-      class="flex overflow-x-auto gap-4 md:gap-6 scroll-smooth pb-4 w-full no-scrollbar"
-      style="scrollbar-width: none; -ms-overflow-style: none"
-    >
-      <style>
-        .no-scrollbar::-webkit-scrollbar {
-          display: none;
-        }
-      </style>
-
-      <!-- Plumbing -->
-      <a
-        href="plumbing.html"
-        class="min-w-[150px] md:min-w-[220px] transition-transform hover:scale-105 shrink-0 block"
-      >
-        <img
-          src="https://images.unsplash.com/photo-1607472586893-edb57bdc0e39?q=80&w=500&auto=format&fit=crop"
-          class="w-full h-24 md:h-40 rounded-md md:rounded-lg shadow-md object-cover"
-          alt="Residential Plumbing"
-        />
-        <p class="mt-3 text-sm md:text-lg text-center font-bold text-gray-700">
-          Plumbing
-        </p>
-      </a>
-
-      <!-- Electrical -->
-      <a
-        href="electrical.html"
-        class="min-w-[150px] md:min-w-[220px] transition-transform hover:scale-105 shrink-0 block"
-      >
-        <img
-          src="https://images.unsplash.com/photo-1621905251918-48416bd8575a?q=80&w=500&auto=format&fit=crop"
-          class="w-full h-24 md:h-40 rounded-md md:rounded-lg shadow-md object-cover"
-          alt="Home Electrical"
-        />
-        <p class="mt-3 text-sm md:text-lg text-center font-bold text-gray-700">
-          Electrical
-        </p>
-      </a>
-
-      <!-- AC / Heater -->
-      <a
-        href="ac-repair.html"
-        class="min-w-[150px] md:min-w-[220px] transition-transform hover:scale-105 shrink-0 block"
-      >
-        <img
-          src="https://images.unsplash.com/photo-1631889993877-157793180a0b?q=80&w=500&auto=format&fit=crop"
-          class="w-full h-24 md:h-40 rounded-md md:rounded-lg shadow-md object-cover"
-          alt="AC Heater Repair"
-        />
-        <p class="mt-3 text-sm md:text-lg text-center font-bold text-gray-700">
-          AC / Heater Repair
-        </p>
-      </a>
-
-      <!-- Home Cleaning -->
-      <a
-        href="cleaning.html"
-        class="min-w-[150px] md:min-w-[220px] transition-transform hover:scale-105 shrink-0 block"
-      >
-        <img
-          src="https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?q=80&w=500&auto=format&fit=crop"
-          class="w-full h-24 md:h-40 rounded-md md:rounded-lg shadow-md object-cover"
-          alt="Home Cleaning"
-        />
-        <p class="mt-3 text-sm md:text-lg text-center font-bold text-gray-700">
-          Home Cleaning
-        </p>
-      </a>
-
-      <!-- Carpentry -->
-      <a
-        href="carpentry.html"
-        class="min-w-[150px] md:min-w-[220px] transition-transform hover:scale-105 shrink-0 block"
-      >
-        <img
-          src="https://images.unsplash.com/photo-1610557892470-55d9e80c0b62?q=80&w=500&auto=format&fit=crop"
-          class="w-full h-24 md:h-40 rounded-md md:rounded-lg shadow-md object-cover"
-          alt="Residential Carpentry"
-        />
-        <p class="mt-3 text-sm md:text-lg text-center font-bold text-gray-700">
-          Carpentry
-        </p>
-      </a>
-
-      <!-- Painting -->
-      <a
-        href="painting.html"
-        class="min-w-[150px] md:min-w-[220px] transition-transform hover:scale-105 shrink-0 block"
-      >
-        <img
-          src="https://images.unsplash.com/photo-1593019611461-2d53208d742b?q=80&w=500&auto=format&fit=crop"
-          class="w-full h-24 md:h-40 rounded-md md:rounded-lg shadow-md object-cover"
-          alt="Home Painting"
-        />
-        <p class="mt-3 text-sm md:text-lg text-center font-bold text-gray-700">
-          Painting
-        </p>
-      </a>
-
-    </div>
-  </div>
-</section>
-
     <!-- MAIN CATEGORY: COMMERCIAL SERVICES -->
 
     <section class="max-w-7xl mx-auto p-4">
-      <div class="flex justify-between items-center mb-6">
-        <h2 class="text-lg md:text-xl font-bold text-gray-800">
-          Commercial Services
-        </h2>
+      <div class="flex justify-between items-center mb-3 gap-2">
+        <div class="flex items-center gap-2">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="w-5 h-5 text-blue-900 shrink-0"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <rect x="2" width="20" height="20" y="2" rx="2" ry="2"></rect>
+            <path d="M7 8h10"></path>
+            <path d="M7 12h10"></path>
+            <path d="M7 16h10"></path>
+          </svg>
+
+          <h2
+            class="text-base md:text-lg font-bold text-gray-800 truncate leading-none"
+          >
+            Commercial Services
+          </h2>
+        </div>
 
         <a
           href="commercial-services.html"
-          class="group flex items-center gap-1 text-xs md:text-sm text-[#172554] font-normal hover:text-blue-700 transition-colors"
+          class="group flex items-center gap-1 text-[11px] md:text-sm text-[#172554] font-medium hover:text-blue-700 transition-colors shrink-0 whitespace-nowrap"
         >
           <span>Visit Page</span>
           <svg
@@ -1438,7 +1494,7 @@
             stroke-width="2.5"
             stroke-linecap="round"
             stroke-linejoin="round"
-            class="w-3 h-3 md:w-4 md:h-4 transform transition-transform group-hover:translate-x-1"
+            class="w-3 h-3 md:w-3.5 md:h-3.5 transform transition-transform group-hover:translate-x-1"
           >
             <polyline points="9 18 15 12 9 6"></polyline>
           </svg>
@@ -1536,14 +1592,31 @@
     <!-- MAIN CATEGORY: SMALL JOBS / QUICK FIX -->
 
     <section class="max-w-7xl mx-auto p-4">
-      <div class="flex justify-between items-center mb-6">
-        <h2 class="text-lg md:text-xl font-bold text-gray-800">
-          Small Jobs / Quick Fix
-        </h2>
+      <div class="flex justify-between items-center mb-3 gap-2">
+        <div class="flex items-center gap-2">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="w-5 h-5 text-blue-900 shrink-0"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+          </svg>
+
+          <h2
+            class="text-base md:text-lg font-bold text-gray-800 truncate leading-none"
+          >
+            Small Jobs / Quick Fix
+          </h2>
+        </div>
 
         <a
           href="small-jobs.html"
-          class="group flex items-center gap-1 text-xs md:text-sm text-[#172554] font-normal hover:text-blue-700 transition-colors"
+          class="group flex items-center gap-1 text-[11px] md:text-sm text-[#172554] font-medium hover:text-blue-700 transition-colors shrink-0 whitespace-nowrap"
         >
           <span>Visit Page</span>
           <svg
@@ -1554,7 +1627,7 @@
             stroke-width="2.5"
             stroke-linecap="round"
             stroke-linejoin="round"
-            class="w-3 h-3 md:w-4 md:h-4 transform transition-transform group-hover:translate-x-1"
+            class="w-3 h-3 md:w-3.5 md:h-3.5 transform transition-transform group-hover:translate-x-1"
           >
             <polyline points="9 18 15 12 9 6"></polyline>
           </svg>
@@ -1653,14 +1726,40 @@
     <!-- MAIN CATEGORY: CLEANING & SANITATION -->
 
     <section class="max-w-7xl mx-auto p-4">
-      <div class="flex justify-between items-center mb-6">
-        <h2 class="text-lg md:text-xl font-bold text-gray-800">
-          Cleaning & Sanitation
-        </h2>
+      <div class="flex justify-between items-center mb-3 gap-2">
+        <div class="flex items-center gap-2">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="w-5 h-5 text-blue-900 shrink-0"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M12 2v8" />
+            <path d="M5 20h14" />
+            <path
+              d="M19 16H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2Z"
+            />
+            <path d="M18 11.5V14" />
+            <path d="M15 11.5V14" />
+            <path d="M12 11.5V14" />
+            <path d="M9 11.5V14" />
+            <path d="M6 11.5V14" />
+          </svg>
+
+          <h2
+            class="text-base md:text-lg font-bold text-gray-800 truncate py-1"
+          >
+            Cleaning & Sanitation
+          </h2>
+        </div>
 
         <a
           href="cleaning-services.html"
-          class="group flex items-center gap-1 text-xs md:text-sm text-[#172554] font-normal hover:text-blue-700 transition-colors"
+          class="group flex items-center gap-1 text-[11px] md:text-sm text-[#172554] font-medium hover:text-blue-700 transition-colors shrink-0 whitespace-nowrap"
         >
           <span>Visit Page</span>
           <svg
@@ -1671,7 +1770,7 @@
             stroke-width="2.5"
             stroke-linecap="round"
             stroke-linejoin="round"
-            class="w-3 h-3 md:w-4 md:h-4 transform transition-transform group-hover:translate-x-1"
+            class="w-3 h-3 md:w-3.5 md:h-3.5 transform transition-transform group-hover:translate-x-1"
           >
             <polyline points="9 18 15 12 9 6"></polyline>
           </svg>
@@ -1755,14 +1854,36 @@
     <!-- MAIN CATEGORY: INDUSTRIAL & PROJECTS -->
 
     <section class="max-w-7xl mx-auto p-4">
-      <div class="flex justify-between items-center mb-6">
-        <h2 class="text-lg md:text-xl font-bold text-gray-800">
-          Industrial & Projects
-        </h2>
+      <div class="flex justify-between items-center mb-3 gap-2">
+        <div class="flex items-center gap-2">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="w-5 h-5 text-blue-900 shrink-0"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path
+              d="M2 20a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8l-7 5V8l-7 5V4a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"
+            ></path>
+            <path d="M17 18h1"></path>
+            <path d="M12 18h1"></path>
+            <path d="M7 18h1"></path>
+          </svg>
+
+          <h2
+            class="text-base md:text-lg font-bold text-gray-800 truncate py-1"
+          >
+            Industrial & Projects
+          </h2>
+        </div>
 
         <a
           href="industrial-services.html"
-          class="group flex items-center gap-1 text-xs md:text-sm text-[#172554] font-normal hover:text-blue-700 transition-colors"
+          class="group flex items-center gap-1 text-[11px] md:text-sm text-[#172554] font-medium hover:text-blue-700 transition-colors shrink-0 whitespace-nowrap"
         >
           <span>Visit Page</span>
           <svg
@@ -1773,7 +1894,7 @@
             stroke-width="2.5"
             stroke-linecap="round"
             stroke-linejoin="round"
-            class="w-3 h-3 md:w-4 md:h-4 transform transition-transform group-hover:translate-x-1"
+            class="w-3 h-3 md:w-3.5 md:h-3.5 transform transition-transform group-hover:translate-x-1"
           >
             <polyline points="9 18 15 12 9 6"></polyline>
           </svg>
@@ -1857,14 +1978,38 @@
     <!-- MAIN CATEGORY: CONSTRUCTION & RENOVATION -->
 
     <section class="max-w-7xl mx-auto p-4">
-      <div class="flex justify-between items-center mb-6 gap-2">
-        <h2 class="text-lg md:text-xl font-bold text-gray-800 truncate">
-          Construction & Renovation
-        </h2>
+      <div class="flex justify-between items-center mb-3 gap-2">
+        <div class="flex items-center gap-2">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="w-5 h-5 text-blue-900 shrink-0"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path
+              d="M2 20a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8l-7 5V8l-7 5V4a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"
+            ></path>
+            <path
+              d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a2 2 0 0 0-2.82-2.82L14.7 6.3Z"
+            ></path>
+            <path d="m4.83 18 5.71-5.71"></path>
+            <path d="m12.14 13.73-5.71 5.71"></path>
+          </svg>
+
+          <h2
+            class="text-base md:text-lg font-bold text-gray-800 truncate py-1"
+          >
+            Construction & Renovation
+          </h2>
+        </div>
 
         <a
           href="construction-services.html"
-          class="group flex items-center gap-1 text-xs md:text-sm text-[#172554] font-normal hover:text-blue-700 transition-colors shrink-0 whitespace-nowrap"
+          class="group flex items-center gap-1 text-[11px] md:text-sm text-[#172554] font-medium hover:text-blue-700 transition-colors shrink-0 whitespace-nowrap"
         >
           <span>Visit Page</span>
           <svg
@@ -1875,7 +2020,7 @@
             stroke-width="2.5"
             stroke-linecap="round"
             stroke-linejoin="round"
-            class="w-3 h-3 md:w-4 md:h-4 transform transition-transform group-hover:translate-x-1"
+            class="w-3 h-3 md:w-3.5 md:h-3.5 transform transition-transform group-hover:translate-x-1"
           >
             <polyline points="9 18 15 12 9 6"></polyline>
           </svg>
@@ -1973,14 +2118,38 @@
     <!-- MAIN CATEGORY: EVENT MANAGEMENT -->
 
     <section class="max-w-7xl mx-auto p-4">
-      <div class="flex justify-between items-center mb-6">
-        <h2 class="text-lg md:text-xl font-bold text-gray-800">
-          Event Management
-        </h2>
+      <div class="flex justify-between items-center mb-3 gap-2">
+        <div class="flex items-center gap-2">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="w-5 h-5 text-blue-900 shrink-0"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M5.8 11.3 2 22l10.7-3.8"></path>
+            <path d="M4 20l2.7-2.7"></path>
+            <path d="M22 2l-4.5 4.5"></path>
+            <path d="M11 5l.5.5"></path>
+            <path d="M15 9l.5.5"></path>
+            <path d="M19 13l.5.5"></path>
+            <path d="M21 8l-2 2"></path>
+            <path d="M14 1l-2 2"></path>
+          </svg>
+
+          <h2
+            class="text-base md:text-lg font-bold text-gray-800 truncate py-1"
+          >
+            Event Management
+          </h2>
+        </div>
 
         <a
           href="event-services.html"
-          class="group flex items-center gap-1 text-xs md:text-sm text-[#172554] font-normal hover:text-blue-700 transition-colors"
+          class="group flex items-center gap-1 text-[11px] md:text-sm text-[#172554] font-medium hover:text-blue-700 transition-colors shrink-0 whitespace-nowrap"
         >
           <span>Visit Page</span>
           <svg
@@ -1991,7 +2160,7 @@
             stroke-width="2.5"
             stroke-linecap="round"
             stroke-linejoin="round"
-            class="w-3 h-3 md:w-4 md:h-4 transform transition-transform group-hover:translate-x-1"
+            class="w-3 h-3 md:w-3.5 md:h-3.5 transform transition-transform group-hover:translate-x-1"
           >
             <polyline points="9 18 15 12 9 6"></polyline>
           </svg>
@@ -2074,14 +2243,34 @@
     <!-- MAIN CATEGORY: SPECIALIST SERVICES -->
 
     <section class="max-w-7xl mx-auto p-4">
-      <div class="flex justify-between items-center mb-6">
-        <h2 class="text-lg md:text-xl font-bold text-gray-800">
-          Specialist Services
-        </h2>
+      <div class="flex justify-between items-center mb-3 gap-2">
+        <div class="flex items-center gap-2">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="w-5 h-5 text-blue-900 shrink-0"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <circle cx="12" cy="8" r="7"></circle>
+            <polyline
+              points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"
+            ></polyline>
+          </svg>
+
+          <h2
+            class="text-base md:text-lg font-bold text-gray-800 truncate py-1"
+          >
+            Specialist Services
+          </h2>
+        </div>
 
         <a
           href="specialist-services.html"
-          class="group flex items-center gap-1 text-xs md:text-sm text-[#172554] font-normal hover:text-blue-700 transition-colors"
+          class="group flex items-center gap-1 text-[11px] md:text-sm text-[#172554] font-medium hover:text-blue-700 transition-colors shrink-0 whitespace-nowrap"
         >
           <span>Visit Page</span>
           <svg
@@ -2092,7 +2281,7 @@
             stroke-width="2.5"
             stroke-linecap="round"
             stroke-linejoin="round"
-            class="w-3 h-3 md:w-4 md:h-4 transform transition-transform group-hover:translate-x-1"
+            class="w-3 h-3 md:w-3.5 md:h-3.5 transform transition-transform group-hover:translate-x-1"
           >
             <polyline points="9 18 15 12 9 6"></polyline>
           </svg>
@@ -2169,135 +2358,6 @@
               HVAC Design
             </p>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- MAIN Discover all -->
-    <section class="py-10 bg-white">
-      <div class="max-w-6xl mx-auto px-4">
-        <div class="flex items-center justify-between mb-6">
-          <h2 class="text-xl md:text-3xl font-bold text-gray-800">
-            Discover All Services
-          </h2>
-          <a
-            href="store.html"
-            class="text-blue-600 font-semibold text-sm hover:underline flex items-center gap-1"
-          >
-            See All <i class="fa-solid fa-arrow-right text-[10px]"></i>
-          </a>
-        </div>
-
-        <div
-          class="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 md:gap-6"
-        >
-          <a
-            href="ac-repair.html"
-            class="group flex flex-col items-center text-center"
-          >
-            <div
-              class="w-16 h-16 md:w-20 md:h-20 bg-blue-50 rounded-2xl flex items-center justify-center mb-3 transition-all duration-300 group-hover:bg-blue-600 group-hover:shadow-lg group-hover:-translate-y-1"
-            >
-              <img
-                src="https://img.icons8.com/ios-filled/50/000000/air-conditioner.png"
-                class="w-8 h-8 md:w-10 md:h-10 group-hover:invert transition-all"
-                alt="AC Repair"
-              />
-            </div>
-            <span
-              class="text-xs md:text-sm font-semibold text-gray-700 group-hover:text-blue-600"
-              >AC Repair</span
-            >
-          </a>
-
-          <a
-            href="electrical.html"
-            class="group flex flex-col items-center text-center"
-          >
-            <div
-              class="w-16 h-16 md:w-20 md:h-20 bg-orange-50 rounded-2xl flex items-center justify-center mb-3 transition-all duration-300 group-hover:bg-orange-500 group-hover:shadow-lg group-hover:-translate-y-1"
-            >
-              <img
-                src="https://img.icons8.com/ios-filled/50/000000/flash-on.png"
-                class="w-8 h-8 md:w-10 md:h-10 group-hover:invert transition-all"
-                alt="Electrical"
-              />
-            </div>
-            <span
-              class="text-xs md:text-sm font-semibold text-gray-700 group-hover:text-orange-600"
-              >Electrical</span
-            >
-          </a>
-
-          <a
-            href="Plumbing.html"
-            class="group flex flex-col items-center text-center"
-          >
-            <div
-              class="w-16 h-16 md:w-20 md:h-20 bg-green-50 rounded-2xl flex items-center justify-center mb-3 transition-all duration-300 group-hover:bg-green-600 group-hover:shadow-lg group-hover:-translate-y-1"
-            >
-              <img
-                src="https://img.icons8.com/ios-filled/50/000000/plumbing.png"
-                class="w-8 h-8 md:w-10 md:h-10 group-hover:invert transition-all"
-                alt="Plumbing"
-              />
-            </div>
-            <span
-              class="text-xs md:text-sm font-semibold text-gray-700 group-hover:text-green-600"
-              >Plumbing</span
-            >
-          </a>
-
-          <a
-            href="event.html"
-            class="group flex flex-col items-center text-center"
-          >
-            <div
-              class="w-16 h-16 md:w-20 md:h-20 bg-purple-50 rounded-2xl flex items-center justify-center mb-3 transition-all duration-300 group-hover:bg-purple-600 group-hover:shadow-lg group-hover:-translate-y-1"
-            >
-              <img
-                src="https://img.icons8.com/ios-filled/50/000000/calendar.png"
-                class="w-8 h-8 md:w-10 md:h-10 group-hover:invert transition-all"
-                alt="Events"
-              />
-            </div>
-            <span
-              class="text-xs md:text-sm font-semibold text-gray-700 group-hover:text-purple-600"
-              >Events</span
-            >
-          </a>
-
-          <a href="#" class="group flex flex-col items-center text-center">
-            <div
-              class="w-16 h-16 md:w-20 md:h-20 bg-yellow-50 rounded-2xl flex items-center justify-center mb-3 transition-all duration-300 group-hover:bg-yellow-500 group-hover:shadow-lg group-hover:-translate-y-1"
-            >
-              <img
-                src="https://img.icons8.com/ios-filled/50/000000/vacuum-cleaner.png"
-                class="w-8 h-8 md:w-10 md:h-10 group-hover:invert transition-all"
-                alt="Cleaning"
-              />
-            </div>
-            <span
-              class="text-xs md:text-sm font-semibold text-gray-700 group-hover:text-yellow-600"
-              >Cleaning</span
-            >
-          </a>
-
-          <a href="#" class="group flex flex-col items-center text-center">
-            <div
-              class="w-16 h-16 md:w-20 md:h-20 bg-red-50 rounded-2xl flex items-center justify-center mb-3 transition-all duration-300 group-hover:bg-red-600 group-hover:shadow-lg group-hover:-translate-y-1"
-            >
-              <img
-                src="https://img.icons8.com/ios-filled/50/000000/paint-brush.png"
-                class="w-8 h-8 md:w-10 md:h-10 group-hover:invert transition-all"
-                alt="Painting"
-              />
-            </div>
-            <span
-              class="text-xs md:text-sm font-semibold text-gray-700 group-hover:text-red-600"
-              >Painting</span
-            >
-          </a>
         </div>
       </div>
     </section>
@@ -2784,124 +2844,135 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-900 text-gray-300 pt-12 pb-6">
+    <footer class="bg-gray-900 text-gray-300 pt-6 pb-6">
       <div class="max-w-6xl mx-auto px-4">
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-10">
-          <div class="col-span-1 md:col-span-1">
-            <h2 class="text-white text-2xl font-bold mb-4">
-              BD Safa<span class="text-blue-500">.</span>
-            </h2>
-            <p class="text-sm leading-relaxed text-gray-400">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-6">
+          <div class="col-span-1">
+            <div class="flex justify-between items-center md:block">
+              <h2 class="text-white text-xl md:text-2xl font-bold mb-0 md:mb-4">
+                BD Safa<span class="text-blue-500">.</span>
+              </h2>
+              <div class="flex space-x-4 md:mt-6">
+                <a href="#" class="hover:text-blue-500 transition"
+                  ><i class="fab fa-facebook-f text-sm"></i
+                ></a>
+                <a href="#" class="hover:text-blue-400 transition"
+                  ><i class="fab fa-twitter text-sm"></i
+                ></a>
+                <a href="#" class="hover:text-pink-500 transition"
+                  ><i class="fab fa-instagram text-sm"></i
+                ></a>
+              </div>
+            </div>
+            <p
+              class="text-xs md:text-sm leading-relaxed text-gray-400 mt-3 md:mt-0"
+            >
               Your trusted partner for professional home and commercial services
-              across Bangladesh. Quality and reliability at your doorstep.
+              across Bangladesh.
             </p>
-            <div class="flex space-x-4 mt-6">
-              <a href="#" class="hover:text-blue-500 transition"
-                ><i class="fab fa-facebook-f"></i
-              ></a>
-              <a href="#" class="hover:text-blue-400 transition"
-                ><i class="fab fa-twitter"></i
-              ></a>
-              <a href="#" class="hover:text-pink-500 transition"
-                ><i class="fab fa-instagram"></i
-              ></a>
+          </div>
+
+          <div class="grid grid-cols-2 col-span-1 md:col-span-2 gap-4">
+            <div>
+              <h3
+                class="text-white font-semibold mb-3 border-b border-gray-700 pb-1 inline-block text-sm"
+              >
+                Quick Links
+              </h3>
+              <ul class="space-y-2 text-xs md:text-sm">
+                <li>
+                  <a href="#" class="hover:text-white transition">Home</a>
+                </li>
+                <li>
+                  <a href="#" class="hover:text-white transition"
+                    >All Services</a
+                  >
+                </li>
+                <li>
+                  <a href="#" class="hover:text-white transition">About Us</a>
+                </li>
+                <li>
+                  <a href="#" class="hover:text-white transition"
+                    >How It Works</a
+                  >
+                </li>
+                <li>
+                  <a href="#" class="hover:text-white transition"
+                    >Privacy Policy</a
+                  >
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <h3
+                class="text-white font-semibold mb-3 border-b border-gray-700 pb-1 inline-block text-sm"
+              >
+                Popular
+              </h3>
+              <ul class="space-y-2 text-xs md:text-sm">
+                <li>
+                  <a href="#" class="hover:text-white transition"
+                    >AC & Appliance</a
+                  >
+                </li>
+                <li>
+                  <a href="#" class="hover:text-white transition"
+                    >Home Cleaning</a
+                  >
+                </li>
+                <li>
+                  <a href="#" class="hover:text-white transition"
+                    >Plumbing & Electric</a
+                  >
+                </li>
+                <li>
+                  <a href="#" class="hover:text-white transition"
+                    >Pest Control</a
+                  >
+                </li>
+                <li>
+                  <a href="#" class="hover:text-white transition">Commercial</a>
+                </li>
+              </ul>
             </div>
           </div>
 
-          <div>
+          <div class="col-span-1">
             <h3
-              class="text-white font-semibold mb-4 border-b border-gray-700 pb-2 inline-block"
-            >
-              Quick Links
-            </h3>
-            <ul class="space-y-2 text-sm">
-              <li><a href="#" class="hover:text-white transition">Home</a></li>
-              <li>
-                <a href="#" class="hover:text-white transition">All Services</a>
-              </li>
-              <li>
-                <a href="#" class="hover:text-white transition">About Us</a>
-              </li>
-              <li>
-                <a href="#" class="hover:text-white transition">How It Works</a>
-              </li>
-              <li>
-                <a href="#" class="hover:text-white transition"
-                  >Privacy Policy</a
-                >
-              </li>
-            </ul>
-          </div>
-
-          <div>
-            <h3
-              class="text-white font-semibold mb-4 border-b border-gray-700 pb-2 inline-block"
-            >
-              Popular Services
-            </h3>
-            <ul class="space-y-2 text-sm">
-              <li>
-                <a href="#" class="hover:text-white transition"
-                  >AC & Appliance Repair</a
-                >
-              </li>
-              <li>
-                <a href="#" class="hover:text-white transition"
-                  >Home Cleaning</a
-                >
-              </li>
-              <li>
-                <a href="#" class="hover:text-white transition"
-                  >Electrical & Plumbing</a
-                >
-              </li>
-              <li>
-                <a href="#" class="hover:text-white transition">Pest Control</a>
-              </li>
-              <li>
-                <a href="#" class="hover:text-white transition"
-                  >Commercial Maintenance</a
-                >
-              </li>
-            </ul>
-          </div>
-
-          <div>
-            <h3
-              class="text-white font-semibold mb-4 border-b border-gray-700 pb-2 inline-block"
+              class="text-white font-semibold mb-3 border-b border-gray-700 pb-1 inline-block text-sm"
             >
               Contact Us
             </h3>
-            <ul class="space-y-3 text-sm">
-              <li class="flex items-start space-x-3">
-                <span class="text-blue-500 font-bold">📍</span>
-                <span
-                  >House-00, Road-00, Sector-00, Uttara, Dhaka, Bangladesh</span
+            <ul class="space-y-3 text-xs md:text-sm">
+              <li class="flex items-start space-x-2">
+                <span class="text-blue-500">📍</span>
+                <span>House-00, Road-00, Sector-00, Uttara, Dhaka</span>
+              </li>
+
+              <li class="flex flex-wrap items-center gap-x-4 gap-y-1">
+                <div class="flex items-center space-x-1">
+                  <span class="text-blue-500">📞</span>
+                  <span>+8801613381340</span>
+                </div>
+                <div
+                  class="flex items-center space-x-1 border-l border-gray-700 pl-4 md:border-0 md:pl-0"
                 >
-              </li>
-              <li class="flex items-center space-x-3">
-                <span class="text-blue-500 font-bold">📞</span>
-                <span>+880 1234 567 890</span>
-              </li>
-              <li class="flex items-center space-x-3">
-                <span class="text-blue-500 font-bold">✉️</span>
-                <span>support@bdsafa.com</span>
+                  <span class="text-blue-500">✉️</span>
+                  <span>support@bdsafa.com</span>
+                </div>
               </li>
             </ul>
           </div>
         </div>
 
         <div
-          class="border-t border-gray-800 pt-6 mt-6 text-center text-xs md:text-sm text-gray-500"
+          class="border-t border-gray-800 pt-4 mt-4 text-center text-[10px] md:text-sm text-gray-500"
         >
           <p>
-            &copy; 2024
-            <span class="text-gray-300 font-semibold">BD Safa Services</span>.
-            All rights reserved.
+            &copy; 2026 <span class="text-gray-300">BD Safa Services</span>. All
+            rights reserved.
           </p>
-          <div class="mt-2 space-x-4">
-            <span class="text-gray-600">Developed by MD NABIL HOSSEN</span>
-          </div>
         </div>
       </div>
     </footer>
