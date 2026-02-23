@@ -33,95 +33,107 @@
   </head>
   <body class="bg-white text-gray-800 font-sans">
     <header
-      class="hidden lg:flex bg-white shadow-md py-4 px-4 items-center justify-between"
-    >
-      <!-- Logo -->
-      <div class="flex items-center gap-2 justify-center md:justify-start">
-        <img
-          src="https://img.icons8.com/ios-filled/50/000000/flash-on.png"
-          alt="VoltFix Logo"
-          class="w-6 h-6"
-        />
-        <span class="text-xl font-bold text-blue-600">NABIL</span>
-      </div>
+  class="hidden lg:flex bg-[#0F0F14] py-4 px-8 items-center justify-between border-b border-[#1C1C24]"
+>
+  <!-- Logo -->
+  <div class="flex items-center gap-3">
+    <div class="w-8 h-8 bg-[#E6C29F] rounded-xl flex items-center justify-center">
+      <img
+        src="https://img.icons8.com/ios-filled/50/000000/flash-on.png"
+        alt="Logo"
+        class="w-4 h-4"
+      />
+    </div>
+    <span class="text-xl font-bold text-[#F5E6D8] tracking-wide">
+      NABIL
+    </span>
+  </div>
 
-      <!-- Desktop Navigation Menu (Centered) -->
-      <nav class="hidden md:flex justify-center text-sm font-medium">
-        <ul class="flex space-x-8 px-6 py-4 font-medium relative">
-          <li><a href="index.html" class="hover:text-blue-600">Home</a></li>
+  <!-- Desktop Navigation -->
+  <nav class="hidden md:flex text-sm font-medium">
+    <ul class="flex space-x-10 items-center">
 
-          <!-- Services with Dropdown -->
-          <li class="relative group">
-            <button
-              class="hover:text-blue-600 flex items-center focus:outline-none"
-            >
-              Services
-              <svg class="ml-1 w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                <path
-                  d="M5.23 7.21a.75.75 0 011.06.02L10 11.06l3.71-3.83a.75.75 0 011.08 1.04l-4.25 4.4a.75.75 0 01-1.08 0L5.21 8.27a.75.75 0 01.02-1.06z"
-                />
-              </svg>
-            </button>
+      <li>
+        <a href="index.html" class="text-[#B8AFA6] hover:text-[#E6C29F] transition duration-300">
+          Home
+        </a>
+      </li>
 
-            <!-- Submenu Dropdown -->
-            <ul
-              class="absolute left-0 mt-2 w-40 bg-white border rounded shadow-lg opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-all duration-300 z-50"
-            >
-              <li>
-                <a
-                  href="electrical.html"
-                  class="block px-4 py-2 hover:bg-blue-100"
-                >
-                  Electric
-                </a>
-              </li>
-              <li>
-                <a href="event.html" class="block px-4 py-2 hover:bg-blue-100">
-                  Event Manegment
-                </a>
-              </li>
-              <li>
-                <a
-                  href="Plumbing.html"
-                  class="block px-4 py-2 hover:bg-blue-100"
-                >
-                  Plumbing
-                </a>
-              </li>
-              <li>
-                <a
-                  href="ac-repair.html"
-                  class="block px-4 py-2 hover:bg-blue-100"
-                >
-                  AC Service
-                </a>
-              </li>
-            </ul>
-          </li>
+      <!-- Services Dropdown -->
+      <li class="relative group">
+        <button
+          class="flex items-center text-[#B8AFA6] hover:text-[#E6C29F] transition duration-300 focus:outline-none"
+        >
+          Services
+          <svg class="ml-1 w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+            <path
+              d="M5.23 7.21a.75.75 0 011.06.02L10 11.06l3.71-3.83a.75.75 0 011.08 1.04l-4.25 4.4a.75.75 0 01-1.08 0L5.21 8.27a.75.75 0 01.02-1.06z"
+            />
+          </svg>
+        </button>
 
-          <li><a href="store.html" class="hover:text-blue-600">Store</a></li>
+        <!-- Premium Dropdown -->
+        <ul
+          class="absolute left-0 mt-4 w-48 bg-[#1C1C24] border border-[#2A2A35] rounded-2xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50"
+        >
           <li>
-            <a href="contact.html" class="hover:text-blue-600">Contact</a>
+            <a href="electrical.html"
+              class="block px-5 py-3 text-[#B8AFA6] hover:text-[#E6C29F] hover:bg-[#242430] rounded-t-2xl transition">
+              Electric
+            </a>
+          </li>
+          <li>
+            <a href="event.html"
+              class="block px-5 py-3 text-[#B8AFA6] hover:text-[#E6C29F] hover:bg-[#242430] transition">
+              Event Management
+            </a>
+          </li>
+          <li>
+            <a href="Plumbing.html"
+              class="block px-5 py-3 text-[#B8AFA6] hover:text-[#E6C29F] hover:bg-[#242430] transition">
+              Plumbing
+            </a>
+          </li>
+          <li>
+            <a href="ac-repair.html"
+              class="block px-5 py-3 text-[#B8AFA6] hover:text-[#E6C29F] hover:bg-[#242430] rounded-b-2xl transition">
+              AC Service
+            </a>
           </li>
         </ul>
-      </nav>
+      </li>
 
-      <!-- Search (PC: Right | Mobile: Right Icon) -->
-      <div class="hidden md:flex justify-end items-center">
-        <div class="flex border rounded px-2 py-1 items-center">
-          <input
-            type="text"
-            placeholder="Search services..."
-            class="px-2 py-1 outline-none"
-          />
-          <img
-            src="https://img.icons8.com/ios-filled/24/search--v1.png"
-            alt="Search"
-            class="w-5 h-5"
-          />
-        </div>
-      </div>
-    </header>
+      <li>
+        <a href="store.html" class="text-[#B8AFA6] hover:text-[#E6C29F] transition duration-300">
+          Store
+        </a>
+      </li>
+
+      <li>
+        <a href="contact.html" class="text-[#B8AFA6] hover:text-[#E6C29F] transition duration-300">
+          Contact
+        </a>
+      </li>
+
+    </ul>
+  </nav>
+
+  <!-- Premium Search -->
+  <div class="hidden md:flex items-center">
+    <div class="flex bg-[#1C1C24] border border-[#2A2A35] rounded-2xl px-3 py-2 items-center">
+      <input
+        type="text"
+        placeholder="Search services..."
+        class="bg-transparent text-[#F5E6D8] placeholder-[#B8AFA6] outline-none text-sm"
+      />
+      <img
+        src="https://img.icons8.com/ios-filled/24/ffffff/search--v1.png"
+        alt="Search"
+        class="w-4 h-4 opacity-70"
+      />
+    </div>
+  </div>
+</header>
 
     <!-- Mobile Menu -->
     <div
@@ -753,15 +765,15 @@
 
     <!-- Hero Section -->
 
-    <section class="bg-white py-2">
+    <section class="bg-[#121212] py-2">
       <div class="max-w-4xl mx-auto px-4">
         <div
-          class="flex items-center bg-gray-100 rounded-lg overflow-hidden w-full mb-3 border border-transparent focus-within:border-blue-500 focus-within:bg-white transition-all shadow-sm"
+          class="flex items-center bg-[#2D2D2D] rounded-lg overflow-hidden w-full mb-3 border border-transparent focus-within:border-[#E5C3A6] focus-within:bg-[#2D2D2D] transition-all shadow-sm"
         >
           <div class="flex items-center flex-1 px-3 py-2">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              class="w-5 h-5 text-gray-400 mr-2 shrink-0"
+              class="w-5 h-5 text-[#E5C3A6] mr-2 shrink-0"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -774,12 +786,12 @@
               />
             </svg>
 
-            <div class="flex w-full text-sm font-normal text-gray-500">
+            <div class="flex w-full text-sm font-normal text-gray-400">
               <span class="shrink-0">Search for&nbsp;</span>
               <input
                 id="animated-search"
                 type="text"
-                class="w-full bg-transparent placeholder-gray-400 focus:outline-none text-gray-600"
+                class="w-full bg-transparent placeholder-gray-500 focus:outline-none text-white"
                 readonly
               />
             </div>
@@ -793,7 +805,7 @@
             style="scroll-behavior: smooth"
           >
             <div class="min-w-full relative snap-center shrink-0">
-              <div class="relative h-[250px] md:h-[350px] bg-blue-900">
+              <div class="relative h-[250px] md:h-[350px] bg-gray-900">
                 <img
                   src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80"
                   class="absolute inset-0 w-full h-full object-cover opacity-60"
@@ -803,7 +815,7 @@
                   class="absolute inset-0 p-8 flex flex-col justify-center text-white"
                 >
                   <div
-                    class="flex items-center gap-1 mb-3 bg-yellow-400 text-black px-2 py-0.5 rounded-full w-fit text-[10px] font-bold uppercase"
+                    class="flex items-center gap-1 mb-3 bg-[#E5C3A6] text-black px-2 py-0.5 rounded-full w-fit text-[10px] font-bold uppercase"
                   >
                     ⭐ 4.9 Rated
                   </div>
@@ -812,7 +824,7 @@
                   </h3>
                   <p class="text-base md:text-lg mt-2">
                     Get
-                    <span class="text-yellow-400 font-bold">20% OFF</span> on
+                    <span class="text-[#E5C3A6] font-bold">20% OFF</span> on
                     home services
                   </p>
                 </div>
@@ -830,7 +842,7 @@
                   class="absolute inset-0 p-8 flex flex-col justify-center text-white"
                 >
                   <div
-                    class="flex items-center gap-1 mb-3 bg-green-500 text-white px-2 py-0.5 rounded-full w-fit text-[10px] font-bold uppercase"
+                    class="flex items-center gap-1 mb-3 bg-[#E5C3A6] text-black px-2 py-0.5 rounded-full w-fit text-[10px] font-bold uppercase"
                   >
                     ✅ Office Trusted
                   </div>
@@ -845,7 +857,7 @@
             </div>
 
             <div class="min-w-full relative snap-center shrink-0">
-              <div class="relative h-[250px] md:h-[350px] bg-orange-900">
+              <div class="relative h-[250px] md:h-[350px] bg-gray-900">
                 <img
                   src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80"
                   class="absolute inset-0 w-full h-full object-cover opacity-60"
@@ -855,7 +867,7 @@
                   class="absolute inset-0 p-8 flex flex-col justify-center text-white"
                 >
                   <div
-                    class="flex items-center gap-1 mb-3 bg-red-500 text-white px-2 py-0.5 rounded-full w-fit text-[10px] font-bold uppercase"
+                    class="flex items-center gap-1 mb-3 bg-[#E5C3A6] text-black px-2 py-0.5 rounded-full w-fit text-[10px] font-bold uppercase"
                   >
                     🔥 Top Provider
                   </div>
@@ -875,7 +887,7 @@
             id="dots-container"
           >
             <div
-              class="dot w-5 h-1.5 rounded-full bg-white transition-all duration-300 shadow-sm"
+              class="dot w-5 h-1.5 rounded-full bg-[#E5C3A6] transition-all duration-300 shadow-sm"
             ></div>
             <div
               class="dot w-2 h-1.5 rounded-full bg-white/40 transition-all duration-300 shadow-sm"
@@ -938,10 +950,10 @@
       function updateDots(index) {
         dots.forEach((dot, i) => {
           if (i === index) {
-            dot.classList.add("bg-white", "w-5");
+            dot.classList.add("bg-[#E5C3A6]", "w-5");
             dot.classList.remove("bg-white/40", "w-2");
           } else {
-            dot.classList.remove("bg-white", "w-5");
+            dot.classList.remove("bg-[#E5C3A6]", "w-5");
             dot.classList.add("bg-white/40", "w-2");
           }
         });
@@ -969,268 +981,244 @@
         setInterval(autoSlide, 5000);
       });
     </script>
-
     <!-- Services Categories -->
 
-    <!-- MAIN Discover all -->
-    <section class="py-3 bg-white">
-      <div class="max-w-6xl mx-auto px-4">
-        <!-- left/right space kept -->
+    <section class="py-3 bg-[#121212]"> <div class="max-w-6xl mx-auto px-4">
+        <div class="bg-[#1E1E1E] rounded-xl p-4 shadow-lg border border-[#3d3d3d]"> 
 
-        <div
-          class="overflow-x-auto scroll-smooth snap-x snap-mandatory no-scrollbar"
-        >
-          <style>
-            .no-scrollbar::-webkit-scrollbar {
-              display: none;
-            }
-          </style>
-
-          <!-- Reduced middle spacing -->
           <div
-            class="grid grid-rows-2 grid-flow-col auto-cols-[20%] gap-x-1 gap-y-2 min-w-max"
+            class="overflow-x-auto scroll-smooth snap-x snap-mandatory no-scrollbar"
           >
-            <!-- AC Repair -->
-            <a
-              href="ac-repair.html"
-              class="snap-start group flex flex-col items-center text-center"
-            >
-              <div
-                class="w-14 h-14 bg-blue-50 rounded-xl flex items-center justify-center group-hover:bg-blue-600 transition-all"
-              >
-                <img
-                  src="https://img.icons8.com/ios-filled/50/000000/air-conditioner.png"
-                  class="w-7 h-7 group-hover:invert"
-                />
-              </div>
-              <span class="text-[11px] font-semibold mt-1">AC Repair</span>
-            </a>
+            <style>
+              .no-scrollbar::-webkit-scrollbar {
+                display: none;
+              }
+            </style>
 
-            <!-- Electrical -->
-            <a
-              href="electrical.html"
-              class="snap-start group flex flex-col items-center text-center"
+            <div
+              class="grid grid-rows-2 grid-flow-col auto-cols-[20%] gap-x-1 gap-y-4 min-w-max"
             >
-              <div
-                class="w-14 h-14 bg-orange-50 rounded-xl flex items-center justify-center group-hover:bg-orange-500 transition-all"
+              <a
+                href="ac-repair.html"
+                class="snap-start group flex flex-col items-center text-center"
               >
-                <img
-                  src="https://img.icons8.com/ios-filled/50/000000/flash-on.png"
-                  class="w-7 h-7 group-hover:invert"
-                />
-              </div>
-              <span class="text-[11px] font-semibold mt-1">Electrical</span>
-            </a>
+                <div
+                  class="w-14 h-14 bg-[#2D2D2D] rounded-xl flex items-center justify-center group-hover:bg-[#E5C3A6] border border-transparent group-hover:border-[#E5C3A6] transition-all"
+                > <img
+                    src="https://img.icons8.com/ios-filled/50/ffffff/air-conditioner.png"
+                    class="w-7 h-7 group-hover:brightness-0" 
+                  /> </div>
+                <span class="text-[11px] font-semibold mt-1 text-gray-300 group-hover:text-[#E5C3A6] transition-colors">AC Repair</span> </a>
 
-            <!-- Plumbing -->
-            <a
-              href="plumbing.html"
-              class="snap-start group flex flex-col items-center text-center"
-            >
-              <div
-                class="w-14 h-14 bg-green-50 rounded-xl flex items-center justify-center group-hover:bg-green-600 transition-all"
+              <a
+                href="electrical.html"
+                class="snap-start group flex flex-col items-center text-center"
               >
-                <img
-                  src="https://img.icons8.com/ios-filled/50/000000/plumbing.png"
-                  class="w-7 h-7 group-hover:invert"
-                />
-              </div>
-              <span class="text-[11px] font-semibold mt-1">Plumbing</span>
-            </a>
+                <div
+                  class="w-14 h-14 bg-[#2D2D2D] rounded-xl flex items-center justify-center group-hover:bg-[#E5C3A6] border border-transparent group-hover:border-[#E5C3A6] transition-all"
+                >
+                  <img
+                    src="https://img.icons8.com/ios-filled/50/ffffff/flash-on.png"
+                    class="w-7 h-7 group-hover:brightness-0"
+                  />
+                </div>
+                <span class="text-[11px] font-semibold mt-1 text-gray-300 group-hover:text-[#E5C3A6] transition-colors">Electrical</span>
+              </a>
 
-            <!-- Cleaning -->
-            <a
-              href="cleaning.html"
-              class="snap-start group flex flex-col items-center text-center"
-            >
-              <div
-                class="w-14 h-14 bg-yellow-50 rounded-xl flex items-center justify-center group-hover:bg-yellow-500 transition-all"
+              <a
+                href="plumbing.html"
+                class="snap-start group flex flex-col items-center text-center"
               >
-                <img
-                  src="https://img.icons8.com/ios-filled/50/000000/vacuum-cleaner.png"
-                  class="w-7 h-7 group-hover:invert"
-                />
-              </div>
-              <span class="text-[11px] font-semibold mt-1">Cleaning</span>
-            </a>
+                <div
+                  class="w-14 h-14 bg-[#2D2D2D] rounded-xl flex items-center justify-center group-hover:bg-[#E5C3A6] border border-transparent group-hover:border-[#E5C3A6] transition-all"
+                >
+                  <img
+                    src="https://img.icons8.com/ios-filled/50/ffffff/plumbing.png"
+                    class="w-7 h-7 group-hover:brightness-0"
+                  />
+                </div>
+                <span class="text-[11px] font-semibold mt-1 text-gray-300 group-hover:text-[#E5C3A6] transition-colors">Plumbing</span>
+              </a>
 
-            <!-- Painting -->
-            <a
-              href="painting.html"
-              class="snap-start group flex flex-col items-center text-center"
-            >
-              <div
-                class="w-14 h-14 bg-red-50 rounded-xl flex items-center justify-center group-hover:bg-red-600 transition-all"
+              <a
+                href="cleaning.html"
+                class="snap-start group flex flex-col items-center text-center"
               >
-                <img
-                  src="https://img.icons8.com/ios-filled/50/000000/paint-brush.png"
-                  class="w-7 h-7 group-hover:invert"
-                />
-              </div>
-              <span class="text-[11px] font-semibold mt-1">Painting</span>
-            </a>
+                <div
+                  class="w-14 h-14 bg-[#2D2D2D] rounded-xl flex items-center justify-center group-hover:bg-[#E5C3A6] border border-transparent group-hover:border-[#E5C3A6] transition-all"
+                >
+                  <img
+                    src="https://img.icons8.com/ios-filled/50/ffffff/vacuum-cleaner.png"
+                    class="w-7 h-7 group-hover:brightness-0"
+                  />
+                </div>
+                <span class="text-[11px] font-semibold mt-1 text-gray-300 group-hover:text-[#E5C3A6] transition-colors">Cleaning</span>
+              </a>
 
-            <!-- Carpentry -->
-            <a
-              href="carpentry.html"
-              class="snap-start group flex flex-col items-center text-center"
-            >
-              <div
-                class="w-14 h-14 bg-indigo-50 rounded-xl flex items-center justify-center group-hover:bg-indigo-600 transition-all"
+              <a
+                href="painting.html"
+                class="snap-start group flex flex-col items-center text-center"
               >
-                <img
-                  src="https://img.icons8.com/ios-filled/50/000000/hammer.png"
-                  class="w-7 h-7 group-hover:invert"
-                />
-              </div>
-              <span class="text-[11px] font-semibold mt-1">Carpentry</span>
-            </a>
+                <div
+                  class="w-14 h-14 bg-[#2D2D2D] rounded-xl flex items-center justify-center group-hover:bg-[#E5C3A6] border border-transparent group-hover:border-[#E5C3A6] transition-all"
+                >
+                  <img
+                    src="https://img.icons8.com/ios-filled/50/ffffff/paint-brush.png"
+                    class="w-7 h-7 group-hover:brightness-0"
+                  />
+                </div>
+                <span class="text-[11px] font-semibold mt-1 text-gray-300 group-hover:text-[#E5C3A6] transition-colors">Painting</span>
+              </a>
 
-            <!-- Pest Control -->
-            <a
-              href="pest-control.html"
-              class="snap-start group flex flex-col items-center text-center"
-            >
-              <div
-                class="w-14 h-14 bg-teal-50 rounded-xl flex items-center justify-center group-hover:bg-teal-600 transition-all"
+              <a
+                href="carpentry.html"
+                class="snap-start group flex flex-col items-center text-center"
               >
-                <img
-                  src="https://img.icons8.com/ios-filled/50/000000/bug.png"
-                  class="w-7 h-7 group-hover:invert"
-                />
-              </div>
-              <span class="text-[11px] font-semibold mt-1">Pest Control</span>
-            </a>
+                <div
+                  class="w-14 h-14 bg-[#2D2D2D] rounded-xl flex items-center justify-center group-hover:bg-[#E5C3A6] border border-transparent group-hover:border-[#E5C3A6] transition-all"
+                >
+                  <img
+                    src="https://img.icons8.com/ios-filled/50/ffffff/hammer.png"
+                    class="w-7 h-7 group-hover:brightness-0"
+                  />
+                </div>
+                <span class="text-[11px] font-semibold mt-1 text-gray-300 group-hover:text-[#E5C3A6] transition-colors">Carpentry</span>
+              </a>
 
-            <!-- CCTV -->
-            <a
-              href="cctv.html"
-              class="snap-start group flex flex-col items-center text-center"
-            >
-              <div
-                class="w-14 h-14 bg-gray-100 rounded-xl flex items-center justify-center group-hover:bg-gray-700 transition-all"
+              <a
+                href="pest-control.html"
+                class="snap-start group flex flex-col items-center text-center"
               >
-                <img
-                  src="https://img.icons8.com/ios-filled/50/000000/security-camera.png"
-                  class="w-7 h-7 group-hover:invert"
-                />
-              </div>
-              <span class="text-[11px] font-semibold mt-1">CCTV</span>
-            </a>
+                <div
+                  class="w-14 h-14 bg-[#2D2D2D] rounded-xl flex items-center justify-center group-hover:bg-[#E5C3A6] border border-transparent group-hover:border-[#E5C3A6] transition-all"
+                >
+                  <img
+                    src="https://img.icons8.com/ios-filled/50/ffffff/bug.png"
+                    class="w-7 h-7 group-hover:brightness-0"
+                  />
+                </div>
+                <span class="text-[11px] font-semibold mt-1 text-gray-300 group-hover:text-[#E5C3A6] transition-colors">Pest Control</span>
+              </a>
 
-            <!-- Gas Service -->
-            <a
-              href="gas-service.html"
-              class="snap-start group flex flex-col items-center text-center"
-            >
-              <div
-                class="w-14 h-14 bg-amber-50 rounded-xl flex items-center justify-center group-hover:bg-amber-500 transition-all"
+              <a
+                href="cctv.html"
+                class="snap-start group flex flex-col items-center text-center"
               >
-                <img
-                  src="https://img.icons8.com/ios-filled/50/000000/gas.png"
-                  class="w-7 h-7 group-hover:invert"
-                />
-              </div>
-              <span class="text-[11px] font-semibold mt-1">Gas Service</span>
-            </a>
+                <div
+                  class="w-14 h-14 bg-[#2D2D2D] rounded-xl flex items-center justify-center group-hover:bg-[#E5C3A6] border border-transparent group-hover:border-[#E5C3A6] transition-all"
+                >
+                  <img
+                    src="https://img.icons8.com/ios-filled/50/ffffff/security-camera.png"
+                    class="w-7 h-7 group-hover:brightness-0"
+                  />
+                </div>
+                <span class="text-[11px] font-semibold mt-1 text-gray-300 group-hover:text-[#E5C3A6] transition-colors">CCTV</span>
+              </a>
 
-            <!-- Shifting -->
-            <a
-              href="shifting.html"
-              class="snap-start group flex flex-col items-center text-center"
-            >
-              <div
-                class="w-14 h-14 bg-rose-50 rounded-xl flex items-center justify-center group-hover:bg-rose-600 transition-all"
+              <a
+                href="gas-service.html"
+                class="snap-start group flex flex-col items-center text-center"
               >
-                <img
-                  src="https://img.icons8.com/ios-filled/50/000000/move.png"
-                  class="w-7 h-7 group-hover:invert"
-                />
-              </div>
-              <span class="text-[11px] font-semibold mt-1">Shifting</span>
-            </a>
+                <div
+                  class="w-14 h-14 bg-[#2D2D2D] rounded-xl flex items-center justify-center group-hover:bg-[#E5C3A6] border border-transparent group-hover:border-[#E5C3A6] transition-all"
+                >
+                  <img
+                    src="https://img.icons8.com/ios-filled/50/ffffff/gas.png"
+                    class="w-7 h-7 group-hover:brightness-0"
+                  />
+                </div>
+                <span class="text-[11px] font-semibold mt-1 text-gray-300 group-hover:text-[#E5C3A6] transition-colors">Gas Service</span>
+              </a>
 
-            <!-- Water Tank -->
-            <a
-              href="water-tank.html"
-              class="snap-start group flex flex-col items-center text-center"
-            >
-              <div
-                class="w-14 h-14 bg-cyan-50 rounded-xl flex items-center justify-center group-hover:bg-cyan-600 transition-all"
+              <a
+                href="shifting.html"
+                class="snap-start group flex flex-col items-center text-center"
               >
-                <img
-                  src="https://img.icons8.com/ios-filled/50/000000/water.png"
-                  class="w-7 h-7 group-hover:invert"
-                />
-              </div>
-              <span class="text-[11px] font-semibold mt-1">Water Tank</span>
-            </a>
+                <div
+                  class="w-14 h-14 bg-[#2D2D2D] rounded-xl flex items-center justify-center group-hover:bg-[#E5C3A6] border border-transparent group-hover:border-[#E5C3A6] transition-all"
+                >
+                  <img
+                    src="https://img.icons8.com/ios-filled/50/ffffff/move.png"
+                    class="w-7 h-7 group-hover:brightness-0"
+                  />
+                </div>
+                <span class="text-[11px] font-semibold mt-1 text-gray-300 group-hover:text-[#E5C3A6] transition-colors">Shifting</span>
+              </a>
+
+              <a
+                href="water-tank.html"
+                class="snap-start group flex flex-col items-center text-center"
+              >
+                <div
+                  class="w-14 h-14 bg-[#2D2D2D] rounded-xl flex items-center justify-center group-hover:bg-[#E5C3A6] border border-transparent group-hover:border-[#E5C3A6] transition-all"
+                >
+                  <img
+                    src="https://img.icons8.com/ios-filled/50/ffffff/water.png"
+                    class="w-7 h-7 group-hover:brightness-0"
+                  />
+                </div>
+                <span class="text-[11px] font-semibold mt-1 text-gray-300 group-hover:text-[#E5C3A6] transition-colors">Water Tank</span>
+              </a>
+            </div>
           </div>
         </div>
       </div>
     </section>
-
     <!-- Search and Categories Section -->
 
-    <section class="bg-gray-50 py-2 px-4 md:py-4">
-      <div class="max-w-3xl mx-auto w-full">
+    <section class="bg-[#121212] py-2 px-4 md:py-4"> <div class="max-w-3xl mx-auto w-full">
         <div class="w-full">
           <div class="flex overflow-x-auto gap-4 pb-2 no-scrollbar snap-x">
-            <!-- AC Servicing -->
+            
             <a
               href="ac-repair.html"
-              class="min-w-[85%] md:min-w-[45%] h-[160px] rounded-2xl flex-shrink-0 snap-center relative overflow-hidden shadow-sm block"
+              class="min-w-[85%] md:min-w-[45%] h-[160px] rounded-2xl flex-shrink-0 snap-center relative overflow-hidden shadow-md block border border-[#3d3d3d]"
             >
               <img
                 src="https://images.unsplash.com/photo-1581578731548-c64695cc6958?auto=format&fit=crop&w=600&q=60"
                 alt="AC Servicing"
-                class="absolute inset-0 w-full h-full object-cover"
-              />
-              <div
-                class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent p-4 flex flex-col justify-end"
-              >
-                <span class="text-white font-bold text-lg">AC Servicing</span>
-                <p class="text-gray-200 text-xs">
-                  Expert repair starting from ৳499
+                class="absolute inset-0 w-full h-full object-cover opacity-80"
+              /> <div
+                class="absolute inset-0 bg-gradient-to-t from-[#121212] via-[#121212]/40 to-transparent p-4 flex flex-col justify-end"
+              > <span class="text-[#E5C3A6] font-bold text-lg">AC Servicing</span> <p class="text-gray-300 text-xs">
+                  Expert repair starting from <span class="text-[#E5C3A6]">৳499</span>
                 </p>
               </div>
             </a>
 
-            <!-- Electrical Work -->
             <a
               href="electrical.html"
-              class="min-w-[85%] md:min-w-[45%] h-[160px] rounded-2xl flex-shrink-0 snap-center relative overflow-hidden shadow-sm block"
+              class="min-w-[85%] md:min-w-[45%] h-[160px] rounded-2xl flex-shrink-0 snap-center relative overflow-hidden shadow-md block border border-[#3d3d3d]"
             >
               <img
                 src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=600&q=60"
                 alt="Electrical Work"
-                class="absolute inset-0 w-full h-full object-cover"
+                class="absolute inset-0 w-full h-full object-cover opacity-80"
               />
               <div
-                class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent p-4 flex flex-col justify-end"
+                class="absolute inset-0 bg-gradient-to-t from-[#121212] via-[#121212]/40 to-transparent p-4 flex flex-col justify-end"
               >
-                <span class="text-white font-bold text-lg"
+                <span class="text-[#E5C3A6] font-bold text-lg"
                   >Electrical Work</span
                 >
-                <p class="text-gray-200 text-xs">Safe & reliable solutions</p>
+                <p class="text-gray-300 text-xs">Safe & reliable solutions</p>
               </div>
             </a>
 
-            <!-- Home Cleaning -->
             <a
               href="cleaning.html"
-              class="min-w-[85%] md:min-w-[45%] h-[160px] rounded-2xl flex-shrink-0 snap-center relative overflow-hidden shadow-sm block"
+              class="min-w-[85%] md:min-w-[45%] h-[160px] rounded-2xl flex-shrink-0 snap-center relative overflow-hidden shadow-md block border border-[#3d3d3d]"
             >
               <img
                 src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=600&q=60"
                 alt="Home Cleaning"
-                class="absolute inset-0 w-full h-full object-cover"
+                class="absolute inset-0 w-full h-full object-cover opacity-80"
               />
               <div
-                class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent p-4 flex flex-col justify-end"
+                class="absolute inset-0 bg-gradient-to-t from-[#121212] via-[#121212]/40 to-transparent p-4 flex flex-col justify-end"
               >
-                <span class="text-white font-bold text-lg">Home Cleaning</span>
-                <p class="text-gray-200 text-xs">Deep cleaning for your home</p>
+                <span class="text-[#E5C3A6] font-bold text-lg">Home Cleaning</span>
+                <p class="text-gray-300 text-xs">Deep cleaning for your home</p>
               </div>
             </a>
           </div>
@@ -1247,197 +1235,200 @@
         scrollbar-width: none;
       }
     </style>
-
     <!-- SECTION HEADER: Discover all services -->
 
-    <div class="max-w-4xl mx-auto px-4 mt-4 mb-2">
+    <div class="bg-[#121212] pt-2 pb-1"> <div class="max-w-4xl mx-auto px-4 mt-1 mb-1"> <div class="flex items-center gap-2">
+      <h2
+        class="text-lg md:text-xl font-bold text-[#E5C3A6] tracking-tight leading-none"
+      >
+        Discover all of our services
+      </h2>
+    </div>
+  </div>
+</div>
+
+    <!-- MAIN CATEGORY: RESIDENTIAL SERVICES -->
+    <section class="bg-[#121212] px-4 pt-2 pb-2"> <div class="max-w-7xl mx-auto">
+    
+    <div class="flex justify-between items-center mb-3 gap-2">
       <div class="flex items-center gap-2">
-        <h2
-          class="text-lg md:text-xl font-bold text-gray-800 tracking-tight leading-none"
-        >
-          Discover all of our services
+        <img
+          src="Capture1.png"
+          class="w-5 h-5 shrink-0"
+          alt="icon"
+        />
+        <h2 class="text-base md:text-lg font-bold text-white truncate leading-none">
+          Residential Services
         </h2>
+      </div>
+
+      <a
+        href="residential-services.html"
+        class="group flex items-center gap-1 text-[11px] md:text-sm text-[#E5C3A6] font-medium hover:text-white transition-colors shrink-0 whitespace-nowrap"
+      >
+        <span>Visit Page</span>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="w-3 h-3 md:w-3.5 md:h-3.5 transform transition-transform group-hover:translate-x-1"
+        >
+          <polyline points="9 18 15 12 9 6"></polyline>
+        </svg>
+      </a>
+    </div>
+
+    <div class="flex items-center">
+      <div
+        class="flex overflow-x-auto gap-4 md:gap-6 scroll-smooth pb-1 w-full no-scrollbar"
+        style="scrollbar-width: none; -ms-overflow-style: none"
+      >
+        <style>
+          .no-scrollbar::-webkit-scrollbar {
+            display: none;
+          }
+        </style>
+
+        <a
+          href="plumbing.html"
+          class="min-w-[150px] md:min-w-[220px] transition-transform hover:scale-105 shrink-0 block group"
+        >
+          <div class="relative overflow-hidden rounded-lg shadow-md border border-[#2A2A2A]">
+            <img
+              src="https://images.unsplash.com/photo-1607472586893-edb57bdc0e39?q=80&w=500&auto=format&fit=crop"
+              class="w-full h-24 md:h-40 object-cover opacity-90 group-hover:opacity-100 transition-opacity"
+              alt="Residential Plumbing"
+            />
+          </div>
+          <p class="mt-2 text-sm md:text-lg text-center font-bold text-gray-300 group-hover:text-[#E5C3A6] transition-colors">
+            Plumbing
+          </p>
+        </a>
+
+        <a
+          href="electrical.html"
+          class="min-w-[150px] md:min-w-[220px] transition-transform hover:scale-105 shrink-0 block group"
+        >
+          <div class="relative overflow-hidden rounded-lg shadow-md border border-[#2A2A2A]">
+            <img
+              src="https://images.unsplash.com/photo-1621905251918-48416bd8575a?q=80&w=500&auto=format&fit=crop"
+              class="w-full h-24 md:h-40 object-cover opacity-90 group-hover:opacity-100 transition-opacity"
+              alt="Home Electrical"
+            />
+          </div>
+          <p class="mt-2 text-sm md:text-lg text-center font-bold text-gray-300 group-hover:text-[#E5C3A6] transition-colors">
+            Electrical
+          </p>
+        </a>
       </div>
     </div>
 
-    <!-- MAIN CATEGORY: RESIDENTIAL SERVICES -->
-    <section class="max-w-7xl mx-auto px-4 pt-2 pb-0 mb-0">
-      <div class="flex justify-between items-center mb-2 gap-2">
-        <div class="flex items-center gap-2">
-          <img
-            src="Capture1.png"
-            class="w-5 h-5 text-blue-900 shrink-0"
-            alt="icon"
-          />
-          <h2
-            class="text-base md:text-lg font-bold text-gray-800 truncate leading-none"
-          >
-            Residential Services
-          </h2>
-        </div>
+    <div class="mt-4"> <div class="h-[1px] w-full bg-gradient-to-r from-transparent via-[#E5C3A6] to-transparent opacity-40"></div>
+    </div>
 
-        <a
-          href="residential-services.html"
-          class="group flex items-center gap-1 text-[11px] md:text-sm text-[#172554] font-medium hover:text-blue-700 transition-colors shrink-0 whitespace-nowrap"
-        >
-          <span>Visit Page</span>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2.5"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            class="w-3 h-3 md:w-3.5 md:h-3.5 transform transition-transform group-hover:translate-x-1"
-          >
-            <polyline points="9 18 15 12 9 6"></polyline>
-          </svg>
-        </a>
-      </div>
-
-      <div class="flex items-center">
-        <div
-          class="flex overflow-x-auto gap-4 md:gap-6 scroll-smooth pb-0 w-full no-scrollbar"
-          style="scrollbar-width: none; -ms-overflow-style: none"
-        >
-          <style>
-            .no-scrollbar::-webkit-scrollbar {
-              display: none;
-            }
-          </style>
-
-          <a
-            href="plumbing.html"
-            class="min-w-[150px] md:min-w-[220px] transition-transform hover:scale-105 shrink-0 block"
-          >
-            <img
-              src="https://images.unsplash.com/photo-1607472586893-edb57bdc0e39?q=80&w=500&auto=format&fit=crop"
-              class="w-full h-24 md:h-40 rounded-md md:rounded-lg shadow-md object-cover"
-              alt="Residential Plumbing"
-            />
-            <p
-              class="mt-1.5 text-sm md:text-lg text-center font-bold text-gray-700"
-            >
-              Plumbing
-            </p>
-          </a>
-
-          <a
-            href="electrical.html"
-            class="min-w-[150px] md:min-w-[220px] transition-transform hover:scale-105 shrink-0 block"
-          >
-            <img
-              src="https://images.unsplash.com/photo-1621905251918-48416bd8575a?q=80&w=500&auto=format&fit=crop"
-              class="w-full h-24 md:h-40 rounded-md md:rounded-lg shadow-md object-cover"
-              alt="Home Electrical"
-            />
-            <p
-              class="mt-1.5 text-sm md:text-lg text-center font-bold text-gray-700"
-            >
-              Electrical
-            </p>
-          </a>
-        </div>
-      </div>
-    </section>
+  </div>
+</section>
 
     <!-- MAIN CATEGORY: COMMERCIAL SERVICES -->
 
-    <section class="max-w-7xl mx-auto pt-4 pb-0 mb-0 px-4">
-      <div class="flex justify-between items-center mb-2 gap-2">
-        <div class="flex items-center gap-2">
-          <img
-            src="Captur2e.PNG"
-            class="w-5 h-5 text-blue-900 shrink-0"
-            alt="icon"
-          />
+    <section class="bg-[#121212] px-4 pt-2 pb-2">
+  <div class="max-w-7xl mx-auto">
+    
+    <div class="flex justify-between items-center mb-3 gap-2">
+      <div class="flex items-center gap-2">
+        <img
+          src="Captur2e.PNG"
+          class="w-5 h-5 shrink-0"
+          alt="icon"
+        />
 
-          <h2
-            class="text-base md:text-lg font-bold text-gray-800 truncate leading-none"
-          >
-            Commercial Services
-          </h2>
-        </div>
-
-        <a
-          href="commercial-services.html"
-          class="group flex items-center gap-1 text-[11px] md:text-sm text-[#172554] font-medium hover:text-blue-700 transition-colors shrink-0 whitespace-nowrap"
-        >
-          <span>Visit Page</span>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2.5"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            class="w-3 h-3 md:w-3.5 md:h-3.5 transform transition-transform group-hover:translate-x-1"
-          >
-            <polyline points="9 18 15 12 9 6"></polyline>
-          </svg>
-        </a>
+        <h2 class="text-base md:text-lg font-bold text-[#E5C3A6] truncate leading-none">
+          Commercial Services
+        </h2>
       </div>
 
-      <div class="flex items-center">
-        <div
-          class="flex overflow-x-auto gap-4 md:gap-6 scroll-smooth pb-0 w-full no-scrollbar"
-          style="scrollbar-width: none; -ms-overflow-style: none"
+      <a
+        href="commercial-services.html"
+        class="group flex items-center gap-1 text-[11px] md:text-sm text-[#E5C3A6] font-medium hover:text-white transition-colors shrink-0 whitespace-nowrap"
+      >
+        <span>Visit Page</span>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="w-3 h-3 md:w-3.5 md:h-3.5 transform transition-transform group-hover:translate-x-1"
         >
-          <style>
-            .no-scrollbar::-webkit-scrollbar {
-              display: none;
-            }
-          </style>
+          <polyline points="9 18 15 12 9 6"></polyline>
+        </svg>
+      </a>
+    </div>
 
-          <div
-            class="min-w-[150px] md:min-w-[220px] transition-transform hover:scale-105 shrink-0"
-          >
+    <div class="flex items-center">
+      <div
+        class="flex overflow-x-auto gap-4 md:gap-6 scroll-smooth pb-1 w-full no-scrollbar"
+        style="scrollbar-width: none; -ms-overflow-style: none"
+      >
+        <style>
+          .no-scrollbar::-webkit-scrollbar {
+            display: none;
+          }
+        </style>
+
+        <div class="min-w-[150px] md:min-w-[220px] transition-transform hover:scale-105 shrink-0 group">
+          <div class="relative overflow-hidden rounded-lg shadow-md border border-[#2A2A2A]">
             <img
               src="https://images.unsplash.com/photo-1513104890138-7c749659a591?q=80&w=500&auto=format&fit=crop"
-              class="w-full h-24 md:h-40 rounded-md md:rounded-lg shadow-md object-cover"
+              class="w-full h-24 md:h-40 object-cover opacity-90 group-hover:opacity-100 transition-opacity"
               alt="Office AC & Ventilation"
             />
-            <p
-              class="mt-1.5 text-sm md:text-lg text-center font-bold text-gray-700 leading-tight"
-            >
-              Office AC & Ventilation
-            </p>
           </div>
+          <p class="mt-2 text-sm md:text-lg text-center font-bold text-[#E5C3A6] leading-tight transition-colors">
+            Office AC & Ventilation
+          </p>
+        </div>
 
-          <div
-            class="min-w-[150px] md:min-w-[220px] transition-transform hover:scale-105 shrink-0"
-          >
+        <div class="min-w-[150px] md:min-w-[220px] transition-transform hover:scale-105 shrink-0 group">
+          <div class="relative overflow-hidden rounded-lg shadow-md border border-[#2A2A2A]">
             <img
               src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=500&auto=format&fit=crop"
-              class="w-full h-24 md:h-40 rounded-md md:rounded-lg shadow-md object-cover"
+              class="w-full h-24 md:h-40 object-cover opacity-90 group-hover:opacity-100 transition-opacity"
               alt="Office Cleaning"
             />
-            <p
-              class="mt-1.5 text-sm md:text-lg text-center font-bold text-gray-700 leading-tight"
-            >
-              Office Cleaning
-            </p>
           </div>
+          <p class="mt-2 text-sm md:text-lg text-center font-bold text-[#E5C3A6] leading-tight transition-colors">
+            Office Cleaning
+          </p>
+        </div>
 
-          <div
-            class="min-w-[150px] md:min-w-[220px] transition-transform hover:scale-105 shrink-0"
-          >
+        <div class="min-w-[150px] md:min-w-[220px] transition-transform hover:scale-105 shrink-0 group">
+          <div class="relative overflow-hidden rounded-lg shadow-md border border-[#2A2A2A]">
             <img
               src="https://images.unsplash.com/photo-1558389186-438424b00a32?q=80&w=500&auto=format&fit=crop"
-              class="w-full h-24 md:h-40 rounded-md md:rounded-lg shadow-md object-cover"
+              class="w-full h-24 md:h-40 object-cover opacity-90 group-hover:opacity-100 transition-opacity"
               alt="Electrical Maintenance"
             />
-            <p
-              class="mt-1.5 text-sm md:text-lg text-center font-bold text-gray-700 leading-tight"
-            >
-              Electrical Maintenance
-            </p>
           </div>
+          <p class="mt-2 text-sm md:text-lg text-center font-bold text-[#E5C3A6] leading-tight transition-colors">
+            Electrical Maintenance
+          </p>
         </div>
       </div>
-    </section>
+    </div>
+
+    <div class="mt-4">
+      <div class="h-[1px] w-full bg-gradient-to-r from-transparent via-[#E5C3A6] to-transparent opacity-40"></div>
+    </div>
+
+  </div>
+</section>
     <!-- MAIN CATEGORY: SMALL JOBS / QUICK FIX -->
 
     <section class="max-w-7xl mx-auto pt-4 pb-0 mb-0 px-4">
