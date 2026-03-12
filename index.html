@@ -442,345 +442,252 @@
         </div>
       </div>
     </div>
+<!-- Mobile Services Sidebar & Overlay -->
+<div id="overlay" class="hidden fixed inset-0 bg-black/40 z-40 transition-opacity"></div>
 
-    <!-- Overlay -->
-    <div
-      id="overlay"
-      class="hidden fixed inset-0 bg-black bg-opacity-50 z-40"
-    ></div>
+<div id="mobile-sidebar" class="hidden fixed inset-0 bg-[#F3F4F6] z-50 flex flex-col overflow-hidden">
+  
+  <div class="flex items-center justify-between gap-3 px-4 py-3 bg-white border-b sticky top-0 z-10">
+    <button onclick="toggleMenu()" class="shrink-0 p-1 hover:bg-gray-100 rounded-full transition">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7" />
+      </svg>
+    </button>
 
-    <!-- Full-Screen Services Sidebar -->
-    <div
-      id="mobile-sidebar"
-      class="hidden fixed inset-0 bg-white z-50 flex flex-col overflow-hidden"
-    >
-      <!-- Top Header with Small / Big / Close -->
-      <div class="flex items-center bg-white border-b sticky top-0 z-10">
-        <!-- Small / Big Tabs -->
-        <div class="flex flex-1">
-          <button
-            id="small-btn"
-            class="flex-1 py-3 text-center font-normal border-r border-gray-200 tab-btn tab-small active-tab"
-            onclick="setTab('small')"
-          >
-            Small
-          </button>
-          <button
-            id="big-btn"
-            class="flex-1 py-3 text-center font-normal tab-btn tab-big"
-            onclick="setTab('big')"
-          >
-            Big
-          </button>
+    <h2 class="text-lg font-bold text-[#172554] whitespace-nowrap">Services</h2>
+
+    <div class="flex-1 relative max-w-[200px]">
+      <input 
+        id="service-search"
+        oninput="handleSearch()"
+        type="text" 
+        placeholder="Search..." 
+        class="w-full bg-gray-100 border-none rounded-full py-1.5 pl-3 pr-8 text-sm focus:ring-1 focus:ring-blue-500 outline-none"
+      >
+      <svg xmlns="http://www.w3.org/2000/svg" class="absolute right-2.5 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+      </svg>
+    </div>
+  </div>
+
+  <div id="services-container" class="flex-1 overflow-y-auto no-scrollbar py-1">
+    
+    <div class="section-wrapper mb-[2px]">
+      <button onclick="toggleAccordion('electric-sect', this)" class="w-full flex items-center justify-between px-4 py-3 bg-white hover:bg-gray-50 transition-all border-b border-gray-50">
+        <div class="flex items-center gap-3">
+          <div class="w-6 h-6 flex items-center justify-center text-orange-500">
+             <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+          </div>
+          <span class="text-[14px] font-semibold text-gray-700">Electric Services</span>
         </div>
+        <svg class="w-4 h-4 text-gray-400 transition-transform duration-300 arrow-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+      </button>
 
-        <!-- Close Button -->
-        <button
-          id="close-btn"
-          class="w-12 h-12 flex items-center justify-center text-white text-xl font-normal tab-close"
-        >
-          ✕
-        </button>
-      </div>
-
-      <style>
-        /* Common tab style */
-        .tab-btn {
-          position: relative;
-          color: #444;
-          background: #f9f9f9;
-          transition: all 0.3s ease;
-        }
-
-        /* Underline effect (only shows when active) */
-        .tab-btn.active-tab::after {
-          content: "";
-          position: absolute;
-          left: 0;
-          bottom: 0;
-          width: 100%;
-          height: 3px;
-          background-color: currentColor;
-          border-radius: 2px;
-        }
-
-        /* Small = Yellow */
-        .tab-small.active-tab {
-          background: rgb(8, 168, 101);
-          color: #ffffff;
-        }
-
-        /* Big = Green */
-        .tab-big.active-tab {
-          background: rgb(8, 168, 101);
-          color: #fff;
-        }
-
-        /* Close = Orange/Red */
-        .tab-close {
-          background: rgb(255, 51, 0);
-          transition: all 0.3s ease;
-        }
-        .tab-close:hover {
-          background: rgb(255, 115, 0);
-        }
-      </style>
-
-      <script>
-        function setTab(type) {
-          // Reset both buttons
-          document.getElementById("small-btn").classList.remove("active-tab");
-          document.getElementById("big-btn").classList.remove("active-tab");
-
-          // Activate clicked one
-          document.getElementById(type + "-btn").classList.add("active-tab");
-
-          // Filter categories
-          filterCategories(type);
-        }
-      </script>
-
-      <div class="flex flex-1 overflow-y-auto">
-        <!-- Left Categories -->
-        <div class="w-1/4 bg-gray-50 border-r overflow-y-auto">
-          <ul id="categories" class="flex flex-col">
-            <li
-              class="py-2 px-2 flex flex-col items-center cursor-pointer hover:bg-gray-200"
-              onclick="showServices(this, 'AC Repair Services')"
-              data-link="ac-repair.html"
-              data-type="small"
-            >
-              <img src="ac icon1.png" class="w-8 h-8 mb-0.5" alt="AC" />
-              <span
-                class="text-xs text-center leading-tight break-words line-clamp-2"
-              >
-                AC Repair Services
-              </span>
-            </li>
-
-            <li
-              class="py-2 px-2 flex flex-col items-center cursor-pointer hover:bg-gray-200"
-              onclick="showServices(this, 'Electrical Services')"
-              data-link="electrical.html"
-              data-type="small"
-            >
-              <img
-                src="electric icon1.png"
-                class="w-8 h-8 mb-0.5"
-                alt="Electrical"
-              />
-              <span
-                class="text-xs text-center leading-tight break-words line-clamp-2"
-              >
-                Electrical Services
-              </span>
-            </li>
-
-            <li
-              class="py-2 px-2 flex flex-col items-center cursor-pointer hover:bg-gray-200"
-              onclick="showServices(this, 'Plumbing Services')"
-              data-link="plumbing.html"
-              data-type="small"
-            >
-              <img
-                src="Plumbing icon1.png"
-                class="w-8 h-8 mb-0.5"
-                alt="Plumbing"
-              />
-              <span
-                class="text-xs text-center leading-tight break-words line-clamp-2"
-              >
-                Plumbing Services
-              </span>
-            </li>
-
-            <li
-              class="py-2 px-2 flex flex-col items-center cursor-pointer hover:bg-gray-200"
-              onclick="showServices(this, 'Event services')"
-              data-link="event.html"
-              data-type="big"
-            >
-              <img
-                src="event management1.png"
-                class="w-8 h-8 mb-0.5"
-                alt="Event"
-              />
-              <span
-                class="text-xs text-center leading-tight break-words line-clamp-2"
-              >
-                Event Management Services
-              </span>
-            </li>
-          </ul>
-        </div>
-
-        <!-- Right Subservices -->
-        <div class="w-7/10 p-4 overflow-y-auto">
-          <!-- Services count with border -->
-          <div id="services-count"></div>
-
-          <div id="services-list" class="space-y-3"></div>
+      <div id="electric-sect" class="hidden px-2 pb-3 pt-1 bg-white service-section">
+        <div class="border border-gray-100 rounded-[15px] p-3 bg-white shadow-sm">
+          <div class="grid grid-cols-4 gap-x-2 gap-y-4">
+            <div onclick="openPopup('Repair')" class="service-item flex flex-col items-center">
+              <div class="icon-box w-14 h-14 bg-[#F2F4F7] flex items-center justify-center mb-1.5 active:scale-90 transition-transform">
+                <img src="electric-repair-icon.png" class="w-7 h-7 object-contain">
+              </div>
+              <span class="text-[10px] font-bold text-gray-600 text-center">Repair</span>
+            </div>
+            <div onclick="openPopup('Install')" class="service-item flex flex-col items-center">
+              <div class="icon-box w-14 h-14 bg-[#F2F4F7] flex items-center justify-center mb-1.5 active:scale-90 transition-transform">
+                <img src="install-icon.png" class="w-7 h-7 object-contain">
+              </div>
+              <span class="text-[10px] font-bold text-gray-600 text-center">Install</span>
+            </div>
+            <div onclick="openPopup('Uninstall')" class="service-item flex flex-col items-center">
+              <div class="icon-box w-14 h-14 bg-[#F2F4F7] flex items-center justify-center mb-1.5 active:scale-90 transition-transform">
+                <img src="uninstall-icon.png" class="w-7 h-7 object-contain">
+              </div>
+              <span class="text-[10px] font-bold text-gray-600 text-center">Uninstall</span>
+            </div>
+            <div onclick="openPopup('Product')" class="service-item flex flex-col items-center">
+              <div class="icon-box w-14 h-14 bg-[#F2F4F7] flex items-center justify-center mb-1.5 active:scale-90 transition-transform">
+                <img src="product-icon.png" class="w-7 h-7 object-contain">
+              </div>
+              <span class="text-[10px] font-bold text-gray-600 text-center">Product</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
 
-    <script>
-      // === Mobile menu handling ===
-      const mobileMenu = document.getElementById("mobile-menu");
-      function openMobileMenu() {
-        mobileMenu.classList.remove("hidden");
-        document.body.style.overflow = "hidden";
-      }
-      function closeMobileMenu() {
-        mobileMenu.classList.add("hidden");
-        document.body.style.overflow = "";
-      }
+    <div class="section-wrapper mb-[2px]">
+      <button onclick="toggleAccordion('plumbing-sect', this)" class="w-full flex items-center justify-between px-4 py-3 bg-white hover:bg-gray-50 transition-all border-b border-gray-50">
+        <div class="flex items-center gap-3">
+          <div class="w-6 h-6 flex items-center justify-center text-blue-500">
+             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a2 2 0 00-1.96 1.414l-.722 2.528a2 2 0 00.74 2.22l1.932 1.38a2 2 0 002.394 0l1.932-1.38a2 2 0 00.74-2.22l-.722-2.528z"/></svg>
+          </div>
+          <span class="text-[14px] font-semibold text-gray-700">Plumbing Services</span>
+        </div>
+        <svg class="w-4 h-4 text-gray-400 transition-transform duration-300 arrow-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+      </button>
 
-      // === Services Sidebar handling ===
-      const closeBtn = document.getElementById("close-btn");
-      const sidebar = document.getElementById("mobile-sidebar");
-      const overlay = document.getElementById("overlay");
-      const servicesCount = document.getElementById("services-count");
-      const categoriesList = document.getElementById("categories").children;
-      let activeButton = null;
+      <div id="plumbing-sect" class="hidden px-2 pb-3 pt-1 bg-white service-section">
+        <div class="border border-gray-100 rounded-[15px] p-3 bg-white shadow-sm">
+          <div class="grid grid-cols-4 gap-x-2 gap-y-4">
+            <div onclick="openPopup('Fitting')" class="service-item flex flex-col items-center">
+              <div class="icon-box w-14 h-14 bg-[#F2F4F7] flex items-center justify-center mb-1.5 active:scale-90 transition-transform">
+                <img src="fitting-icon.png" class="w-7 h-7 object-contain">
+              </div>
+              <span class="text-[10px] font-bold text-gray-600 text-center">Fitting</span>
+            </div>
+            <div onclick="openPopup('Install')" class="service-item flex flex-col items-center">
+              <div class="icon-box w-14 h-14 bg-[#F2F4F7] flex items-center justify-center mb-1.5 active:scale-90 transition-transform">
+                <img src="p-install-icon.png" class="w-7 h-7 object-contain">
+              </div>
+              <span class="text-[10px] font-bold text-gray-600 text-center">Install</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-      function toggleMenu() {
-        sidebar.classList.toggle("hidden");
-        overlay.classList.toggle("hidden");
+    <div class="section-wrapper mb-[2px]">
+      <button onclick="toggleAccordion('ac-sect', this)" class="w-full flex items-center justify-between px-4 py-3 bg-white hover:bg-gray-50 transition-all border-b border-gray-50">
+        <div class="flex items-center gap-3">
+          <div class="w-6 h-6 flex items-center justify-center text-cyan-500">
+             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+          </div>
+          <span class="text-[14px] font-semibold text-gray-700">AC Services</span>
+        </div>
+        <svg class="w-4 h-4 text-gray-400 transition-transform duration-300 arrow-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+      </button>
 
-        if (!sidebar.classList.contains("hidden")) {
-          document.body.style.overflow = "hidden"; // stop background scroll
-        } else {
-          document.body.style.overflow = ""; // restore scroll
-        }
-      }
+      <div id="ac-sect" class="hidden px-2 pb-3 pt-1 bg-white service-section">
+        <div class="border border-gray-100 rounded-[15px] p-3 bg-white shadow-sm">
+          <div class="grid grid-cols-4 gap-x-2 gap-y-4">
+            <div onclick="openPopup('Servicing')" class="service-item flex flex-col items-center">
+              <div class="icon-box w-14 h-14 bg-[#F2F4F7] flex items-center justify-center mb-1.5 active:scale-90 transition-transform">
+                <img src="ac-icon.png" class="w-7 h-7 object-contain">
+              </div>
+              <span class="text-[10px] font-bold text-gray-600 text-center">Servicing</span>
+            </div>
+            <div onclick="openPopup('Gas Charge')" class="service-item flex flex-col items-center">
+              <div class="icon-box w-14 h-14 bg-[#F2F4F7] flex items-center justify-center mb-1.5 active:scale-90 transition-transform">
+                <img src="gas-icon.png" class="w-7 h-7 object-contain">
+              </div>
+              <span class="text-[10px] font-bold text-gray-600 text-center">Gas Charge</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-      closeBtn.addEventListener("click", toggleMenu);
-      overlay.addEventListener("click", toggleMenu);
+    <div class="section-wrapper mb-[2px]">
+      <button onclick="toggleAccordion('event-sect', this)" class="w-full flex items-center justify-between px-4 py-3 bg-white hover:bg-gray-50 transition-all border-b border-gray-50">
+        <div class="flex items-center gap-3">
+          <div class="w-6 h-6 flex items-center justify-center text-purple-500">
+             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/></svg>
+          </div>
+          <span class="text-[14px] font-semibold text-gray-700">Event Management</span>
+        </div>
+        <svg class="w-4 h-4 text-gray-400 transition-transform duration-300 arrow-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+      </button>
 
-      function filterCategories(size) {
-        [...categoriesList].forEach((item) => {
-          if (item.dataset.type === size) {
-            item.style.display = "flex";
-          } else {
-            item.style.display = "none";
-          }
-        });
-      }
+      <div id="event-sect" class="hidden px-2 pb-3 pt-1 bg-white service-section">
+        <div class="border border-gray-100 rounded-[15px] p-3 bg-white shadow-sm">
+          <div class="grid grid-cols-4 gap-x-2 gap-y-4">
+            <div onclick="openPopup('Stage Setup')" class="service-item flex flex-col items-center">
+              <div class="icon-box w-14 h-14 bg-[#F2F4F7] flex items-center justify-center mb-1.5 active:scale-90 transition-transform">
+                <img src="stage-icon.png" class="w-7 h-7 object-contain">
+              </div>
+              <span class="text-[10px] font-bold text-gray-600 text-center">Stage Setup</span>
+            </div>
+            <div onclick="openPopup('Decoration')" class="service-item flex flex-col items-center">
+              <div class="icon-box w-14 h-14 bg-[#F2F4F7] flex items-center justify-center mb-1.5 active:scale-90 transition-transform">
+                <img src="decor-icon.png" class="w-7 h-7 object-contain">
+              </div>
+              <span class="text-[10px] font-bold text-gray-600 text-center">Decoration</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-      function showServices(element, title) {
-        // Prepare subservices
-        let services = [];
-
-        if (title === "AC Repair Services") {
-          services = [
-            {
-              name: "AC Doctor",
-              img: "https://via.placeholder.com/50?text=A",
-              link: "ac-doctor.html",
-            },
-            {
-              name: "AC Servicing",
-              img: "https://via.placeholder.com/50?text=B",
-              link: "ac-servicing.html",
-            },
-            {
-              name: "AC Combo Packages",
-              img: "https://via.placeholder.com/50?text=C",
-              link: "ac-combo.html",
-            },
-            {
-              name: "AC Cooling Problem",
-              img: "https://via.placeholder.com/50?text=D",
-              link: "ac-cooling.html",
-            },
-            {
-              name: "AC Installation & Uninstallation",
-              img: "https://via.placeholder.com/50?text=E",
-              link: "ac-install.html",
-            },
-            {
-              name: "VRF AC Service",
-              img: "https://via.placeholder.com/50?text=F",
-              link: "vrf-ac.html",
-            },
-          ];
-        }
-
-        if (title === "Electrical Services") {
-          services = [
-            {
-              name: "Fan Installation",
-              img: "https://via.placeholder.com/50?text=F",
-              link: "fan-install.html",
-            },
-            {
-              name: "Light Setup",
-              img: "https://via.placeholder.com/50?text=G",
-              link: "light-setup.html",
-            },
-          ];
-        }
-
-        if (title === "Plumbing Services") {
-          services = [
-            {
-              name: "Pipe Fitting",
-              img: "https://via.placeholder.com/50?text=H",
-              link: "pipe-fitting.html",
-            },
-            {
-              name: "Water Leakage Repair",
-              img: "https://via.placeholder.com/50?text=I",
-              link: "leakage-repair.html",
-            },
-          ];
-        }
-
-        if (title === "Event services") {
-          services = [
-            {
-              name: "Corporate Events",
-              img: "download (1).jfif",
-              link: "event.html",
-            },
-          ];
-        }
-
-        // Compact, no side gaps, no box, only bottom border
-        servicesCount.innerHTML = `
-  <div class="flex items-center justify-between text-gray-600 text-xs font-normal border-b border-gray-300 w-full">
-    <span class="whitespace-nowrap">${services.length} services in ${title} :</span>
-    <button 
-      onclick="window.location.href='${element.dataset.link}'" 
-      class="px-2 py-0.5 text-[10px] bg-blue-500 text-white rounded hover:bg-blue-600 transition">
-      Visit Page
-    </button>
   </div>
-`;
+</div>
 
-        // Update right side list
-        const servicesList = document.getElementById("services-list");
-        servicesList.innerHTML = services
-          .map(
-            (s) => `
-      <a href="${s.link}" class="flex items-center space-x-3 py-3 border-b cursor-pointer hover:bg-gray-50 transition">
-        <img src="${s.img}" class="w-12 h-12 rounded-md object-cover" alt="${s.name}">
-        <span class="font-normal text-gray-800">${s.name}</span>
-      </a>`,
-          )
-          .join("");
+<style>
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  
+  /* আপনার রিকোয়েস্ট অনুযায়ী বক্স রাউন্ডিং কমানো হলো */
+  .icon-box { 
+    border-radius: 12px; 
+  }
+
+  .rotate-180 { transform: rotate(180deg); }
+  
+  /* কার্ড শ্যাডো আরও হালকা */
+  .shadow-sm {
+    box-shadow: 0 1px 5px rgba(0,0,0,0.02);
+  }
+</style>
+
+<script>
+  function toggleMenu() {
+    const sidebar = document.getElementById("mobile-sidebar");
+    const overlay = document.getElementById("overlay");
+    sidebar.classList.toggle("hidden");
+    overlay.classList.toggle("hidden");
+    
+    if (sidebar.classList.contains("hidden")) {
+      document.body.style.overflow = "";
+      document.getElementById('service-search').value = '';
+      handleSearch();
+    } else {
+      document.body.style.overflow = "hidden";
+    }
+  }
+
+  function toggleAccordion(id, btn) {
+    const content = document.getElementById(id);
+    const arrow = btn.querySelector('.arrow-icon');
+    content.classList.toggle('hidden');
+    arrow.classList.toggle('rotate-180');
+  }
+
+  function handleSearch() {
+    const query = document.getElementById('service-search').value.toLowerCase();
+    const wrappers = document.querySelectorAll('.section-wrapper');
+
+    wrappers.forEach(wrapper => {
+      const items = wrapper.querySelectorAll('.service-item');
+      const content = wrapper.querySelector('.service-section');
+      const arrow = wrapper.querySelector('.arrow-icon');
+      let match = false;
+
+      items.forEach(item => {
+        const text = item.querySelector('span').innerText.toLowerCase();
+        if (text.includes(query)) {
+          item.style.display = 'flex';
+          match = true;
+        } else {
+          item.style.display = 'none';
+        }
+      });
+
+      if (query.length > 0) {
+        if (match) {
+          wrapper.style.display = 'block';
+          content.classList.remove('hidden');
+          arrow.classList.add('rotate-180');
+        } else {
+          wrapper.style.display = 'none';
+        }
+      } else {
+        wrapper.style.display = 'block';
+        content.classList.add('hidden');
+        arrow.classList.remove('rotate-180');
       }
+    });
+  }
 
-      // default show small
-      filterCategories("small");
-
-      // ডিফল্ট প্রথম ক্যাটাগরি লোড
-      const firstCategory = document.querySelector("#categories li");
-      if (firstCategory) {
-        firstCategory.click();
-      }
-    </script>
+  function openPopup(n) { console.log("Service: " + n); }
+</script>
 
     <!-- Hero Section -->
 
