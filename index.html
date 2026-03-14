@@ -628,21 +628,37 @@
 </style>
 
 <script>
+  // ১. Services Sidebar Toggle (Services Button er jonno)
   function toggleMenu() {
     const sidebar = document.getElementById("mobile-sidebar");
     const overlay = document.getElementById("overlay");
+    
     sidebar.classList.toggle("hidden");
     overlay.classList.toggle("hidden");
     
     if (sidebar.classList.contains("hidden")) {
-      document.body.style.overflow = "";
+      document.body.style.overflow = ""; // Scroll on
       document.getElementById('service-search').value = '';
-      handleSearch();
+      handleSearch(); 
     } else {
-      document.body.style.overflow = "hidden";
+      document.body.style.overflow = "hidden"; // Scroll off
     }
   }
 
+  // ২. Account Mobile Menu Logic (Hamburger icon er jonno)
+  function openMobileMenu() {
+    const mobileMenu = document.getElementById("mobile-menu");
+    mobileMenu.classList.remove("hidden");
+    document.body.style.overflow = "hidden";
+  }
+
+  function closeMobileMenu() {
+    const mobileMenu = document.getElementById("mobile-menu");
+    mobileMenu.classList.add("hidden");
+    document.body.style.overflow = "";
+  }
+
+  // ৩. Accordion Logic (Services er bhetore list kholar jonno)
   function toggleAccordion(id, btn) {
     const content = document.getElementById(id);
     const arrow = btn.querySelector('.arrow-icon');
@@ -650,6 +666,7 @@
     arrow.classList.toggle('rotate-180');
   }
 
+  // ৪. Search Logic
   function handleSearch() {
     const query = document.getElementById('service-search').value.toLowerCase();
     const wrappers = document.querySelectorAll('.section-wrapper');
@@ -686,7 +703,7 @@
     });
   }
 
-  function openPopup(n) { console.log("Service: " + n); }
+  function openPopup(n) { console.log("Service selected: " + n); }
 </script>
 
     <!-- Hero Section -->
