@@ -1,331 +1,309 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>QuickCool AC Repair — Fast & Reliable Aircon Service</title>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap"
-      rel="stylesheet"
-    />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AC Repair Service UI</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
     <style>
-      :root {
-        --accent: #0ea5a4;
-      }
-      body {
-        font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto,
-          "Helvetica Neue", Arial;
-      }
-      .glass {
-        background: rgba(255, 255, 255, 0.6);
-        backdrop-filter: blur(6px);
+      .hero-section {
+        height: 180px;
+        background: linear-gradient(
+            rgba(26, 35, 126, 0.8),
+            rgba(26, 35, 126, 0.7)
+          ),
+          url("https://images.unsplash.com/photo-1590483734724-383b85ad05ca?auto=format&fit=crop&q=80&w=1000");
+        background-size: cover;
+        background-position: center;
       }
     </style>
   </head>
-  <body class="bg-gradient-to-br from-slate-50 to-slate-100 text-slate-800">
-    <!-- NAV -->
-    <header class="max-w-6xl mx-auto p-6 flex items-center justify-between">
-      <div class="flex items-center gap-4">
-        <div
-          class="w-12 h-12 rounded-lg flex items-center justify-center bg-white shadow"
-        >
-          <svg
-            class="w-7 h-7 text-teal-600"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="1.5"
-              d="M3 15a4 4 0 004 4h10a4 4 0 004-4V7a4 4 0 00-4-4H7a4 4 0 00-4 4v8z"
-            ></path>
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="1.5"
-              d="M8 10h8"
-            ></path>
-          </svg>
-        </div>
-        <div>
-          <h1 class="text-lg font-semibold">QuickCool</h1>
-          <p class="text-sm text-slate-500">AC Repair & Maintenance</p>
-        </div>
-      </div>
-      <nav class="hidden md:flex items-center gap-6 text-sm">
-        <a class="hover:text-teal-600" href="#services">Services</a>
-        <a class="hover:text-teal-600" href="#process">Process</a>
-        <a class="hover:text-teal-600" href="#testimonials">Testimonials</a>
-        <a
-          class="bg-teal-600 text-white px-4 py-2 rounded-lg shadow hover:opacity-95"
-          href="#contact"
-          >Book Now</a
-        >
-      </nav>
-    </header>
-
-    <!-- HERO -->
-    <section
-      class="max-w-6xl mx-auto grid gap-8 grid-cols-1 md:grid-cols-2 items-center px-6 pb-12"
-    >
-      <div class="space-y-6">
-        <p
-          class="inline-block px-3 py-1 rounded-full text-sm font-medium text-teal-700 bg-teal-50"
-        >
-          Trusted • On-time • Certified
-        </p>
-        <h2 class="text-3xl md:text-4xl font-extrabold leading-tight">
-          Fast, reliable AC repair & maintenance — get your cool back today
-        </h2>
-        <p class="text-slate-600">
-          Expert technicians, transparent pricing, and same/next-day service in
-          your area. We fix all makes and models — split, window, cassette, VRF.
-        </p>
-
-        <div class="flex gap-4 items-center">
-          <a
-            href="#contact"
-            class="inline-flex items-center gap-2 bg-teal-600 text-white px-5 py-3 rounded-lg font-medium shadow hover:opacity-95"
-            >Book Service</a
-          >
-          <a href="#services" class="text-sm text-slate-700 hover:text-teal-600"
-            >See Services →</a
-          >
-        </div>
-
-        <div class="grid grid-cols-3 gap-3 mt-4 text-sm text-slate-600">
-          <div class="flex flex-col">
-            <span class="font-semibold text-slate-800"
-              >✔ Certified Engineers</span
-            ><span>Background-checked & trained</span>
-          </div>
-          <div class="flex flex-col">
-            <span class="font-semibold text-slate-800">✔ Upfront Pricing</span
-            ><span>No hidden fees</span>
-          </div>
-          <div class="flex flex-col">
-            <span class="font-semibold text-slate-800">✔ Warranty</span
-            ><span>30-day service warranty</span>
+  <body class="bg-gray-100 font-sans">
+    <div class="max-w-md mx-auto bg-white shadow-lg min-h-screen">
+      <div class="hero-section relative">
+        <div class="absolute top-4 left-4">
+          <div class="bg-black/20 p-2 rounded-full backdrop-blur-sm">
+            <i class="fas fa-arrow-left text-white text-sm"></i>
           </div>
         </div>
-      </div>
 
-      <div class="relative">
-        <div class="rounded-2xl overflow-hidden shadow-xl">
-          <img
-            src="https://images.unsplash.com/photo-1581579181286-6a7b644a3d61?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder"
-            alt="AC Technician"
-            class="w-full h-72 object-cover"
-          />
-        </div>
-        <div
-          class="absolute bottom-6 left-6 glass p-4 rounded-xl shadow-md w-64"
-        >
-          <p class="text-sm font-medium">Quick call-out price</p>
-          <p class="text-lg font-bold">
-            Service from <span class="text-teal-600">$29</span>
-          </p>
-          <a href="#contact" class="mt-2 inline-block text-sm font-medium"
-            >Check availability →</a
-          >
-        </div>
-      </div>
-    </section>
-
-    <!-- SERVICES -->
-    <section id="services" class="max-w-6xl mx-auto px-6 py-8">
-      <h3 class="text-2xl font-bold mb-4">Our Services</h3>
-      <div class="grid gap-6 md:grid-cols-3">
-        <article
-          class="bg-white p-5 rounded-xl shadow hover:shadow-lg transition"
-        >
-          <h4 class="font-semibold">AC Repair</h4>
-          <p class="text-sm text-slate-600 mt-2">
-            Diagnose & repair faults, compressor issues, leaks, and electrical
-            faults.
-          </p>
-          <p class="mt-3 font-medium">Starting at $40</p>
-        </article>
-
-        <article
-          class="bg-white p-5 rounded-xl shadow hover:shadow-lg transition"
-        >
-          <h4 class="font-semibold">Deep Cleaning & Maintenance</h4>
-          <p class="text-sm text-slate-600 mt-2">
-            Full indoor/outdoor coil clean, filter replacement, and performance
-            tune-up.
-          </p>
-          <p class="mt-3 font-medium">Starting at $59</p>
-        </article>
-
-        <article
-          class="bg-white p-5 rounded-xl shadow hover:shadow-lg transition"
-        >
-          <h4 class="font-semibold">Installation & Replacement</h4>
-          <p class="text-sm text-slate-600 mt-2">
-            Supply & install new units, energy-efficient recommendations, and
-            removal of old units.
-          </p>
-          <p class="mt-3 font-medium">Free quote</p>
-        </article>
-      </div>
-    </section>
-
-    <!-- PROCESS -->
-    <section id="process" class="max-w-6xl mx-auto px-6 py-8">
-      <h3 class="text-2xl font-bold mb-6">How it works</h3>
-      <div class="grid gap-4 md:grid-cols-4">
-        <div class="bg-white p-5 rounded-lg shadow text-center">
-          <div class="text-3xl font-bold">1</div>
-          <p class="mt-2 font-semibold">Book Online</p>
-          <p class="text-sm text-slate-600">
-            Choose a slot or request same-day.
-          </p>
-        </div>
-        <div class="bg-white p-5 rounded-lg shadow text-center">
-          <div class="text-3xl font-bold">2</div>
-          <p class="mt-2 font-semibold">Technician Visit</p>
-          <p class="text-sm text-slate-600">
-            Certified tech inspects & quotes on-site.
-          </p>
-        </div>
-        <div class="bg-white p-5 rounded-lg shadow text-center">
-          <div class="text-3xl font-bold">3</div>
-          <p class="mt-2 font-semibold">Fix & Test</p>
-          <p class="text-sm text-slate-600">
-            Transparent repair, parts shown, test run.
-          </p>
-        </div>
-        <div class="bg-white p-5 rounded-lg shadow text-center">
-          <div class="text-3xl font-bold">4</div>
-          <p class="mt-2 font-semibold">Pay & Warranty</p>
-          <p class="text-sm text-slate-600">
-            Secure payment & 30-day service warranty.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- TESTIMONIALS -->
-    <section id="testimonials" class="max-w-6xl mx-auto px-6 py-8">
-      <h3 class="text-2xl font-bold mb-6">Happy customers</h3>
-      <div class="grid gap-6 md:grid-cols-3">
-        <blockquote class="bg-white p-5 rounded-lg shadow">
-          <p class="text-slate-700">
-            "QuickCool fixed our AC in a single visit. The technician was
-            professional and explained everything. Highly recommend!"
-          </p>
-          <footer class="mt-3 text-sm text-slate-500">— Maya R.</footer>
-        </blockquote>
-        <blockquote class="bg-white p-5 rounded-lg shadow">
-          <p class="text-slate-700">
-            "Transparent pricing and fast response. My unit runs like new."
-          </p>
-          <footer class="mt-3 text-sm text-slate-500">— Arif H.</footer>
-        </blockquote>
-        <blockquote class="bg-white p-5 rounded-lg shadow">
-          <p class="text-slate-700">
-            "Great service and a helpful warranty — peace of mind for the
-            summer."
-          </p>
-          <footer class="mt-3 text-sm text-slate-500">— Shamin K.</footer>
-        </blockquote>
-      </div>
-    </section>
-
-    <!-- CONTACT / BOOKING -->
-    <section id="contact" class="max-w-6xl mx-auto px-6 py-12">
-      <div class="grid md:grid-cols-2 gap-8 items-center">
-        <div class="space-y-4">
-          <h3 class="text-2xl font-bold">Book a technician</h3>
-          <p class="text-slate-600">
-            Enter your details and preferred time. We’ll confirm availability
-            and send a technician.
-          </p>
-          <ul class="text-sm text-slate-600 mt-4 space-y-2">
-            <li>• Same/next-day appointments available</li>
-            <li>• Certified, insured technicians</li>
-            <li>• Secure payment at your door</li>
+        <div class="p-5 pt-12 text-white">
+          <h1 class="text-2xl font-bold">AC Repair</h1>
+          <ul class="mt-2 space-y-0.5 text-[11px] opacity-90">
+            <li>• Services from $79</li>
+            <li>• Certified & expert technicians</li>
+            <li>• 100% Satisfaction guaranteed</li>
           </ul>
+          <div class="w-20 h-1 bg-white rounded-full mt-3"></div>
+        </div>
 
-          <div class="mt-6 flex gap-4">
+        <img
+          src="https://www.pngarts.com/files/3/Air-Conditioner-PNG-High-Quality-Image.png"
+          alt="AC Unit"
+          class="absolute bottom-2 right-2 h-[85%] w-auto object-contain"
+        />
+      </div>
+
+      <div class="p-4 bg-white">
+        <div class="flex justify-between items-center">
+          <div>
+            <h2 class="text-xl font-bold text-gray-800">AC Repair</h2>
+            <div class="flex items-center mt-1">
+              <span class="text-blue-600 font-bold text-sm">★ 4.89</span>
+              <span
+                class="ml-1 text-[12px] text-gray-400 border-b border-dotted border-gray-400 leading-tight"
+                >(512 bookings)</span
+              >
+            </div>
+          </div>
+
+          <div
+            class="flex flex-col items-center justify-center border border-gray-200 rounded-lg py-2 px-3 bg-gray-50 min-w-[90px]"
+          >
+            <div
+              class="text-blue-600 text-[9px] font-bold flex items-center uppercase tracking-tighter mb-1"
+            >
+              <i class="fas fa-snowflake mr-1"></i> Fast Book
+            </div>
             <a
-              href="#"
-              class="inline-flex items-center gap-2 bg-teal-600 text-white px-4 py-3 rounded-lg shadow"
-              >Call Now</a
+              href="tel:+880123456789"
+              class="bg-blue-600 hover:bg-blue-700 text-white w-full py-1 px-2 rounded-md text-[10px] font-bold flex items-center justify-center transition-all"
             >
-            <a href="#" class="border border-slate-300 px-4 py-3 rounded-lg"
-              >Get a Free Quote</a
-            >
+              <i class="fas fa-phone-alt mr-1 text-[8px]"></i> Call Now
+            </a>
           </div>
         </div>
 
-        <form class="bg-white p-6 rounded-xl shadow-lg space-y-4">
-          <div class="grid gap-3">
-            <label class="text-sm font-medium">Full name</label>
-            <input
-              required
-              type="text"
-              placeholder="Your name"
-              class="w-full p-3 rounded-md border border-slate-200"
-            />
+        <div
+          class="mt-5 border border-gray-100 rounded-xl px-3 py-2.5 flex justify-between items-center bg-gray-50/50"
+        >
+          <div class="flex items-center">
+            <div
+              class="w-4 h-4 border border-black rounded-full flex items-center justify-center mr-2"
+            >
+              <i class="fas fa-check text-[8px]"></i>
+            </div>
+            <span class="text-[12px] font-semibold text-gray-600"
+              >Select your AC service requirements</span
+            >
           </div>
-          <div class="grid gap-3">
-            <label class="text-sm font-medium">Phone</label>
-            <input
-              required
-              type="tel"
-              placeholder="+8801XXXXXXXX"
-              class="w-full p-3 rounded-md border border-slate-200"
-            />
-          </div>
-          <div class="grid gap-3">
-            <label class="text-sm font-medium">Service required</label>
-            <select class="w-full p-3 rounded-md border border-slate-200">
-              <option>AC Repair</option>
-              <option>Cleaning & Maintenance</option>
-              <option>Installation</option>
-              <option>Other</option>
-            </select>
-          </div>
-          <div class="grid gap-3">
-            <label class="text-sm font-medium">Preferred date & time</label>
-            <input
-              type="datetime-local"
-              class="w-full p-3 rounded-md border border-slate-200"
-            />
-          </div>
-          <button
-            class="w-full bg-teal-600 text-white p-3 rounded-lg font-medium"
-          >
-            Request Booking
-          </button>
-        </form>
+          <i class="fas fa-chevron-right text-gray-400 text-[10px]"></i>
+        </div>
       </div>
-    </section>
 
-    <!-- FOOTER -->
-    <footer class="bg-white border-t mt-12">
-      <div
-        class="max-w-6xl mx-auto px-6 py-6 flex flex-col md:flex-row items-center justify-between gap-4"
-      >
-        <div>
-          <p class="font-semibold">QuickCool</p>
-          <p class="text-sm text-slate-500">
-            AC repair • maintenance • installation
+      <div class="h-[8px] bg-[#F2F4F7] w-full border-y border-gray-200/20"></div>
+
+      <div class="p-4 bg-white">
+        <div class="grid grid-cols-4 gap-3">
+          <a href="#" class="text-center group active:scale-95 transition-all">
+            <div
+              class="bg-[#F8F9FE] rounded-2xl p-3 aspect-square flex items-center justify-center border border-[#E8EBFD] shadow-sm group-hover:bg-[#E8EBFD]"
+            >
+              <img
+                src="ac icon1.png" 
+                class="w-10 h-10 object-contain"
+                alt="Service"
+              />
+            </div>
+            <p class="text-[10px] font-bold mt-2 text-gray-600 leading-tight">
+              AC Checkup
+            </p>
+          </a>
+
+          <a href="#" class="text-center group active:scale-95 transition-all">
+            <div
+              class="bg-[#FFF9F5] rounded-2xl p-3 aspect-square flex items-center justify-center border border-[#FFF0E5] shadow-sm group-hover:bg-[#FFF0E5]"
+            >
+              <img
+                src="https://cdn-icons-png.flaticon.com/512/10007/10007466.png"
+                class="w-10 h-10 object-contain"
+                alt="Repair"
+              />
+            </div>
+            <p class="text-[10px] font-bold mt-2 text-gray-600 leading-tight">
+              AC Repair
+            </p>
+          </a>
+
+          <a href="#" class="text-center group active:scale-95 transition-all">
+            <div
+              class="bg-[#F5F7FF] rounded-2xl p-3 aspect-square flex items-center justify-center border border-[#E0E7FF] shadow-sm group-hover:bg-[#E0E7FF]"
+            >
+              <img
+                src="https://cdn-icons-png.flaticon.com/512/4331/4331004.png"
+                class="w-10 h-10 object-contain"
+                alt="Wash"
+              />
+            </div>
+            <p class="text-[10px] font-bold mt-2 text-gray-600 leading-tight">
+              Master Wash
+            </p>
+          </a>
+
+          <a href="#" class="text-center group active:scale-95 transition-all">
+            <div
+              class="bg-[#FEFCE8] rounded-2xl p-3 aspect-square flex items-center justify-center border border-[#FEF9C3] shadow-sm group-hover:bg-[#FEF9C3]"
+            >
+              <img
+                src="https://cdn-icons-png.flaticon.com/512/3233/3233516.png"
+                class="w-10 h-10 object-contain"
+                alt="Gas"
+              />
+            </div>
+            <p class="text-[10px] font-bold mt-2 text-gray-600 leading-tight">
+              Gas Refill
+            </p>
+          </a>
+        </div>
+      </div>
+
+      <div class="h-[8px] bg-[#F2F4F7] w-full border-t border-gray-200/20"></div>
+
+      <div class="p-4 bg-white">
+        <div
+          class="bg-blue-50 border border-blue-100 rounded-2xl p-4 flex items-center justify-between"
+        >
+          <div class="flex items-center">
+            <div class="bg-blue-600 text-white p-2 rounded-lg mr-3">
+              <i class="fas fa-shield-alt"></i>
+            </div>
+            <div>
+              <p class="text-[13px] font-bold text-gray-800">
+                Safety & Warranty
+              </p>
+              <p class="text-[10px] text-gray-500">
+                Up to 30 days service warranty
+              </p>
+            </div>
+          </div>
+          <i class="fas fa-chevron-right text-blue-300 text-xs"></i>
+        </div>
+      </div>
+
+      <div class="h-[8px] bg-[#F2F4F7] w-full border-y border-gray-200/20"></div>
+
+      <div class="p-5 bg-white">
+        <h3 class="text-sm font-bold text-gray-800 mb-4">Why Choose Us</h3>
+        <div class="space-y-4">
+          <div class="flex items-center">
+            <div
+              class="w-10 h-10 bg-green-50 rounded-full flex items-center justify-center text-green-600 mr-3"
+            >
+              <i class="fas fa-user-shield text-sm"></i>
+            </div>
+            <div>
+              <p class="text-[12px] font-bold text-gray-800">
+                Verified Experts
+              </p>
+              <p class="text-[10px] text-gray-500">
+                Trained & background checked professionals
+              </p>
+            </div>
+          </div>
+          <div class="flex items-center">
+            <div
+              class="w-10 h-10 bg-blue-50 rounded-full flex items-center justify-center text-blue-600 mr-3"
+            >
+              <i class="fas fa-tools text-sm"></i>
+            </div>
+            <div>
+              <p class="text-[12px] font-bold text-gray-800">Standard Pricing</p>
+              <p class="text-[10px] text-gray-500">
+                Transparent pricing with no hidden charges
+              </p>
+            </div>
+          </div>
+          <div class="flex items-center">
+            <div
+              class="w-10 h-10 bg-purple-50 rounded-full flex items-center justify-center text-purple-600 mr-3"
+            >
+              <i class="fas fa-history text-sm"></i>
+            </div>
+            <div>
+              <p class="text-[12px] font-bold text-gray-800">
+                Instant Support
+              </p>
+              <p class="text-[10px] text-gray-500">7-day post-service follow up</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="h-[8px] bg-[#F2F4F7] w-full border-y border-gray-200/20"></div>
+
+      <div class="p-5 bg-white">
+        <div class="flex justify-between items-center mb-4">
+          <h3 class="text-sm font-bold text-gray-800">Recent Reviews</h3>
+          <a href="#" class="text-[11px] font-bold text-blue-600">See all</a>
+        </div>
+        <div class="bg-gray-50 p-3 rounded-xl border border-gray-100 mb-3">
+          <div class="flex items-center justify-between mb-2">
+            <div class="flex items-center">
+              <div
+                class="w-6 h-6 bg-blue-100 rounded-full flex items-center justify-center text-[10px] font-bold text-blue-600 mr-2"
+              >
+                AS
+              </div>
+              <p class="text-[11px] font-bold text-gray-700">Asif Sarker</p>
+            </div>
+            <div class="text-yellow-400 text-[9px]">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i
+              ><i class="fas fa-star"></i><i class="fas fa-star"></i
+              ><i class="fas fa-star"></i>
+            </div>
+          </div>
+          <p class="text-[10px] text-gray-600 leading-relaxed italic">
+            "Very clean service. They used modern tools and my AC is working
+            perfectly now. Highly recommended!"
           </p>
         </div>
-        <div class="text-sm text-slate-500">
-          © <span id="year"></span> QuickCool. All rights reserved.
+      </div>
+
+      <div class="h-[8px] bg-[#F2F4F7] w-full border-y border-gray-200/20"></div>
+
+      <div class="p-5 bg-white pb-10">
+        <h3 class="text-sm font-bold text-gray-800 mb-5">How It Works</h3>
+        <div class="relative flex justify-between items-start">
+          <div class="flex flex-col items-center relative z-10 w-1/3">
+            <div
+              class="w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center text-xs font-bold mb-2 shadow-md shadow-blue-200"
+            >
+              1
+            </div>
+            <p class="text-[9px] font-bold text-gray-800 text-center">
+              Choose Service
+            </p>
+          </div>
+          <div class="flex flex-col items-center relative z-10 w-1/3">
+            <div
+              class="w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center text-xs font-bold mb-2 shadow-md shadow-blue-200"
+            >
+              2
+            </div>
+            <p class="text-[9px] font-bold text-gray-800 text-center">
+              Set Schedule
+            </p>
+          </div>
+          <div class="flex flex-col items-center relative z-10 w-1/3">
+            <div
+              class="w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center text-xs font-bold mb-2 shadow-md shadow-blue-200"
+            >
+              3
+            </div>
+            <p class="text-[9px] font-bold text-gray-800 text-center">
+              Relax & Cool
+            </p>
+          </div>
+
+          <div
+            class="absolute top-4 left-[15%] right-[15%] h-[2px] bg-blue-100 z-0"
+          ></div>
         </div>
       </div>
-    </footer>
-
-    <script>
-      document.getElementById("year").textContent = new Date().getFullYear();
-    </script>
+    </div>
   </body>
 </html>
