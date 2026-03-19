@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gas Service UI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <style>
+      .hero-section {
+        height: 180px;
+        background: linear-gradient(
+            rgba(0, 105, 92, 0.85),
+            rgba(0, 105, 92, 0.75)
+          ),
+          url("https://images.unsplash.com/photo-1590756254933-2873d72a83b6?auto=format&fit=crop&q=80&w=1000");
+        background-size: cover;
+        background-position: center;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-100 font-sans">
+    <div class="max-w-md mx-auto bg-white shadow-lg min-h-screen">
+      <div class="hero-section relative">
+        <div class="absolute top-4 left-4">
+          <div class="bg-black/20 p-2 rounded-full backdrop-blur-sm">
+            <i class="fas fa-arrow-left text-white text-sm"></i>
+          </div>
+        </div>
+
+        <div class="p-5 pt-12 text-white">
+          <h1 class="text-2xl font-bold">Gas & Stove Service</h1>
+          <ul class="mt-2 space-y-0.5 text-[11px] opacity-90">
+            <li>• Services starting from $29</li>
+            <li>• Safe & leak-proof guarantee</li>
+            <li>• Certified gas line technicians</li>
+          </ul>
+          <div class="w-20 h-1 bg-white rounded-full mt-3"></div>
+        </div>
+
+        <img
+          src="https://cdn-icons-png.flaticon.com/512/2854/2854202.png"
+          alt="3D Gas Stove"
+          class="absolute bottom-[-10px] right-2 h-[90%] w-auto object-contain p-2 drop-shadow-xl"
+        />
+      </div>
+
+      <div class="p-4 bg-white">
+        <div class="flex justify-between items-center">
+          <div>
+            <h2 class="text-xl font-bold text-gray-800">Gas Repair</h2>
+            <div class="flex items-center mt-1">
+              <span class="text-teal-600 font-bold text-sm">★ 4.92</span>
+              <span
+                class="ml-1 text-[12px] text-gray-400 border-b border-dotted border-gray-400 leading-tight"
+                >(294 bookings)</span
+              >
+            </div>
+          </div>
+
+          <div
+            class="flex flex-col items-center justify-center border border-gray-200 rounded-lg py-2 px-3 bg-gray-50 min-w-[90px]"
+          >
+            <div
+              class="text-teal-600 text-[9px] font-bold flex items-center uppercase tracking-tighter mb-1"
+            >
+              <i class="fas fa-fire-alt mr-1"></i> Fast Book
+            </div>
+            <a
+              href="tel:+880123456789"
+              class="bg-teal-600 hover:bg-teal-700 text-white w-full py-1 px-2 rounded-md text-[10px] font-bold flex items-center justify-center transition-all"
+            >
+              <i class="fas fa-phone-alt mr-1 text-[8px]"></i> Call Now
+            </a>
+          </div>
+        </div>
+
+        <div
+          class="mt-5 border border-gray-100 rounded-xl px-3 py-2.5 flex justify-between items-center bg-gray-50/50"
+        >
+          <div class="flex items-center">
+            <div
+              class="w-4 h-4 border border-black rounded-full flex items-center justify-center mr-2"
+            >
+              <i class="fas fa-check text-[8px]"></i>
+            </div>
+            <span class="text-[12px] font-semibold text-gray-600"
+              >Select your gas service requirements</span
+            >
+          </div>
+          <i class="fas fa-chevron-right text-gray-400 text-[10px]"></i>
+        </div>
+      </div>
+
+      <div
+        class="h-[8px] bg-[#F2F4F7] w-full border-y border-gray-200/20"
+      ></div>
+
+      <div class="p-4 bg-white">
+        <div class="grid grid-cols-4 gap-3">
+          <a
+            href="/stove-repair"
+            class="text-center group active:scale-95 transition-all"
+          >
+            <div
+              class="bg-[#E0F2F1] rounded-2xl p-3 aspect-square flex items-center justify-center border border-[#B2DFDB] shadow-sm group-hover:bg-[#B2DFDB]"
+            >
+              <img
+                src="https://cdn-icons-png.flaticon.com/512/4113/4113000.png"
+                class="w-10 h-10 object-contain"
+                alt="Stove Repair"
+              />
+            </div>
+            <p class="text-[10px] font-bold mt-2 text-gray-600 leading-tight">
+              Stove Repair
+            </p>
+          </a>
+
+          <a
+            href="/leak-check"
+            class="text-center group active:scale-95 transition-all"
+          >
+            <div
+              class="bg-[#FBE9E7] rounded-2xl p-3 aspect-square flex items-center justify-center border border-[#FFCCBC] shadow-sm group-hover:bg-[#FFCCBC]"
+            >
+              <img
+                src="https://cdn-icons-png.flaticon.com/512/2165/2165147.png"
+                class="w-10 h-10 object-contain"
+                alt="Leak Check"
+              />
+            </div>
+            <p class="text-[10px] font-bold mt-2 text-gray-600 leading-tight">
+              Leak Check
+            </p>
+          </a>
+
+          <a
+            href="/pipeline"
+            class="text-center group active:scale-95 transition-all"
+          >
+            <div
+              class="bg-[#E8F5E9] rounded-2xl p-3 aspect-square flex items-center justify-center border border-[#C8E6C9] shadow-sm group-hover:bg-[#C8E6C9]"
+            >
+              <img
+                src="https://cdn-icons-png.flaticon.com/512/8655/8655106.png"
+                class="w-10 h-10 object-contain"
+                alt="Cylinder/Pipeline"
+              />
+            </div>
+            <p class="text-[10px] font-bold mt-2 text-gray-600 leading-tight">
+              Pipeline
+            </p>
+          </a>
+
+          <a
+            href="/commercial"
+            class="text-center group active:scale-95 transition-all"
+          >
+            <div
+              class="bg-[#FFF8E1] rounded-2xl p-3 aspect-square flex items-center justify-center border border-[#FFECB3] shadow-sm group-hover:bg-[#FFECB3]"
+            >
+              <img
+                src="https://cdn-icons-png.flaticon.com/512/3233/3233516.png"
+                class="w-10 h-10 object-contain"
+                alt="Commercial Gas"
+              />
+            </div>
+            <p class="text-[10px] font-bold mt-2 text-gray-600 leading-tight">
+              Commercial
+            </p>
+          </a>
+        </div>
+      </div>
+
+      <div
+        class="h-[8px] bg-[#F2F4F7] w-full border-t border-gray-200/20"
+      ></div>
+
+      <div class="p-4 bg-white">
+        <div
+          class="bg-teal-50 border border-teal-100 rounded-2xl p-4 flex items-center justify-between"
+        >
+          <div class="flex items-center">
+            <div class="bg-teal-600 text-white p-2 rounded-lg mr-3">
+              <i class="fas fa-shield-alt"></i>
+            </div>
+            <div>
+              <p class="text-[13px] font-bold text-gray-800">
+                Safety First Guarantee
+              </p>
+              <p class="text-[10px] text-gray-500">
+                100% hazard-free service commitment
+              </p>
+            </div>
+          </div>
+          <i class="fas fa-chevron-right text-teal-300 text-xs"></i>
+        </div>
+      </div>
+      
+      <div
+        class="h-[8px] bg-[#F2F4F7] w-full border-y border-gray-200/20"
+      ></div>
+
+      <div class="p-5 bg-white">
+        <h3 class="text-sm font-bold text-gray-800 mb-4">Why Choose Us</h3>
+        <div class="space-y-4">
+          <div class="flex items-center">
+            <div
+              class="w-10 h-10 bg-red-50 rounded-full flex items-center justify-center text-red-600 mr-3"
+            >
+              <i class="fas fa-fire-extinguisher text-sm"></i>
+            </div>
+            <div>
+              <p class="text-[12px] font-bold text-gray-800">
+                Trained for Safety
+              </p>
+              <p class="text-[10px] text-gray-500">
+                Experts in handling gas leak emergencies
+              </p>
+            </div>
+          </div>
+          <div class="flex items-center">
+            <div
+              class="w-10 h-10 bg-teal-50 rounded-full flex items-center justify-center text-teal-600 mr-3"
+            >
+              <i class="fas fa-tools text-sm"></i>
+            </div>
+            <div>
+              <p class="text-[12px] font-bold text-gray-800">Proper Tools</p>
+              <p class="text-[10px] text-gray-500">
+                Advanced gas leak detection equipment
+              </p>
+            </div>
+          </div>
+          <div class="flex items-center">
+            <div
+              class="w-10 h-10 bg-purple-50 rounded-full flex items-center justify-center text-purple-600 mr-3"
+            >
+              <i class="fas fa-clock text-sm"></i>
+            </div>
+            <div>
+              <p class="text-[12px] font-bold text-gray-800">
+                Quick Response
+              </p>
+              <p class="text-[10px] text-gray-500">Fastest arrival for hazard situations</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="h-[8px] bg-[#F2F4F7] w-full border-y border-gray-200/20"
+      ></div>
+
+      <div class="p-5 bg-white">
+        <div class="flex justify-between items-center mb-4">
+          <h3 class="text-sm font-bold text-gray-800">Recent Reviews</h3>
+          <a href="#" class="text-[11px] font-bold text-teal-600">See all</a>
+        </div>
+        <div class="bg-gray-50 p-3 rounded-xl border border-gray-100 mb-3">
+          <div class="flex items-center justify-between mb-2">
+            <div class="flex items-center">
+              <div
+                class="w-6 h-6 bg-teal-100 rounded-full flex items-center justify-center text-[10px] font-bold text-teal-600 mr-2"
+              >
+                KI
+              </div>
+              <p class="text-[11px] font-bold text-gray-700">Kamrul Islam</p>
+            </div>
+            <div class="text-yellow-400 text-[9px]">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i
+              ><i class="fas fa-star"></i><i class="fas fa-star"></i
+              ><i class="fas fa-star"></i>
+            </div>
+          </div>
+          <p class="text-[10px] text-gray-600 leading-relaxed italic">
+            "Our kitchen stove had a weird gas smell. The technician arrived within 30 minutes, detected the leak, and fixed it perfectly. Very safe service!"
+          </p>
+        </div>
+      </div>
+
+      <div
+        class="h-[8px] bg-[#F2F4F7] w-full border-y border-gray-200/20"
+      ></div>
+
+      <div class="p-5 bg-white pb-10">
+        <h3 class="text-sm font-bold text-gray-800 mb-5">How It Works</h3>
+        <div class="relative flex justify-between items-start">
+          <div class="flex flex-col items-center relative z-10 w-1/3">
+            <div
+              class="w-8 h-8 bg-teal-600 text-white rounded-full flex items-center justify-center text-xs font-bold mb-2 shadow-md shadow-teal-200"
+            >
+              1
+            </div>
+            <p class="text-[9px] font-bold text-gray-800 text-center">
+              Book Expert
+            </p>
+          </div>
+          <div class="flex flex-col items-center relative z-10 w-1/3">
+            <div
+              class="w-8 h-8 bg-teal-600 text-white rounded-full flex items-center justify-center text-xs font-bold mb-2 shadow-md shadow-teal-200"
+            >
+              2
+            </div>
+            <p class="text-[9px] font-bold text-gray-800 text-center">
+              Inspection
+            </p>
+          </div>
+          <div class="flex flex-col items-center relative z-10 w-1/3">
+            <div
+              class="w-8 h-8 bg-teal-600 text-white rounded-full flex items-center justify-center text-xs font-bold mb-2 shadow-md shadow-teal-200"
+            >
+              3
+            </div>
+            <p class="text-[9px] font-bold text-gray-800 text-center">
+              Safe Kitchen
+            </p>
+          </div>
+
+          <div
+            class="absolute top-4 left-[15%] right-[15%] h-[2px] bg-teal-100 z-0"
+          ></div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
