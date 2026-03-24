@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bd Safa - Premium Home Service</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ফন্ট এবং জেনারেল স্টাইল */
+        body {
+            font-family: 'Hind Siliguri', sans-serif;
+            background: #fdfdfd;
+            color: #334155;
+        }
+
+        /* ইনপুট এবং বাটনের চিকন ডিজাইন */
+        .slim-input {
+            padding-top: 0.6rem !important;
+            padding-bottom: 0.6rem !important;
+            font-size: 0.9rem !important;
+            border-radius: 0.75rem !important;
+        }
+
+        .slim-btn {
+            padding-top: 0.75rem !important;
+            padding-bottom: 0.75rem !important;
+            font-weight: 500 !important;
+            border-radius: 0.75rem !important;
+            white-space: nowrap !important;
+        }
+
+        /* কার্ডের প্রিমিয়াম লুক */
+        .glass-card {
+            background: #ffffff;
+            border: 1px solid #f1f5f9;
+            box-shadow: 0 4px 20px -5px rgba(0, 0, 0, 0.05);
+        }
+
+        /* এনিমেশন */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade { animation: fadeIn 0.5s ease forwards; }
+
+        /* স্ক্রলবার */
+        ::-webkit-scrollbar { width: 5px; }
+        ::-webkit-scrollbar-track { background: #f8fafc; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
+    </style>
+</head>
+<body class="antialiased">
+
+    <header class="bg-white/80 backdrop-blur-md sticky top-0 z-[100] border-b border-slate-100 shadow-sm">
+        <div class="max-w-4xl mx-auto px-4 py-2.5 flex items-center justify-between">
+            <div class="flex items-center gap-2.5">
+                <div class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center shadow-md shadow-blue-100">
+                    <i class="fas fa-wrench text-white text-sm"></i>
+                </div>
+                <div>
+                    <h1 class="text-xl font-bold text-slate-800 leading-none whitespace-nowrap">Bd Safa</h1>
+                    <span class="text-[9px] uppercase font-medium text-blue-500 tracking-[0.2em] whitespace-nowrap">Home Service</span>
+                </div>
+            </div>
+
+            <div class="flex items-center gap-2">
+                <a href="tel:01973602690" class="w-10 h-10 flex items-center justify-center bg-blue-500 hover:bg-blue-600 text-white rounded-lg transition-all active:scale-90 shadow-sm" title="Call">
+                    <i class="fas fa-phone-alt text-sm"></i>
+                </a>
+                <a href="https://wa.me/8801973602690" class="w-10 h-10 flex items-center justify-center bg-green-500 hover:bg-green-600 text-white rounded-lg transition-all active:scale-90 shadow-sm" title="WhatsApp">
+                    <i class="fab fa-whatsapp text-lg"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-xl mx-auto py-8 px-4">
+        
+        <div class="mb-8 text-center animate-fade">
+            <h2 class="text-2xl font-semibold text-slate-800 tracking-tight whitespace-nowrap">সার্ভিস বুকিং ফর্ম</h2>
+            <p class="text-slate-400 text-xs mt-1">দ্রুত এবং নির্ভরযোগ্য হোম সার্ভিস নিশ্চিত করুন</p>
+        </div>
+
+        <div class="glass-card rounded-2xl overflow-hidden animate-fade">
+            <form id="bookingForm" class="p-6 space-y-5">
+                
+                <div class="space-y-1.5">
+                    <label class="text-[11px] font-semibold text-slate-500 uppercase tracking-widest ml-1">
+                        সার্ভিস নির্বাচন করুন
+                    </label>
+                    <div class="relative">
+                        <select id="service" name="service" required class="w-full pl-4 pr-10 py-2.5 bg-slate-50 border border-slate-200 rounded-xl outline-none appearance-none font-medium text-slate-600 text-sm focus:border-blue-400 focus:bg-white transition-all cursor-pointer">
+                            <option value="" disabled selected>সার্ভিস লিস্ট...</option>
+                            <option value="Plumbing Service">🚰 প্লাম্বিং সার্ভিস</option>
+                            <option value="Electrical Support">💡 ইলেকট্রিক সমাধান</option>
+                            <option value="AC Repair/Service">❄️ এসি সার্ভিসিং</option>
+                            <option value="Water Tank Cleaning">🛢️ পানির ট্যাংক পরিষ্কার</option>
+                            <option value="Bathroom Maintenance">🚿 বাথরুম ফিটিংস মেরামত</option>
+                            <option value="Home Painting">🎨 বাসা পেইন্টিং</option>
+                            <option value="CCTV Installation">📹 সিসিটিভি ক্যামেরা</option>
+                            <option value="Emergency Support">🚨 ইমার্জেন্সি সাপোর্ট</option>
+                        </select>
+                        <i class="fas fa-chevron-down absolute right-4 top-3.5 text-slate-300 text-[10px]"></i>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="space-y-1.5">
+                        <label class="text-[11px] font-semibold text-slate-500 uppercase tracking-widest ml-1">আপনার নাম</label>
+                        <input type="text" id="name" name="name" placeholder="নাম লিখুন" required
+                               class="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl outline-none text-sm font-medium focus:border-blue-400 focus:bg-white transition-all">
+                    </div>
+                    <div class="space-y-1.5">
+                        <label class="text-[11px] font-semibold text-slate-500 uppercase tracking-widest ml-1">ফোন নম্বর</label>
+                        <input type="tel" id="phone" name="phone" placeholder="০১৯XXXXXXXX" required
+                               class="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl outline-none text-sm font-medium focus:border-blue-400 focus:bg-white transition-all">
+                    </div>
+                </div>
+
+                <div class="space-y-1.5">
+                    <label class="text-[11px] font-semibold text-slate-500 uppercase tracking-widest ml-1">ঠিকানা</label>
+                    <input type="text" id="address" name="address" placeholder="বাসা নং, রোড, এলাকা" required
+                           class="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl outline-none text-sm font-medium focus:border-blue-400 focus:bg-white transition-all">
+                </div>
+
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="space-y-1.5">
+                        <label class="text-[11px] font-semibold text-slate-500 uppercase tracking-widest ml-1">তারিখ</label>
+                        <input type="date" id="date" name="date" required
+                               class="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl outline-none text-sm font-medium text-slate-500">
+                    </div>
+                    <div class="space-y-1.5">
+                        <label class="text-[11px] font-semibold text-slate-500 uppercase tracking-widest ml-1">সময়</label>
+                        <input type="time" id="time" name="time" required
+                               class="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl outline-none text-sm font-medium text-slate-500">
+                    </div>
+                </div>
+
+                <div class="space-y-1.5">
+                    <label class="text-[11px] font-semibold text-slate-500 uppercase tracking-widest ml-1">সমস্যা (সংক্ষেপে)</label>
+                    <textarea id="problem" name="problem" rows="2" placeholder="আপনার সমস্যাটি লিখুন..."
+                              class="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl outline-none text-sm font-medium focus:border-blue-400 focus:bg-white transition-all resize-none"></textarea>
+                </div>
+
+                <div class="flex items-center justify-between p-4 bg-slate-50 border border-slate-100 rounded-xl">
+                    <div class="flex items-center gap-3">
+                        <i class="fas fa-bolt text-yellow-500 text-xs"></i>
+                        <span class="text-xs font-semibold text-slate-600 whitespace-nowrap">জরুরী সার্ভিস প্রয়োজন?</span>
+                    </div>
+                    <label class="relative inline-flex items-center cursor-pointer">
+                        <input type="checkbox" id="urgent" name="urgent" class="sr-only peer">
+                        <div class="w-10 h-5 bg-slate-200 rounded-full peer peer-checked:bg-blue-500 after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:after:translate-x-5"></div>
+                    </label>
+                </div>
+
+                <button type="submit" class="w-full bg-slate-800 hover:bg-slate-900 text-white py-3.5 rounded-xl text-sm font-medium shadow-lg transition-all active:scale-[0.98] flex items-center justify-center gap-2">
+                    <span class="whitespace-nowrap">কনফার্ম বুকিং</span>
+                    <i class="fas fa-paper-plane text-[10px]"></i>
+                </button>
+            </form>
+        </div>
+
+        <div id="statusSection" class="mt-10 hidden animate-fade">
+            <div class="flex items-center gap-2 mb-4 px-1">
+                <div class="w-1 h-4 bg-blue-500 rounded-full"></div>
+                <h3 class="text-sm font-bold text-slate-700 whitespace-nowrap">আপনার বুকিং লিস্ট</h3>
+            </div>
+            
+            <div id="statusList" class="space-y-3">
+                </div>
+        </div>
+
+    </main>
+
+    <footer class="py-10 text-center border-t border-slate-100 mt-10">
+        <p class="text-[10px] font-bold text-slate-300 uppercase tracking-[0.4em]">Bd Safa Service Solutions</p>
+        <p class="text-[9px] text-slate-400 mt-2">© 2026 Developed by Nabil Hossen</p>
+    </footer>
+
+    <script>
+        /**
+         * রেন্ডার ফাংশন: ইউজারের বুকিং রেকর্ড এবং স্ট্যাটাস দেখায়।
+         */
+        function renderStatus() {
+            const data = JSON.parse(localStorage.getItem('bdSafaOrders') || '[]');
+            const section = document.getElementById('statusSection');
+            const list = document.getElementById('statusList');
+
+            if (data.length > 0) {
+                section.classList.remove('hidden');
+                list.innerHTML = data.slice(-3).reverse().map(order => {
+                    let badgeClass = "";
+                    let dotColor = "";
+
+                    // স্ট্যাটাস অনুযায়ী ডিজাইন পরিবর্তন
+                    if (order.status === 'Pending') {
+                        badgeClass = "bg-orange-50 text-orange-600 border-orange-100";
+                        dotColor = "bg-orange-400";
+                    } else if (order.status === 'Received') {
+                        badgeClass = "bg-blue-50 text-blue-600 border-blue-100";
+                        dotColor = "bg-blue-400";
+                    } else {
+                        badgeClass = "bg-green-50 text-green-600 border-green-100";
+                        dotColor = "bg-green-400";
+                    }
+
+                    return `
+                        <div class="bg-white p-4 rounded-xl border border-slate-100 shadow-sm flex items-center justify-between animate-fade">
+                            <div class="flex items-center gap-3">
+                                <div class="w-2 h-2 rounded-full ${dotColor}"></div>
+                                <div>
+                                    <h4 class="text-xs font-bold text-slate-700 whitespace-nowrap">${order.service}</h4>
+                                    <p class="text-[9px] text-slate-400 uppercase font-medium mt-0.5">${order.date} • ${order.time}</p>
+                                </div>
+                            </div>
+                            <span class="text-[9px] font-bold px-3 py-1 rounded-full border ${badgeClass} whitespace-nowrap">
+                                ${order.status}
+                            </span>
+                        </div>
+                    `;
+                }).join('');
+            }
+        }
+
+        /**
+         * ফর্ম সাবমিশন লজিক
+         */
+        document.getElementById('bookingForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // ডাটা কালেকশন
+            const newOrder = {
+                id: Date.now(),
+                service: document.getElementById('service').value,
+                name: document.getElementById('name').value,
+                phone: document.getElementById('phone').value,
+                address: document.getElementById('address').value,
+                date: document.getElementById('date').value,
+                time: document.getElementById('time').value,
+                problem: document.getElementById('problem').value || 'N/A',
+                urgent: document.getElementById('urgent').checked ? 'Yes' : 'No',
+                status: 'Pending',
+                createdAt: new Date().toLocaleString()
+            };
+
+            // লোকাল স্টোরেজে সেভ (অ্যাডমিন প্যানেলের জন্য)
+            const allOrders = JSON.parse(localStorage.getItem('bdSafaOrders') || '[]');
+            allOrders.push(newOrder);
+            localStorage.setItem('bdSafaOrders', JSON.stringify(allOrders));
+
+            // হোয়াটসঅ্যাপ মেসেজ ফরম্যাট
+            const waPhone = "8801973602690";
+            const message = `*নতুন বুকিং - Bd Safa*%0A` +
+                            `--------------------------%0A` +
+                            `*সার্ভিস:* ${newOrder.service}%0A` +
+                            `*নাম:* ${newOrder.name}%0A` +
+                            `*ফোন:* ${newOrder.phone}%0A` +
+                            `*ঠিকানা:* ${newOrder.address}%0A` +
+                            `*সময়:* ${newOrder.date} | ${newOrder.time}%0A` +
+                            `*জরুরী:* ${newOrder.urgent}%0A` +
+                            `--------------------------`;
+
+            // ইউজার ফিডব্যাক এবং রিডাইরেক্ট
+            alert('আপনার বুকিং তথ্যটি সেভ হয়েছে এবং হোয়াটসঅ্যাপে পাঠানো হচ্ছে।');
+            window.location.href = `https://wa.me/${waPhone}?text=${message}`;
+
+            // ইন্টারফেস আপডেট
+            this.reset();
+            renderStatus();
+        });
+
+        // পেজ লোড হলে স্ট্যাটাস দেখানো
+        window.onload = renderStatus;
+        
+        // অটো রিফ্রেশ (অ্যাডমিন আপডেট দেখার জন্য)
+        setInterval(renderStatus, 15000);
+    </script>
+</body>
+</html>

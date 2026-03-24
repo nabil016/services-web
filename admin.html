@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - Bd Safa</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>body { font-family: sans-serif; }</style>
+</head>
+<body class="bg-slate-50 min-h-screen">
+
+    <nav class="bg-slate-900 text-white p-4 shadow-xl">
+        <div class="max-w-6xl mx-auto flex justify-between items-center">
+            <h1 class="text-xl font-black tracking-tighter uppercase italic">Bd Safa <span class="text-blue-500">Admin</span></h1>
+            <a href="index.html" class="bg-white/10 px-4 py-2 rounded-lg text-sm font-bold hover:bg-white/20 transition">Back to Site</a>
+        </div>
+    </nav>
+
+    <main class="max-w-6xl mx-auto py-10 px-4">
+        <div class="flex flex-col md:flex-row justify-between items-center mb-10 gap-4">
+            <div>
+                <h2 class="text-3xl font-black text-slate-800">অর্ডার ড্যাশবোর্ড</h2>
+                <p class="text-slate-500 font-medium">এখান থেকে আপনি সব বুকিং ম্যানেজ করতে পারবেন।</p>
+            </div>
+            <button onclick="clearAll()" class="bg-red-500 hover:bg-red-600 text-white px-6 py-3 rounded-xl font-bold text-sm transition-all shadow-lg shadow-red-100">
+                <i class="fas fa-trash-can mr-2"></i> Clear All Data
+            </button>
+        </div>
+
+        <div class="grid grid-cols-1 gap-6" id="adminOrderList">
+            </div>
+    </main>
+
+    <script>
+        function renderOrders() {
+            const orders = JSON.parse(localStorage.getItem('bdSafaOrders') || '[]');
+            const container = document.getElementById('adminOrderList');
+            
+            if(orders.length === 0) {
+                container.innerHTML = '<div class="text-center py-20 bg-white rounded-3xl border-2 border-dashed border-slate-200 text-slate-400 font-bold">কোন অর্ডার পাওয়া যায়নি</div>';
+                return;
+            }
+
+            container.innerHTML = orders.reverse().map(order => `
+                <div class="bg-white p-6 rounded-[2rem] border border-slate-200 shadow-sm hover:shadow-xl transition-shadow group">
+                    <div class="flex flex-col md:flex-row justify-between gap-6">
+                        <div class="space-y-4">
+                            <div class="flex items-center gap-3">
+                                <span class="px-4 py-1.5 bg-blue-100 text-blue-700 rounded-full text-[10px] font-black uppercase tracking-widest">${order.status}</span>
+                                ${order.urgent === 'YES 🚨' ? '<span class="px-4 py-1.5 bg-red-100 text-red-600 rounded-full text-[10px] font-black uppercase tracking-widest animate-pulse">Urgent</span>' : ''}
+                                <span class="text-[10px] text-slate-400 font-bold">${order.timestamp}</span>
+                            </div>
+                            <div>
+                                <h3 class="text-2xl font-black text-slate-800">${order.service}</h3>
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4 text-sm font-medium text-slate-600">
+                                    <p><i class="fas fa-user text-blue-500 w-6"></i> <b>Name:</b> ${order.name}</p>
+                                    <p><i class="fas fa-phone text-green-500 w-6"></i> <b>Phone:</b> ${order.phone}</p>
+                                    <p class="sm:col-span-2"><i class="fas fa-map-marker-alt text-red-500 w-6"></i> <b>Addr:</b> ${order.address}</p>
+                                    <p class="sm:col-span-2 bg-slate-50 p-3 rounded-xl border border-slate-100 italic">"${order.problem}"</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-col gap-2 min-w-[180px]">
+                            <p class="text-xs font-bold text-slate-400 mb-1 uppercase tracking-widest text-center">Change Status</p>
+                            <button onclick="updateStatus(${order.id}, 'Received')" class="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-xl font-bold text-xs transition">Mark Received</button>
+                            <button onclick="updateStatus(${order.id}, 'Completed')" class="w-full bg-green-500 hover:bg-green-600 text-white py-3 rounded-xl font-bold text-xs transition">Mark Completed</button>
+                            <button onclick="deleteOrder(${order.id})" class="w-full bg-slate-100 hover:bg-red-50 text-slate-400 hover:text-red-500 py-3 rounded-xl font-bold text-xs transition mt-2">Delete Order</button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function updateStatus(id, newStatus) {
+            let orders = JSON.parse(localStorage.getItem('bdSafaOrders') || '[]');
+            orders = orders.map(o => o.id === id ? {...o, status: newStatus} : o);
+            localStorage.setItem('bdSafaOrders', JSON.stringify(orders));
+            renderOrders();
+        }
+
+        function deleteOrder(id) {
+            if(confirm('অর্ডারটি মুছে ফেলতে চান?')) {
+                let orders = JSON.parse(localStorage.getItem('bdSafaOrders') || '[]');
+                orders = orders.filter(o => o.id !== id);
+                localStorage.setItem('bdSafaOrders', JSON.stringify(orders));
+                renderOrders();
+            }
+        }
+
+        function clearAll() {
+            if(confirm('সব ডাটা মুছে ফেলতে চান? এটি রিকভার করা যাবে না।')) {
+                localStorage.removeItem('bdSafaOrders');
+                renderOrders();
+            }
+        }
+
+        window.onload = renderOrders;
+    </script>
+</body>
+</html>
