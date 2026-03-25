@@ -32,18 +32,46 @@
             </div>
     </main>
 
-    <script>
-        function renderOrders() {
-            const orders = JSON.parse(localStorage.getItem('bdSafaOrders') || '[]');
-            const container = document.getElementById('adminOrderList');
-            
-            if(orders.length === 0) {
-                container.innerHTML = '<div class="text-center py-20 bg-white rounded-3xl border-2 border-dashed border-slate-200 text-slate-400 font-bold">কোন অর্ডার পাওয়া যায়নি</div>';
-                return;
-            }
+    <script type="module">
+    // Firebase SDK ইমপোর্ট
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+    import { getDatabase, ref, onValue, update, remove } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
 
-            container.innerHTML = orders.reverse().map(order => `
-                <div class="bg-white p-6 rounded-[2rem] border border-slate-200 shadow-sm hover:shadow-xl transition-shadow group">
+    // আপনার Firebase Config
+    const firebaseConfig = {
+        apiKey: "AIzaSyCBHTxsVv1AwW5pMdf5OVBd6EMKKulfLP4",
+        authDomain: "bd-safa-admin-panel.firebaseapp.com",
+        databaseURL: "https://bd-safa-admin-panel-default-rtdb.firebaseio.com",
+        projectId: "bd-safa-admin-panel",
+        storageBucket: "bd-safa-admin-panel.firebasestorage.app",
+        messagingSenderId: "1092316313581",
+        appId: "1:1092316313581:web:22b9cf65a7c0aea2b0d9e4",
+        measurementId: "G-7V39SRD5LB"
+    };
+
+    // Firebase ইনিশিয়ালাইজেশন
+    const app = initializeApp(firebaseConfig);
+    const db = getDatabase(app);
+    const container = document.getElementById('adminOrderList');
+
+    // ১. ডাটাবেস থেকে রিয়েল-টাইম ডাটা পড়া
+    const ordersRef = ref(db, 'orders');
+    onValue(ordersRef, (snapshot) => {
+        const data = snapshot.val();
+        container.innerHTML = ""; // আগের লিস্ট ক্লিয়ার করা
+
+        if (!data) {
+            container.innerHTML = '<div class="text-center py-20 bg-white rounded-3xl border-2 border-dashed border-slate-200 text-slate-400 font-bold">কোন অর্ডার পাওয়া যায়নি</div>';
+            return;
+        }
+
+        // নতুন অর্ডারগুলো উপরে দেখানোর জন্য Keys রিভার্স করা
+        const keys = Object.keys(data).reverse();
+
+        keys.forEach(key => {
+            const order = data[key];
+            const orderHtml = `
+                <div class="bg-white p-6 rounded-[2rem] border border-slate-200 shadow-sm hover:shadow-xl transition-shadow mb-6">
                     <div class="flex flex-col md:flex-row justify-between gap-6">
                         <div class="space-y-4">
                             <div class="flex items-center gap-3">
@@ -64,39 +92,37 @@
 
                         <div class="flex flex-col gap-2 min-w-[180px]">
                             <p class="text-xs font-bold text-slate-400 mb-1 uppercase tracking-widest text-center">Change Status</p>
-                            <button onclick="updateStatus(${order.id}, 'Received')" class="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-xl font-bold text-xs transition">Mark Received</button>
-                            <button onclick="updateStatus(${order.id}, 'Completed')" class="w-full bg-green-500 hover:bg-green-600 text-white py-3 rounded-xl font-bold text-xs transition">Mark Completed</button>
-                            <button onclick="deleteOrder(${order.id})" class="w-full bg-slate-100 hover:bg-red-50 text-slate-400 hover:text-red-500 py-3 rounded-xl font-bold text-xs transition mt-2">Delete Order</button>
+                            <button onclick="updateStatus('${key}', 'Received')" class="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-xl font-bold text-xs transition">Mark Received</button>
+                            <button onclick="updateStatus('${key}', 'Completed')" class="w-full bg-green-500 hover:bg-green-600 text-white py-3 rounded-xl font-bold text-xs transition">Mark Completed</button>
+                            <button onclick="deleteOrder('${key}')" class="w-full bg-slate-100 hover:bg-red-50 text-slate-400 hover:text-red-500 py-3 rounded-xl font-bold text-xs transition mt-2">Delete Order</button>
                         </div>
                     </div>
                 </div>
-            `).join('');
-        }
+            `;
+            container.innerHTML += orderHtml;
+        });
+    });
 
-        function updateStatus(id, newStatus) {
-            let orders = JSON.parse(localStorage.getItem('bdSafaOrders') || '[]');
-            orders = orders.map(o => o.id === id ? {...o, status: newStatus} : o);
-            localStorage.setItem('bdSafaOrders', JSON.stringify(orders));
-            renderOrders();
-        }
+    // ২. স্ট্যাটাস আপডেট করার ফাংশন
+    window.updateStatus = (id, newStatus) => {
+        const orderRef = ref(db, `orders/${id}`);
+        update(orderRef, { status: newStatus });
+    };
 
-        function deleteOrder(id) {
-            if(confirm('অর্ডারটি মুছে ফেলতে চান?')) {
-                let orders = JSON.parse(localStorage.getItem('bdSafaOrders') || '[]');
-                orders = orders.filter(o => o.id !== id);
-                localStorage.setItem('bdSafaOrders', JSON.stringify(orders));
-                renderOrders();
-            }
+    // ৩. অর্ডার ডিলিট করার ফাংশন
+    window.deleteOrder = (id) => {
+        if (confirm('অর্ডারটি মুছে ফেলতে চান?')) {
+            const orderRef = ref(db, `orders/${id}`);
+            remove(orderRef);
         }
+    };
 
-        function clearAll() {
-            if(confirm('সব ডাটা মুছে ফেলতে চান? এটি রিকভার করা যাবে না।')) {
-                localStorage.removeItem('bdSafaOrders');
-                renderOrders();
-            }
+    // ৪. সব ডাটা মুছে ফেলার ফাংশন (অপশনাল)
+    window.clearAll = () => {
+        if (confirm('সব ডাটা মুছে ফেলতে চান? এটি আর ফিরিয়ে আনা যাবে না।')) {
+            remove(ordersRef);
         }
-
-        window.onload = renderOrders;
-    </script>
+    };
+</script>
 </body>
 </html>
