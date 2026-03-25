@@ -180,103 +180,103 @@
         <p class="text-[9px] text-slate-400 mt-2">© 2026 Developed by Nabil Hossen</p>
     </footer>
 
-    <script>
-        /**
-         * রেন্ডার ফাংশন: ইউজারের বুকিং রেকর্ড এবং স্ট্যাটাস দেখায়।
-         */
-        function renderStatus() {
-            const data = JSON.parse(localStorage.getItem('bdSafaOrders') || '[]');
-            const section = document.getElementById('statusSection');
-            const list = document.getElementById('statusList');
+    <script type="module">
+    // Firebase SDK ইমপোর্ট
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+    import { getDatabase, ref, push, set, onValue } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
 
-            if (data.length > 0) {
-                section.classList.remove('hidden');
-                list.innerHTML = data.slice(-3).reverse().map(order => {
-                    let badgeClass = "";
-                    let dotColor = "";
+    // আপনার অরিজিনাল Firebase Config
+    const firebaseConfig = {
+        apiKey: "AIzaSyCBHTxsVv1AwW5pMdf5OVBd6EMKKulfLP4",
+        authDomain: "bd-safa-admin-panel.firebaseapp.com",
+        databaseURL: "https://bd-safa-admin-panel-default-rtdb.firebaseio.com",
+        projectId: "bd-safa-admin-panel",
+        storageBucket: "bd-safa-admin-panel.firebasestorage.app",
+        messagingSenderId: "1092316313581",
+        appId: "1:1092316313581:web:22b9cf65a7c0aea2b0d9e4",
+        measurementId: "G-7V39SRD5LB"
+    };
 
-                    // স্ট্যাটাস অনুযায়ী ডিজাইন পরিবর্তন
-                    if (order.status === 'Pending') {
-                        badgeClass = "bg-orange-50 text-orange-600 border-orange-100";
-                        dotColor = "bg-orange-400";
-                    } else if (order.status === 'Received') {
-                        badgeClass = "bg-blue-50 text-blue-600 border-blue-100";
-                        dotColor = "bg-blue-400";
-                    } else {
-                        badgeClass = "bg-green-50 text-green-600 border-green-100";
-                        dotColor = "bg-green-400";
-                    }
+    // Firebase ইনিশিয়ালাইজেশন
+    const app = initializeApp(firebaseConfig);
+    const db = getDatabase(app);
 
-                    return `
-                        <div class="bg-white p-4 rounded-xl border border-slate-100 shadow-sm flex items-center justify-between animate-fade">
-                            <div class="flex items-center gap-3">
-                                <div class="w-2 h-2 rounded-full ${dotColor}"></div>
-                                <div>
-                                    <h4 class="text-xs font-bold text-slate-700 whitespace-nowrap">${order.service}</h4>
-                                    <p class="text-[9px] text-slate-400 uppercase font-medium mt-0.5">${order.date} • ${order.time}</p>
-                                </div>
-                            </div>
-                            <span class="text-[9px] font-bold px-3 py-1 rounded-full border ${badgeClass} whitespace-nowrap">
-                                ${order.status}
-                            </span>
-                        </div>
-                    `;
-                }).join('');
-            }
-        }
+    // ১. ফর্ম সাবমিশন লজিক (Firebase-এ ডাটা পাঠানোর জন্য)
+    document.getElementById('bookingForm').addEventListener('submit', function(e) {
+        e.preventDefault();
 
-        /**
-         * ফর্ম সাবমিশন লজিক
-         */
-        document.getElementById('bookingForm').addEventListener('submit', function(e) {
-            e.preventDefault();
+        const newOrder = {
+            service: document.getElementById('service').value,
+            name: document.getElementById('name').value,
+            phone: document.getElementById('phone').value,
+            address: document.getElementById('address').value,
+            date: document.getElementById('date').value,
+            time: document.getElementById('time').value,
+            problem: document.getElementById('problem').value || 'N/A',
+            urgent: document.getElementById('urgent').checked ? 'YES 🚨' : 'No',
+            status: 'Pending',
+            timestamp: new Date().toLocaleString('en-GB')
+        };
 
-            // ডাটা কালেকশন
-            const newOrder = {
-                id: Date.now(),
-                service: document.getElementById('service').value,
-                name: document.getElementById('name').value,
-                phone: document.getElementById('phone').value,
-                address: document.getElementById('address').value,
-                date: document.getElementById('date').value,
-                time: document.getElementById('time').value,
-                problem: document.getElementById('problem').value || 'N/A',
-                urgent: document.getElementById('urgent').checked ? 'Yes' : 'No',
-                status: 'Pending',
-                createdAt: new Date().toLocaleString()
-            };
+        const ordersRef = ref(db, 'orders');
+        const newOrderRef = push(ordersRef);
 
-            // লোকাল স্টোরেজে সেভ (অ্যাডমিন প্যানেলের জন্য)
-            const allOrders = JSON.parse(localStorage.getItem('bdSafaOrders') || '[]');
-            allOrders.push(newOrder);
-            localStorage.setItem('bdSafaOrders', JSON.stringify(allOrders));
-
-            // হোয়াটসঅ্যাপ মেসেজ ফরম্যাট
+        set(newOrderRef, newOrder).then(() => {
             const waPhone = "8801973602690";
             const message = `*নতুন বুকিং - Bd Safa*%0A` +
-                            `--------------------------%0A` +
                             `*সার্ভিস:* ${newOrder.service}%0A` +
                             `*নাম:* ${newOrder.name}%0A` +
-                            `*ফোন:* ${newOrder.phone}%0A` +
-                            `*ঠিকানা:* ${newOrder.address}%0A` +
-                            `*সময়:* ${newOrder.date} | ${newOrder.time}%0A` +
-                            `*জরুরী:* ${newOrder.urgent}%0A` +
-                            `--------------------------`;
+                            `*ফোন:* ${newOrder.phone}`;
 
-            // ইউজার ফিডব্যাক এবং রিডাইরেক্ট
-            alert('আপনার বুকিং তথ্যটি সেভ হয়েছে এবং হোয়াটসঅ্যাপে পাঠানো হচ্ছে।');
+            alert('বুকিং সফলভাবে ডেটাবেসে জমা হয়েছে!');
             window.location.href = `https://wa.me/${waPhone}?text=${message}`;
-
-            // ইন্টারফেস আপডেট
-            this.reset();
-            renderStatus();
+        }).catch((error) => {
+            alert('Error: ' + error.message);
         });
+    });
 
-        // পেজ লোড হলে স্ট্যাটাস দেখানো
-        window.onload = renderStatus;
+    // ২. স্ট্যাটাস রেন্ডার ফাংশন (অনলাইন ডাটাবেস থেকে স্ট্যাটাস দেখানোর জন্য)
+    function renderStatus() {
+        const section = document.getElementById('statusSection');
+        const list = document.getElementById('statusList');
         
-        // অটো রিফ্রেশ (অ্যাডমিন আপডেট দেখার জন্য)
-        setInterval(renderStatus, 15000);
-    </script>
+        onValue(ref(db, 'orders'), (snapshot) => {
+            const data = snapshot.val();
+            if (!data) return;
+
+            section.classList.remove('hidden');
+            // ডাটা ফিল্টার করে শুধুমাত্র শেষ ৩টি দেখানো (ঐচ্ছিক)
+            const keys = Object.keys(data).reverse().slice(0, 3);
+            
+            list.innerHTML = keys.map(key => {
+                const order = data[key];
+                let badgeClass = order.status === 'Pending' ? "bg-orange-50 text-orange-600 border-orange-100" : 
+                                 order.status === 'Received' ? "bg-blue-50 text-blue-600 border-blue-100" : 
+                                 "bg-green-50 text-green-600 border-green-100";
+                
+                let dotColor = order.status === 'Pending' ? "bg-orange-400" : 
+                               order.status === 'Received' ? "bg-blue-400" : 
+                               "bg-green-400";
+
+                return `
+                    <div class="bg-white p-4 rounded-xl border border-slate-100 shadow-sm flex items-center justify-between animate-fade">
+                        <div class="flex items-center gap-3">
+                            <div class="w-2 h-2 rounded-full ${dotColor}"></div>
+                            <div>
+                                <h4 class="text-xs font-bold text-slate-700 whitespace-nowrap">${order.service}</h4>
+                                <p class="text-[9px] text-slate-400 uppercase font-medium mt-0.5">${order.date} • ${order.time}</p>
+                            </div>
+                        </div>
+                        <span class="text-[9px] font-bold px-3 py-1 rounded-full border ${badgeClass} whitespace-nowrap">
+                            ${order.status}
+                        </span>
+                    </div>`;
+            }).join('');
+        });
+    }
+
+    // পেজ লোড হলে স্ট্যাটাস রান করা
+    renderStatus();
+</script>
 </body>
 </html>
