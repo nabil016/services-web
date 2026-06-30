@@ -161,7 +161,6 @@
       <div class="text-2xl font-bold text-blue-500">NABIL</div>
 
       <div class="flex items-center gap-4">
-        <!-- Contact Dropdown Container -->
         <div class="relative inline-block text-left">
           <button
             onclick="toggleContactDropdown(event)"
@@ -184,12 +183,10 @@
             </svg>
           </button>
 
-          <!-- Dropdown Menu (Chat, Call, WhatsApp) -->
           <div
             id="contact-dropdown"
             class="hidden absolute right-0 mt-2 w-40 bg-white border border-gray-200 rounded-xl shadow-lg py-1 z-50 overflow-hidden"
           >
-            <!-- Chat Button -->
             <button
               onclick="openChatBox(event)"
               class="w-full flex items-center gap-3 px-4 py-2.5 text-[14px] text-gray-700 hover:bg-gray-50 transition text-left focus:outline-none"
@@ -198,7 +195,6 @@
               <span>Chat</span>
             </button>
 
-            <!-- Call Button -->
             <a
               href="tel:01613381340"
               class="flex items-center gap-3 px-4 py-2.5 text-[14px] text-gray-700 hover:bg-gray-50 transition"
@@ -207,7 +203,6 @@
               <span>Call</span>
             </a>
 
-            <!-- WhatsApp Button -->
             <a
               href="https://wa.me/8801613381340"
               target="_blank"
@@ -221,7 +216,6 @@
           </div>
         </div>
 
-        <!-- Hamburger Icon (Account Menu) -->
         <div
           class="text-xl cursor-pointer text-gray-700"
           onclick="openMobileMenu()"
@@ -230,7 +224,6 @@
         </div>
       </div>
 
-      <!-- Account Mobile Menu (সম্পূর্ণ কোড, কোনো অংশ বাদ দেওয়া হয়নি) -->
       <div
         id="mobile-menu"
         class="hidden fixed inset-0 bg-[#F8F9FB] z-50 flex flex-col overflow-y-auto"
@@ -275,7 +268,6 @@
             </div>
           </div>
 
-          <!-- প্রথম বক্সের মেনু আইটেমসমূহ -->
           <div
             class="mx-4 mt-5 bg-white rounded-xl shadow-sm border border-gray-300 overflow-hidden"
           >
@@ -392,7 +384,6 @@
             </a>
           </div>
 
-          <!-- দ্বিতীয় বক্সের মেনু আইটেমসমূহ (Policies) -->
           <div
             class="mx-4 mt-5 bg-white rounded-xl shadow-sm border border-gray-300 overflow-hidden"
           >
@@ -446,7 +437,6 @@
             </a>
           </div>
 
-          <!-- তৃতীয় বক্সের মেনু আইটেমসমূহ (App Review & Sign out) -->
           <div
             class="mx-4 mt-5 bg-white rounded-xl shadow-sm border border-gray-300 overflow-hidden"
           >
@@ -488,18 +478,16 @@
       </div>
     </div>
 
-    <!-- Floating Chat Box Component -->
     <div
       id="chat-box"
       class="hidden fixed bottom-4 right-4 w-80 h-96 bg-white rounded-2xl shadow-2xl border border-gray-200 flex flex-col z-50 overflow-hidden"
     >
-      <!-- Chat Header -->
       <div
         class="bg-blue-500 text-white p-4 flex justify-between items-center shadow-sm"
       >
         <div class="flex items-center gap-2">
           <span class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
-          <span class="font-semibold text-sm">Live Chat</span>
+          <span class="font-semibold text-sm">Live Chat Bot</span>
         </div>
         <button
           onclick="closeChatBox()"
@@ -509,23 +497,28 @@
         </button>
       </div>
 
-      <!-- Chat Messages Body -->
-      <div class="flex-1 p-4 bg-gray-50 overflow-y-auto text-sm">
+      <div
+        id="chat-messages"
+        class="flex-1 p-4 bg-gray-50 overflow-y-auto text-sm flex flex-col gap-3"
+      >
         <div
-          class="bg-white p-3 rounded-xl inline-block max-w-[85%] shadow-sm border border-gray-100 text-gray-700"
+          class="bg-white p-3 rounded-xl inline-block max-w-[85%] shadow-sm border border-gray-100 text-gray-700 self-start"
         >
-          হ্যালো! আপনাকে কীভাবে সাহায্য করতে পারি?
+          হ্যালো! NABIL সার্ভিসে আপনাকে স্বাগতম। আপনাকে কীভাবে সাহায্য করতে
+          পারি? নিচে লিখে জানান।
         </div>
       </div>
 
-      <!-- Chat Input Footer -->
       <div class="p-3 border-t border-gray-200 bg-white flex gap-2">
         <input
           type="text"
-          placeholder="Type your message..."
+          id="chat-input"
+          placeholder="এখানে লিখুন (যেমন: hello, price, ac)..."
           class="w-full px-3 py-1.5 border border-gray-300 rounded-lg text-sm focus:outline-none focus:border-blue-500"
+          onkeypress="handleChatKeyPress(event)"
         />
         <button
+          onclick="customerSendMessage()"
           class="bg-blue-500 text-white px-3 py-1.5 rounded-lg text-xs font-semibold hover:bg-blue-600 transition"
         >
           Send
@@ -553,13 +546,10 @@
         arrow.classList.toggle("rotate-180");
       }
 
-      // ২. Chat Box Open/Close Logic
+      // ২. Chat Box Open/Close
       function openChatBox(event) {
-        event.stopPropagation();
-        // চ্যাট বক্স ওপেন করা
+        if (event) event.stopPropagation();
         document.getElementById("chat-box").classList.remove("hidden");
-
-        // ড্রপডাউন মেনু বন্ধ করা
         document.getElementById("contact-dropdown").classList.add("hidden");
         document.getElementById("contact-arrow").classList.remove("rotate-180");
       }
@@ -581,7 +571,7 @@
         document.body.style.overflow = "";
       }
 
-      // ৪. স্ক্রিনের বাইরে অন্য কোথাও ক্লিক করলে ড্রপডাউন বন্ধ করার গ্লোবাল লজিক
+      // ৪. বাইরে ক্লিক করলে ড্রপডাউন বন্ধের লজিক
       window.addEventListener("click", function (e) {
         const dropdown = document.getElementById("contact-dropdown");
         const arrow = document.getElementById("contact-arrow");
@@ -591,6 +581,85 @@
           arrow.classList.remove("rotate-180");
         }
       });
+
+      // ৫. কাস্টমার মেসেজ পাঠালে তা চ্যাটে দেখানোর ফাংশন
+      function customerSendMessage() {
+        const inputField = document.getElementById("chat-input");
+        const messageText = inputField.value.trim();
+
+        if (messageText === "") return;
+
+        const chatMessages = document.getElementById("chat-messages");
+
+        // কাস্টমারের মেসেজ বাবল (ডানপাশে নীল রঙ)
+        const customerHtml = `
+      <div class="bg-blue-500 text-white p-3 rounded-xl inline-block max-w-[85%] shadow-sm self-end">
+        ${messageText}
+      </div>
+    `;
+        chatMessages.insertAdjacentHTML("beforeend", customerHtml);
+
+        inputField.value = "";
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+
+        // কাস্টমার মেসেজ দেওয়ার ১ সেকেন্ড পর রোবট অটোমেটিক রিপ্লাই দেবে
+        setTimeout(function () {
+          botAutomaticReply(messageText);
+        }, 1000);
+      }
+
+      // কিবোর্ডের এন্টার (Enter) বাটনে মেসেজ সেন্ড করার লজিক
+      function handleChatKeyPress(event) {
+        if (event.key === "Enter") {
+          customerSendMessage();
+        }
+      }
+
+      // ৬. রোবটের অটোমেটিক উত্তর দেওয়ার লজিক (Keyword Matching)
+      function botAutomaticReply(customerText) {
+        const chatMessages = document.getElementById("chat-messages");
+        let botResponse = "";
+        const text = customerText.toLowerCase();
+
+        // এখানে কাস্টমারের কথা অনুযায়ী রোবটের উত্তর কাস্টমাইজ করতে পারবেন
+        if (
+          text.includes("hello") ||
+          text.includes("hi") ||
+          text.includes("হাই") ||
+          text.includes("হ্যালো")
+        ) {
+          botResponse =
+            "জি বলুন, আজকে আপনাকে কীভাবে সহযোগিতা করতে পারি? আমাদের এসি রিপেয়ার, ক্লিনিং ও হোম সার্ভিস রয়েছে।";
+        } else if (
+          text.includes("ac") ||
+          text.includes("এসি") ||
+          text.includes("repair")
+        ) {
+          botResponse =
+            "আমাদের দক্ষ টেকনিশিয়ান দ্বারা এসি সার্ভিসিং, গ্যাস রিফিল এবং রিপেয়ার করা হয়। আপনি কি বুকিং করতে চান?";
+        } else if (
+          text.includes("price") ||
+          text.includes("দাম") ||
+          text.includes("কত")
+        ) {
+          botResponse =
+            "আমাদের একেক সার্ভিসের চার্জ একেক রকম। বিস্তারিত জানতে ও সরাসরি কথা বলতে আমাদের 'Contact' মেনু থেকে 'Call' বা 'WhatsApp'-এ যোগাযোগ করতে পারেন।";
+        } else if (text.includes("thanks") || text.includes("ধন্যবাদ")) {
+          botResponse = "আপনাকেও ধন্যবাদ! NABIL সার্ভিসের সাথেই থাকুন। ❤️";
+        } else {
+          botResponse =
+            "দুঃখিত, আমি আপনার বিষয়টি পুরোপুরি বুঝতে পারিনি। আমাদের প্রতিনিধির সাথে সরাসরি কথা বলতে উপরের 'Contact' বাটন থেকে Call অথবা WhatsApp করুন।";
+        }
+
+        // রোবটের মেসেজ বাবল (বামপাশে সাদা রঙ)
+        const botHtml = `
+      <div class="bg-white p-3 rounded-xl inline-block max-w-[85%] shadow-sm border border-gray-100 text-gray-700 self-start">
+        ${botResponse}
+      </div>
+    `;
+        chatMessages.insertAdjacentHTML("beforeend", botHtml);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+      }
     </script>
     <!-- Hero Section -->
 
@@ -1135,15 +1204,16 @@
             <h2
               class="text-base md:text-lg font-bold text-[#172554] truncate leading-none"
             >
-              Residential Services
+              Electrical Services
             </h2>
           </div>
 
+          <!-- See All Button with 4-sided border box -->
           <a
-            href="residential-services.html"
-            class="group flex items-center gap-1 text-[11px] md:text-sm text-[#172554] font-bold hover:text-black transition-colors shrink-0 whitespace-nowrap"
+            href="#"
+            class="group flex items-center gap-1 text-[11px] md:text-sm text-[#172554] font-bold hover:text-black hover:border-black transition-colors shrink-0 whitespace-nowrap border border-[#172554] rounded px-2 py-1"
           >
-            <span>Visit Page</span>
+            <span>See All</span>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
@@ -1170,8 +1240,268 @@
               }
             </style>
 
+            <!-- 1. House Wiring -->
             <a
-              href="plumbing.html"
+              href="#"
+              class="min-w-[150px] md:min-w-[220px] transition-transform hover:scale-105 shrink-0 block group"
+            >
+              <div
+                class="relative overflow-hidden rounded-lg shadow-md border border-gray-200"
+              >
+                <img
+                  src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?q=80&w=500&auto=format&fit=crop"
+                  class="w-full h-24 md:h-40 object-cover opacity-100 group-hover:opacity-100 transition-opacity"
+                  alt="House Wiring"
+                />
+              </div>
+              <p
+                class="mt-2 text-sm md:text-lg text-center font-normal text-gray-800 group-hover:text-[#172554] transition-colors"
+              >
+                House Wiring
+              </p>
+            </a>
+
+            <!-- 2. Fault Finding & Maintenance -->
+            <a
+              href="#"
+              class="min-w-[150px] md:min-w-[220px] transition-transform hover:scale-105 shrink-0 block group"
+            >
+              <div
+                class="relative overflow-hidden rounded-lg shadow-md border border-gray-200"
+              >
+                <img
+                  src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?q=80&w=500&auto=format&fit=crop"
+                  class="w-full h-24 md:h-40 object-cover opacity-100 group-hover:opacity-100 transition-opacity"
+                  alt="Fault Finding & Maintenance"
+                />
+              </div>
+              <p
+                class="mt-2 text-sm md:text-lg text-center font-normal text-gray-800 group-hover:text-[#172554] transition-colors"
+              >
+                Fault Finding & Maintenance
+              </p>
+            </a>
+
+            <!-- 3. IPS / UPS Setup -->
+            <a
+              href="#"
+              class="min-w-[150px] md:min-w-[220px] transition-transform hover:scale-105 shrink-0 block group"
+            >
+              <div
+                class="relative overflow-hidden rounded-lg shadow-md border border-gray-200"
+              >
+                <img
+                  src="https://images.unsplash.com/photo-1558442074-3c1985715fb6?q=80&w=500&auto=format&fit=crop"
+                  class="w-full h-24 md:h-40 object-cover opacity-100 group-hover:opacity-100 transition-opacity"
+                  alt="IPS / UPS Setup"
+                />
+              </div>
+              <p
+                class="mt-2 text-sm md:text-lg text-center font-normal text-gray-800 group-hover:text-[#172554] transition-colors"
+              >
+                IPS / UPS Setup
+              </p>
+            </a>
+
+            <!-- 4. Fan Installation -->
+            <a
+              href="#"
+              class="min-w-[150px] md:min-w-[220px] transition-transform hover:scale-105 shrink-0 block group"
+            >
+              <div
+                class="relative overflow-hidden rounded-lg shadow-md border border-gray-200"
+              >
+                <img
+                  src="https://images.unsplash.com/photo-1618220179428-2b79815f9175?q=80&w=500&auto=format&fit=crop"
+                  class="w-full h-24 md:h-40 object-cover opacity-100 group-hover:opacity-100 transition-opacity"
+                  alt="Fan Installation"
+                />
+              </div>
+              <p
+                class="mt-2 text-sm md:text-lg text-center font-normal text-gray-800 group-hover:text-[#172554] transition-colors"
+              >
+                Fan Installation
+              </p>
+            </a>
+
+            <!-- 5. Room Lighting -->
+            <a
+              href="#"
+              class="min-w-[150px] md:min-w-[220px] transition-transform hover:scale-105 shrink-0 block group"
+            >
+              <div
+                class="relative overflow-hidden rounded-lg shadow-md border border-gray-200"
+              >
+                <img
+                  src="https://images.unsplash.com/photo-1563310065401-447bfae6f21c?q=80&w=500&auto=format&fit=crop"
+                  class="w-full h-24 md:h-40 object-cover opacity-100 group-hover:opacity-100 transition-opacity"
+                  alt="Room Lighting"
+                />
+              </div>
+              <p
+                class="mt-2 text-sm md:text-lg text-center font-normal text-gray-800 group-hover:text-[#172554] transition-colors"
+              >
+                Room Lighting
+              </p>
+            </a>
+
+            <!-- 6. Switch & Socket Fitting -->
+            <a
+              href="#"
+              class="min-w-[150px] md:min-w-[220px] transition-transform hover:scale-105 shrink-0 block group"
+            >
+              <div
+                class="relative overflow-hidden rounded-lg shadow-md border border-gray-200"
+              >
+                <img
+                  src="https://images.unsplash.com/photo-1555617783-a9d554a93eb9?q=80&w=500&auto=format&fit=crop"
+                  class="w-full h-24 md:h-40 object-cover opacity-100 group-hover:opacity-100 transition-opacity"
+                  alt="Switch & Socket Fitting"
+                />
+              </div>
+              <p
+                class="mt-2 text-sm md:text-lg text-center font-normal text-gray-800 group-hover:text-[#172554] transition-colors"
+              >
+                Switch & Socket Fitting
+              </p>
+            </a>
+
+            <!-- 7. Earthing System Setup -->
+            <a
+              href="#"
+              class="min-w-[150px] md:min-w-[220px] transition-transform hover:scale-105 shrink-0 block group"
+            >
+              <div
+                class="relative overflow-hidden rounded-lg shadow-md border border-gray-200"
+              >
+                <img
+                  src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=500&auto=format&fit=crop"
+                  class="w-full h-24 md:h-40 object-cover opacity-100 group-hover:opacity-100 transition-opacity"
+                  alt="Earthing System Setup"
+                />
+              </div>
+              <p
+                class="mt-2 text-sm md:text-lg text-center font-normal text-gray-800 group-hover:text-[#172554] transition-colors"
+              >
+                Earthing System Setup
+              </p>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div class="w-full h-[7px] bg-[#BFC6C4]"></div>
+
+    <section class="bg-[#EAEFEF] px-4 pt-2 pb-2">
+      <div class="max-w-7xl mx-auto">
+        <div class="flex justify-between items-center mb-3 gap-2">
+          <div class="flex items-center gap-2">
+            <img src="Capture1.png" class="w-5 h-5 shrink-0" alt="icon" />
+            <h2
+              class="text-base md:text-lg font-bold text-[#172554] truncate leading-none"
+            >
+              Plumbing Services
+            </h2>
+          </div>
+
+          <!-- See All Button with 4-sided border box -->
+          <a
+            href="#"
+            class="group flex items-center gap-1 text-[11px] md:text-sm text-[#172554] font-bold hover:text-black hover:border-black transition-colors shrink-0 whitespace-nowrap border border-[#172554] rounded px-2 py-1"
+          >
+            <span>See All</span>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="w-3 h-3 md:w-3.5 md:h-3.5 transform transition-transform group-hover:translate-x-1"
+            >
+              <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+          </a>
+        </div>
+
+        <div class="flex items-center">
+          <div
+            class="flex overflow-x-auto gap-4 md:gap-6 scroll-smooth pb-1 w-full no-scrollbar"
+            style="scrollbar-width: none; -ms-overflow-style: none"
+          >
+            <style>
+              .no-scrollbar::-webkit-scrollbar {
+                display: none;
+              }
+            </style>
+
+            <!-- 1. Installation & Fittings -->
+            <a
+              href="#"
+              class="min-w-[150px] md:min-w-[220px] transition-transform hover:scale-105 shrink-0 block group"
+            >
+              <div
+                class="relative overflow-hidden rounded-lg shadow-md border border-gray-200"
+              >
+                <img
+                  src="https://images.unsplash.com/photo-1585704032915-c3400ca199e7?q=80&w=500&auto=format&fit=crop"
+                  class="w-full h-24 md:h-40 object-cover opacity-100 group-hover:opacity-100 transition-opacity"
+                  alt="Installation & Fittings"
+                />
+              </div>
+              <p
+                class="mt-2 text-sm md:text-lg text-center font-normal text-gray-800 group-hover:text-[#172554] transition-colors"
+              >
+                Installation & Fittings
+              </p>
+            </a>
+
+            <!-- 2. Water Tank Installation -->
+            <a
+              href="#"
+              class="min-w-[150px] md:min-w-[220px] transition-transform hover:scale-105 shrink-0 block group"
+            >
+              <div
+                class="relative overflow-hidden rounded-lg shadow-md border border-gray-200"
+              >
+                <img
+                  src="https://images.unsplash.com/photo-1520421297588-fc8956ea8804?q=80&w=500&auto=format&fit=crop"
+                  class="w-full h-24 md:h-40 object-cover opacity-100 group-hover:opacity-100 transition-opacity"
+                  alt="Water Tank Installation"
+                />
+              </div>
+              <p
+                class="mt-2 text-sm md:text-lg text-center font-normal text-gray-800 group-hover:text-[#172554] transition-colors"
+              >
+                Water Tank Installation
+              </p>
+            </a>
+
+            <!-- 3. Water Tank Cleaning -->
+            <a
+              href="#"
+              class="min-w-[150px] md:min-w-[220px] transition-transform hover:scale-105 shrink-0 block group"
+            >
+              <div
+                class="relative overflow-hidden rounded-lg shadow-md border border-gray-200"
+              >
+                <img
+                  src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?q=80&w=500&auto=format&fit=crop"
+                  class="w-full h-24 md:h-40 object-cover opacity-100 group-hover:opacity-100 transition-opacity"
+                  alt="Water Tank Cleaning"
+                />
+              </div>
+              <p
+                class="mt-2 text-sm md:text-lg text-center font-normal text-gray-800 group-hover:text-[#172554] transition-colors"
+              >
+                Water Tank Cleaning
+              </p>
+            </a>
+
+            <!-- 4. Drain & Pipe Unclogging -->
+            <a
+              href="#"
               class="min-w-[150px] md:min-w-[220px] transition-transform hover:scale-105 shrink-0 block group"
             >
               <div
@@ -1180,33 +1510,55 @@
                 <img
                   src="https://images.unsplash.com/photo-1607472586893-edb57bdc0e39?q=80&w=500&auto=format&fit=crop"
                   class="w-full h-24 md:h-40 object-cover opacity-100 group-hover:opacity-100 transition-opacity"
-                  alt="Residential Plumbing"
+                  alt="Drain & Pipe Unclogging"
                 />
               </div>
               <p
                 class="mt-2 text-sm md:text-lg text-center font-normal text-gray-800 group-hover:text-[#172554] transition-colors"
               >
-                Plumbing
+                Drain & Pipe Unclogging
               </p>
             </a>
 
+            <!-- 5. Sanitary Ware Installation -->
             <a
-              href="electrical.html"
+              href="#"
               class="min-w-[150px] md:min-w-[220px] transition-transform hover:scale-105 shrink-0 block group"
             >
               <div
                 class="relative overflow-hidden rounded-lg shadow-md border border-gray-200"
               >
                 <img
-                  src="https://images.unsplash.com/photo-1621905251918-48416bd8575a?q=80&w=500&auto=format&fit=crop"
+                  src="https://images.unsplash.com/photo-1584622781564-1d987f7333c1?q=80&w=500&auto=format&fit=crop"
                   class="w-full h-24 md:h-40 object-cover opacity-100 group-hover:opacity-100 transition-opacity"
-                  alt="Home Electrical"
+                  alt="Sanitary Ware Installation"
                 />
               </div>
               <p
                 class="mt-2 text-sm md:text-lg text-center font-normal text-gray-800 group-hover:text-[#172554] transition-colors"
               >
-                Electrical
+                Sanitary Ware Installation
+              </p>
+            </a>
+
+            <!-- 6. Water Pipe Line Leakage -->
+            <a
+              href="#"
+              class="min-w-[150px] md:min-w-[220px] transition-transform hover:scale-105 shrink-0 block group"
+            >
+              <div
+                class="relative overflow-hidden rounded-lg shadow-md border border-gray-200"
+              >
+                <img
+                  src="https://images.unsplash.com/photo-1517686469429-8bdb88b9f907?q=80&w=500&auto=format&fit=crop"
+                  class="w-full h-24 md:h-40 object-cover opacity-100 group-hover:opacity-100 transition-opacity"
+                  alt="Water Pipe Line Leakage"
+                />
+              </div>
+              <p
+                class="mt-2 text-sm md:text-lg text-center font-normal text-gray-800 group-hover:text-[#172554] transition-colors"
+              >
+                Water Pipe Line Leakage
               </p>
             </a>
           </div>
@@ -1214,25 +1566,25 @@
       </div>
     </section>
     <div class="w-full h-[7px] bg-[#BFC6C4]"></div>
-    <!-- MAIN CATEGORY: COMMERCIAL SERVICES -->
+
     <section class="bg-[#EAEFEF] px-4 pt-2 pb-2">
       <div class="max-w-7xl mx-auto">
         <div class="flex justify-between items-center mb-3 gap-2">
           <div class="flex items-center gap-2">
-            <img src="Captur2e.PNG" class="w-5 h-5 shrink-0" alt="icon" />
-
+            <img src="Capture1.png" class="w-5 h-5 shrink-0" alt="icon" />
             <h2
               class="text-base md:text-lg font-bold text-[#172554] truncate leading-none"
             >
-              Commercial Services
+              AC Services
             </h2>
           </div>
 
+          <!-- See All Button with 4-sided border box -->
           <a
-            href="commercial-services.html"
-            class="group flex items-center gap-1 text-[11px] md:text-sm text-[#172554] font-bold hover:opacity-70 transition-colors shrink-0 whitespace-nowrap"
+            href="#"
+            class="group flex items-center gap-1 text-[11px] md:text-sm text-[#172554] font-bold hover:text-black hover:border-black transition-colors shrink-0 whitespace-nowrap border border-[#172554] rounded px-2 py-1"
           >
-            <span>Visit Page</span>
+            <span>See All</span>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
@@ -1259,556 +1611,205 @@
               }
             </style>
 
-            <div
-              class="min-w-[150px] md:min-w-[220px] transition-transform hover:scale-105 shrink-0 group"
+            <!-- 1. AC Installation -->
+            <a
+              href="#"
+              class="min-w-[150px] md:min-w-[220px] transition-transform hover:scale-105 shrink-0 block group"
             >
               <div
                 class="relative overflow-hidden rounded-lg shadow-md border border-gray-200"
               >
                 <img
-                  src="https://images.unsplash.com/photo-1513104890138-7c749659a591?q=80&w=500&auto=format&fit=crop"
-                  class="w-full h-24 md:h-40 object-cover opacity-100"
-                  alt="Office AC & Ventilation"
+                  src="https://images.unsplash.com/photo-1599839619722-39751411ea63?q=80&w=500&auto=format&fit=crop"
+                  class="w-full h-24 md:h-40 object-cover opacity-100 group-hover:opacity-100 transition-opacity"
+                  alt="AC Installation"
                 />
               </div>
               <p
-                class="mt-2 text-sm md:text-lg text-center font-normal text-gray-800 leading-tight transition-colors"
+                class="mt-2 text-sm md:text-lg text-center font-normal text-gray-800 group-hover:text-[#172554] transition-colors"
               >
-                Office AC & Ventilation
+                AC Installation
               </p>
-            </div>
+            </a>
 
-            <div
-              class="min-w-[150px] md:min-w-[220px] transition-transform hover:scale-105 shrink-0 group"
+            <!-- 2. AC Deep Cleaning -->
+            <a
+              href="#"
+              class="min-w-[150px] md:min-w-[220px] transition-transform hover:scale-105 shrink-0 block group"
             >
               <div
                 class="relative overflow-hidden rounded-lg shadow-md border border-gray-200"
               >
                 <img
-                  src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=500&auto=format&fit=crop"
-                  class="w-full h-24 md:h-40 object-cover opacity-100"
-                  alt="Office Cleaning"
+                  src="https://images.unsplash.com/photo-1581092926214-722a96fc2271?q=80&w=500&auto=format&fit=crop"
+                  class="w-full h-24 md:h-40 object-cover opacity-100 group-hover:opacity-100 transition-opacity"
+                  alt="AC Deep Cleaning"
                 />
               </div>
               <p
-                class="mt-2 text-sm md:text-lg text-center font-normal text-gray-800 leading-tight transition-colors"
+                class="mt-2 text-sm md:text-lg text-center font-normal text-gray-800 group-hover:text-[#172554] transition-colors"
               >
-                Office Cleaning
+                AC Deep Cleaning
               </p>
-            </div>
+            </a>
 
-            <div
-              class="min-w-[150px] md:min-w-[220px] transition-transform hover:scale-105 shrink-0 group"
+            <!-- 3. AC Gas Refilling -->
+            <a
+              href="#"
+              class="min-w-[150px] md:min-w-[220px] transition-transform hover:scale-105 shrink-0 block group"
             >
               <div
                 class="relative overflow-hidden rounded-lg shadow-md border border-gray-200"
               >
                 <img
-                  src="https://images.unsplash.com/photo-1558389186-438424b00a32?q=80&w=500&auto=format&fit=crop"
-                  class="w-full h-24 md:h-40 object-cover opacity-100"
-                  alt="Electrical Maintenance"
+                  src="https://images.unsplash.com/photo-1621905252472-7494ce8b71b1?q=80&w=500&auto=format&fit=crop"
+                  class="w-full h-24 md:h-40 object-cover opacity-100 group-hover:opacity-100 transition-opacity"
+                  alt="AC Gas Refilling"
                 />
               </div>
               <p
-                class="mt-2 text-sm md:text-lg text-center font-normal text-gray-800 leading-tight transition-colors"
+                class="mt-2 text-sm md:text-lg text-center font-normal text-gray-800 group-hover:text-[#172554] transition-colors"
               >
-                Electrical Maintenance
+                AC Gas Refilling
               </p>
-            </div>
+            </a>
+
+            <!-- 4. AC Leak Repair -->
+            <a
+              href="#"
+              class="min-w-[150px] md:min-w-[220px] transition-transform hover:scale-105 shrink-0 block group"
+            >
+              <div
+                class="relative overflow-hidden rounded-lg shadow-md border border-gray-200"
+              >
+                <img
+                  src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?q=80&w=500&auto=format&fit=crop"
+                  class="w-full h-24 md:h-40 object-cover opacity-100 group-hover:opacity-100 transition-opacity"
+                  alt="AC Leak Repair"
+                />
+              </div>
+              <p
+                class="mt-2 text-sm md:text-lg text-center font-normal text-gray-800 group-hover:text-[#172554] transition-colors"
+              >
+                AC Leak Repair
+              </p>
+            </a>
+
+            <!-- 5. Compressor Repair -->
+            <a
+              href="#"
+              class="min-w-[150px] md:min-w-[220px] transition-transform hover:scale-105 shrink-0 block group"
+            >
+              <div
+                class="relative overflow-hidden rounded-lg shadow-md border border-gray-200"
+              >
+                <img
+                  src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=500&auto=format&fit=crop"
+                  class="w-full h-24 md:h-40 object-cover opacity-100 group-hover:opacity-100 transition-opacity"
+                  alt="Compressor Repair"
+                />
+              </div>
+              <p
+                class="mt-2 text-sm md:text-lg text-center font-normal text-gray-800 group-hover:text-[#172554] transition-colors"
+              >
+                Compressor Repair
+              </p>
+            </a>
+
+            <!-- 6. PCB/Circuit Repair -->
+            <a
+              href="#"
+              class="min-w-[150px] md:min-w-[220px] transition-transform hover:scale-105 shrink-0 block group"
+            >
+              <div
+                class="relative overflow-hidden rounded-lg shadow-md border border-gray-200"
+              >
+                <img
+                  src="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=500&auto=format&fit=crop"
+                  class="w-full h-24 md:h-40 object-cover opacity-100 group-hover:opacity-100 transition-opacity"
+                  alt="PCB/Circuit Repair"
+                />
+              </div>
+              <p
+                class="mt-2 text-sm md:text-lg text-center font-normal text-gray-800 group-hover:text-[#172554] transition-colors"
+              >
+                PCB/Circuit Repair
+              </p>
+            </a>
+
+            <!-- 7. Fan Motor Repair -->
+            <a
+              href="#"
+              class="min-w-[150px] md:min-w-[220px] transition-transform hover:scale-105 shrink-0 block group"
+            >
+              <div
+                class="relative overflow-hidden rounded-lg shadow-md border border-gray-200"
+              >
+                <img
+                  src="https://images.unsplash.com/photo-1534398079543-7ae6d016b86a?q=80&w=500&auto=format&fit=crop"
+                  class="w-full h-24 md:h-40 object-cover opacity-100 group-hover:opacity-100 transition-opacity"
+                  alt="Fan Motor Repair"
+                />
+              </div>
+              <p
+                class="mt-2 text-sm md:text-lg text-center font-normal text-gray-800 group-hover:text-[#172554] transition-colors"
+              >
+                Fan Motor Repair
+              </p>
+            </a>
+
+            <!-- 8. AC Troubleshooting -->
+            <a
+              href="#"
+              class="min-w-[150px] md:min-w-[220px] transition-transform hover:scale-105 shrink-0 block group"
+            >
+              <div
+                class="relative overflow-hidden rounded-lg shadow-md border border-gray-200"
+              >
+                <img
+                  src="https://images.unsplash.com/photo-1581092335397-9583eb92d232?q=80&w=500&auto=format&fit=crop"
+                  class="w-full h-24 md:h-40 object-cover opacity-100 group-hover:opacity-100 transition-opacity"
+                  alt="AC Troubleshooting"
+                />
+              </div>
+              <p
+                class="mt-2 text-sm md:text-lg text-center font-normal text-gray-800 group-hover:text-[#172554] transition-colors"
+              >
+                AC Troubleshooting
+              </p>
+            </a>
+
+            <!-- 9. General Servicing -->
+            <a
+              href="#"
+              class="min-w-[150px] md:min-w-[220px] transition-transform hover:scale-105 shrink-0 block group"
+            >
+              <div
+                class="relative overflow-hidden rounded-lg shadow-md border border-gray-200"
+              >
+                <img
+                  src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=500&auto=format&fit=crop"
+                  class="w-full h-24 md:h-40 object-cover opacity-100 group-hover:opacity-100 transition-opacity"
+                  alt="General Servicing"
+                />
+              </div>
+              <p
+                class="mt-2 text-sm md:text-lg text-center font-normal text-gray-800 group-hover:text-[#172554] transition-colors"
+              >
+                General Servicing
+              </p>
+            </a>
           </div>
         </div>
       </div>
     </section>
     <div class="w-full h-[7px] bg-[#BFC6C4]"></div>
-    <!-- MAIN CATEGORY: SMALL JOBS / QUICK FIX -->
-    <section class="bg-[#EAEFEF] py-4 px-4">
+
+    <section class="bg-[#EAEFEF] px-4 pt-2 pb-2">
       <div class="max-w-7xl mx-auto">
-        <div class="flex justify-between items-center mb-2 gap-2">
+        <div class="flex justify-between items-center mb-3 gap-2">
           <div class="flex items-center gap-2">
-            <img src="Captur1e.PNG" class="w-5 h-5 shrink-0" alt="icon" />
-
-            <h2
-              class="text-base md:text-lg font-bold text-[#172554] truncate leading-none"
-            >
-              Small Jobs / Quick Fix
-            </h2>
-          </div>
-
-          <a
-            href="small-jobs.html"
-            class="group flex items-center gap-1 text-[11px] md:text-sm text-[#172554] font-bold hover:opacity-70 transition-colors shrink-0 whitespace-nowrap"
-          >
-            <span>Visit Page</span>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2.5"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              class="w-3 h-3 md:w-3.5 md:h-3.5 transform transition-transform group-hover:translate-x-1"
-            >
-              <polyline points="9 18 15 12 9 6"></polyline>
-            </svg>
-          </a>
-        </div>
-
-        <div class="flex items-center">
-          <div
-            class="flex overflow-x-auto gap-4 md:gap-6 scroll-smooth pb-0 w-full no-scrollbar"
-            style="scrollbar-width: none; -ms-overflow-style: none"
-          >
-            <style>
-              .no-scrollbar::-webkit-scrollbar {
-                display: none;
-              }
-            </style>
-
-            <div
-              class="min-w-[150px] md:min-w-[220px] transition-transform hover:scale-105 shrink-0"
-            >
-              <img
-                src="https://images.unsplash.com/photo-1565151443833-29bf2ba5dd8d?q=80&w=500&auto=format&fit=crop"
-                class="w-full h-24 md:h-40 rounded-md md:rounded-lg shadow-md object-cover"
-                alt="Fan Repair"
-              />
-              <p
-                class="mt-1.5 text-sm md:text-lg text-center font-normal text-gray-800 leading-tight"
-              >
-                Fan Repair
-              </p>
-            </div>
-
-            <div
-              class="min-w-[150px] md:min-w-[220px] transition-transform hover:scale-105 shrink-0"
-            >
-              <img
-                src="https://images.unsplash.com/photo-1550985616-10810253b84d?q=80&w=500&auto=format&fit=crop"
-                class="w-full h-24 md:h-40 rounded-md md:rounded-lg shadow-md object-cover"
-                alt="Light Fitting"
-              />
-              <p
-                class="mt-1.5 text-sm md:text-lg text-center font-normal text-gray-800 leading-tight"
-              >
-                Light Fitting
-              </p>
-            </div>
-
-            <div
-              class="min-w-[150px] md:min-w-[220px] transition-transform hover:scale-105 shrink-0"
-            >
-              <img
-                src="https://images.unsplash.com/photo-1542013936693-884638332954?q=80&w=500&auto=format&fit=crop"
-                class="w-full h-24 md:h-40 rounded-md md:rounded-lg shadow-md object-cover"
-                alt="Minor Plumbing"
-              />
-              <p
-                class="mt-1.5 text-sm md:text-lg text-center font-normal text-gray-800 leading-tight"
-              >
-                Minor Plumbing
-              </p>
-            </div>
-
-            <div
-              class="min-w-[150px] md:min-w-[220px] transition-transform hover:scale-105 shrink-0"
-            >
-              <img
-                src="https://images.unsplash.com/photo-1509266272358-7701da638298?q=80&w=500&auto=format&fit=crop"
-                class="w-full h-24 md:h-40 rounded-md md:rounded-lg shadow-md object-cover"
-                alt="Door/Lock Fix"
-              />
-              <p
-                class="mt-1.5 text-sm md:text-lg text-center font-normal text-gray-800 leading-tight"
-              >
-                Door/Lock Fix
-              </p>
-            </div>
-
-            <div
-              class="min-w-[150px] md:min-w-[220px] transition-transform hover:scale-105 shrink-0"
-            >
-              <img
-                src="https://images.unsplash.com/photo-1593305841991-05c297ba4575?q=80&w=500&auto=format&fit=crop"
-                class="w-full h-24 md:h-40 rounded-md md:rounded-lg shadow-md object-cover"
-                alt="TV/Machine Installation"
-              />
-              <p
-                class="mt-1.5 text-sm md:text-lg text-center font-normal text-gray-800 leading-tight"
-              >
-                TV/Machine Installation
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <div class="w-full h-[7px] bg-[#BFC6C4]"></div>
-    <!-- MAIN CATEGORY: CLEANING & SANITATION -->
-    <section class="bg-[#EAEFEF] py-4 px-4">
-      <div class="max-w-7xl mx-auto">
-        <div class="flex justify-between items-center mb-2 gap-2">
-          <div class="flex items-center gap-2">
-            <img
-              src="Cleaning & Sanitation.PNG"
-              class="w-5 h-5 shrink-0"
-              alt="icon"
-            />
-
-            <h2
-              class="text-base md:text-lg font-bold text-[#172554] truncate leading-none"
-            >
-              Cleaning & Sanitation
-            </h2>
-          </div>
-
-          <a
-            href="cleaning-services.html"
-            class="group flex items-center gap-1 text-[11px] md:text-sm text-[#172554] font-bold hover:opacity-70 transition-colors shrink-0 whitespace-nowrap"
-          >
-            <span>Visit Page</span>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2.5"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              class="w-3 h-3 md:w-3.5 md:h-3.5 transform transition-transform group-hover:translate-x-1"
-            >
-              <polyline points="9 18 15 12 9 6"></polyline>
-            </svg>
-          </a>
-        </div>
-
-        <div class="flex items-center">
-          <div
-            class="flex overflow-x-auto gap-4 md:gap-6 scroll-smooth pb-0 w-full no-scrollbar"
-            style="scrollbar-width: none; -ms-overflow-style: none"
-          >
-            <style>
-              .no-scrollbar::-webkit-scrollbar {
-                display: none;
-              }
-            </style>
-
-            <div
-              class="min-w-[150px] md:min-w-[220px] transition-transform hover:scale-105 shrink-0"
-            >
-              <img
-                src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?q=80&w=500&auto=format&fit=crop"
-                class="w-full h-24 md:h-40 rounded-md md:rounded-lg shadow-md object-cover"
-                alt="Regular Cleaning"
-              />
-              <p
-                class="mt-1.5 text-sm md:text-lg text-center font-normal text-gray-800 leading-tight"
-              >
-                Regular Cleaning
-              </p>
-            </div>
-
-            <div
-              class="min-w-[150px] md:min-w-[220px] transition-transform hover:scale-105 shrink-0"
-            >
-              <img
-                src="https://images.unsplash.com/photo-1528740561666-dc2479dc08ab?q=80&w=500&auto=format&fit=crop"
-                class="w-full h-24 md:h-40 rounded-md md:rounded-lg shadow-md object-cover"
-                alt="Deep Cleaning"
-              />
-              <p
-                class="mt-1.5 text-sm md:text-lg text-center font-normal text-gray-800 leading-tight"
-              >
-                Deep Cleaning
-              </p>
-            </div>
-
-            <div
-              class="min-w-[150px] md:min-w-[220px] transition-transform hover:scale-105 shrink-0"
-            >
-              <img
-                src="https://images.unsplash.com/photo-1584483766114-2cea6facdf57?q=80&w=500&auto=format&fit=crop"
-                class="w-full h-24 md:h-40 rounded-md md:rounded-lg shadow-md object-cover"
-                alt="Disinfection"
-              />
-              <p
-                class="mt-1.5 text-sm md:text-lg text-center font-normal text-gray-800 leading-tight"
-              >
-                Disinfection
-              </p>
-            </div>
-
-            <div
-              class="min-w-[150px] md:min-w-[220px] transition-transform hover:scale-105 shrink-0"
-            >
-              <img
-                src="https://images.unsplash.com/photo-1624923686627-514dd5e57bae?q=80&w=500&auto=format&fit=crop"
-                class="w-full h-24 md:h-40 rounded-md md:rounded-lg shadow-md object-cover"
-                alt="Pest Control"
-              />
-              <p
-                class="mt-1.5 text-sm md:text-lg text-center font-normal text-gray-800 leading-tight"
-              >
-                Pest Control
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <div class="w-full h-[7px] bg-[#BFC6C4]"></div>
-    <!-- MAIN CATEGORY: INDUSTRIAL & PROJECTS -->
-    <section class="bg-[#EAEFEF] py-4 px-4">
-      <div class="max-w-7xl mx-auto">
-        <div class="flex justify-between items-center mb-2 gap-2">
-          <div class="flex items-center gap-2">
-            <img
-              src="Industrial & Projects.PNG"
-              class="w-5 h-5 shrink-0"
-              alt="icon"
-            />
-
-            <h2
-              class="text-base md:text-lg font-bold text-[#172554] truncate leading-none"
-            >
-              Industrial & Projects
-            </h2>
-          </div>
-
-          <a
-            href="industrial-services.html"
-            class="group flex items-center gap-1 text-[11px] md:text-sm text-[#172554] font-bold hover:opacity-70 transition-colors shrink-0 whitespace-nowrap"
-          >
-            <span>Visit Page</span>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2.5"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              class="w-3 h-3 md:w-3.5 md:h-3.5 transform transition-transform group-hover:translate-x-1"
-            >
-              <polyline points="9 18 15 12 9 6"></polyline>
-            </svg>
-          </a>
-        </div>
-
-        <div class="flex items-center">
-          <div
-            class="flex overflow-x-auto gap-4 md:gap-6 scroll-smooth pb-0 w-full no-scrollbar"
-            style="scrollbar-width: none; -ms-overflow-style: none"
-          >
-            <style>
-              .no-scrollbar::-webkit-scrollbar {
-                display: none;
-              }
-            </style>
-
-            <div
-              class="min-w-[150px] md:min-w-[220px] transition-transform hover:scale-105 shrink-0"
-            >
-              <img
-                src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=500&auto=format&fit=crop"
-                class="w-full h-24 md:h-40 rounded-md md:rounded-lg shadow-md object-cover"
-                alt="Machine Maintenance"
-              />
-              <p
-                class="mt-1.5 text-sm md:text-lg text-center font-normal text-gray-800 leading-tight"
-              >
-                Machine Maintenance
-              </p>
-            </div>
-
-            <div
-              class="min-w-[150px] md:min-w-[220px] transition-transform hover:scale-105 shrink-0"
-            >
-              <img
-                src="https://images.unsplash.com/photo-1513828583688-c52646db42da?q=80&w=500&auto=format&fit=crop"
-                class="w-full h-24 md:h-40 rounded-md md:rounded-lg shadow-md object-cover"
-                alt="Plant Installation"
-              />
-              <p
-                class="mt-1.5 text-sm md:text-lg text-center font-normal text-gray-800 leading-tight"
-              >
-                Plant Installation
-              </p>
-            </div>
-
-            <div
-              class="min-w-[150px] md:min-w-[220px] transition-transform hover:scale-105 shrink-0"
-            >
-              <img
-                src="https://images.unsplash.com/photo-1544724569-5f546fd6f2b5?q=80&w=500&auto=format&fit=crop"
-                class="w-full h-24 md:h-40 rounded-md md:rounded-lg shadow-md object-cover"
-                alt="Industrial Wiring"
-              />
-              <p
-                class="mt-1.5 text-sm md:text-lg text-center font-normal text-gray-800 leading-tight"
-              >
-                Industrial Wiring
-              </p>
-            </div>
-
-            <div
-              class="min-w-[150px] md:min-w-[220px] transition-transform hover:scale-105 shrink-0"
-            >
-              <img
-                src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?q=80&w=500&auto=format&fit=crop"
-                class="w-full h-24 md:h-40 rounded-md md:rounded-lg shadow-md object-cover"
-                alt="Heavy Equipment Repair"
-              />
-              <p
-                class="mt-1.5 text-sm md:text-lg text-center font-normal text-gray-800 leading-tight"
-              >
-                Heavy Equipment Repair
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <div class="w-full h-[7px] bg-[#BFC6C4]"></div>
-    <!-- MAIN CATEGORY: CONSTRUCTION & RENOVATION -->
-    <section class="bg-[#EAEFEF] py-4 px-4">
-      <div class="max-w-7xl mx-auto">
-        <div class="flex justify-between items-center mb-2 gap-2">
-          <div class="flex items-center gap-2">
-            <img
-              src="Construction & Renovation.PNG"
-              class="w-5 h-5 shrink-0"
-              alt="icon"
-            />
-
-            <h2
-              class="text-base md:text-lg font-bold text-[#172554] truncate leading-none"
-            >
-              Construction & Renovation
-            </h2>
-          </div>
-
-          <a
-            href="construction-services.html"
-            class="group flex items-center gap-1 text-[11px] md:text-sm text-[#172554] font-bold hover:opacity-70 transition-colors shrink-0 whitespace-nowrap"
-          >
-            <span>Visit Page</span>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2.5"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              class="w-3 h-3 md:w-3.5 md:h-3.5 transform transition-transform group-hover:translate-x-1"
-            >
-              <polyline points="9 18 15 12 9 6"></polyline>
-            </svg>
-          </a>
-        </div>
-
-        <div class="flex items-center">
-          <div
-            class="flex overflow-x-auto gap-4 md:gap-6 scroll-smooth pb-0 w-full no-scrollbar"
-            style="scrollbar-width: none; -ms-overflow-style: none"
-          >
-            <style>
-              .no-scrollbar::-webkit-scrollbar {
-                display: none;
-              }
-            </style>
-
-            <div
-              class="min-w-[150px] md:min-w-[220px] transition-transform hover:scale-105 shrink-0"
-            >
-              <img
-                src="https://images.unsplash.com/photo-1503387762-592dea58ef23?q=80&w=500&auto=format&fit=crop"
-                class="w-full h-24 md:h-40 rounded-md md:rounded-lg shadow-md object-cover"
-                alt="New Build"
-              />
-              <p
-                class="mt-1.5 text-sm md:text-lg text-center font-normal text-gray-800 leading-tight"
-              >
-                New Build
-              </p>
-            </div>
-
-            <div
-              class="min-w-[150px] md:min-w-[220px] transition-transform hover:scale-105 shrink-0"
-            >
-              <img
-                src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=500&auto=format&fit=crop"
-                class="w-full h-24 md:h-40 rounded-md md:rounded-lg shadow-md object-cover"
-                alt="Interior Fit-out"
-              />
-              <p
-                class="mt-1.5 text-sm md:text-lg text-center font-normal text-gray-800 leading-tight"
-              >
-                Interior Fit-out
-              </p>
-            </div>
-
-            <div
-              class="min-w-[150px] md:min-w-[220px] transition-transform hover:scale-105 shrink-0"
-            >
-              <img
-                src="https://images.unsplash.com/photo-1581858726788-75bc0f6a952d?q=80&w=500&auto=format&fit=crop"
-                class="w-full h-24 md:h-40 rounded-md md:rounded-lg shadow-md object-cover"
-                alt="Flooring"
-              />
-              <p
-                class="mt-1.5 text-sm md:text-lg text-center font-normal text-gray-800 leading-tight"
-              >
-                Flooring
-              </p>
-            </div>
-
-            <div
-              class="min-w-[150px] md:min-w-[220px] transition-transform hover:scale-105 shrink-0"
-            >
-              <img
-                src="https://images.unsplash.com/photo-1632759162402-bc3243959960?q=80&w=500&auto=format&fit=crop"
-                class="w-full h-24 md:h-40 rounded-md md:rounded-lg shadow-md object-cover"
-                alt="Roofing"
-              />
-              <p
-                class="mt-1.5 text-sm md:text-lg text-center font-normal text-gray-800 leading-tight"
-              >
-                Roofing
-              </p>
-            </div>
-
-            <div
-              class="min-w-[150px] md:min-w-[220px] transition-transform hover:scale-105 shrink-0"
-            >
-              <img
-                src="https://images.unsplash.com/photo-1590069230002-70cc20450239?q=80&w=500&auto=format&fit=crop"
-                class="w-full h-24 md:h-40 rounded-md md:rounded-lg shadow-md object-cover"
-                alt="Structural Repair"
-              />
-              <p
-                class="mt-1.5 text-sm md:text-lg text-center font-normal text-gray-800 leading-tight"
-              >
-                Structural Repair
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <div class="w-full h-[7px] bg-[#BFC6C4]"></div>
-    <!-- MAIN CATEGORY: EVENT MANAGEMENT -->
-    <section class="bg-[#EAEFEF] py-4 px-4">
-      <div class="max-w-7xl mx-auto">
-        <div class="flex justify-between items-center mb-2 gap-2">
-          <div class="flex items-center gap-2">
-            <img
-              src="event management1.png"
-              class="w-5 h-5 shrink-0"
-              alt="icon"
-            />
-
+            <img src="Capture1.png" class="w-5 h-5 shrink-0" alt="icon" />
             <h2
               class="text-base md:text-lg font-bold text-[#172554] truncate leading-none"
             >
@@ -1816,11 +1817,12 @@
             </h2>
           </div>
 
+          <!-- See All Button with 4-sided border box -->
           <a
-            href="event-services.html"
-            class="group flex items-center gap-1 text-[11px] md:text-sm text-[#172554] font-bold hover:opacity-70 transition-colors shrink-0 whitespace-nowrap"
+            href="#"
+            class="group flex items-center gap-1 text-[11px] md:text-sm text-[#172554] font-bold hover:text-black hover:border-black transition-colors shrink-0 whitespace-nowrap border border-[#172554] rounded px-2 py-1"
           >
-            <span>Visit Page</span>
+            <span>See All</span>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
@@ -1838,7 +1840,7 @@
 
         <div class="flex items-center">
           <div
-            class="flex overflow-x-auto gap-4 md:gap-6 scroll-smooth pb-0 w-full no-scrollbar"
+            class="flex overflow-x-auto gap-4 md:gap-6 scroll-smooth pb-1 w-full no-scrollbar"
             style="scrollbar-width: none; -ms-overflow-style: none"
           >
             <style>
@@ -1847,183 +1849,221 @@
               }
             </style>
 
-            <div
-              class="min-w-[150px] md:min-w-[220px] transition-transform hover:scale-105 shrink-0"
+            <!-- 1. Event Planning -->
+            <a
+              href="#"
+              class="min-w-[150px] md:min-w-[220px] transition-transform hover:scale-105 shrink-0 block group"
             >
-              <img
-                src="https://images.unsplash.com/photo-1505373877841-8d25f7d46678?q=80&w=500&auto=format&fit=crop"
-                class="w-full h-24 md:h-40 rounded-md md:rounded-lg shadow-md object-cover"
-                alt="Event Planning"
-              />
+              <div
+                class="relative overflow-hidden rounded-lg shadow-md border border-gray-200"
+              >
+                <img
+                  src="https://images.unsplash.com/photo-1511556532299-8f662fc26c06?q=80&w=500&auto=format&fit=crop"
+                  class="w-full h-24 md:h-40 object-cover opacity-100 group-hover:opacity-100 transition-opacity"
+                  alt="Event Planning"
+                />
+              </div>
               <p
-                class="mt-1.5 text-sm md:text-lg text-center font-normal text-gray-800 leading-tight"
+                class="mt-2 text-sm md:text-lg text-center font-normal text-gray-800 group-hover:text-[#172554] transition-colors"
               >
                 Event Planning
               </p>
-            </div>
+            </a>
 
-            <div
-              class="min-w-[150px] md:min-w-[220px] transition-transform hover:scale-105 shrink-0"
+            <!-- 2. Venue Booking -->
+            <a
+              href="#"
+              class="min-w-[150px] md:min-w-[220px] transition-transform hover:scale-105 shrink-0 block group"
             >
-              <img
-                src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=500&auto=format&fit=crop"
-                class="w-full h-24 md:h-40 rounded-md md:rounded-lg shadow-md object-cover"
-                alt="Stage Setup"
-              />
-              <p
-                class="mt-1.5 text-sm md:text-lg text-center font-normal text-gray-800 leading-tight"
+              <div
+                class="relative overflow-hidden rounded-lg shadow-md border border-gray-200"
               >
-                Stage Setup
+                <img
+                  src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?q=80&w=500&auto=format&fit=crop"
+                  class="w-full h-24 md:h-40 object-cover opacity-100 group-hover:opacity-100 transition-opacity"
+                  alt="Venue Booking"
+                />
+              </div>
+              <p
+                class="mt-2 text-sm md:text-lg text-center font-normal text-gray-800 group-hover:text-[#172554] transition-colors"
+              >
+                Venue Booking
               </p>
-            </div>
+            </a>
 
-            <div
-              class="min-w-[150px] md:min-w-[220px] transition-transform hover:scale-105 shrink-0"
+            <!-- 3. Stage Decor -->
+            <a
+              href="#"
+              class="min-w-[150px] md:min-w-[220px] transition-transform hover:scale-105 shrink-0 block group"
             >
-              <img
-                src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?q=80&w=500&auto=format&fit=crop"
-                class="w-full h-24 md:h-40 rounded-md md:rounded-lg shadow-md object-cover"
-                alt="Sound & Lighting"
-              />
-              <p
-                class="mt-1.5 text-sm md:text-lg text-center font-normal text-gray-800 leading-tight"
+              <div
+                class="relative overflow-hidden rounded-lg shadow-md border border-gray-200"
               >
-                Sound & Lighting
+                <img
+                  src="https://images.unsplash.com/photo-1478146896981-b80fe463b330?q=80&w=500&auto=format&fit=crop"
+                  class="w-full h-24 md:h-40 object-cover opacity-100 group-hover:opacity-100 transition-opacity"
+                  alt="Stage Decor"
+                />
+              </div>
+              <p
+                class="mt-2 text-sm md:text-lg text-center font-normal text-gray-800 group-hover:text-[#172554] transition-colors"
+              >
+                Stage Decor
               </p>
-            </div>
+            </a>
 
-            <div
-              class="min-w-[150px] md:min-w-[220px] transition-transform hover:scale-105 shrink-0"
+            <!-- 4. Lighting Setup -->
+            <a
+              href="#"
+              class="min-w-[150px] md:min-w-[220px] transition-transform hover:scale-105 shrink-0 block group"
             >
-              <img
-                src="https://images.unsplash.com/photo-1469334031218-e382a71b716b?q=80&w=500&auto=format&fit=crop"
-                class="w-full h-24 md:h-40 rounded-md md:rounded-lg shadow-md object-cover"
-                alt="Decoration"
-              />
-              <p
-                class="mt-1.5 text-sm md:text-lg text-center font-normal text-gray-800 leading-tight"
+              <div
+                class="relative overflow-hidden rounded-lg shadow-md border border-gray-200"
               >
-                Decoration
+                <img
+                  src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=500&auto=format&fit=crop"
+                  class="w-full h-24 md:h-40 object-cover opacity-100 group-hover:opacity-100 transition-opacity"
+                  alt="Lighting Setup"
+                />
+              </div>
+              <p
+                class="mt-2 text-sm md:text-lg text-center font-normal text-gray-800 group-hover:text-[#172554] transition-colors"
+              >
+                Lighting Setup
               </p>
-            </div>
+            </a>
+
+            <!-- 5. Photography -->
+            <a
+              href="#"
+              class="min-w-[150px] md:min-w-[220px] transition-transform hover:scale-105 shrink-0 block group"
+            >
+              <div
+                class="relative overflow-hidden rounded-lg shadow-md border border-gray-200"
+              >
+                <img
+                  src="https://images.unsplash.com/photo-1520390115510-7f287bcbc0ab?q=80&w=500&auto=format&fit=crop"
+                  class="w-full h-24 md:h-40 object-cover opacity-100 group-hover:opacity-100 transition-opacity"
+                  alt="Photography"
+                />
+              </div>
+              <p
+                class="mt-2 text-sm md:text-lg text-center font-normal text-gray-800 group-hover:text-[#172554] transition-colors"
+              >
+                Photography
+              </p>
+            </a>
+
+            <!-- 6. Catering / Food -->
+            <a
+              href="#"
+              class="min-w-[150px] md:min-w-[220px] transition-transform hover:scale-105 shrink-0 block group"
+            >
+              <div
+                class="relative overflow-hidden rounded-lg shadow-md border border-gray-200"
+              >
+                <img
+                  src="https://images.unsplash.com/photo-1555244162-803834f70033?q=80&w=500&auto=format&fit=crop"
+                  class="w-full h-24 md:h-40 object-cover opacity-100 group-hover:opacity-100 transition-opacity"
+                  alt="Catering / Food"
+                />
+              </div>
+              <p
+                class="mt-2 text-sm md:text-lg text-center font-normal text-gray-800 group-hover:text-[#172554] transition-colors"
+              >
+                Catering / Food
+              </p>
+            </a>
+
+            <!-- 7. Sound & DJ -->
+            <a
+              href="#"
+              class="min-w-[150px] md:min-w-[220px] transition-transform hover:scale-105 shrink-0 block group"
+            >
+              <div
+                class="relative overflow-hidden rounded-lg shadow-md border border-gray-200"
+              >
+                <img
+                  src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?q=80&w=500&auto=format&fit=crop"
+                  class="w-full h-24 md:h-40 object-cover opacity-100 group-hover:opacity-100 transition-opacity"
+                  alt="Sound & DJ"
+                />
+              </div>
+              <p
+                class="mt-2 text-sm md:text-lg text-center font-normal text-gray-800 group-hover:text-[#172554] transition-colors"
+              >
+                Sound & DJ
+              </p>
+            </a>
+
+            <!-- 8. Card Design -->
+            <a
+              href="#"
+              class="min-w-[150px] md:min-w-[220px] transition-transform hover:scale-105 shrink-0 block group"
+            >
+              <div
+                class="relative overflow-hidden rounded-lg shadow-md border border-gray-200"
+              >
+                <img
+                  src="https://images.unsplash.com/photo-1538356111053-748a48e1acb8?q=80&w=500&auto=format&fit=crop"
+                  class="w-full h-24 md:h-40 object-cover opacity-100 group-hover:opacity-100 transition-opacity"
+                  alt="Card Design"
+                />
+              </div>
+              <p
+                class="mt-2 text-sm md:text-lg text-center font-normal text-gray-800 group-hover:text-[#172554] transition-colors"
+              >
+                Card Design
+              </p>
+            </a>
+
+            <!-- 9. Guest Management -->
+            <a
+              href="#"
+              class="min-w-[150px] md:min-w-[220px] transition-transform hover:scale-105 shrink-0 block group"
+            >
+              <div
+                class="relative overflow-hidden rounded-lg shadow-md border border-gray-200"
+              >
+                <img
+                  src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=500&auto=format&fit=crop"
+                  class="w-full h-24 md:h-40 object-cover opacity-100 group-hover:opacity-100 transition-opacity"
+                  alt="Guest Management"
+                />
+              </div>
+              <p
+                class="mt-2 text-sm md:text-lg text-center font-normal text-gray-800 group-hover:text-[#172554] transition-colors"
+              >
+                Guest Management
+              </p>
+            </a>
+
+            <!-- 10. Event Hosting -->
+            <a
+              href="#"
+              class="min-w-[150px] md:min-w-[220px] transition-transform hover:scale-105 shrink-0 block group"
+            >
+              <div
+                class="relative overflow-hidden rounded-lg shadow-md border border-gray-200"
+              >
+                <img
+                  src="https://images.unsplash.com/photo-1475721025505-c08974ee03e4?q=80&w=500&auto=format&fit=crop"
+                  class="w-full h-24 md:h-40 object-cover opacity-100 group-hover:opacity-100 transition-opacity"
+                  alt="Event Hosting"
+                />
+              </div>
+              <p
+                class="mt-2 text-sm md:text-lg text-center font-normal text-gray-800 group-hover:text-[#172554] transition-colors"
+              >
+                Event Hosting
+              </p>
+            </a>
           </div>
         </div>
       </div>
     </section>
     <div class="w-full h-[7px] bg-[#BFC6C4]"></div>
-    <!-- MAIN CATEGORY: SPECIALIST SERVICES -->
-    <section class="bg-[#EAEFEF] py-4 px-4">
-      <div class="max-w-7xl mx-auto">
-        <div class="flex justify-between items-center mb-2 gap-2">
-          <div class="flex items-center gap-2">
-            <img
-              src="Solar Installation.PNG"
-              class="w-5 h-5 shrink-0"
-              alt="icon"
-            />
 
-            <h2
-              class="text-base md:text-lg font-bold text-[#172554] truncate leading-none"
-            >
-              Specialist Services
-            </h2>
-          </div>
-
-          <a
-            href="specialist-services.html"
-            class="group flex items-center gap-1 text-[11px] md:text-sm text-[#172554] font-bold hover:opacity-70 transition-colors shrink-0 whitespace-nowrap"
-          >
-            <span>Visit Page</span>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2.5"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              class="w-3 h-3 md:w-3.5 md:h-3.5 transform transition-transform group-hover:translate-x-1"
-            >
-              <polyline points="9 18 15 12 9 6"></polyline>
-            </svg>
-          </a>
-        </div>
-
-        <div class="flex items-center">
-          <div
-            class="flex overflow-x-auto gap-4 md:gap-6 scroll-smooth pb-0 w-full no-scrollbar"
-            style="scrollbar-width: none; -ms-overflow-style: none"
-          >
-            <style>
-              .no-scrollbar::-webkit-scrollbar {
-                display: none;
-              }
-            </style>
-
-            <div
-              class="min-w-[150px] md:min-w-[220px] transition-transform hover:scale-105 shrink-0"
-            >
-              <img
-                src="https://images.unsplash.com/photo-1509391366360-feaffa603201?q=80&w=500&auto=format&fit=crop"
-                class="w-full h-24 md:h-40 rounded-md md:rounded-lg shadow-md object-cover"
-                alt="Solar Installation"
-              />
-              <p
-                class="mt-1.5 text-sm md:text-lg text-center font-normal text-gray-800 leading-tight"
-              >
-                Solar Installation
-              </p>
-            </div>
-
-            <div
-              class="min-w-[150px] md:min-w-[220px] transition-transform hover:scale-105 shrink-0"
-            >
-              <img
-                src="https://images.unsplash.com/photo-1557597774-9d273605dfa9?q=80&w=500&auto=format&fit=crop"
-                class="w-full h-24 md:h-40 rounded-md md:rounded-lg shadow-md object-cover"
-                alt="Security Systems"
-              />
-              <p
-                class="mt-1.5 text-sm md:text-lg text-center font-normal text-gray-800 leading-tight"
-              >
-                Security Systems
-              </p>
-            </div>
-
-            <div
-              class="min-w-[150px] md:min-w-[220px] transition-transform hover:scale-105 shrink-0"
-            >
-              <img
-                src="https://images.unsplash.com/photo-1541625602330-2277a1cd43a7?q=80&w=500&auto=format&fit=crop"
-                class="w-full h-24 md:h-40 rounded-md md:rounded-lg shadow-md object-cover"
-                alt="Elevator Maintenance"
-              />
-              <p
-                class="mt-1.5 text-sm md:text-lg text-center font-normal text-gray-800 leading-tight"
-              >
-                Elevator Maintenance
-              </p>
-            </div>
-
-            <div
-              class="min-w-[150px] md:min-w-[220px] transition-transform hover:scale-105 shrink-0"
-            >
-              <img
-                src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?q=80&w=500&auto=format&fit=crop"
-                class="w-full h-24 md:h-40 rounded-md md:rounded-lg shadow-md object-cover"
-                alt="HVAC Design"
-              />
-              <p
-                class="mt-1.5 text-sm md:text-lg text-center font-normal text-gray-800 leading-tight"
-              >
-                HVAC Design
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <div class="w-full h-[7px] bg-[#BFC6C4]"></div>
     <!-- HELP & SUPPORT SECTION -->
 
     <section class="bg-gray-50 py-10">
