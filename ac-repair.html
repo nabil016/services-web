@@ -144,11 +144,11 @@
         class="p-4 bg-white sticky top-0 z-40 shadow-sm border-b border-gray-100"
       >
         <div class="grid grid-cols-4 gap-3">
-          <!-- 1. AC Checkup Tab (Not selected by default) -->
+          <!-- 1. AC Checkup Tab -->
           <button
             onclick="switchTab('ac-checkup')"
             id="tab-ac-checkup"
-            class="tab-btn text-center group active:scale-95 transition-all flex flex-col items-center justify-center p-2 rounded-xl border border-transparent text-gray-500 outline-none"
+            class="tab-btn text-center group active:scale-95 transition-all flex flex-col items-center justify-center p-2 rounded-xl border border-orange-400 bg-orange-50 text-black outline-none"
           >
             <img
               src="ac check icon.png"
@@ -202,213 +202,313 @@
         </div>
       </div>
 
-      <!-- Dynamic Category Containers (All Hidden by Default) -->
+      <!-- Dynamic Category Containers -->
       <div class="bg-white">
         <!-- 1. AC Checkup Category Container -->
         <div
           id="category-ac-checkup"
-          class="category-container hidden transition-all duration-300"
+          class="category-container p-4 transition-all duration-300 scroll-mt-28"
         >
-          <!-- Card 1 for AC Checkup -->
-          <div class="p-4 border-b border-gray-100">
-            <div class="flex justify-between items-start">
-              <div class="w-3/5 pr-2">
-                <h2 class="text-lg font-bold text-black mb-2">AC Checkup</h2>
-                <ul class="text-[11px] text-gray-600 space-y-2">
-                  <li class="flex items-start">
-                    <span class="text-orange-500 mr-2 text-sm leading-none"
-                      >✔</span
-                    >
-                    Get Report For Any AC Unit
-                  </li>
-                  <li class="flex items-start">
-                    <span class="text-orange-500 mr-2 text-sm leading-none"
-                      >✔</span
-                    >
-                    500 Mil+ Trusted Users Worldwide
-                  </li>
-                </ul>
-              </div>
-              <div class="w-2/5 flex justify-end">
-                <img
-                  src="ac-checkup-car.png"
-                  alt="AC Checkup"
-                  class="w-28 h-auto object-contain"
-                />
-              </div>
+          <div class="flex justify-between items-start">
+            <div class="w-3/5 pr-2">
+              <h2 class="text-lg font-bold text-black mb-2">AC Checkup</h2>
+              <ul class="text-[11px] text-gray-600 space-y-2">
+                <li class="flex items-start">
+                  <span class="text-orange-500 mr-2 text-sm leading-none"
+                    >✔</span
+                  >
+                  Get Report For Any AC Unit
+                </li>
+                <li class="flex items-start">
+                  <span class="text-orange-500 mr-2 text-sm leading-none"
+                    >✔</span
+                  >
+                  500 Mil+ Trusted Users Worldwide
+                </li>
+              </ul>
             </div>
-            <div class="flex justify-between items-end mt-4">
-              <div class="text-2xl font-bold text-black tracking-tight">
-                <span class="font-sans font-black">৳</span> 199
-              </div>
-              <a
-                href="book.html?service=AC Checkup"
-                class="px-6 py-1 border border-green-600 text-green-700 rounded-full text-sm bg-white hover:bg-green-50 active:scale-95 transition-all"
-                >Book Now</a
-              >
+            <div class="w-2/5 flex justify-end">
+              <img
+                src="ac-checkup-car.png"
+                alt="AC Checkup"
+                class="w-28 h-auto object-contain"
+              />
             </div>
           </div>
 
-          <!-- ভবিষ্যতে এই ক্যাটাগরিতে আরও কার্ড যোগ করতে চাইলে ঠিক এইখানে উপরের কার্ডের কোড কপি করে বসাবেন -->
+          <div class="flex justify-between items-end mt-4">
+            <div class="flex flex-col space-y-2 items-start">
+              <div
+                class="text-2xl font-bold text-black tracking-tight leading-none"
+              >
+                <span class="font-sans font-black">৳</span> 199
+              </div>
+              <!-- View Details Button -->
+              <button
+                onclick="toggleDetails('ac-checkup')"
+                class="px-3 py-1 border border-cyan-600 text-cyan-700 rounded-md text-[11px] bg-white hover:bg-cyan-50 active:scale-95 transition-all shadow-sm"
+              >
+                View Details
+              </button>
+            </div>
+            <a
+              href="book.html?service=AC Checkup"
+              class="px-6 py-1 border border-green-600 text-green-700 rounded-full text-sm bg-white hover:bg-green-50 active:scale-95 transition-all"
+              >Book Now</a
+            >
+          </div>
+
+          <!-- Hidden Details Section -->
+          <div
+            id="details-ac-checkup"
+            class="hidden mt-4 pt-4 border-t border-gray-100 text-[12px] text-gray-600"
+          >
+            <p><strong>Service Includes:</strong></p>
+            <ul class="list-disc pl-4 mt-1 space-y-1">
+              <li>Complete diagnosis of the AC unit.</li>
+              <li>Temperature and pressure check.</li>
+              <li>Basic filter cleaning and performance report.</li>
+            </ul>
+          </div>
         </div>
+
+        <!-- Custom Gap Divider -->
+        <div
+          class="h-[8px] bg-[#F2F4F7] w-full border-y border-gray-200/20"
+        ></div>
 
         <!-- 2. AC Repair Category Container -->
         <div
           id="category-ac-repair"
-          class="category-container hidden transition-all duration-300"
+          class="category-container p-4 transition-all duration-300 scroll-mt-28"
         >
-          <!-- Card 1 for AC Repair -->
-          <div class="p-4 border-b border-gray-100">
-            <div class="flex justify-between items-start">
-              <div class="w-3/5 pr-2">
-                <h2 class="text-lg font-bold text-black mb-2">AC Repair</h2>
-                <ul class="text-[11px] text-gray-600 space-y-2">
-                  <li class="flex items-start">
-                    <span class="text-orange-500 mr-2 text-sm leading-none"
-                      >✔</span
-                    >
-                    Fix Compressor & Fan Issues
-                  </li>
-                  <li class="flex items-start">
-                    <span class="text-orange-500 mr-2 text-sm leading-none"
-                      >✔</span
-                    >
-                    Expert Technician Doorstep Service
-                  </li>
-                </ul>
-              </div>
-              <div class="w-2/5 flex justify-end">
-                <img
-                  src="ac-repair-car.png"
-                  alt="AC Repair"
-                  class="w-28 h-auto object-contain"
-                />
-              </div>
+          <div class="flex justify-between items-start">
+            <div class="w-3/5 pr-2">
+              <h2 class="text-lg font-bold text-black mb-2">AC Repair</h2>
+              <ul class="text-[11px] text-gray-600 space-y-2">
+                <li class="flex items-start">
+                  <span class="text-orange-500 mr-2 text-sm leading-none"
+                    >✔</span
+                  >
+                  Fix Compressor & Fan Issues
+                </li>
+                <li class="flex items-start">
+                  <span class="text-orange-500 mr-2 text-sm leading-none"
+                    >✔</span
+                  >
+                  Expert Technician Doorstep Service
+                </li>
+              </ul>
             </div>
-            <div class="flex justify-between items-end mt-4">
-              <div class="text-2xl font-bold text-black tracking-tight">
-                <span class="font-sans font-black">৳</span> 499
-              </div>
-              <a
-                href="book.html?service=AC Repair"
-                class="px-6 py-1 border border-green-600 text-green-700 rounded-full text-sm bg-white hover:bg-green-50 active:scale-95 transition-all"
-                >Book Now</a
-              >
+            <div class="w-2/5 flex justify-end">
+              <img
+                src="ac-repair-car.png"
+                alt="AC Repair"
+                class="w-28 h-auto object-contain"
+              />
             </div>
           </div>
 
-          <!-- ভবিষ্যতে এই ক্যাটাগরিতে আরও কার্ড যোগ করতে চাইলে ঠিক এইখানে উপরের কার্ডের কোড কপি করে বসাবেন -->
+          <div class="flex justify-between items-end mt-4">
+            <div class="flex flex-col space-y-2 items-start">
+              <div
+                class="text-2xl font-bold text-black tracking-tight leading-none"
+              >
+                <span class="font-sans font-black">৳</span> 499
+              </div>
+              <!-- View Details Button -->
+              <button
+                onclick="toggleDetails('ac-repair')"
+                class="px-3 py-1 border border-cyan-600 text-cyan-700 rounded-md text-[11px] bg-white hover:bg-cyan-50 active:scale-95 transition-all shadow-sm"
+              >
+                View Details
+              </button>
+            </div>
+            <a
+              href="book.html?service=AC Repair"
+              class="px-6 py-1 border border-green-600 text-green-700 rounded-full text-sm bg-white hover:bg-green-50 active:scale-95 transition-all"
+              >Book Now</a
+            >
+          </div>
+
+          <!-- Hidden Details Section -->
+          <div
+            id="details-ac-repair"
+            class="hidden mt-4 pt-4 border-t border-gray-100 text-[12px] text-gray-600"
+          >
+            <p><strong>Service Includes:</strong></p>
+            <ul class="list-disc pl-4 mt-1 space-y-1">
+              <li>Identification of electrical/mechanical issues.</li>
+              <li>Fixing water leakage or noise problems.</li>
+              <li>Spare parts cost will be extra (if needed).</li>
+            </ul>
+          </div>
         </div>
+
+        <!-- Custom Gap Divider -->
+        <div
+          class="h-[8px] bg-[#F2F4F7] w-full border-y border-gray-200/20"
+        ></div>
 
         <!-- 3. Master Wash Category Container -->
         <div
           id="category-master-wash"
-          class="category-container hidden transition-all duration-300"
+          class="category-container p-4 transition-all duration-300 scroll-mt-28"
         >
-          <!-- Card 1 for Master Wash -->
-          <div class="p-4 border-b border-gray-100">
-            <div class="flex justify-between items-start">
-              <div class="w-3/5 pr-2">
-                <h2 class="text-lg font-bold text-black mb-2">Master Wash</h2>
-                <ul class="text-[11px] text-gray-600 space-y-2">
-                  <li class="flex items-start">
-                    <span class="text-orange-500 mr-2 text-sm leading-none"
-                      >✔</span
-                    >
-                    Jet Pressure Deep Cleaning
-                  </li>
-                  <li class="flex items-start">
-                    <span class="text-orange-500 mr-2 text-sm leading-none"
-                      >✔</span
-                    >
-                    Boosts Cooling Efficiency Instantly
-                  </li>
-                </ul>
-              </div>
-              <div class="w-2/5 flex justify-end">
-                <img
-                  src="master-wash-car.png"
-                  alt="Master Wash"
-                  class="w-28 h-auto object-contain"
-                />
-              </div>
+          <div class="flex justify-between items-start">
+            <div class="w-3/5 pr-2">
+              <h2 class="text-lg font-bold text-black mb-2">Master Wash</h2>
+              <ul class="text-[11px] text-gray-600 space-y-2">
+                <li class="flex items-start">
+                  <span class="text-orange-500 mr-2 text-sm leading-none"
+                    >✔</span
+                  >
+                  Jet Pressure Deep Cleaning
+                </li>
+                <li class="flex items-start">
+                  <span class="text-orange-500 mr-2 text-sm leading-none"
+                    >✔</span
+                  >
+                  Boosts Cooling Efficiency Instantly
+                </li>
+              </ul>
             </div>
-            <div class="flex justify-between items-end mt-4">
-              <div class="text-2xl font-bold text-black tracking-tight">
-                <span class="font-sans font-black">৳</span> 799
-              </div>
-              <a
-                href="book.html?service=Master Wash"
-                class="px-6 py-1 border border-green-600 text-green-700 rounded-full text-sm bg-white hover:bg-green-50 active:scale-95 transition-all"
-                >Book Now</a
-              >
+            <div class="w-2/5 flex justify-end">
+              <img
+                src="master-wash-car.png"
+                alt="Master Wash"
+                class="w-28 h-auto object-contain"
+              />
             </div>
           </div>
+
+          <div class="flex justify-between items-end mt-4">
+            <div class="flex flex-col space-y-2 items-start">
+              <div
+                class="text-2xl font-bold text-black tracking-tight leading-none"
+              >
+                <span class="font-sans font-black">৳</span> 799
+              </div>
+              <!-- View Details Button -->
+              <button
+                onclick="toggleDetails('master-wash')"
+                class="px-3 py-1 border border-cyan-600 text-cyan-700 rounded-md text-[11px] bg-white hover:bg-cyan-50 active:scale-95 transition-all shadow-sm"
+              >
+                View Details
+              </button>
+            </div>
+            <a
+              href="book.html?service=Master Wash"
+              class="px-6 py-1 border border-green-600 text-green-700 rounded-full text-sm bg-white hover:bg-green-50 active:scale-95 transition-all"
+              >Book Now</a
+            >
+          </div>
+
+          <!-- Hidden Details Section -->
+          <div
+            id="details-master-wash"
+            class="hidden mt-4 pt-4 border-t border-gray-100 text-[12px] text-gray-600"
+          >
+            <p><strong>Service Includes:</strong></p>
+            <ul class="list-disc pl-4 mt-1 space-y-1">
+              <li>
+                Deep cleaning of indoor & outdoor units using a jet washer.
+              </li>
+              <li>Chemical wash for better cooling performance.</li>
+              <li>Drain pipe cleaning to prevent water dropping.</li>
+            </ul>
+          </div>
         </div>
+
+        <!-- Custom Gap Divider -->
+        <div
+          class="h-[8px] bg-[#F2F4F7] w-full border-y border-gray-200/20"
+        ></div>
 
         <!-- 4. Gas Refill Category Container -->
         <div
           id="category-gas-refill"
-          class="category-container hidden transition-all duration-300"
+          class="category-container p-4 transition-all duration-300 scroll-mt-28"
         >
-          <!-- Card 1 for Gas Refill -->
-          <div class="p-4 border-b border-gray-100">
-            <div class="flex justify-between items-start">
-              <div class="w-3/5 pr-2">
-                <h2 class="text-lg font-bold text-black mb-2">Gas Refill</h2>
-                <ul class="text-[11px] text-gray-600 space-y-2">
-                  <li class="flex items-start">
-                    <span class="text-orange-500 mr-2 text-sm leading-none"
-                      >✔</span
-                    >
-                    Full Top-up & Pressure Balancing
-                  </li>
-                  <li class="flex items-start">
-                    <span class="text-orange-500 mr-2 text-sm leading-none"
-                      >✔</span
-                    >
-                    Pre-refill Leakage Testing Included
-                  </li>
-                </ul>
-              </div>
-              <div class="w-2/5 flex justify-end">
-                <img
-                  src="gas-refill-car.png"
-                  alt="Gas Refill"
-                  class="w-28 h-auto object-contain"
-                />
-              </div>
+          <div class="flex justify-between items-start">
+            <div class="w-3/5 pr-2">
+              <h2 class="text-lg font-bold text-black mb-2">Gas Refill</h2>
+              <ul class="text-[11px] text-gray-600 space-y-2">
+                <li class="flex items-start">
+                  <span class="text-orange-500 mr-2 text-sm leading-none"
+                    >✔</span
+                  >
+                  Full Top-up & Pressure Balancing
+                </li>
+                <li class="flex items-start">
+                  <span class="text-orange-500 mr-2 text-sm leading-none"
+                    >✔</span
+                  >
+                  Pre-refill Leakage Testing Included
+                </li>
+              </ul>
             </div>
-            <div class="flex justify-between items-end mt-4">
-              <div class="text-2xl font-bold text-black tracking-tight">
+            <div class="w-2/5 flex justify-end">
+              <img
+                src="gas-refill-car.png"
+                alt="Gas Refill"
+                class="w-28 h-auto object-contain"
+              />
+            </div>
+          </div>
+
+          <div class="flex justify-between items-end mt-4">
+            <div class="flex flex-col space-y-2 items-start">
+              <div
+                class="text-2xl font-bold text-black tracking-tight leading-none"
+              >
                 <span class="font-sans font-black">৳</span> 1199
               </div>
-              <a
-                href="book.html?service=Gas Refill"
-                class="px-6 py-1 border border-green-600 text-green-700 rounded-full text-sm bg-white hover:bg-green-50 active:scale-95 transition-all"
-                >Book Now</a
+              <!-- View Details Button -->
+              <button
+                onclick="toggleDetails('gas-refill')"
+                class="px-3 py-1 border border-cyan-600 text-cyan-700 rounded-md text-[11px] bg-white hover:bg-cyan-50 active:scale-95 transition-all shadow-sm"
               >
+                View Details
+              </button>
             </div>
+            <a
+              href="book.html?service=Gas Refill"
+              class="px-6 py-1 border border-green-600 text-green-700 rounded-full text-sm bg-white hover:bg-green-50 active:scale-95 transition-all"
+              >Book Now</a
+            >
+          </div>
+
+          <!-- Hidden Details Section -->
+          <div
+            id="details-gas-refill"
+            class="hidden mt-4 pt-4 border-t border-gray-100 text-[12px] text-gray-600"
+          >
+            <p><strong>Service Includes:</strong></p>
+            <ul class="list-disc pl-4 mt-1 space-y-1">
+              <li>Checking system for any gas leakages.</li>
+              <li>Topping up Freon/Refrigerant gas to optimal levels.</li>
+              <li>Post-refill performance and cooling check.</li>
+            </ul>
           </div>
         </div>
       </div>
 
-      <!-- Tab Switching Script -->
+      <!-- Tab Switching & View Details Script -->
       <script>
         function switchTab(categoryId) {
-          // 1. Hide all category containers first
-          document
-            .querySelectorAll(".category-container")
-            .forEach((container) => {
-              container.classList.add("hidden");
+          // Scroll smoothly to the specific category container
+          const targetElement = document.getElementById(
+            "category-" + categoryId,
+          );
+          if (targetElement) {
+            targetElement.scrollIntoView({
+              behavior: "smooth",
+              block: "start",
             });
+          }
 
-          // 2. Show the specific selected category container
-          document
-            .getElementById("category-" + categoryId)
-            .classList.remove("hidden");
-
-          // 3. Reset styles for all tabs
+          // Reset styles for all tabs
           document.querySelectorAll(".tab-btn").forEach((btn) => {
             btn.classList.remove(
               "border-orange-400",
@@ -418,14 +518,24 @@
             btn.classList.add("border-transparent", "text-gray-500");
           });
 
-          // 4. Add active styling to clicked tab
+          // Add active styling to clicked tab
           const activeTab = document.getElementById("tab-" + categoryId);
-          activeTab.classList.remove("border-transparent", "text-gray-500");
-          activeTab.classList.add(
-            "border-orange-400",
-            "bg-orange-50",
-            "text-black",
-          );
+          if (activeTab) {
+            activeTab.classList.remove("border-transparent", "text-gray-500");
+            activeTab.classList.add(
+              "border-orange-400",
+              "bg-orange-50",
+              "text-black",
+            );
+          }
+        }
+
+        // Function to show/hide details
+        function toggleDetails(categoryId) {
+          const detailsDiv = document.getElementById("details-" + categoryId);
+          if (detailsDiv) {
+            detailsDiv.classList.toggle("hidden");
+          }
         }
       </script>
       <!-- Gap Below Categories (Old safety section was right after this) -->
