@@ -668,50 +668,66 @@
         }
 
         // MODAL LOGIC (Accepts Title, Price, and Booking Link)
-        function openDetails(serviceName, price, bookUrl) {
-          const backdrop = document.getElementById("modal-backdrop");
-          const sheet = document.getElementById("bottom-sheet");
+function openDetails(serviceName, price, bookUrl) {
+  const backdrop = document.getElementById("modal-backdrop");
+  const sheet = document.getElementById("bottom-sheet");
+  const stickyBtn = document.getElementById("stickyBookBtn"); // ফিক্সড বাটন সিলেক্ট করা হলো
+  const body = document.body;
 
-          // Update dynamically based on clicked item
-          document.getElementById("modal-title").innerText = serviceName;
-          document.getElementById("modal-price").innerHTML =
-            '<span class="font-sans font-black">৳</span> ' + price;
+  // Update dynamically based on clicked item
+  document.getElementById("modal-title").innerText = serviceName;
+  document.getElementById("modal-price").innerHTML =
+    '<span class="font-sans font-black">৳</span> ' + price;
 
-          // Set URLs for both Book Now buttons inside the modal
-          document.getElementById("modal-header-book-btn").href = bookUrl;
-          document.getElementById("modal-footer-book-btn").href = bookUrl;
+  // Set URLs for both Book Now buttons inside the modal
+  document.getElementById("modal-header-book-btn").href = bookUrl;
+  document.getElementById("modal-footer-book-btn").href = bookUrl;
 
-          // Show elements
-          backdrop.classList.remove("hidden");
-          sheet.classList.remove("hidden");
+  // Show modal elements
+  backdrop.classList.remove("hidden");
+  sheet.classList.remove("hidden");
 
-          // Trigger transition smoothly
-          setTimeout(() => {
-            backdrop.classList.remove("opacity-0");
-            backdrop.classList.add("opacity-100");
+  // ফিক্সড বুক বাটন হাইড করা এবং ব্যাকগ্রাউন্ড স্ক্রোল বন্ধ করা
+  if (stickyBtn) {
+    stickyBtn.classList.add("hidden");
+  }
+  body.classList.add("overflow-hidden");
 
-            sheet.classList.remove("translate-y-full");
-            sheet.classList.add("translate-y-0");
-          }, 10);
-        }
+  // Trigger transition smoothly
+  setTimeout(() => {
+    backdrop.classList.remove("opacity-0");
+    backdrop.classList.add("opacity-100");
 
-        function closeDetails() {
-          const backdrop = document.getElementById("modal-backdrop");
-          const sheet = document.getElementById("bottom-sheet");
+    sheet.classList.remove("translate-y-full");
+    sheet.classList.add("translate-y-0");
+  }, 10);
+}
 
-          // Slide down and fade out
-          backdrop.classList.remove("opacity-100");
-          backdrop.classList.add("opacity-0");
+function closeDetails() {
+  const backdrop = document.getElementById("modal-backdrop");
+  const sheet = document.getElementById("bottom-sheet");
+  const stickyBtn = document.getElementById("stickyBookBtn");
+  const body = document.body;
 
-          sheet.classList.remove("translate-y-0");
-          sheet.classList.add("translate-y-full");
+  // Slide down and fade out
+  backdrop.classList.remove("opacity-100");
+  backdrop.classList.add("opacity-0");
 
-          // Hide elements completely after transition finishes
-          setTimeout(() => {
-            backdrop.classList.add("hidden");
-            sheet.classList.add("hidden");
-          }, 300);
-        }
+  sheet.classList.remove("translate-y-0");
+  sheet.classList.add("translate-y-full");
+
+  // Hide elements completely after transition finishes
+  setTimeout(() => {
+    backdrop.classList.add("hidden");
+    sheet.classList.add("hidden");
+
+    // ফিক্সড বুক বাটন আবার শো করা এবং স্ক্রোল চালু করা
+    if (stickyBtn) {
+      stickyBtn.classList.remove("hidden");
+    }
+    body.classList.remove("overflow-hidden");
+  }, 300);
+}
       </script>
       <!-- Gap Below Categories (Old safety section was right after this) -->
       <div
