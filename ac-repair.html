@@ -441,200 +441,183 @@
 
       <div
         id="modal-backdrop"
-        class="fixed inset-0 bg-black/70 z-50 hidden opacity-0 transition-opacity duration-300"
+        class="fixed inset-0 bg-black/60 z-50 hidden opacity-0 transition-opacity duration-300"
         onclick="closeDetails()"
-      >
-        <div
-          class="flex justify-between items-center px-4 py-4 w-full text-white"
-        >
-          <div class="flex items-center gap-4">
-            <span class="text-xl" onclick="closeDetails()">←</span>
-            <span class="text-lg font-medium">AC Services</span>
-          </div>
-          <button
-            onclick="closeDetails()"
-            class="bg-white text-black p-2 rounded-full shadow-lg w-9 h-9 flex items-center justify-center font-semibold text-lg hover:bg-gray-100"
-          >
-            ✕
-          </button>
-        </div>
-      </div>
+      ></div>
 
       <div
         id="bottom-sheet"
-        class="fixed bottom-0 left-0 right-0 z-50 bg-white rounded-t-3xl transform translate-y-full transition-transform duration-300 ease-out max-h-[85vh] h-auto flex flex-col hidden shadow-2xl"
+        class="fixed bottom-0 left-0 right-0 z-50 transform translate-y-full transition-transform duration-300 ease-out flex flex-col hidden"
       >
-        <div
-          class="shrink-0 bg-white rounded-t-3xl z-10 px-5 pt-6 pb-3 flex justify-between items-center border-b border-gray-100"
-        >
-          <h2 id="modal-title" class="text-[20px] font-bold text-gray-900">
-            AC Service
-          </h2>
-          <a
-            id="modal-header-book-btn"
-            href="#"
-            class="px-5 py-1.5 text-green-700 font-medium border border-green-600 rounded-full text-sm active:scale-95 transition-all hover:bg-green-50"
-            >Book Now</a
+        <div class="px-4 pb-3 flex items-center text-white w-full">
+          <button
+            onclick="closeDetails()"
+            class="mr-3 p-1.5 rounded-full hover:bg-white/20 active:scale-95 transition-all outline-none"
           >
-        </div>
-
-        <div class="overflow-y-auto flex-1">
-          <div class="px-5 pt-4 pb-3">
-            <div class="flex items-center text-[13px] text-gray-500 mb-2">
-              <span class="text-black font-semibold text-sm">★ 4.34</span>
-              <span class="ml-1 border-b border-dashed border-gray-400"
-                >(2K reviews)</span
-              >
-            </div>
-            <div class="flex items-center space-x-2 text-sm">
-              <span id="modal-price" class="font-bold text-black text-[20px]"
-                ><span class="font-sans font-black">৳</span> 000</span
-              >
-            </div>
-          </div>
-
-          <div class="h-[6px] bg-[#F4F5F6] w-full"></div>
-
-          <div class="p-5">
-            <h3
-              class="text-[11px] font-bold text-gray-800 tracking-widest mb-3 flex items-center uppercase"
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="2.5"
+              stroke="currentColor"
+              class="w-6 h-6"
             >
-              <span class="text-yellow-600 mr-2 text-base leading-none">✦</span>
-              HIGHLIGHTS
-            </h3>
-            <p class="font-medium text-black mb-4 text-[15px] leading-snug">
-              Trusted by customers for expert diagnosis and reliable repairs
-            </p>
-            <ul class="space-y-3.5 text-[14px] text-gray-700">
-              <li class="flex items-start">
-                <svg
-                  class="w-[18px] h-[18px] mr-3 text-gray-700 flex-shrink-0 mt-[2px]"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="1.5"
-                    d="M5 13l4 4L19 7"
-                  ></path>
-                </svg>
-                Applicable for all ACs (Duct/Split/Window)
-              </li>
-              <li class="flex items-start">
-                <svg
-                  class="w-[18px] h-[18px] mr-3 text-gray-700 flex-shrink-0 mt-[2px]"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="1.5"
-                    d="M5 13l4 4L19 7"
-                  ></path>
-                </svg>
-                Detailed inspection to identify the fault
-              </li>
-              <li class="flex items-start">
-                <svg
-                  class="w-[18px] h-[18px] mr-3 text-gray-700 flex-shrink-0 mt-[2px]"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="1.5"
-                    d="M5 13l4 4L19 7"
-                  ></path>
-                </svg>
-                Repair or part replacement done only after approval
-              </li>
-            </ul>
-          </div>
-
-          <div class="h-[6px] bg-[#F4F5F6] w-full"></div>
-
-          <div class="p-5 pb-8">
-            <h3 class="text-[18px] font-bold text-black mb-4">
-              What's included
-            </h3>
-            <ul class="space-y-4 text-[15px] text-black">
-              <li class="flex items-start">
-                <svg
-                  class="w-5 h-5 mr-3 text-black flex-shrink-0 mt-[2px]"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="1.5"
-                    d="M5 13l4 4L19 7"
-                  ></path>
-                </svg>
-                <span class="leading-snug"
-                  >Inspection & diagnosis followed by a service quotation</span
-                >
-              </li>
-              <li class="flex items-start">
-                <svg
-                  class="w-5 h-5 mr-3 text-black flex-shrink-0 mt-[2px]"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="1.5"
-                    d="M5 13l4 4L19 7"
-                  ></path>
-                </svg>
-                <span>Repair based on the issue</span>
-              </li>
-              <li class="flex items-start">
-                <svg
-                  class="w-5 h-5 mr-3 text-black flex-shrink-0 mt-[2px]"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="1.5"
-                    d="M5 13l4 4L19 7"
-                  ></path>
-                </svg>
-                <span class="leading-snug"
-                  >System check & clean-up of the work area after repair</span
-                >
-              </li>
-            </ul>
-          </div>
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"
+              />
+            </svg>
+          </button>
+          <h2 class="text-[18px] font-bold">AC Services</h2>
         </div>
 
         <div
-          class="shrink-0 p-4 bg-white border-t border-gray-100 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.05)]"
+          class="bg-white rounded-t-3xl shadow-2xl flex flex-col overflow-hidden max-h-[85vh] w-full"
         >
-          <a
-            id="modal-footer-book-btn"
-            href="#"
-            class="block w-full py-3 text-center text-white bg-green-600 font-bold rounded-xl text-[16px] active:scale-95 transition-all shadow-md"
+          <div class="overflow-y-auto flex-1 pb-4">
+            <div class="p-4 pb-2">
+              <div
+                class="relative w-full h-44 rounded-xl overflow-hidden bg-gray-100 flex items-center justify-center shadow-sm"
+              >
+                <img
+                  id="modal-banner-img"
+                  src=""
+                  class="absolute inset-0 w-full h-full object-cover"
+                  alt="Service Banner"
+                />
+                <div class="absolute inset-0 bg-black/40"></div>
+
+                <h2
+                  id="modal-banner-title"
+                  class="relative z-10 text-white text-[24px] font-bold tracking-wide text-center drop-shadow-md px-4"
+                >
+                  AC Check Up
+                </h2>
+              </div>
+            </div>
+
+            <div
+              class="px-5 pt-1 pb-4 flex justify-between items-start border-b border-gray-100"
+            >
+              <div class="flex flex-col">
+                <div class="flex items-baseline space-x-1 mt-1">
+                  <span
+                    id="modal-price"
+                    class="font-bold text-[#00a85a] text-[22px]"
+                  >
+                    <span class="font-sans font-black">৳</span> 199
+                  </span>
+                </div>
+              </div>
+
+              <div class="flex flex-col items-end">
+                <div class="flex items-center">
+                  <svg
+                    class="w-4 h-4 mr-1"
+                    viewBox="0 0 24 24"
+                    fill="url(#star-gradient)"
+                  >
+                    <defs>
+                      <linearGradient
+                        id="star-gradient"
+                        x1="0%"
+                        y1="0%"
+                        x2="100%"
+                        y2="100%"
+                      >
+                        <stop offset="0%" stop-color="#3b82f6" />
+                        <stop offset="100%" stop-color="#a855f7" />
+                      </linearGradient>
+                    </defs>
+                    <path
+                      d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+                    />
+                  </svg>
+                  <span
+                    id="modal-rating"
+                    class="font-bold text-black text-[16px] leading-none"
+                    >4.7</span
+                  >
+                </div>
+                <span id="modal-orders" class="text-gray-500 text-[12px] mt-1"
+                  >1618 Orders</span
+                >
+              </div>
+            </div>
+
+            <div class="p-5">
+              <h3
+                class="text-[11px] font-bold text-gray-800 tracking-widest mb-3 flex items-center uppercase"
+              >
+                <span class="text-yellow-600 mr-2 text-base leading-none"
+                  >✦</span
+                >
+                HIGHLIGHTS
+              </h3>
+              <p class="font-medium text-black mb-4 text-[15px] leading-snug">
+                Trusted by customers for expert diagnosis and reliable repairs
+              </p>
+              <ul class="space-y-3.5 text-[14px] text-gray-700">
+                <li class="flex items-start">
+                  <span class="text-gray-500 mr-3 mt-1">✔</span>
+                  Applicable for all ACs (Duct/Split/Window)
+                </li>
+                <li class="flex items-start">
+                  <span class="text-gray-500 mr-3 mt-1">✔</span>
+                  Detailed inspection to identify the fault
+                </li>
+                <li class="flex items-start">
+                  <span class="text-gray-500 mr-3 mt-1">✔</span>
+                  Repair or part replacement done only after approval
+                </li>
+              </ul>
+            </div>
+
+            <div class="h-[6px] bg-[#F4F5F6] w-full"></div>
+
+            <div class="p-5">
+              <h3 class="text-[18px] font-bold text-black mb-4">
+                What's included
+              </h3>
+              <ul class="space-y-4 text-[15px] text-black">
+                <li class="flex items-start">
+                  <span class="text-black mr-3 mt-1">✔</span>
+                  <span class="leading-snug"
+                    >Inspection & diagnosis followed by a service
+                    quotation</span
+                  >
+                </li>
+                <li class="flex items-start">
+                  <span class="text-black mr-3 mt-1">✔</span>
+                  <span>Repair based on the issue</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-black mr-3 mt-1">✔</span>
+                  <span class="leading-snug"
+                    >System check & clean-up of the work area after repair</span
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div
+            class="shrink-0 p-4 bg-white border-t border-gray-100 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.05)] flex gap-3"
           >
-            Book Now
-          </a>
+            <a
+              id="modal-footer-book-btn"
+              href="#"
+              class="block w-full py-3 text-center text-white bg-[#00a85a] font-bold rounded-xl text-[16px] active:scale-95 transition-all shadow-md"
+            >
+              Book Now
+            </a>
+          </div>
         </div>
       </div>
+
       <script>
         function switchTab(categoryId) {
-          // Scroll smoothly to the specific category container
           const targetElement = document.getElementById(
             "category-" + categoryId,
           );
@@ -645,7 +628,6 @@
             });
           }
 
-          // Reset styles for all tabs
           document.querySelectorAll(".tab-btn").forEach((btn) => {
             btn.classList.remove(
               "border-orange-400",
@@ -655,7 +637,6 @@
             btn.classList.add("border-transparent", "text-gray-500");
           });
 
-          // Add active styling to clicked tab
           const activeTab = document.getElementById("tab-" + categoryId);
           if (activeTab) {
             activeTab.classList.remove("border-transparent", "text-gray-500");
@@ -667,67 +648,65 @@
           }
         }
 
-        // MODAL LOGIC (Accepts Title, Price, and Booking Link)
-function openDetails(serviceName, price, bookUrl) {
-  const backdrop = document.getElementById("modal-backdrop");
-  const sheet = document.getElementById("bottom-sheet");
-  const stickyBtn = document.getElementById("stickyBookBtn"); // ফিক্সড বাটন সিলেক্ট করা হলো
-  const body = document.body;
+        function openDetails(
+          serviceName,
+          price,
+          bookUrl,
+          imgSrc,
+          rating = "4.7",
+          orders = "1618 Orders",
+        ) {
+          const backdrop = document.getElementById("modal-backdrop");
+          const sheet = document.getElementById("bottom-sheet");
+          const stickyBtn = document.getElementById("stickyBookBtn");
+          const body = document.body;
 
-  // Update dynamically based on clicked item
-  document.getElementById("modal-title").innerText = serviceName;
-  document.getElementById("modal-price").innerHTML =
-    '<span class="font-sans font-black">৳</span> ' + price;
+          // Update data dynamically (Name on Banner)
+          document.getElementById("modal-banner-title").innerText = serviceName;
+          document.getElementById("modal-banner-img").src = imgSrc;
+          document.getElementById("modal-price").innerHTML =
+            '<span class="font-sans font-black">৳</span> ' + price;
+          document.getElementById("modal-rating").innerText = rating;
+          document.getElementById("modal-orders").innerText = orders;
+          document.getElementById("modal-footer-book-btn").href = bookUrl;
 
-  // Set URLs for both Book Now buttons inside the modal
-  document.getElementById("modal-header-book-btn").href = bookUrl;
-  document.getElementById("modal-footer-book-btn").href = bookUrl;
+          backdrop.classList.remove("hidden");
+          sheet.classList.remove("hidden");
 
-  // Show modal elements
-  backdrop.classList.remove("hidden");
-  sheet.classList.remove("hidden");
+          if (stickyBtn) {
+            stickyBtn.classList.add("hidden");
+          }
+          body.classList.add("overflow-hidden");
 
-  // ফিক্সড বুক বাটন হাইড করা এবং ব্যাকগ্রাউন্ড স্ক্রোল বন্ধ করা
-  if (stickyBtn) {
-    stickyBtn.classList.add("hidden");
-  }
-  body.classList.add("overflow-hidden");
+          setTimeout(() => {
+            backdrop.classList.remove("opacity-0");
+            backdrop.classList.add("opacity-100");
+            sheet.classList.remove("translate-y-full");
+            sheet.classList.add("translate-y-0");
+          }, 10);
+        }
 
-  // Trigger transition smoothly
-  setTimeout(() => {
-    backdrop.classList.remove("opacity-0");
-    backdrop.classList.add("opacity-100");
+        function closeDetails() {
+          const backdrop = document.getElementById("modal-backdrop");
+          const sheet = document.getElementById("bottom-sheet");
+          const stickyBtn = document.getElementById("stickyBookBtn");
+          const body = document.body;
 
-    sheet.classList.remove("translate-y-full");
-    sheet.classList.add("translate-y-0");
-  }, 10);
-}
+          backdrop.classList.remove("opacity-100");
+          backdrop.classList.add("opacity-0");
+          sheet.classList.remove("translate-y-0");
+          sheet.classList.add("translate-y-full");
 
-function closeDetails() {
-  const backdrop = document.getElementById("modal-backdrop");
-  const sheet = document.getElementById("bottom-sheet");
-  const stickyBtn = document.getElementById("stickyBookBtn");
-  const body = document.body;
+          setTimeout(() => {
+            backdrop.classList.add("hidden");
+            sheet.classList.add("hidden");
 
-  // Slide down and fade out
-  backdrop.classList.remove("opacity-100");
-  backdrop.classList.add("opacity-0");
-
-  sheet.classList.remove("translate-y-0");
-  sheet.classList.add("translate-y-full");
-
-  // Hide elements completely after transition finishes
-  setTimeout(() => {
-    backdrop.classList.add("hidden");
-    sheet.classList.add("hidden");
-
-    // ফিক্সড বুক বাটন আবার শো করা এবং স্ক্রোল চালু করা
-    if (stickyBtn) {
-      stickyBtn.classList.remove("hidden");
-    }
-    body.classList.remove("overflow-hidden");
-  }, 300);
-}
+            if (stickyBtn) {
+              stickyBtn.classList.remove("hidden");
+            }
+            body.classList.remove("overflow-hidden");
+          }, 300);
+        }
       </script>
       <!-- Gap Below Categories (Old safety section was right after this) -->
       <div
