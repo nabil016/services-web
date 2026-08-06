@@ -1,282 +1,341 @@
 <!DOCTYPE html>
-<html lang="bn">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bd Safa - Premium Home Service</title>
+    <title>Service Booking Form</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Hind+Siliguri:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <style>
-        /* ফন্ট এবং জেনারেল স্টাইল */
-        body {
-            font-family: 'Hind Siliguri', sans-serif;
-            background: #fdfdfd;
-            color: #334155;
-        }
-
-        /* ইনপুট এবং বাটনের চিকন ডিজাইন */
-        .slim-input {
-            padding-top: 0.6rem !important;
-            padding-bottom: 0.6rem !important;
-            font-size: 0.9rem !important;
-            border-radius: 0.75rem !important;
-        }
-
-        .slim-btn {
-            padding-top: 0.75rem !important;
-            padding-bottom: 0.75rem !important;
-            font-weight: 500 !important;
-            border-radius: 0.75rem !important;
-            white-space: nowrap !important;
-        }
-
-        /* কার্ডের প্রিমিয়াম লুক */
-        .glass-card {
-            background: #ffffff;
-            border: 1px solid #f1f5f9;
-            box-shadow: 0 4px 20px -5px rgba(0, 0, 0, 0.05);
-        }
-
-        /* এনিমেশন */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .animate-fade { animation: fadeIn 0.5s ease forwards; }
-
-        /* স্ক্রলবার */
+        body { font-family: 'Poppins', 'Hind Siliguri', sans-serif; background: #fdf2f2; color: #334155; }
         ::-webkit-scrollbar { width: 5px; }
         ::-webkit-scrollbar-track { background: #f8fafc; }
         ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .animate-fade { animation: fadeIn 0.5s ease forwards; }
     </style>
 </head>
-<body class="antialiased">
+<body class="antialiased pb-16 pt-3">
 
-    <header class="bg-white/80 backdrop-blur-md sticky top-0 z-[100] border-b border-slate-100 shadow-sm">
-        <div class="max-w-4xl mx-auto px-4 py-2.5 flex items-center justify-between">
-            <div class="flex items-center gap-2.5">
-                <div class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center shadow-md shadow-blue-100">
-                    <i class="fas fa-wrench text-white text-sm"></i>
-                </div>
-                <div>
-                    <h1 class="text-xl font-bold text-slate-800 leading-none whitespace-nowrap">Bd Safa</h1>
-                    <span class="text-[9px] uppercase font-medium text-blue-500 tracking-[0.2em] whitespace-nowrap">Home Service</span>
-                </div>
-            </div>
+    <!-- Top Bar with Language Switcher -->
+    <div class="max-w-md mx-auto px-4 flex justify-end mb-2">
+        <button id="langToggleBtn" onclick="toggleLanguage()" class="px-3.5 py-1.5 bg-white border border-gray-200 shadow-sm rounded-full text-xs font-bold text-slate-700 flex items-center gap-2 hover:bg-gray-50 transition-all cursor-pointer">
+            <i class="fas fa-globe text-[#c61e24]"></i>
+            <span id="langLabel">বাংলা</span>
+        </button>
+    </div>
 
-            <div class="flex items-center gap-2">
-                <a href="tel:01973602690" class="w-10 h-10 flex items-center justify-center bg-blue-500 hover:bg-blue-600 text-white rounded-lg transition-all active:scale-90 shadow-sm" title="Call">
-                    <i class="fas fa-phone-alt text-sm"></i>
-                </a>
-                <a href="https://wa.me/8801973602690" class="w-10 h-10 flex items-center justify-center bg-green-500 hover:bg-green-600 text-white rounded-lg transition-all active:scale-90 shadow-sm" title="WhatsApp">
-                    <i class="fab fa-whatsapp text-lg"></i>
-                </a>
-            </div>
-        </div>
-    </header>
-
-    <main class="max-w-xl mx-auto py-8 px-4">
+    <!-- Main Container -->
+    <main class="max-w-md mx-auto px-4">
         
-        <div class="mb-8 text-center animate-fade">
-            <h2 class="text-2xl font-semibold text-slate-800 tracking-tight whitespace-nowrap">সার্ভিস বুকিং ফর্ম</h2>
-            <p class="text-slate-400 text-xs mt-1">দ্রুত এবং নির্ভরযোগ্য হোম সার্ভিস নিশ্চিত করুন</p>
+        <!-- Title Section -->
+        <div class="mb-6 text-center animate-fade">
+            <h2 id="txtTitle" class="text-xl font-bold text-slate-800">Service Booking Form</h2>
+            <p id="txtSubtitle" class="text-slate-500 text-xs mt-1">Please fill out the form below with correct information</p>
         </div>
 
-        <div class="glass-card rounded-2xl overflow-hidden animate-fade">
-            <form id="bookingForm" class="p-6 space-y-5">
+        <!-- Form Box -->
+        <div class="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden animate-fade p-5">
+            <form id="bookingForm" class="space-y-4">
                 
+                <!-- Service Selection -->
                 <div class="space-y-1.5">
-                    <label class="text-[11px] font-semibold text-slate-500 uppercase tracking-widest ml-1">
-                        সার্ভিস নির্বাচন করুন
-                    </label>
+                    <label id="lblService" class="text-xs font-bold text-[#c61e24] uppercase tracking-wider ml-1">Select Service *</label>
                     <div class="relative">
-                        <select id="service" name="service" required class="w-full pl-4 pr-10 py-2.5 bg-slate-50 border border-slate-200 rounded-xl outline-none appearance-none font-medium text-slate-600 text-sm focus:border-blue-400 focus:bg-white transition-all cursor-pointer">
-                            <option value="" disabled selected>সার্ভিস লিস্ট...</option>
-                            <option value="Plumbing Service">🚰 প্লাম্বিং সার্ভিস</option>
-                            <option value="Electrical Support">💡 ইলেকট্রিক সমাধান</option>
-                            <option value="AC Repair/Service">❄️ এসি সার্ভিসিং</option>
-                            <option value="Water Tank Cleaning">🛢️ পানির ট্যাংক পরিষ্কার</option>
-                            <option value="Bathroom Maintenance">🚿 বাথরুম ফিটিংস মেরামত</option>
-                            <option value="Home Painting">🎨 বাসা পেইন্টিং</option>
-                            <option value="CCTV Installation">📹 সিসিটিভি ক্যামেরা</option>
-                            <option value="Emergency Support">🚨 ইমার্জেন্সি সাপোর্ট</option>
+                        <select id="service" name="service" required class="w-full pl-4 pr-10 py-3 bg-gray-50 border border-gray-200 rounded-xl outline-none appearance-none font-medium text-slate-700 text-sm focus:border-[#c61e24] focus:bg-white transition-all cursor-pointer">
+                            <option value="" disabled selected id="optDefault">Choose a service...</option>
+                            <option value="Plumbing Service">🚰 Plumbing Service / প্লাম্বিং সার্ভিস</option>
+                            <option value="Electrical Support">💡 Electrical Support / ইলেকট্রিক সমাধান</option>
+                            <option value="AC Repair/Service">❄️ AC Repair/Service / এসি সার্ভিসিং</option>
+                            <option value="Water Tank Cleaning">🛢️ Water Tank Cleaning / পানির ট্যাংক পরিষ্কার</option>
+                            <option value="Bathroom Maintenance">🚿 Bathroom Maintenance / বাথরুম ফিটিংস</option>
+                            <option value="Home Painting">🎨 Home Painting / বাসা পেইন্টিং</option>
+                            <option value="CCTV Installation">📹 CCTV Installation / সিসিটিভি ক্যামেরা</option>
+                            <option value="Emergency Support">🚨 Emergency Support / ইমার্জেন্সি সাপোর্ট</option>
                         </select>
-                        <i class="fas fa-chevron-down absolute right-4 top-3.5 text-slate-300 text-[10px]"></i>
+                        <i class="fas fa-chevron-down absolute right-4 top-4 text-gray-400 text-xs"></i>
                     </div>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <!-- Name & Phone -->
+                <div class="grid grid-cols-1 gap-4">
                     <div class="space-y-1.5">
-                        <label class="text-[11px] font-semibold text-slate-500 uppercase tracking-widest ml-1">আপনার নাম</label>
-                        <input type="text" id="name" name="name" placeholder="নাম লিখুন" required
-                               class="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl outline-none text-sm font-medium focus:border-blue-400 focus:bg-white transition-all">
+                        <label id="lblName" class="text-xs font-bold text-[#c61e24] uppercase tracking-wider ml-1">Your Name *</label>
+                        <input type="text" id="name" required placeholder="Enter your name" class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl outline-none text-sm font-medium focus:border-[#c61e24] focus:bg-white transition-all">
                     </div>
                     <div class="space-y-1.5">
-                        <label class="text-[11px] font-semibold text-slate-500 uppercase tracking-widest ml-1">ফোন নম্বর</label>
-                        <input type="tel" id="phone" name="phone" placeholder="০১৯XXXXXXXX" required
-                               class="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl outline-none text-sm font-medium focus:border-blue-400 focus:bg-white transition-all">
+                        <label id="lblPhone" class="text-xs font-bold text-[#c61e24] uppercase tracking-wider ml-1">Phone Number *</label>
+                        <input type="tel" id="phone" required placeholder="Enter phone number" class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl outline-none text-sm font-medium focus:border-[#c61e24] focus:bg-white transition-all">
                     </div>
                 </div>
 
+                <!-- Email -->
                 <div class="space-y-1.5">
-                    <label class="text-[11px] font-semibold text-slate-500 uppercase tracking-widest ml-1">ঠিকানা</label>
-                    <input type="text" id="address" name="address" placeholder="বাসা নং, রোড, এলাকা" required
-                           class="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl outline-none text-sm font-medium focus:border-blue-400 focus:bg-white transition-all">
+                    <label id="lblEmail" class="text-xs font-bold text-[#c61e24] uppercase tracking-wider ml-1">Email (Optional)</label>
+                    <input type="email" id="email" placeholder="example@mail.com" class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl outline-none text-sm font-medium focus:border-[#c61e24] focus:bg-white transition-all">
                 </div>
 
-                <div class="grid grid-cols-2 gap-4">
-                    <div class="space-y-1.5">
-                        <label class="text-[11px] font-semibold text-slate-500 uppercase tracking-widest ml-1">তারিখ</label>
-                        <input type="date" id="date" name="date" required
-                               class="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl outline-none text-sm font-medium text-slate-500">
-                    </div>
-                    <div class="space-y-1.5">
-                        <label class="text-[11px] font-semibold text-slate-500 uppercase tracking-widest ml-1">সময়</label>
-                        <input type="time" id="time" name="time" required
-                               class="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl outline-none text-sm font-medium text-slate-500">
-                    </div>
-                </div>
-
+                <!-- Address -->
                 <div class="space-y-1.5">
-                    <label class="text-[11px] font-semibold text-slate-500 uppercase tracking-widest ml-1">সমস্যা (সংক্ষেপে)</label>
-                    <textarea id="problem" name="problem" rows="2" placeholder="আপনার সমস্যাটি লিখুন..."
-                              class="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl outline-none text-sm font-medium focus:border-blue-400 focus:bg-white transition-all resize-none"></textarea>
+                    <label id="lblAddress" class="text-xs font-bold text-[#c61e24] uppercase tracking-wider ml-1">Address *</label>
+                    <input type="text" id="address" required placeholder="House no, road, area, Thana" class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl outline-none text-sm font-medium focus:border-[#c61e24] focus:bg-white transition-all">
                 </div>
 
-                <div class="flex items-center justify-between p-4 bg-slate-50 border border-slate-100 rounded-xl">
-                    <div class="flex items-center gap-3">
-                        <i class="fas fa-bolt text-yellow-500 text-xs"></i>
-                        <span class="text-xs font-semibold text-slate-600 whitespace-nowrap">জরুরী সার্ভিস প্রয়োজন?</span>
+                <!-- Problem Description -->
+                <div class="space-y-1.5">
+                    <label id="lblProblem" class="text-xs font-bold text-[#c61e24] uppercase tracking-wider ml-1">Problem (Briefly)</label>
+                    <textarea id="problem" rows="2" placeholder="Describe your problem briefly..." class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl outline-none text-sm font-medium focus:border-[#c61e24] focus:bg-white transition-all resize-none"></textarea>
+                </div>
+
+                <!-- Urgent Toggle -->
+                <div class="flex items-center justify-between p-3.5 bg-gray-50 border border-gray-200 rounded-xl">
+                    <div class="flex items-center gap-2.5">
+                        <i class="fas fa-bolt text-yellow-500 text-sm"></i>
+                        <span id="lblUrgent" class="text-xs font-bold text-slate-700">Need Urgent Service?</span>
                     </div>
                     <label class="relative inline-flex items-center cursor-pointer">
-                        <input type="checkbox" id="urgent" name="urgent" class="sr-only peer">
-                        <div class="w-10 h-5 bg-slate-200 rounded-full peer peer-checked:bg-blue-500 after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:after:translate-x-5"></div>
+                        <input type="checkbox" id="urgent" class="sr-only peer">
+                        <div class="w-10 h-5 bg-gray-300 rounded-full peer peer-checked:bg-[#c61e24] after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:after:translate-x-5"></div>
                     </label>
                 </div>
 
-                <button type="submit" class="w-full bg-slate-800 hover:bg-slate-900 text-white py-3.5 rounded-xl text-sm font-medium shadow-lg transition-all active:scale-[0.98] flex items-center justify-center gap-2">
-                    <span class="whitespace-nowrap">কনফার্ম বুকিং</span>
-                    <i class="fas fa-paper-plane text-[10px]"></i>
+                <!-- Submit Button -->
+                <button type="submit" class="w-full bg-[#1b7a37] hover:bg-[#16632d] text-white py-3.5 rounded-xl font-bold text-base shadow-lg transition-all active:scale-[0.98] flex items-center justify-center gap-2 mt-2">
+                    <span id="btnSubmitText">Confirm Booking</span>
+                    <i class="fas fa-paper-plane text-xs"></i>
                 </button>
             </form>
         </div>
 
-        <div id="statusSection" class="mt-10 hidden animate-fade">
-            <div class="flex items-center gap-2 mb-4 px-1">
-                <div class="w-1 h-4 bg-blue-500 rounded-full"></div>
-                <h3 class="text-sm font-bold text-slate-700 whitespace-nowrap">আপনার বুকিং লিস্ট</h3>
+        <!-- Important Notice Box -->
+        <div class="mt-5 bg-red-50 border border-dashed border-red-300 rounded-2xl p-4 text-center">
+            <h4 id="noticeTitle" class="font-bold text-[#c61e24] text-sm mb-1.5">⚠️ Important Notice 🙏</h4>
+            <p id="noticeDesc" class="text-xs text-slate-700 leading-relaxed">
+                Dear customer, if you do not need the service, please do not book and waste our time and travel costs. Thank you!
+            </p>
+        </div>
+
+        <!-- User's Own Booking Status List -->
+        <div id="statusSection" class="mt-8 hidden animate-fade">
+            <div class="flex items-center gap-2 mb-3 px-1">
+                <div class="w-1 h-4 bg-[#c61e24] rounded-full"></div>
+                <h3 id="historyTitle" class="text-xs font-bold text-slate-700 uppercase tracking-wider">Your Booking History</h3>
             </div>
-            
-            <div id="statusList" class="space-y-3">
-                </div>
+            <div id="statusList" class="space-y-3"></div>
         </div>
 
     </main>
 
-    <footer class="py-10 text-center border-t border-slate-100 mt-10">
-        <p class="text-[10px] font-bold text-slate-300 uppercase tracking-[0.4em]">Bd Safa Service Solutions</p>
-        <p class="text-[9px] text-slate-400 mt-2">© 2026 Developed by Nabil Hossen</p>
+    <!-- Footer -->
+    <footer class="py-6 text-center text-slate-400 text-xs mt-10 border-t border-slate-200">
+        <p>© 2026 All Rights Reserved</p>
     </footer>
 
+    <!-- Firebase & Language & Booking Script -->
     <script type="module">
-    // Firebase SDK ইমপোর্ট
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
-    import { getDatabase, ref, push, set, onValue } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+        import { getDatabase, ref, push, set, onValue } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
 
-    // আপনার অরিজিনাল Firebase Config
-    const firebaseConfig = {
-        apiKey: "AIzaSyCBHTxsVv1AwW5pMdf5OVBd6EMKKulfLP4",
-        authDomain: "bd-safa-admin-panel.firebaseapp.com",
-        databaseURL: "https://bd-safa-admin-panel-default-rtdb.firebaseio.com",
-        projectId: "bd-safa-admin-panel",
-        storageBucket: "bd-safa-admin-panel.firebasestorage.app",
-        messagingSenderId: "1092316313581",
-        appId: "1:1092316313581:web:22b9cf65a7c0aea2b0d9e4",
-        measurementId: "G-7V39SRD5LB"
-    };
-
-    // Firebase ইনিশিয়ালাইজেশন
-    const app = initializeApp(firebaseConfig);
-    const db = getDatabase(app);
-
-    // ১. ফর্ম সাবমিশন লজিক (Firebase-এ ডাটা পাঠানোর জন্য)
-    document.getElementById('bookingForm').addEventListener('submit', function(e) {
-        e.preventDefault();
-
-        const newOrder = {
-            service: document.getElementById('service').value,
-            name: document.getElementById('name').value,
-            phone: document.getElementById('phone').value,
-            address: document.getElementById('address').value,
-            date: document.getElementById('date').value,
-            time: document.getElementById('time').value,
-            problem: document.getElementById('problem').value || 'N/A',
-            urgent: document.getElementById('urgent').checked ? 'YES 🚨' : 'No',
-            status: 'Pending',
-            timestamp: new Date().toLocaleString('en-GB')
+        const firebaseConfig = {
+            apiKey: "AIzaSyCBHTxsVv1AwW5pMdf5OVBd6EMKKulfLP4",
+            authDomain: "bd-safa-admin-panel.firebaseapp.com",
+            databaseURL: "https://bd-safa-admin-panel-default-rtdb.firebaseio.com",
+            projectId: "bd-safa-admin-panel",
+            storageBucket: "bd-safa-admin-panel.firebasestorage.app",
+            messagingSenderId: "1092316313581",
+            appId: "1:1092316313581:web:22b9cf65a7c0aea2b0d9e4"
         };
 
-        const ordersRef = ref(db, 'orders');
-        const newOrderRef = push(ordersRef);
+        const app = initializeApp(firebaseConfig);
+        const db = getDatabase(app);
 
-        set(newOrderRef, newOrder).then(() => {
-            const waPhone = "8801973602690";
-            const message = `*নতুন বুকিং - Bd Safa*%0A` +
-                            `*সার্ভিস:* ${newOrder.service}%0A` +
-                            `*নাম:* ${newOrder.name}%0A` +
-                            `*ফোন:* ${newOrder.phone}`;
+        // Language Dictionary
+        const langData = {
+            en: {
+                langLabel: "বাংলা",
+                txtTitle: "Service Booking Form",
+                txtSubtitle: "Please fill out the form below with correct information",
+                lblService: "Select Service *",
+                optDefault: "Choose a service...",
+                lblName: "Your Name *",
+                phName: "Enter your name",
+                lblPhone: "Phone Number *",
+                phPhone: "Enter phone number",
+                lblEmail: "Email (Optional)",
+                phEmail: "example@mail.com",
+                lblAddress: "Address *",
+                phAddress: "House no, road, area, Thana",
+                lblProblem: "Problem (Briefly)",
+                phProblem: "Describe your problem briefly...",
+                lblUrgent: "Need Urgent Service?",
+                btnSubmitText: "Confirm Booking",
+                noticeTitle: "⚠️ Important Notice 🙏",
+                noticeDesc: "Dear customer, if you do not need the service, please do not book and waste our time and travel costs. Thank you!",
+                historyTitle: "Your Booking History"
+            },
+            bn: {
+                langLabel: "English",
+                txtTitle: "সার্ভিস বুকিং ফর্ম",
+                txtSubtitle: "সঠিক তথ্য দিয়ে নিচের ফর্মটি পূরণ করুন",
+                lblService: "সার্ভিস নির্বাচন করুন *",
+                optDefault: "সার্ভিস লিস্ট বেছে নিন...",
+                lblName: "আপনার নাম *",
+                phName: "আপনার নাম লিখুন",
+                lblPhone: "ফোন নম্বর *",
+                phPhone: "ফোন নাম্বার লিখুন",
+                lblEmail: "ইমেইল (অপশনাল)",
+                phEmail: "example@mail.com",
+                lblAddress: "ঠিকানা *",
+                phAddress: "বাসা নং, রোড, এলাকা, থানা",
+                lblProblem: "সমস্যা (সংক্ষেপে)",
+                phProblem: "আপনার সমস্যাটি বিস্তারিত লিখুন...",
+                lblUrgent: "জরুরী সার্ভিস প্রয়োজন?",
+                btnSubmitText: "কনফার্ম বুকিং",
+                noticeTitle: "⚠️ গুরুত্বপূর্ণ বার্তা 🙏",
+                noticeDesc: "প্রিয় গ্রাহক, আপনার সার্ভিস প্রয়োজন না থাকলে দয়া করে বুকিং করে আমাদের সময় ও যাতায়াত খরচ নষ্ট করবেন না। ধন্যবাদ!",
+                historyTitle: "আপনার বুকিং হিস্ট্রি"
+            }
+        };
 
-            alert('বুকিং সফলভাবে ডেটাবেসে জমা হয়েছে!');
-            window.location.href = `https://wa.me/${waPhone}?text=${message}`;
-        }).catch((error) => {
-            alert('Error: ' + error.message);
+        let currentLang = localStorage.getItem('appLang') || 'en';
+
+        window.toggleLanguage = function() {
+            currentLang = currentLang === 'en' ? 'bn' : 'en';
+            localStorage.setItem('appLang', currentLang);
+            applyLanguage();
+        }
+
+        function applyLanguage() {
+            const t = langData[currentLang];
+            document.getElementById('langLabel').innerText = t.langLabel;
+            document.getElementById('txtTitle').innerText = t.txtTitle;
+            document.getElementById('txtSubtitle').innerText = t.txtSubtitle;
+            document.getElementById('lblService').innerText = t.lblService;
+            document.getElementById('optDefault').innerText = t.optDefault;
+            document.getElementById('lblName').innerText = t.lblName;
+            document.getElementById('name').placeholder = t.phName;
+            document.getElementById('lblPhone').innerText = t.lblPhone;
+            document.getElementById('phone').placeholder = t.phPhone;
+            document.getElementById('lblEmail').innerText = t.lblEmail;
+            document.getElementById('email').placeholder = t.phEmail;
+            document.getElementById('lblAddress').innerText = t.lblAddress;
+            document.getElementById('address').placeholder = t.phAddress;
+            document.getElementById('lblProblem').innerText = t.lblProblem;
+            document.getElementById('problem').placeholder = t.phProblem;
+            document.getElementById('lblUrgent').innerText = t.lblUrgent;
+            document.getElementById('btnSubmitText').innerText = t.btnSubmitText;
+            document.getElementById('noticeTitle').innerText = t.noticeTitle;
+            document.getElementById('noticeDesc').innerText = t.noticeDesc;
+            document.getElementById('historyTitle').innerText = t.historyTitle;
+        }
+
+        let deviceId = localStorage.getItem('serviceDeviceId');
+        if (!deviceId) {
+            deviceId = 'USER_' + Date.now() + Math.floor(Math.random() * 1000);
+            localStorage.setItem('serviceDeviceId', deviceId);
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            applyLanguage();
+            const urlParams = new URLSearchParams(window.location.search);
+            const selectedService = urlParams.get('service');
+            if (selectedService) {
+                const serviceDropdown = document.getElementById('service');
+                serviceDropdown.value = selectedService;
+            }
         });
-    });
 
-    // ২. স্ট্যাটাস রেন্ডার ফাংশন (অনলাইন ডাটাবেস থেকে স্ট্যাটাস দেখানোর জন্য)
-    function renderStatus() {
-        const section = document.getElementById('statusSection');
-        const list = document.getElementById('statusList');
-        
-        onValue(ref(db, 'orders'), (snapshot) => {
-            const data = snapshot.val();
-            if (!data) return;
+        document.getElementById('bookingForm').addEventListener('submit', function(e) {
+            e.preventDefault();
 
-            section.classList.remove('hidden');
-            // ডাটা ফিল্টার করে শুধুমাত্র শেষ ৩টি দেখানো (ঐচ্ছিক)
-            const keys = Object.keys(data).reverse().slice(0, 3);
+            const now = new Date();
+            const autoTime = now.toLocaleString('en-GB', { hour12: true });
+
+            const newOrder = {
+                ownerId: deviceId,
+                service: document.getElementById('service').value,
+                name: document.getElementById('name').value,
+                phone: document.getElementById('phone').value,
+                email: document.getElementById('email').value || 'N/A',
+                address: document.getElementById('address').value,
+                problem: document.getElementById('problem').value || 'N/A',
+                urgent: document.getElementById('urgent').checked ? 'YES 🚨' : 'No',
+                status: 'Pending',
+                timestamp: autoTime
+            };
+
+            const ordersRef = ref(db, 'orders');
+            const newOrderRef = push(ordersRef);
+
+            set(newOrderRef, newOrder).then(() => {
+                const waPhone = "8801973602690";
+                const message = `*New Service Booking*%0A` +
+                                `--------------------------%0A` +
+                                `*Service:* ${newOrder.service}%0A` +
+                                `*Name:* ${newOrder.name}%0A` +
+                                `*Phone:* ${newOrder.phone}%0A` +
+                                `*Address:* ${newOrder.address}%0A` +
+                                `*Problem:* ${newOrder.problem}%0A` +
+                                `*Urgent:* ${newOrder.urgent}%0A` +
+                                `*Time:* ${newOrder.timestamp}%0A` +
+                                `--------------------------`;
+
+                alert(currentLang === 'bn' ? 'বুকিং সফলভাবে সম্পন্ন হয়েছে!' : 'Booking successfully completed!');
+                window.location.href = `https://wa.me/${waPhone}?text=${message}`;
+                this.reset();
+            }).catch((error) => {
+                alert('Error: ' + error.message);
+            });
+        });
+
+        function renderStatus() {
+            const section = document.getElementById('statusSection');
+            const list = document.getElementById('statusList');
             
-            list.innerHTML = keys.map(key => {
-                const order = data[key];
-                let badgeClass = order.status === 'Pending' ? "bg-orange-50 text-orange-600 border-orange-100" : 
-                                 order.status === 'Received' ? "bg-blue-50 text-blue-600 border-blue-100" : 
-                                 "bg-green-50 text-green-600 border-green-100";
-                
-                let dotColor = order.status === 'Pending' ? "bg-orange-400" : 
-                               order.status === 'Received' ? "bg-blue-400" : 
-                               "bg-green-400";
+            onValue(ref(db, 'orders'), (snapshot) => {
+                const data = snapshot.val();
+                if (!data) return;
 
-                return `
-                    <div class="bg-white p-4 rounded-xl border border-slate-100 shadow-sm flex items-center justify-between animate-fade">
-                        <div class="flex items-center gap-3">
-                            <div class="w-2 h-2 rounded-full ${dotColor}"></div>
-                            <div>
-                                <h4 class="text-xs font-bold text-slate-700 whitespace-nowrap">${order.service}</h4>
-                                <p class="text-[9px] text-slate-400 uppercase font-medium mt-0.5">${order.date} • ${order.time}</p>
-                            </div>
-                        </div>
-                        <span class="text-[9px] font-bold px-3 py-1 rounded-full border ${badgeClass} whitespace-nowrap">
-                            ${order.status}
-                        </span>
-                    </div>`;
-            }).join('');
-        });
-    }
+                list.innerHTML = '';
+                let hasMyOrders = false;
+                let serialNumber = 1;
 
-    // পেজ লোড হলে স্ট্যাটাস রান করা
-    renderStatus();
-</script>
+                Object.keys(data).forEach(key => {
+                    const order = data[key];
+                    
+                    if (order.ownerId === deviceId) {
+                        hasMyOrders = true;
+
+                        let badgeClass = order.status === 'Pending' ? "bg-orange-50 text-orange-600 border-orange-200" : 
+                                         order.status === 'Received' ? "bg-blue-50 text-blue-600 border-blue-200" : 
+                                         "bg-green-50 text-green-600 border-green-200";
+
+                        list.innerHTML += `
+                            <div class="bg-white p-3.5 rounded-xl border border-gray-100 shadow-sm flex items-center justify-between animate-fade">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-6 h-6 rounded-full bg-gray-100 text-gray-600 flex items-center justify-center text-[10px] font-bold">${serialNumber}</div>
+                                    <div>
+                                        <h4 class="text-xs font-bold text-slate-800">${order.service}</h4>
+                                        <p class="text-[9px] text-gray-400 font-medium mt-0.5">${order.timestamp}</p>
+                                    </div>
+                                </div>
+                                <span class="text-[9px] font-bold px-2.5 py-1 rounded-full border ${badgeClass}">
+                                    ${order.status}
+                                </span>
+                            </div>`;
+                        serialNumber++;
+                    }
+                });
+
+                if (hasMyOrders) {
+                    section.classList.remove('hidden');
+                }
+            });
+        }
+
+        renderStatus();
+    </script>
 </body>
 </html>
