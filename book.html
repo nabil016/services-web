@@ -9,6 +9,11 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
+    <!-- Leaflet CSS for Map -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    />
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Hind+Siliguri:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
@@ -17,7 +22,7 @@
     <style>
       body {
         font-family: "Poppins", "Hind Siliguri", sans-serif;
-        background: #fdf2f2;
+        background: #b92b27;
         color: #334155;
       }
       ::-webkit-scrollbar {
@@ -43,6 +48,12 @@
       .animate-fade {
         animation: fadeIn 0.5s ease forwards;
       }
+      #map {
+        height: 150px;
+        width: 100%;
+        border-radius: 0.75rem;
+        z-index: 1;
+      }
     </style>
   </head>
   <body class="antialiased pb-16 pt-3">
@@ -51,46 +62,59 @@
       <button
         id="langToggleBtn"
         onclick="toggleLanguage()"
-        class="px-3.5 py-1.5 bg-white border border-gray-200 shadow-sm rounded-full text-xs font-bold text-slate-700 flex items-center gap-2 hover:bg-gray-50 transition-all cursor-pointer"
+        class="px-3.5 py-1.5 bg-white border border-gray-200 shadow-md rounded-full text-xs font-bold text-[#b92b27] flex items-center gap-2 hover:bg-gray-50 transition-all cursor-pointer"
       >
-        <i class="fas fa-globe text-[#c61e24]"></i>
+        <i class="fas fa-globe text-[#b92b27]"></i>
         <span id="langLabel">বাংলা</span>
       </button>
     </div>
 
     <!-- Main Container -->
     <main class="max-w-md mx-auto px-4">
-      <!-- Title Section -->
-      <div class="mb-6 text-center animate-fade">
-        <h2 id="txtTitle" class="text-xl font-bold text-slate-800">
-          Service Booking Form
+      <!-- Header Title Section -->
+      <div class="mb-5 text-center text-white animate-fade px-2">
+        <h2
+          id="txtTitle"
+          class="text-lg md:text-xl font-extrabold tracking-wide"
+        >
+          অর্ডার করতে সঠিক তথ্য দিয়ে নিচের ফর্মটি পুরন করুন
         </h2>
-        <p id="txtSubtitle" class="text-slate-500 text-xs mt-1">
-          Please fill out the form below with correct information
-        </p>
       </div>
 
-      <!-- Form Box -->
+      <!-- Form Box (White Card) -->
       <div
-        class="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden animate-fade p-5"
+        class="bg-white rounded-3xl shadow-2xl border border-gray-100 overflow-hidden animate-fade p-5 md:p-6"
       >
         <form id="bookingForm" class="space-y-4">
+          <!-- Section Title -->
+          <div
+            class="flex items-center gap-2 border-b border-gray-100 pb-2 mb-3"
+          >
+            <i class="fas fa-user-edit text-[#b92b27] text-sm"></i>
+            <h3
+              id="secInfoTitle"
+              class="font-bold text-slate-800 text-xs md:text-sm"
+            >
+              আপনার তথ্য দিন
+            </h3>
+          </div>
+
           <!-- Service Selection -->
-          <div class="space-y-1.5">
+          <div class="space-y-1">
             <label
               id="lblService"
-              class="text-xs font-bold text-[#c61e24] uppercase tracking-wider ml-1"
-              >Select Service *</label
+              class="text-xs font-bold text-slate-700 block"
+              >সার্ভিস নির্বাচন করুন *</label
             >
             <div class="relative">
               <select
                 id="service"
                 name="service"
                 required
-                class="w-full pl-4 pr-10 py-3 bg-gray-50 border border-gray-200 rounded-xl outline-none appearance-none font-medium text-slate-700 text-sm focus:border-[#c61e24] focus:bg-white transition-all cursor-pointer"
+                class="w-full px-3.5 py-3 bg-gray-50 border border-gray-200 rounded-xl outline-none appearance-none font-medium text-slate-700 text-xs md:text-sm focus:border-[#b92b27] focus:bg-white transition-all cursor-pointer"
               >
                 <option value="" disabled selected id="optDefault">
-                  Choose a service...
+                  সার্ভিস লিস্ট বেছে নিন...
                 </option>
                 <option value="Plumbing Service">
                   🚰 Plumbing Service / প্লাম্বিং সার্ভিস
@@ -118,103 +142,107 @@
                 </option>
               </select>
               <i
-                class="fas fa-chevron-down absolute right-4 top-4 text-gray-400 text-xs"
+                class="fas fa-chevron-down absolute right-3.5 top-3.5 text-gray-400 text-xs pointer-events-none"
               ></i>
             </div>
           </div>
 
-          <!-- Name & Phone -->
-          <div class="grid grid-cols-1 gap-4">
-            <div class="space-y-1.5">
-              <label
-                id="lblName"
-                class="text-xs font-bold text-[#c61e24] uppercase tracking-wider ml-1"
-                >Your Name *</label
-              >
-              <input
-                type="text"
-                id="name"
-                required
-                placeholder="Enter your name"
-                class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl outline-none text-sm font-medium focus:border-[#c61e24] focus:bg-white transition-all"
-              />
-            </div>
-            <div class="space-y-1.5">
-              <label
-                id="lblPhone"
-                class="text-xs font-bold text-[#c61e24] uppercase tracking-wider ml-1"
-                >Phone Number *</label
-              >
-              <input
-                type="tel"
-                id="phone"
-                required
-                placeholder="Enter phone number"
-                class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl outline-none text-sm font-medium focus:border-[#c61e24] focus:bg-white transition-all"
-              />
-            </div>
-          </div>
-
-          <!-- Email -->
-          <div class="space-y-1.5">
-            <label
-              id="lblEmail"
-              class="text-xs font-bold text-[#c61e24] uppercase tracking-wider ml-1"
-              >Email (Optional)</label
+          <!-- Name -->
+          <div class="space-y-1">
+            <label id="lblName" class="text-xs font-bold text-slate-700 block"
+              >নাম লিখুন *</label
             >
             <input
-              type="email"
-              id="email"
-              placeholder="example@mail.com"
-              class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl outline-none text-sm font-medium focus:border-[#c61e24] focus:bg-white transition-all"
+              type="text"
+              id="name"
+              required
+              placeholder="আপনার নাম লিখুন"
+              class="w-full px-3.5 py-3 bg-gray-50 border border-gray-200 rounded-xl outline-none text-xs md:text-sm font-medium focus:border-[#b92b27] focus:bg-white transition-all"
             />
           </div>
 
-          <!-- Address -->
+          <!-- Phone -->
+          <div class="space-y-1">
+            <label id="lblPhone" class="text-xs font-bold text-slate-700 block"
+              >নাম্বার লিখুন *</label
+            >
+            <input
+              type="tel"
+              id="phone"
+              required
+              placeholder="ফোন নাম্বার লিখুন"
+              class="w-full px-3.5 py-3 bg-gray-50 border border-gray-200 rounded-xl outline-none text-xs md:text-sm font-medium focus:border-[#b92b27] focus:bg-white transition-all"
+            />
+          </div>
+
+          <!-- Map & Live Location Section -->
           <div class="space-y-1.5">
+            <div class="flex justify-between items-center">
+              <label
+                id="lblMapTitle"
+                class="text-xs font-bold text-slate-700 block"
+                >লাইভ লোকেশন ম্যাপ *</label
+              >
+              <button
+                type="button"
+                onclick="getLiveLocation()"
+                class="text-[10px] bg-red-50 text-[#b92b27] border border-red-200 px-2.5 py-1 rounded-full font-bold hover:bg-red-100 transition-all flex items-center gap-1 cursor-pointer"
+              >
+                <i class="fas fa-crosshairs"></i>
+                <span id="btnGetLoc">আমার লোকেশন নিন</span>
+              </button>
+            </div>
+            <div id="map"></div>
+            <p class="text-[10px] text-gray-400 italic" id="mapHint">
+              ম্যাপের পিনটি টেনে আপনার সঠিক জায়গায় রাখতে পারেন।
+            </p>
+          </div>
+
+          <!-- Address -->
+          <div class="space-y-1">
             <label
               id="lblAddress"
-              class="text-xs font-bold text-[#c61e24] uppercase tracking-wider ml-1"
-              >Address *</label
+              class="text-xs font-bold text-slate-700 block"
+              >ঠিকানা লিখুন *</label
             >
             <input
               type="text"
               id="address"
               required
-              placeholder="House no, road, area, Thana"
-              class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl outline-none text-sm font-medium focus:border-[#c61e24] focus:bg-white transition-all"
+              placeholder="গ্রাম / থানা / জেলা"
+              class="w-full px-3.5 py-3 bg-gray-50 border border-gray-200 rounded-xl outline-none text-xs md:text-sm font-medium focus:border-[#b92b27] focus:bg-white transition-all"
             />
           </div>
 
           <!-- Problem Description -->
-          <div class="space-y-1.5">
+          <div class="space-y-1">
             <label
               id="lblProblem"
-              class="text-xs font-bold text-[#c61e24] uppercase tracking-wider ml-1"
-              >Problem (Briefly)</label
+              class="text-xs font-bold text-slate-700 block"
+              >সমস্যা (সংক্ষেপে)</label
             >
             <textarea
               id="problem"
               rows="2"
-              placeholder="Describe your problem briefly..."
-              class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl outline-none text-sm font-medium focus:border-[#c61e24] focus:bg-white transition-all resize-none"
+              placeholder="আপনার সমস্যাটি বিস্তারিত লিখুন..."
+              class="w-full px-3.5 py-2.5 bg-gray-50 border border-gray-200 rounded-xl outline-none text-xs md:text-sm font-medium focus:border-[#b92b27] focus:bg-white transition-all resize-none"
             ></textarea>
           </div>
 
           <!-- Urgent Toggle -->
           <div
-            class="flex items-center justify-between p-3.5 bg-gray-50 border border-gray-200 rounded-xl"
+            class="flex items-center justify-between p-3 bg-gray-50 border border-gray-200 rounded-xl"
           >
-            <div class="flex items-center gap-2.5">
+            <div class="flex items-center gap-2">
               <i class="fas fa-bolt text-yellow-500 text-sm"></i>
               <span id="lblUrgent" class="text-xs font-bold text-slate-700"
-                >Need Urgent Service?</span
+                >জরুরী সার্ভিস প্রয়োজন?</span
               >
             </div>
             <label class="relative inline-flex items-center cursor-pointer">
               <input type="checkbox" id="urgent" class="sr-only peer" />
               <div
-                class="w-10 h-5 bg-gray-300 rounded-full peer peer-checked:bg-[#c61e24] after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:after:translate-x-5"
+                class="w-9 h-5 bg-gray-300 rounded-full peer peer-checked:bg-[#b92b27] after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:after:translate-x-4"
               ></div>
             </label>
           </div>
@@ -222,9 +250,9 @@
           <!-- Submit Button -->
           <button
             type="submit"
-            class="w-full bg-[#1b7a37] hover:bg-[#16632d] text-white py-3.5 rounded-xl font-bold text-base shadow-lg transition-all active:scale-[0.98] flex items-center justify-center gap-2 mt-2"
+            class="w-full bg-[#1b7a37] hover:bg-[#16632d] text-white py-3.5 rounded-xl font-bold text-sm md:text-base shadow-lg transition-all active:scale-[0.98] flex items-center justify-center gap-2 mt-2"
           >
-            <span id="btnSubmitText">Confirm Booking</span>
+            <span id="btnSubmitText">কনফার্ম বুকিং</span>
             <i class="fas fa-paper-plane text-xs"></i>
           </button>
         </form>
@@ -232,40 +260,50 @@
 
       <!-- Important Notice Box -->
       <div
-        class="mt-5 bg-red-50 border border-dashed border-red-300 rounded-2xl p-4 text-center"
+        class="mt-4 bg-white/95 border border-dashed border-red-300 rounded-2xl p-4 text-center shadow-md"
       >
-        <h4 id="noticeTitle" class="font-bold text-[#c61e24] text-sm mb-1.5">
-          ⚠️ Important Notice 🙏
+        <h4
+          id="noticeTitle"
+          class="font-bold text-[#b92b27] text-xs md:text-sm mb-1.5"
+        >
+          ⚠️ গুরুত্বপূর্ণ বার্তা 🙏
         </h4>
-        <p id="noticeDesc" class="text-xs text-slate-700 leading-relaxed">
-          Dear customer, if you do not need the service, please do not book and
-          waste our time and travel costs. Thank you!
+        <p
+          id="noticeDesc"
+          class="text-[11px] md:text-xs text-slate-700 leading-relaxed"
+        >
+          প্রিয় ক্রেতাগণ, একজন ভাই/বোন হিসেবে আপনাদের কাছে হাত জোর করে অনুরোধ
+          থাকবে। প্রোডাক্টটি আপনার প্রয়োজন না থাকলে অর্ডার করে আমাদের ক্ষতি
+          করবেন না। একটি পার্সেল পাঠাতে আমাদের প্রায় ১৩০ টাকা খরচ পরে।
         </p>
       </div>
 
       <!-- User's Own Booking Status List -->
-      <div id="statusSection" class="mt-8 hidden animate-fade">
-        <div class="flex items-center gap-2 mb-3 px-1">
-          <div class="w-1 h-4 bg-[#c61e24] rounded-full"></div>
+      <div id="statusSection" class="mt-6 hidden animate-fade">
+        <div class="flex items-center gap-2 mb-2 px-1 text-white">
+          <div class="w-1.5 h-4 bg-white rounded-full"></div>
           <h3
             id="historyTitle"
-            class="text-xs font-bold text-slate-700 uppercase tracking-wider"
+            class="text-xs font-bold uppercase tracking-wider"
           >
-            Your Booking History
+            আপনার বুকিং হিস্ট্রি
           </h3>
         </div>
-        <div id="statusList" class="space-y-3"></div>
+        <div id="statusList" class="space-y-2.5"></div>
       </div>
     </main>
 
     <!-- Footer -->
     <footer
-      class="py-6 text-center text-slate-400 text-xs mt-10 border-t border-slate-200"
+      class="py-6 text-center text-white/90 text-xs mt-8 border-t border-white/20"
     >
-      <p>© 2026 All Rights Reserved</p>
+      <p>© 2026 Arefin Reza | All Rights Reserved</p>
     </footer>
 
-    <!-- Firebase & Language & Booking Script -->
+    <!-- Leaflet JS for Map -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+    <!-- Firebase & Language & Map Script -->
     <script type="module">
       import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
       import {
@@ -291,59 +329,61 @@
 
       // Language Dictionary
       const langData = {
-        en: {
-          langLabel: "বাংলা",
-          txtTitle: "Service Booking Form",
-          txtSubtitle:
-            "Please fill out the form below with correct information",
-          lblService: "Select Service *",
-          optDefault: "Choose a service...",
-          lblName: "Your Name *",
-          phName: "Enter your name",
-          lblPhone: "Phone Number *",
-          phPhone: "Enter phone number",
-          lblEmail: "Email (Optional)",
-          phEmail: "example@mail.com",
-          lblAddress: "Address *",
-          phAddress: "House no, road, area, Thana",
-          lblProblem: "Problem (Briefly)",
-          phProblem: "Describe your problem briefly...",
-          lblUrgent: "Need Urgent Service?",
-          btnSubmitText: "Confirm Booking",
-          noticeTitle: "⚠️ Important Notice 🙏",
-          noticeDesc:
-            "Dear customer, if you do not need the service, please do not book and waste our time and travel costs. Thank you!",
-          historyTitle: "Your Booking History",
-        },
         bn: {
           langLabel: "English",
-          txtTitle: "সার্ভিস বুকিং ফর্ম",
-          txtSubtitle: "সঠিক তথ্য দিয়ে নিচের ফর্মটি পূরণ করুন",
+          txtTitle: "অর্ডার করতে সঠিক তথ্য দিয়ে নিচের ফর্মটি পুরন করুন",
+          secInfoTitle: "আপনার তথ্য দিন",
           lblService: "সার্ভিস নির্বাচন করুন *",
           optDefault: "সার্ভিস লিস্ট বেছে নিন...",
-          lblName: "আপনার নাম *",
+          lblName: "নাম লিখুন *",
           phName: "আপনার নাম লিখুন",
-          lblPhone: "ফোন নম্বর *",
+          lblPhone: "নাম্বার লিখুন *",
           phPhone: "ফোন নাম্বার লিখুন",
-          lblEmail: "ইমেইল (অপশনাল)",
-          phEmail: "example@mail.com",
-          lblAddress: "ঠিকানা *",
-          phAddress: "বাসা নং, রোড, এলাকা, থানা",
+          lblMapTitle: "লাইভ লোকেশন ম্যাপ *",
+          btnGetLoc: "আমার লোকেশন নিন",
+          mapHint: "ম্যাপের পিনটি টেনে আপনার সঠিক জায়গায় রাখতে পারেন।",
+          lblAddress: "ঠিকানা লিখুন *",
+          phAddress: "গ্রাম / থানা / জেলা",
           lblProblem: "সমস্যা (সংক্ষেপে)",
           phProblem: "আপনার সমস্যাটি বিস্তারিত লিখুন...",
           lblUrgent: "জরুরী সার্ভিস প্রয়োজন?",
           btnSubmitText: "কনফার্ম বুকিং",
           noticeTitle: "⚠️ গুরুত্বপূর্ণ বার্তা 🙏",
           noticeDesc:
-            "প্রিয় গ্রাহক, আপনার সার্ভিস প্রয়োজন না থাকলে দয়া করে বুকিং করে আমাদের সময় ও যাতায়াত খরচ নষ্ট করবেন না। ধন্যবাদ!",
+            "প্রিয় ক্রেতাগণ, একজন ভাই/বোন হিসেবে আপনাদের কাছে হাত জোর করে অনুরোধ থাকবে। প্রোডাক্টটি আপনার প্রয়োজন না থাকলে অর্ডার করে আমাদের ক্ষতি করবেন না। একটি পার্সেল পাঠাতে আমাদের প্রায় ১৩০ টাকা খরচ পরে।",
           historyTitle: "আপনার বুকিং হিস্ট্রি",
+        },
+        en: {
+          langLabel: "বাংলা",
+          txtTitle:
+            "Please fill out the form below with correct information to book",
+          secInfoTitle: "Enter Your Information",
+          lblService: "Select Service *",
+          optDefault: "Choose a service...",
+          lblName: "Your Name *",
+          phName: "Enter your name",
+          lblPhone: "Phone Number *",
+          phPhone: "Enter phone number",
+          lblMapTitle: "Live Location Map *",
+          btnGetLoc: "Get My Location",
+          mapHint: "You can drag the map pin to your exact location.",
+          lblAddress: "Address *",
+          phAddress: "Village / Thana / District",
+          lblProblem: "Problem (Briefly)",
+          phProblem: "Describe your problem briefly...",
+          lblUrgent: "Need Urgent Service?",
+          btnSubmitText: "Confirm Booking",
+          noticeTitle: "⚠️ Important Notice 🙏",
+          noticeDesc:
+            "Dear customer, if you do not need the service, please do not book and waste our time and costs. Thank you!",
+          historyTitle: "Your Booking History",
         },
       };
 
-      let currentLang = localStorage.getItem("appLang") || "en";
+      let currentLang = localStorage.getItem("appLang") || "bn";
 
       window.toggleLanguage = function () {
-        currentLang = currentLang === "en" ? "bn" : "en";
+        currentLang = currentLang === "bn" ? "en" : "bn";
         localStorage.setItem("appLang", currentLang);
         applyLanguage();
       };
@@ -352,15 +392,16 @@
         const t = langData[currentLang];
         document.getElementById("langLabel").innerText = t.langLabel;
         document.getElementById("txtTitle").innerText = t.txtTitle;
-        document.getElementById("txtSubtitle").innerText = t.txtSubtitle;
+        document.getElementById("secInfoTitle").innerText = t.secInfoTitle;
         document.getElementById("lblService").innerText = t.lblService;
         document.getElementById("optDefault").innerText = t.optDefault;
         document.getElementById("lblName").innerText = t.lblName;
         document.getElementById("name").placeholder = t.phName;
         document.getElementById("lblPhone").innerText = t.lblPhone;
         document.getElementById("phone").placeholder = t.phPhone;
-        document.getElementById("lblEmail").innerText = t.lblEmail;
-        document.getElementById("email").placeholder = t.phEmail;
+        document.getElementById("lblMapTitle").innerText = t.lblMapTitle;
+        document.getElementById("btnGetLoc").innerText = t.btnGetLoc;
+        document.getElementById("mapHint").innerText = t.mapHint;
         document.getElementById("lblAddress").innerText = t.lblAddress;
         document.getElementById("address").placeholder = t.phAddress;
         document.getElementById("lblProblem").innerText = t.lblProblem;
@@ -372,6 +413,77 @@
         document.getElementById("historyTitle").innerText = t.historyTitle;
       }
 
+      // Initialize Leaflet Map
+      let map, marker;
+      function initMap(lat = 23.8103, lon = 90.4125) {
+        // Default Dhaka coordinates
+        if (!map) {
+          map = L.map("map").setView([lat, lon], 13);
+          L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+            attribution: "&copy; OpenStreetMap contributors",
+          }).addTo(map);
+
+          marker = L.marker([lat, lon], { draggable: true }).addTo(map);
+
+          marker.on("dragend", function (event) {
+            const position = marker.getLatLng();
+            updateAddressFromCoords(position.lat, position.lng);
+          });
+        } else {
+          map.setView([lat, lon], 13);
+          marker.setLatLng([lat, lon]);
+        }
+      }
+
+      // Fetch Address using Reverse Geocoding
+      async function updateAddressFromCoords(lat, lon) {
+        try {
+          const response = await fetch(
+            `https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lon}&accept-language=bn`,
+          );
+          const data = await response.json();
+          if (data && data.address) {
+            const addr = data.address;
+            const area = addr.suburb || addr.neighbourhood || addr.road || "";
+            const city =
+              addr.city ||
+              addr.town ||
+              addr.state_district ||
+              addr.county ||
+              "";
+            const fullAddress = [area, city].filter(Boolean).join(", ");
+
+            document.getElementById("address").value =
+              fullAddress || data.display_name;
+          }
+        } catch (error) {
+          console.log("Geocoding error:", error);
+        }
+      }
+
+      // Get Live Location Button Function
+      window.getLiveLocation = function () {
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(
+            (position) => {
+              const lat = position.coords.latitude;
+              const lon = position.coords.longitude;
+              initMap(lat, lon);
+              updateAddressFromCoords(lat, lon);
+            },
+            (error) => {
+              alert(
+                currentLang === "bn"
+                  ? "লোকেশন অনুমতি দেওয়া হয়নি বা সমস্যা হয়েছে।"
+                  : "Location permission denied or error occurred.",
+              );
+            },
+          );
+        } else {
+          alert("Geolocation is not supported by this browser.");
+        }
+      };
+
       let deviceId = localStorage.getItem("serviceDeviceId");
       if (!deviceId) {
         deviceId = "USER_" + Date.now() + Math.floor(Math.random() * 1000);
@@ -380,11 +492,24 @@
 
       window.addEventListener("DOMContentLoaded", () => {
         applyLanguage();
+        initMap(); // Load default map on start
+
         const urlParams = new URLSearchParams(window.location.search);
         const selectedService = urlParams.get("service");
         if (selectedService) {
           const serviceDropdown = document.getElementById("service");
           serviceDropdown.value = selectedService;
+        }
+
+        // Auto fetch location on load
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition((position) => {
+            initMap(position.coords.latitude, position.coords.longitude);
+            updateAddressFromCoords(
+              position.coords.latitude,
+              position.coords.longitude,
+            );
+          });
         }
       });
 
@@ -401,7 +526,6 @@
             service: document.getElementById("service").value,
             name: document.getElementById("name").value,
             phone: document.getElementById("phone").value,
-            email: document.getElementById("email").value || "N/A",
             address: document.getElementById("address").value,
             problem: document.getElementById("problem").value || "N/A",
             urgent: document.getElementById("urgent").checked ? "YES 🚨" : "No",
@@ -416,15 +540,15 @@
             .then(() => {
               const waPhone = "8801973602690";
               const message =
-                `*New Service Booking*%0A` +
+                `*নতুন সার্ভিস বুকিং*%0A` +
                 `--------------------------%0A` +
-                `*Service:* ${newOrder.service}%0A` +
-                `*Name:* ${newOrder.name}%0A` +
-                `*Phone:* ${newOrder.phone}%0A` +
-                `*Address:* ${newOrder.address}%0A` +
-                `*Problem:* ${newOrder.problem}%0A` +
-                `*Urgent:* ${newOrder.urgent}%0A` +
-                `*Time:* ${newOrder.timestamp}%0A` +
+                `*সার্ভিস:* ${newOrder.service}%0A` +
+                `*নাম:* ${newOrder.name}%0A` +
+                `*ফোন:* ${newOrder.phone}%0A` +
+                `*ঠিকানা:* ${newOrder.address}%0A` +
+                `*সমস্যা:* ${newOrder.problem}%0A` +
+                `*জরুরী:* ${newOrder.urgent}%0A` +
+                `*সময়:* ${newOrder.timestamp}%0A` +
                 `--------------------------`;
 
               alert(
